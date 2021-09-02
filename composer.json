@@ -14,7 +14,7 @@
 		"typo3/cms-core": "^11"
 	},
 	"replace": {
-		"typo3-ter/slub-profile-events": "self.version"
+		"typo3-ter/slub-web-profile": "self.version"
 	},
 	"autoload": {
 		"psr-4": {
