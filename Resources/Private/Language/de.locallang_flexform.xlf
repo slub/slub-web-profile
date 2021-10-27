@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.0">
+	<file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2012-11-01T14:46:01Z"  product-name="slub_web_profile">
+		<header/>
+		<body>
+			<trans-unit id="tabs.general" resname="tabs.general">
+				<source>General</source>
+				<target>Allgemein</target>
+			</trans-unit>
+			<trans-unit id="tabs.additional" resname="tabs.additional">
+				<source>Additional</source>
+				<target>Weitere Einstellungen</target>
+			</trans-unit>
+
+			<trans-unit id="settings.layout" resname="settings.layout">
+				<source>Layout</source>
+				<target>layout</target>
+			</trans-unit>
+			<trans-unit id="settings.layout.1" resname="settings.layout.1">
+				<source>Default</source>
+				<target>Standard</target>
+			</trans-unit>
+			<trans-unit id="settings.layout.2" resname="settings.layout.2">
+				<source>Teaser</source>
+				<target>Teaser</target>
+			</trans-unit>
+			<trans-unit id="settings.dateFormat" resname="settings.dateFormat">
+				<source>Date format</source>
+				<target>Datumformat</target>
+			</trans-unit>
+			<trans-unit id="settings.timeFormat" resname="settings.timeFormat">
+				<source>Time format</source>
+				<target>Zeitformat</target>
+			</trans-unit>
+			<trans-unit id="settings.limit" resname="settings.limit">
+				<source>Limit</source>
+				<target>Limit</target>
+			</trans-unit>
+			<trans-unit id="settings.listPageUid" resname="settings.listPageUid">
+				<source>Page with list view</source>
+				<target>Seite mit Listenansicht</target>
+			</trans-unit>
+			<trans-unit id="settings.detailPageUid" resname="settings.detailPageUid">
+				<source>Page with detail view</source>
+				<target>Seite mit Detailansicht</target>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

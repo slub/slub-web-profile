@@ -1,38 +1,42 @@
 TCEFORM {
-  pages {
-    doktype.removeItems = 3, 6, 7
-    nav_title.disabled = 1
-    subtitle.disabled = 1
-    abstract.disabled = 1
-    keywords.disabled = 1
-    description.disabled = 1
-    author.disabled = 1
-    author_email.disabled = 1
-    lastUpdated.disabled = 1
-    layout.disabled = 1
-    newUntil.disabled = 1
-    backend_layout.disabled = 1
-    backend_layout_next_level.disabled = 1
-    content_from_pid.disabled = 1
-    target.disabled = 1
-    no_search.disabled = 1
-    media.disabled = 1
-    tsconfig_includes.disabled = 1
-    TSconfig.disabled = 1
-    nav_hide.disabled = 1
-    fe_group.disabled = 1
-    fe_login_mode.disabled = 1
-    categories.disabled = 1
-  }
-
   tt_content {
-    CType.removeItems = bullets, div, header, html, image, list, menu_abstract, menu_categorized_content, menu_categorized_pages, menu_pages, menu_recently_updated, menu_related_pages, menu_section, menu_section_pages, menu_sitemap, menu_sitemap_pages, menu_subpages, shortcut, table, text, textmedia, textpic, uploads
+    CType.types {
+      slubwebprofile_dashboard {
+        tt_content.allowed = slubwebprofile_eventlist
+      }
+    }
 
-    date.disabled = 1
-    fe_group.disabled = 1
-    header_layout.disabled = 1
-    header_link.disabled = 1
-    header_position.disabled = 1
-    subheader.disabled = 1
+    categories.types {
+      slubwebprofile_dashboard.disabled = 1
+      slubwebprofile_eventlist.disabled = 1
+    }
+
+    header_link.types {
+      slubwebprofile_dashboard.disabled = 1
+    }
+
+    subheader.types {
+      slubwebprofile_dashboard.disabled = 1
+    }
+
+    layout.types {
+      slubwebprofile_dashboard.disabled = 1
+    }
+
+    frame_class.types {
+      slubwebprofile_dashboard.disabled = 1
+    }
+
+    space_before_class.types {
+      slubwebprofile_dashboard.disabled = 1
+    }
+
+    space_after_class.types {
+      slubwebprofile_dashboard.disabled = 1
+    }
+
+    linkToTop.types {
+      slubwebprofile_dashboard.disabled = 1
+    }
   }
 }

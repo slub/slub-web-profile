@@ -1,22 +1,29 @@
-@import 'EXT:fluid_styled_content/Configuration/TypoScript/setup.typoscript'
-@import 'EXT:slub_profile_events/Configuration/TypoScript/setup.typoscript'
-
-page = PAGE
-page {
-  typeNum = 0
-
-  config {
-    additionalHeaders.10.header = Content-type:application/json
-    admPanel = 0
-    disableAllHeaderCode = 1
+plugin.tx_slubwebprofile {
+  mvc {
+    callDefaultActionIfActionCantBeResolved = 1
+    throwPageNotFoundExceptionIfActionCantBeResolved = 1
   }
 
-  10 = CONTENT
-  10 {
-    table = tt_content
-    select {
-      orderBy = sorting
-      where = {#colPos}=0
+  features {
+    skipDefaultArguments = 1
+  }
+
+  settings {
+    storagePid = {$plugin.tx_slubwebprofile.settings.storagePid}
+
+    api {
+      path {
+        eventList {
+          0 = {$plugin.tx_slubwebprofile.settings.api.path.eventList.0}
+          1 = {$plugin.tx_slubwebprofile.settings.api.path.eventList.1}
+        }
+      }
     }
   }
+}
+
+page.10 {
+  templateRootPaths.25 = EXT:slub_web_profile/Resources/Private/Templates/
+  partialRootPaths.25 = EXT:slub_web_profile/Resources/Private/Partials/
+  layoutRootPaths.25 = EXT:slub_web_profile/Resources/Private/Layouts/
 }

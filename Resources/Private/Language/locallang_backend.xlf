@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2012-11-01T14:46:01Z"  product-name="slub_web_profile">
+		<header/>
+		<body>
+			<trans-unit id="extension.title" resname="extension.title">
+				<source>Web profile </source>
+			</trans-unit>
+
+			<trans-unit id="contentElement.dashboard.title" resname="contentElement.dashboard.title">
+				<source>Dashboard</source>
+			</trans-unit>
+			<trans-unit id="contentElement.dashboard.description" resname="contentElement.dashboard.description">
+				<source>Container for grouping user-specific content elements.</source>
+			</trans-unit>
+
+			<trans-unit id="contentElement.eventlist.title" resname="contentElement.eventlist.title">
+				<source>Event list</source>
+			</trans-unit>
+			<trans-unit id="contentElement.eventlist.description" resname="contentElement.eventlist.description">
+				<source>List of events of a logged in user.</source>
+			</trans-unit>
+
+			<trans-unit id="extensionConfiguration.apiDomain" resname="extensionConfiguration.api.domain">
+				<source>Domain: The domain has to begin with "https://" and no trailing slash.</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

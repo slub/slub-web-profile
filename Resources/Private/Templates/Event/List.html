@@ -1,0 +1,198 @@
+<html
+    xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+    data-namespace-typo3-fluid="true">
+<f:layout name="Default"/>
+
+<f:section name="Default">
+    <f:render section="Layout-{settings.layout}" arguments="{_all}"/>
+</f:section>
+
+########################
+### Layout - Default ###
+########################
+
+<f:section name="Layout-1">
+    <f:if condition="{events -> f:count()} > 0">
+        <f:then>
+            <link
+                rel="stylesheet"
+                type="text/css"
+                media="all"
+                href="/typo3conf/ext/slub_web_profile/Resources/Public/Css/webProfile.css"/>
+
+            <div class="layout-{settings.layout} eventlist">
+                <f:for as="event" each="{events}" iteration="eventIteration">
+                    <div class="eventlist__item">
+                        <f:if condition="{event.categories -> f:count()} > 0">
+                            <p>
+                                <f:for as="category" each="{event.categories}" iteration="categoryIteration">
+                                    <span class="eventlist__item--category">{category.title}</span>
+                                </f:for>
+                            </p>
+                        </f:if>
+
+                        <h4 class="eventlist__item--title">{event.title}</h4>
+
+                        <p>
+                            <time datetime="{f:format.date(
+                                date: event.startDateTime.timestamp,
+                                format: 'Y-m-d')}">
+                                <span class="eventlist__item--date">
+                                    <f:format.date
+                                        date="{event.startDateTime.timestamp}"
+                                        format="{settings.dateFormat}"/>
+                                </span>
+
+                                <f:if condition="{settings.timeFormat}">
+                                    <span class="eventlist__item--time">
+                                        <f:format.date
+                                            date="{event.startDateTime.timestamp}"
+                                            format="{settings.timeFormat}"/>
+                                        <f:translate id="general.oClock"/>
+                                    </span>
+                                </f:if>
+                            </time>
+                        </p>
+
+                        <f:if condition="{event.location}">
+                            <p class="eventlist__item--location">
+                                {event.location.name}
+                            </p>
+                        </f:if>
+
+                        <p class="eventlist__item--more" >
+                            <a href="{event.unsubscribeUrl}" class="eventlist__item--link" >
+                                <f:translate id="event.unsubscribe"/>
+                            </a>
+                        </p>
+                    </div>
+                </f:for>
+            </div>
+        </f:then>
+        <f:else>
+            <p><f:translate id="event.default.noEvents"/></p>
+        </f:else>
+    </f:if>
+</f:section>
+
+#######################
+### Layout - Teaser ###
+#######################
+
+<f:section name="Layout-2">
+    <link
+        rel="stylesheet"
+        type="text/css"
+        media="all"
+        href="/typo3conf/ext/slub_web_profile/Resources/Public/Css/Vendor/calendar.css"/>
+
+    <f:variable
+        name="uriList"
+        value="{f:uri.typolink(parameter: settings.listPageUid)}"/>
+
+    <f:variable
+        name="eventsCalendar"
+        value=""/>
+
+    <f:if condition="{events -> f:count()} > 0">
+        <f:then>
+            <div class="layout-{settings.layout} event__calendar">
+                <ul class="event__calendar--list">
+                    <f:for as="event" each="{events}" iteration="eventIteration">
+                        <f:variable
+                            name="eventsCalendar"
+                            value="{f:format.json(
+                                value: {
+                                    start: '{f:format.date(date: event.startDateTime.timestamp, format: \'Y-m-dTH:i:s\')}',
+                                    end: '{f:format.date(date: event.endDateTime.timestamp, format: \'Y-m-dTH:i:s\')}'
+                                })},{eventsCalendar}"/>
+
+                        <f:if condition="{eventIteration.index} < {settings.limit}">
+                            <li>
+                                <time class="event__date" datetime="{f:format.date(
+                                    date: event.startDateTime.timestamp,
+                                    format: 'Y-m-d')}">
+
+                                    <f:if condition="{settings.dateFormat} == 'd M' || {settings.dateFormat} == 'd. M' || {settings.dateFormat} == 'd. M Y'">
+                                        <f:then>
+                                            <span class="event__date--day">
+                                                <f:format.date
+                                                    date="{event.startDateTime.timestamp}"
+                                                    format="d"/>
+                                            </span>
+                                            <span class="event__date--month">
+                                                <f:format.date
+                                                    date="{event.startDateTime.timestamp}"
+                                                    format="M"/>
+                                            </span>
+                                            <f:if condition="{settings.dateFormat} == 'd. M Y'">
+                                                <span class="event__date--year">
+                                                    <f:format.date
+                                                        date="{event.startDateTime.timestamp}"
+                                                        format="Y"/>
+                                                </span>
+                                            </f:if>
+
+                                        </f:then>
+                                        <f:else>
+                                            <f:comment><!-- default styling --></f:comment>
+                                            <span>
+                                                <f:format.date
+                                                    date="{event.startDateTime.timestamp}"
+                                                    format="{settings.dateFormat}"/>
+                                            </span>
+                                        </f:else>
+                                    </f:if>
+                                </time>
+
+                                <time class="event__time" datetime="{f:format.date(
+                                    date: event.startDateTime.timestamp,
+                                    format: settings.timeFormat)}">
+                                    <f:if condition="{settings.timeFormat}">
+                                        <span>
+                                            <f:format.date
+                                                date="{event.startDateTime.timestamp}"
+                                                format="{settings.timeFormat}"/>
+                                            <f:translate id="general.oClock"/>
+                                        </span>
+                                    </f:if>
+                                </time>
+
+                                <f:link.action
+                                    extensionName="SlubEvents"
+                                    pluginName="Eventlist"
+                                    controller="Event"
+                                    action="show"
+                                    pageUid="{settings.detailPageUid}"
+                                    arguments="{event: event.uid}"
+                                    title="{event.title}"
+                                    class="event__link">
+                                    {event.title}
+                                </f:link.action>
+                            </li>
+                        </f:if>
+                    </f:for>
+                </ul>
+
+                <f:if condition="{uriList}">
+                    <p>
+                        <a href="{uriList}">
+                            <f:translate id="event.teaser.more"/>
+                        </a>
+                    </p>
+                </f:if>
+            </div>
+        </f:then>
+        <f:else>
+            <p><f:translate id="event.teaser.noEvents"/></p>
+        </f:else>
+    </f:if>
+
+    <script type="text/javascript">
+        const widgetEventTeaserCalendar = [{eventsCalendar -> f:format.raw()}];
+    </script>
+    <script type="module" src="/typo3conf/ext/slub_web_profile/Resources/Public/JavaScript/calendar.js"></script>
+
+    <div id="js-widget-event-teaser-calendar" data-language="{language.hreflang}"></div>
+</f:section>
+</html>

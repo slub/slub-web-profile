@@ -1,0 +1,57 @@
+mod {
+  wizards.newContentElement.wizardItems.slubwebprofile {
+    header = LLL:EXT:slub_web_profile/Resources/Private/Language/locallang_backend.xlf:extension.title
+
+    elements {
+      slubwebprofile_dashboard {
+        iconIdentifier = slubwebprofile-wizard-dashboard
+        title = LLL:EXT:slub_web_profile/Resources/Private/Language/locallang_backend.xlf:contentElement.dashboard.title
+        description = LLL:EXT:slub_web_profile/Resources/Private/Language/locallang_backend.xlf:contentElement.dashboard.description
+        tt_content_defValues.CType = slubwebprofile_dashboard
+      }
+
+      slubwebprofile_eventlist {
+        iconIdentifier = slubwebprofile-wizard-eventlist
+        title = LLL:EXT:slub_web_profile/Resources/Private/Language/locallang_backend.xlf:contentElement.eventlist.title
+        description = LLL:EXT:slub_web_profile/Resources/Private/Language/locallang_backend.xlf:contentElement.eventlist.description
+        tt_content_defValues.CType = slubwebprofile_eventlist
+      }
+    }
+
+    show := addToList(slubwebprofile_dashboard, slubwebprofile_eventlist)
+  }
+
+  web_layout.BackendLayouts {
+    webProfile {
+      title = SLUB Web Profile
+      description = One column (colpos 0)
+      icon = EXT:slub_web_profile/Resources/Public/Images/Backend/WebProfile.png
+      config {
+        backend_layout {
+          colCount = 1
+          rowCount = 2
+          rows {
+            1 {
+              columns {
+                1 {
+                  name = Content
+                  colPos = 0
+                }
+              }
+            }
+
+            # Extra column for inline elements
+            2 {
+              columns {
+                1 {
+                  name = Additional Content
+                  colPos = 999
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

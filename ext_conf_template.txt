@@ -1,0 +1,2 @@
+# cat=API; type=string; label=LLL:EXT:slub_web_profile/Resources/Private/Language/locallang_backend.xlf:extensionConfiguration.apiDomain
+apiDomain = https://ddev-slub-profile-service.ddev.site
