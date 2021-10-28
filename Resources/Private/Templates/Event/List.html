@@ -31,7 +31,26 @@
                             </p>
                         </f:if>
 
-                        <h4 class="eventlist__item--title">{event.title}</h4>
+                        <h4 class="eventlist__item--title">
+                            <f:if condition="{settings.detailPageUid}">
+                                <f:then>
+                                    <f:link.action
+                                        extensionName="SlubEvents"
+                                        pluginName="Eventlist"
+                                        controller="Event"
+                                        action="show"
+                                        pageUid="{settings.detailPageUid}"
+                                        arguments="{event: event.uid}"
+                                        title="{event.title}"
+                                        class="event__link">
+                                        {event.title}
+                                    </f:link.action>
+                                </f:then>
+                                <f:else>
+                                    {event.title}
+                                </f:else>
+                            </f:if>
+                        </h4>
 
                         <p>
                             <time datetime="{f:format.date(
@@ -60,11 +79,13 @@
                             </p>
                         </f:if>
 
-                        <p class="eventlist__item--more" >
-                            <a href="{event.unsubscribeUrl}" class="eventlist__item--link" >
-                                <f:translate id="event.unsubscribe"/>
-                            </a>
-                        </p>
+                        <f:if condition="{event.unsubscribeUrl}">
+                            <p class="eventlist__item--more" >
+                                <a href="{event.unsubscribeUrl}" class="eventlist__item--link" >
+                                    <f:translate id="event.unsubscribe"/>
+                                </a>
+                            </p>
+                        </f:if>
                     </div>
                 </f:for>
             </div>
@@ -158,17 +179,24 @@
                                     </f:if>
                                 </time>
 
-                                <f:link.action
-                                    extensionName="SlubEvents"
-                                    pluginName="Eventlist"
-                                    controller="Event"
-                                    action="show"
-                                    pageUid="{settings.detailPageUid}"
-                                    arguments="{event: event.uid}"
-                                    title="{event.title}"
-                                    class="event__link">
-                                    {event.title}
-                                </f:link.action>
+                                <f:if condition="{settings.detailPageUid}">
+                                    <f:then>
+                                        <f:link.action
+                                            extensionName="SlubEvents"
+                                            pluginName="Eventlist"
+                                            controller="Event"
+                                            action="show"
+                                            pageUid="{settings.detailPageUid}"
+                                            arguments="{event: event.uid}"
+                                            title="{event.title}"
+                                            class="event__link">
+                                            {event.title}
+                                        </f:link.action>
+                                    </f:then>
+                                    <f:else>
+                                        {event.title}
+                                    </f:else>
+                                </f:if>
                             </li>
                         </f:if>
                     </f:for>
