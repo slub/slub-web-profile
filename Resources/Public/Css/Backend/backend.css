@@ -1,3 +1,4 @@
-td.t3-page-column-999{
-	display:none;
+td.t3-page-column-999,
+.t3js-page-lang-column[data-colpos="999"] {
+    display:none;
 }
