@@ -1,0 +1,30 @@
+mod.web_layout.BackendLayouts.WebProfile {
+  title = LLL:EXT:slub_web_profile/Resources/Private/Language/locallang_backend.xlf:backendLayout.webProfile.title
+  description = LLL:EXT:slub_web_profile/Resources/Private/Language/locallang_backend.xlf:backendLayout.webProfile.description
+  icon = EXT:slub_web_profile/Resources/Public/Icons/BackendLayouts/web-profile.png
+  config {
+    backend_layout {
+      colCount = 1
+      rowCount = 2
+      rows {
+        1 {
+          columns {
+            1 {
+              name = LLL:EXT:slub_web_profile/Resources/Private/Language/locallang_backend.xlf:backendLayout.column.content
+              colPos = 0
+            }
+          }
+        }
+        2 {
+          columns {
+            # Extra column for inline elements
+            1 {
+              name = LLL:EXT:slub_web_profile/Resources/Private/Language/locallang_backend.xlf:backendLayout.column.inlineElements
+              colPos = 999
+            }
+          }
+        }
+      }
+    }
+  }
+}

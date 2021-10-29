@@ -30,6 +30,23 @@
 				<source>Domain: The domain has to begin with "https://" and no trailing slash.</source>
 				<target>Domain: Die Domain muss mit "https://" anfangen und hat keinen Schrägstrich am Ende.</target>
 			</trans-unit>
+
+			<trans-unit id="backendLayout.webProfile.title" resname="backendLayout.webProfile.title">
+				<source>SLUB Web Profile</source>
+				<target>SLUB Web Profil</target>
+			</trans-unit>
+			<trans-unit id="backendLayout.webProfile.description" resname="backendLayout.webProfile.description">
+				<source>One column and content left</source>
+				<target>Eine Spalte und links ausgerichtetem Inhalt</target>
+			</trans-unit>
+			<trans-unit id="backendLayout.column.content" resname="backendLayout.column.content">
+				<source>Content</source>
+				<target>Content</target>
+			</trans-unit>
+			<trans-unit id="backendLayout.column.inlineElements" resname="backendLayout.column.inlineElements">
+				<source>Additional content</source>
+				<target>Zusätzlicher Inhalt</target>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>

@@ -20,38 +20,4 @@ mod {
 
     show := addToList(slubwebprofile_dashboard, slubwebprofile_eventlist)
   }
-
-  web_layout.BackendLayouts {
-    webProfile {
-      title = SLUB Web Profile
-      description = One column (colpos 0)
-      icon = EXT:slub_web_profile/Resources/Public/Images/Backend/WebProfile.png
-      config {
-        backend_layout {
-          colCount = 1
-          rowCount = 2
-          rows {
-            1 {
-              columns {
-                1 {
-                  name = Content
-                  colPos = 0
-                }
-              }
-            }
-
-            # Extra column for inline elements
-            2 {
-              columns {
-                1 {
-                  name = Additional Content
-                  colPos = 999
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  }
 }

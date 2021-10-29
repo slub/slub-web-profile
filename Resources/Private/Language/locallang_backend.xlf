@@ -24,6 +24,19 @@
 			<trans-unit id="extensionConfiguration.apiDomain" resname="extensionConfiguration.api.domain">
 				<source>Domain: The domain has to begin with "https://" and no trailing slash.</source>
 			</trans-unit>
+
+			<trans-unit id="backendLayout.webProfile.title" resname="backendLayout.webProfile.title">
+				<source>SLUB Web Profile</source>
+			</trans-unit>
+			<trans-unit id="backendLayout.webProfile.description" resname="backendLayout.webProfile.description">
+				<source>One column and content left</source>
+			</trans-unit>
+			<trans-unit id="backendLayout.column.content" resname="backendLayout.column.content">
+				<source>Content</source>
+			</trans-unit>
+			<trans-unit id="backendLayout.column.inlineElements" resname="backendLayout.column.inlineElements">
+				<source>Additional content</source>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>
