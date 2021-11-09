@@ -1,0 +1,23 @@
+plugin.tx_slubwebprofile {
+  mvc {
+    callDefaultActionIfActionCantBeResolved = 1
+    throwPageNotFoundExceptionIfActionCantBeResolved = 1
+  }
+
+  features {
+    skipDefaultArguments = 1
+  }
+
+  settings {
+    storagePid = {$plugin.tx_slubwebprofile.settings.storagePid}
+
+    api {
+      path {
+        eventList {
+          0 = {$plugin.tx_slubwebprofile.settings.api.path.eventList.0}
+          1 = {$plugin.tx_slubwebprofile.settings.api.path.eventList.1}
+        }
+      }
+    }
+  }
+}

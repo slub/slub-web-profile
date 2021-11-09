@@ -1,0 +1,19 @@
+.event-filter {
+    display: none;
+}
+
+.event-filter--show {
+    display: inline-block;
+}
+
+.event-filter__item {
+    cursor: pointer;
+}
+
+.event-filter__item--active {
+    font-weight: bold;
+}
+
+.event-filter__result-item--hide {
+    display: none;
+}

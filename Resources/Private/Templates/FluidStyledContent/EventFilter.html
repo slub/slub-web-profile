@@ -1,0 +1,29 @@
+<html
+    xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+    data-namespace-typo3-fluid="true">
+<f:layout name="Default"/>
+
+<f:section name="Header"/>
+
+<f:section name="Main">
+    <link
+        rel="stylesheet"
+        type="text/css"
+        media="all"
+        href="/typo3conf/ext/slub_web_profile/Resources/Public/Css/event-filter.css"/>
+
+    <script
+        type="module"
+        src="/typo3conf/ext/slub_web_profile/Resources/Public/JavaScript/event-filter.js"></script>
+
+    <div
+        id="js-event-filter"
+        class="event-filter"
+        data-filter-reset="{f:translate(
+            id: 'LLL:EXT:slub_web_profile/Resources/Private/Language/locallang.xlf:event.filter.reset'
+        )}">
+        <p class="event-filter__label">
+            <f:translate id="LLL:EXT:slub_web_profile/Resources/Private/Language/locallang.xlf:event.filter.label"/>
+        </p>
+    </div>
+</f:section>

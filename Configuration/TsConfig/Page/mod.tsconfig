@@ -10,6 +10,13 @@ mod {
         tt_content_defValues.CType = slubwebprofile_dashboard
       }
 
+      slubwebprofile_eventfilter {
+        iconIdentifier = slubwebprofile-wizard-eventfilter
+        title = LLL:EXT:slub_web_profile/Resources/Private/Language/locallang_backend.xlf:contentElement.eventfilter.title
+        description = LLL:EXT:slub_web_profile/Resources/Private/Language/locallang_backend.xlf:contentElement.eventfilter.description
+        tt_content_defValues.CType = slubwebprofile_eventfilter
+      }
+
       slubwebprofile_eventlist {
         iconIdentifier = slubwebprofile-wizard-eventlist
         title = LLL:EXT:slub_web_profile/Resources/Private/Language/locallang_backend.xlf:contentElement.eventlist.title
@@ -18,6 +25,6 @@ mod {
       }
     }
 
-    show := addToList(slubwebprofile_dashboard, slubwebprofile_eventlist)
+    show := addToList(slubwebprofile_dashboard, slubwebprofile_eventfilter, slubwebprofile_eventlist)
   }
 }
