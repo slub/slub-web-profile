@@ -23,9 +23,9 @@
             <div class="layout-{settings.layout} eventlist">
                 <f:for as="event" each="{events}" iteration="eventIteration">
                     <div class="eventlist__item">
-                        <f:if condition="{event.categories -> f:count()} > 0">
+                        <f:if condition="{event.rootCategories -> f:count()} > 0">
                             <p>
-                                <f:for as="category" each="{event.categories}" iteration="categoryIteration">
+                                <f:for as="category" each="{event.rootCategories}" iteration="categoryIteration">
                                     <span class="eventlist__item--category">{category.title}</span>
                                 </f:for>
                             </p>
