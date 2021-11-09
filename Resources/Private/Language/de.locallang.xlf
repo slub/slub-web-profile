@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.0">
+	<file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2012-11-01T14:46:01Z"  product-name="slub_web_profile">
+		<header/>
+		<body>
+			<trans-unit id="general.oClock" resname="general.oClock">
+				<source>o'clock</source>
+				<target>Uhr</target>
+			</trans-unit>
+
+			<trans-unit id="event.default.noEvents" resname="event.default.noEvents">
+				<source>You have no subscribed events.</source>
+				<target>Sie haben keine gebuchten Veranstaltungen.</target>
+			</trans-unit>
+
+			<trans-unit id="event.teaser.more" resname="event.teaser.more">
+				<source>More</source>
+				<target>Mehr</target>
+			</trans-unit>
+			<trans-unit id="event.teaser.noEvents" resname="event.teaser.noEvents">
+				<source>No subscribed events.</source>
+				<target>Keine gebuchten Veranstaltungen.</target>
+			</trans-unit>
+			<trans-unit id="event.unsubscribe" resname="event.unsubscribe">
+				<source>Unsubscribe from the event</source>
+				<target>Von Veranstaltung abmelden</target>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

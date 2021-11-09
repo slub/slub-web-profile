@@ -1,8 +1,20 @@
-@import 'EXT:fluid_styled_content/Configuration/TypoScript/constants.typoscript'
-@import 'EXT:slub_profile_events/Configuration/TypoScript/constants.typoscript'
+# customsubcategory=76573001_Storage=Storage
+# customsubcategory=76573002_Api=API
 
-styles.templates {
-  templateRootPath = EXT:slub_web_profile/Resources/Private/Templates/FluidStyledContent/
-  partialRootPath = EXT:slub_web_profile/Resources/Private/Partials/FluidStyledContent/
-  layoutRootPath = EXT:slub_web_profile/Resources/Private/Layouts/FluidStyledContent/
+plugin.tx_slubwebprofile {
+  settings {
+    # cat=SLUB Profile Service/76573001_Storage/100; type=string; label=Default storage PID
+    storagePid = 0
+
+    api {
+      path {
+        eventList {
+          # cat=SLUB Profile Service/76573002_Api/100; type=string; label=Path for event list (sys_language_uid = 0)
+          0 = /veranstaltungen/benutzer/
+          # cat=SLUB Profile Service/76573002_Api/101; type=string; label=Path for event list (sys_language_uid = 1)
+          1 = /en/events/user/
+        }
+      }
+    }
+  }
 }

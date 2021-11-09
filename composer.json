@@ -1,7 +1,7 @@
 {
 	"name": "slub/slub-web-profile",
 	"type": "typo3-cms-extension",
-	"description": "SLUB profile template extension",
+	"description": "SLUB web profile template extension",
 	"authors": [
 		{
 			"name": "Andreas Pfeiffer",
@@ -11,7 +11,7 @@
 	"version": "0.1.0",
 	"license": "GPL-2.0-or-later",
 	"require": {
-		"typo3/cms-core": "^11"
+		"typo3/cms-core": "~9.5.24"
 	},
 	"replace": {
 		"typo3-ter/slub-web-profile": "self.version"

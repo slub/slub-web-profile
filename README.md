@@ -1,8 +1,8 @@
 # TYPO3 Extension `slub_web_profile`
 
-[![TYPO3](https://img.shields.io/badge/TYPO3-11-orange.svg)](https://typo3.org/)
+[![TYPO3](https://img.shields.io/badge/TYPO3-9-orange.svg)](https://typo3.org/)
 
-SitePackage extension for the SLUB Profile Service.
+profile service extension for the SLUB website.
 
 ## 1 Usage
 
@@ -24,6 +24,20 @@ News uses [semantic versioning][2], which means, that
 * **bugfix updates** (e.g. 1.0.0 => 1.0.1) just includes small bugfixes or security relevant stuff without breaking changes,
 * **minor updates** (e.g. 1.0.0 => 1.1.0) includes new features and smaller tasks without breaking changes,
 * **major updates** (e.g. 1.0.0 => 2.0.0) breaking changes wich can be refactorings, features or bugfixes.
+
+### 2.2 Api
+
+#### Configuration
+
+The general domain to call the "profile service" can be set in the field "Domain" in "Settings Module" -> "Extension Configuration". Just take care that the domain begins with a protocol like "https://" and has no trailing slash. The profile service works with different paths to provide a multilingual experience you can configure via typoscript.
+
+#### Typoscript
+
+Setup / Constant | Comment
+---------------- | -------
+plugin.tx_slubwebprofile.settings.api.path.eventList   | "language array" to collect paths to call the event list. The numbers (sys_language_uid) have to fit with your configured languages.
+plugin.tx_slubwebprofile.settings.api.path.eventList.0 | Path for the sys_language_uid "0" (as example german), begins and ends with a slash, will be extended with userId
+plugin.tx_slubwebprofile.settings.api.path.eventList.1 | Path for the sys_language_uid "1" (as example english), begins and ends with a slash, will be extended with userId
 
 [1]: https://getcomposer.org/
 [2]: https://semver.org/

@@ -1,0 +1,26 @@
+.dashboard__widget {
+    border: 1px #ddd solid;
+    background: #eee;
+    padding: 1rem;
+    margin-bottom: 2rem;
+}
+
+.dashboard__widget--loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 10rem;
+}
+
+.widget__loading {
+    animation: spin 2s linear infinite;
+    width: 2rem;
+    height: 2rem;
+    fill: #ccc;
+}
+
+@keyframes spin {
+    100% {
+        transform:rotate(360deg);
+    }
+}
