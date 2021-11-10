@@ -16,6 +16,11 @@ export const filterItemActiveClass = 'event-filter__item--active';
 /**
  * @type {string}
  */
+export const filterListId = 'js-event-filter-list';
+
+/**
+ * @type {string}
+ */
 const filterListClass = 'event-filter__list';
 
 /**
@@ -65,6 +70,7 @@ const buildFilter = (items) => {
 
   if (filterItems.length > 0) {
     let filterList = document.createElement('ul');
+    filterList.id = filterListId;
     filterList.classList.add(filterListClass);
     filterList.innerHTML = filterItems;
 
