@@ -50,4 +50,3 @@ foreach ([
         ['source' => 'EXT:slub_web_profile/Resources/Public/Icons/' . $path . '.svg']
     );
 }
-
