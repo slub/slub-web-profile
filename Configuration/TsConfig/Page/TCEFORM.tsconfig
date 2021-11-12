@@ -25,6 +25,7 @@ TCEFORM {
     layout.types {
       slubwebprofile_dashboard.disabled = 1
       slubwebprofile_eventfilter.disabled = 1
+      slubwebprofile_eventlist.disabled = 1
     }
 
     frame_class.types {
