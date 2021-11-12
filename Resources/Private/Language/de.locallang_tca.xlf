@@ -12,6 +12,12 @@
 				<source>Options</source>
 				<target>Optionen</target>
 			</trans-unit>
+
+			<trans-unit id="tt_content.widgets">
+				<source>Widgets</source>
+				<target>Widgets</target>
+			</trans-unit>
+
 		</body>
 	</file>
 </xliff>

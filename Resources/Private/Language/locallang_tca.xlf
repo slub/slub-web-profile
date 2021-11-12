@@ -10,6 +10,11 @@
 			<trans-unit id="pi_flexform">
 				<source>Options</source>
 			</trans-unit>
+
+			<trans-unit id="tt_content.widgets">
+				<source>Widgets</source>
+			</trans-unit>
+			
 		</body>
 	</file>
 </xliff>
