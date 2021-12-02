@@ -3,12 +3,12 @@ import * as buildFilter from './build.js';
 /**
  * @type {string}
  */
-const eventListItemSelector = '.js-event-list-item';
+const eventListItemSelector = '.js-eventtiles-item';
 
 /**
  * @type {string}
  */
-const resultItemHideClass = 'event-filter__result-item--hide';
+const resultItemHideClass = 'event-filter__tiles-result--hide';
 
 /**
  * @param {object} filter

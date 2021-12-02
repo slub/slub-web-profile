@@ -1,0 +1,84 @@
+@import 'variables';
+
+.frame-type-slubwebprofile_dashboard {
+  background-color: $brightgrey;
+  padding: 1rem 0 4rem;
+  position: relative;
+
+  &:before,
+  &:after {
+    content: '';
+    background-color: $brightgrey;
+    width: 50%;
+    left: -50%;
+    position: absolute;
+    height: 100%;
+    top: 0;
+  }
+
+  &:after {
+    right: -50%;
+    left: auto;
+  }
+}
+
+.dashboard__header {}
+
+
+.dashboard__widgets {
+  display: grid;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  margin: -.5rem;
+
+  @media screen and (min-width: $phoneLandscapeViewportWidth) {
+    grid-template-columns: repeat(2,1fr);
+    grid-template-rows: repeat(2,1fr);
+  }
+
+  @media screen and (min-width: $tabletLandscapeViewportWidth) {
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: repeat(3,1fr);
+  }
+
+  .widgets__item {
+    display: flex;
+    border: 1px solid $brightgrey;
+    background-color: $white;
+    padding: 1rem;
+    margin: 1rem .5rem;
+
+    @media screen and (min-width: $phoneLandscapeViewportWidth) {
+      &--upright,
+      &--transverse {
+        grid-column-start: span 2;
+      }
+    }
+
+    @media screen and (min-width: $tabletLandscapeViewportWidth) {
+      &--upright {
+        grid-row-start: span 2;
+        grid-column-start: span 1;
+      }
+    }
+  }
+
+  .js-widgets-loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .widget__loading {
+    animation: spin 2s linear infinite;
+    width: 2rem;
+    height: 2rem;
+    fill: $lightgrey;
+  }
+
+  @keyframes spin {
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+}

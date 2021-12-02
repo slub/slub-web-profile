@@ -58,7 +58,7 @@
                                 <type>input</type>
                                 <size>10</size>
                                 <eval>trim</eval>
-                                <default></default>
+                                <default>3</default>
                             </config>
                         </TCEforms>
                     </settings.limit>

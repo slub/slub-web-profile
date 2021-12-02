@@ -1,0 +1,69 @@
+
+@import 'variables';
+
+.frame-type-slubwebprofile_eventfilter .event-filter {
+    display: none;
+    margin-bottom: 2rem;
+    position: relative;
+    z-index: 10;
+    min-width: 18rem;
+
+    &--show {
+        display: inline-block;
+    }
+
+    &__label {
+        cursor: pointer;
+        background-color: $lightgrey;
+        padding: .5rem 1rem;
+        margin: 0;
+
+        &:after {
+            content: '';
+            transition: top .25s linear 0s, transform .25s linear 0s;
+            display: inline-block;
+            position: relative;
+            top: -.25rem;
+            margin-left: .5rem;
+            width: .75rem;
+            height: .75rem;
+            border-right: 1px solid $darkgrey;
+            border-bottom: 1px solid $darkgrey;
+            transform: rotate(45deg);
+        }
+
+        &--open:after {
+            transform: rotate(225deg);
+            top: .25rem;
+        }
+    }
+
+    &__list {
+        display: none;
+        min-width: 18rem;
+        margin: 0;
+        padding: .5rem 1rem;
+        list-style: none;
+        background-color: rgba($brightgrey, .95);
+        border: 1px $lightgrey solid;
+        position: absolute;
+
+        &--show {
+            display: block;
+        }
+    }
+
+    &__item {
+        cursor: pointer;
+        margin: 0;
+        padding: 0;
+
+        &--active {
+            font-weight: 600;
+        }
+    }
+}
+
+.tiles .event-filter__tiles-result--hide {
+    display: none;
+}
