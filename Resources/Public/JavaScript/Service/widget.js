@@ -3,17 +3,17 @@ import * as script from './script.js'
 /**
  * @type {string}
  */
-const loadingClass = 'dashboard__widget--loading';
+const loadingClass = 'js-widgets-loading';
 
 /**
  * @type {string}
  */
-const widgetsSelector = '#js-dashboard-widgets > .js-dashboard-widget';
+const widgetsSelector = '#js-dashboard-widgets > .js-widgets-item';
 
 /**
  * @type {string}
  */
-let targetSelector = '#js-dashboard-widget-###widgetId###'
+let targetSelector = '#js-widgets-item-###widgetId###'
 
 /**
  * @type {string}

@@ -36,7 +36,7 @@ const filterSelector = '#js-event-filter';
 /**
  * @type {string}
  */
-const listItemCategoryClass = 'event-list-item__category';
+const listItemCategoryClass = 'js-eventtiles__category';
 
 /**
  * @type {string}

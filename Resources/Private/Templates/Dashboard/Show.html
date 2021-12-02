@@ -4,18 +4,26 @@
 <f:layout name="Default"/>
 
 <f:section name="Default">
-    <f:if condition="{widgets -> f:count()} > 0">
-        <link
-            rel="stylesheet"
-            type="text/css"
-            media="all"
-            href="/typo3conf/ext/slub_web_profile/Resources/Public/Css/webProfile.css"/>
+    <link
+        rel="stylesheet"
+        type="text/css"
+        media="all"
+        href="/typo3conf/ext/slub_web_profile/Resources/Public/Css/dashboard.css"/>
 
+    <link
+        rel="stylesheet"
+        type="text/css"
+        media="all"
+        href="/typo3conf/ext/slub_web_profile/Resources/Public/Css/widgets.css"/>
+
+    <f:if condition="{widgets -> f:count()} > 0">
         <script
             type="module"
             src="/typo3conf/ext/slub_web_profile/Resources/Public/JavaScript/dashboard.js"></script>
 
-        <p>VerfügBARe Widgets</p>
+        <div class="dashboard__header">
+            <p>VerfügBARe Widgets</p>
+        </div>
         <ul>
             <f:for as="widget" each="{widgets}">
                 <li>{widget.header} ({widget.CType})</li>
@@ -24,11 +32,22 @@
 
         <div class="dashboard__widgets" id="js-dashboard-widgets">
             <f:for as="widget" each="{widgets}">
+
+                <f:switch expression="{widget.CType}">
+                    <f:case value="slubwebprofile_eventlist">
+                        <f:variable name="alignment">transverse</f:variable>
+                    </f:case>
+                    <f:case value="slubwebprofile_servicelist">
+                        <f:variable name="alignment">upright</f:variable>
+                    </f:case>
+                    <f:defaultCase><f:variable name="alignment">default</f:variable></f:defaultCase>
+                </f:switch>
+                
                 <div
-                    class="js-dashboard-widget dashboard__widget dashboard__widget--loading"
+                    class="js-widgets-item js-widgets-loading widgets__item widgets__item--{alignment}"
                     data-widget="{widget.uid}"
                     data-uri="{uri.path}"
-                    id="js-dashboard-widget-{widget.uid}">
+                    id="js-widgets-item-{widget.uid}">
                     <svg class="widget__loading" viewbox="0 0 128 128">
                         <use href="#svg-icon-loading"></use>
                     </svg>

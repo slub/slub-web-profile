@@ -17,8 +17,8 @@
 				<target>layout</target>
 			</trans-unit>
 			<trans-unit id="settings.layout.1" resname="settings.layout.1">
-				<source>Default</source>
-				<target>Standard</target>
+				<source>Tiles</source>
+				<target>Kacheln</target>
 			</trans-unit>
 			<trans-unit id="settings.layout.2" resname="settings.layout.2">
 				<source>Widget</source>
