@@ -35,6 +35,15 @@
 				<target>Auflistung von Veranstaltungen eines eingeloggten Benutzers.</target>
 			</trans-unit>
 
+			<trans-unit id="contentElement.borrowinglist.title" resname="contentElement.borrowinglist.title">
+				<source>Borrowing media list</source>
+				<target>Ausleihliste von Medien</target>
+			</trans-unit>
+			<trans-unit id="contentElement.borrowinglist.description" resname="contentElement.borrowinglist.description">
+				<source>List of borrowing media of a logged in user.</source>
+				<target>Auflistung von ausgeliehenen Medien eines eingeloggten Benutzers.</target>
+			</trans-unit>
+
 			<trans-unit id="extensionConfiguration.apiDomain" resname="extensionConfiguration.api.domain">
 				<source>Domain: The domain has to begin with "https://" and no trailing slash.</source>
 				<target>Domain: Die Domain muss mit "https://" anfangen und hat keinen Schrägstrich am Ende.</target>

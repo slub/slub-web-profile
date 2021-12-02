@@ -23,8 +23,15 @@ mod {
         description = LLL:EXT:slub_web_profile/Resources/Private/Language/locallang_backend.xlf:contentElement.eventlist.description
         tt_content_defValues.CType = slubwebprofile_eventlist
       }
+
+      slubwebprofile_borrowinglist {
+        iconIdentifier = slubwebprofile-wizard-borrowinglist
+        title = LLL:EXT:slub_web_profile/Resources/Private/Language/locallang_backend.xlf:contentElement.borrowinglist.title
+        description = LLL:EXT:slub_web_profile/Resources/Private/Language/locallang_backend.xlf:contentElement.borrowinglist.description
+        tt_content_defValues.CType = slubwebprofile_borrowinglist
+      }
     }
 
-    show := addToList(slubwebprofile_dashboard, slubwebprofile_eventfilter, slubwebprofile_eventlist)
+    show := addToList(slubwebprofile_dashboard, slubwebprofile_eventfilter, slubwebprofile_eventlist, slubwebprofile_borrowinglist)
   }
 }
