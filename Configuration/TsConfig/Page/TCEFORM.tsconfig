@@ -2,7 +2,7 @@ TCEFORM {
   tt_content {
     CType.types {
       slubwebprofile_dashboard {
-        tt_content.allowed = slubwebprofile_eventlist
+        tt_content.allowed = slubwebprofile_eventlist,slubwebprofile_borrowinglist
       }
     }
 
@@ -10,6 +10,7 @@ TCEFORM {
       slubwebprofile_dashboard.disabled = 1
       slubwebprofile_eventfilter.disabled = 1
       slubwebprofile_eventlist.disabled = 1
+      slubwebprofile_borrowinglist.disabled = 1
     }
 
     header_link.types {
@@ -32,24 +33,28 @@ TCEFORM {
       slubwebprofile_dashboard.disabled = 1
       slubwebprofile_eventfilter.disabled = 1
       slubwebprofile_eventlist.disabled = 1
+      slubwebprofile_borrowinglist.disabled = 1
     }
 
     space_before_class.types {
       slubwebprofile_dashboard.disabled = 1
       slubwebprofile_eventfilter.disabled = 1
       slubwebprofile_eventlist.disabled = 1
+      slubwebprofile_borrowinglist.disabled = 1
     }
 
     space_after_class.types {
       slubwebprofile_dashboard.disabled = 1
       slubwebprofile_eventfilter.disabled = 1
       slubwebprofile_eventlist.disabled = 1
+      slubwebprofile_borrowinglist.disabled = 1
     }
 
     linkToTop.types {
       slubwebprofile_dashboard.disabled = 1
       slubwebprofile_eventfilter.disabled = 1
       slubwebprofile_eventlist.disabled = 1
+      slubwebprofile_borrowinglist.disabled = 1
     }
   }
 }
