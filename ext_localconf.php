@@ -39,14 +39,14 @@ $iconRegistry = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(
     \TYPO3\CMS\Core\Imaging\IconRegistry::class
 );
 
-$iconRegistry->registerIcon(
-    'slubwebprofile-wizard-dashboard',
-    \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
-    ['source' => 'EXT:slub_web_profile/Resources/Public/Icons/Wizard/dashboard.svg']
-);
-
-$iconRegistry->registerIcon(
-    'slubwebprofile-wizard-eventlist',
-    \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
-    ['source' => 'EXT:slub_web_profile/Resources/Public/Icons/Wizard/event-list.svg']
-);
+foreach ([
+    'wizard-dashboard' => 'Wizard/dashboard',
+    'wizard-eventfilter' => 'Wizard/event-filter',
+    'wizard-eventlist' => 'Wizard/event-list'
+] as $identifier => $path) {
+    $iconRegistry->registerIcon(
+        'slubwebprofile-' . $identifier,
+        \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
+        ['source' => 'EXT:slub_web_profile/Resources/Public/Icons/' . $path . '.svg']
+    );
+}

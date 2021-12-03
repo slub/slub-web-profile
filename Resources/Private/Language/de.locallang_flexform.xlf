@@ -21,8 +21,8 @@
 				<target>Standard</target>
 			</trans-unit>
 			<trans-unit id="settings.layout.2" resname="settings.layout.2">
-				<source>Teaser</source>
-				<target>Teaser</target>
+				<source>Widget</source>
+				<target>Widget</target>
 			</trans-unit>
 			<trans-unit id="settings.dateFormat" resname="settings.dateFormat">
 				<source>Date format</source>

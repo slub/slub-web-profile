@@ -13,6 +13,14 @@
 				<target>Sie haben keine gebuchten Veranstaltungen.</target>
 			</trans-unit>
 
+			<trans-unit id="event.filter.label" resname="event.filter.label">
+				<source>Filter by event type</source>
+				<target>Nach Veranstaltungstyp filtern</target>
+			</trans-unit>
+			<trans-unit id="event.filter.reset" resname="event.filter.reset">
+				<source>All</source>
+				<target>Alle</target>
+			</trans-unit>
 			<trans-unit id="event.teaser.more" resname="event.teaser.more">
 				<source>More</source>
 				<target>Mehr</target>

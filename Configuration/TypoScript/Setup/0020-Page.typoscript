@@ -1,0 +1,5 @@
+page.10 {
+  templateRootPaths.25 = EXT:slub_web_profile/Resources/Private/Templates/BackendLayout/
+  partialRootPaths.25 = EXT:slub_web_profile/Resources/Private/Partials/BackendLayout/
+  layoutRootPaths.25 = EXT:slub_web_profile/Resources/Private/Layouts/BackendLayout/
+}

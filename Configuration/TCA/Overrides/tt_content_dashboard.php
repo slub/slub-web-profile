@@ -11,14 +11,14 @@ defined('TYPO3_MODE') || die();
     $extensionName = str_replace('_', '', $extensionKey);
     $ll = [
         'backend' => 'LLL:EXT:' . $extensionKey . '/Resources/Private/Language/locallang_backend.xlf',
-        'db' => 'LLL:EXT:' . $extensionKey . '/Resources/Private/Language/locallang_db.xlf',
+        'tca' => 'LLL:EXT:' . $extensionKey . '/Resources/Private/Language/locallang_tca.xlf',
         'core' => 'LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf',
         'frontend' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf'
     ];
     $newColumns = [
         'tt_content' => [
             'exclude' => true,
-            'label' => $ll['db'] . ':tt_content.tt_content',
+            'label' => $ll['tca'] . ':tt_content.widgets',
             'config' => [
                 'type' => 'inline',
                 'foreign_table' => 'tt_content',

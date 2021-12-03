@@ -1,0 +1,6 @@
+@import 'EXT:fluid_styled_content/Configuration/TypoScript/setup.typoscript'
+
+tt_content {
+  slubwebprofile_eventfilter =< lib.contentElement
+  slubwebprofile_eventfilter.templateName = EventFilter
+}

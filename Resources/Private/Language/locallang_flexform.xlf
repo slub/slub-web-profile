@@ -17,7 +17,7 @@
 				<source>Default</source>
 			</trans-unit>
 			<trans-unit id="settings.layout.2" resname="settings.layout.2">
-				<source>Teaser</source>
+				<source>Widget</source>
 			</trans-unit>
 			<trans-unit id="settings.dateFormat" resname="settings.dateFormat">
 				<source>Date format</source>

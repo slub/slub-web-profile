@@ -14,6 +14,13 @@
 				<source>Container for grouping user-specific content elements.</source>
 			</trans-unit>
 
+			<trans-unit id="contentElement.eventfilter.title" resname="contentElement.eventfilter.title">
+				<source>Event filter</source>
+			</trans-unit>
+			<trans-unit id="contentElement.eventfilter.description" resname="contentElement.eventfilter.description">
+				<source>Filter for the event list of a logged in user. Requires the events themselves as additional content elements.</source>
+			</trans-unit>
+
 			<trans-unit id="contentElement.eventlist.title" resname="contentElement.eventlist.title">
 				<source>Event list</source>
 			</trans-unit>

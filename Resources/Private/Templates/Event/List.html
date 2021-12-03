@@ -22,11 +22,11 @@
 
             <div class="layout-{settings.layout} eventlist">
                 <f:for as="event" each="{events}" iteration="eventIteration">
-                    <div class="eventlist__item">
+                    <div class="js-event-list-item eventlist__item">
                         <f:if condition="{event.rootCategories -> f:count()} > 0">
                             <p>
                                 <f:for as="category" each="{event.rootCategories}" iteration="categoryIteration">
-                                    <span class="eventlist__item--category">{category.title}</span>
+                                    <span data-filter-id="{category.uid}" class="eventlist__item--category">{category.title}</span>
                                 </f:for>
                             </p>
                         </f:if>

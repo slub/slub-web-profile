@@ -1,0 +1,9 @@
+@import 'EXT:fluid_styled_content/Configuration/TypoScript/constants.typoscript'
+
+styles {
+  templates {
+    partialRootPath = EXT:slub_web_profile/Resources/Private/Partials/FluidStyledContent/
+    templateRootPath = EXT:slub_web_profile/Resources/Private/Templates/FluidStyledContent/
+    layoutRootPath = EXT:slub_web_profile/Resources/Private/Layouts/FluidStyledContent/
+  }
+}
