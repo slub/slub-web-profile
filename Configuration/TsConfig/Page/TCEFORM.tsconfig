@@ -2,7 +2,7 @@ TCEFORM {
   tt_content {
     CType.types {
       slubwebprofile_dashboard {
-        tt_content.allowed = slubwebprofile_eventlist,slubwebprofile_borrowinglist
+        tt_content.allowed = slubwebprofile_eventlist, slubwebprofile_borrowinglist
       }
     }
 
@@ -11,6 +11,7 @@ TCEFORM {
       slubwebprofile_eventfilter.disabled = 1
       slubwebprofile_eventlist.disabled = 1
       slubwebprofile_borrowinglist.disabled = 1
+      slubwebprofile_userdetail.disabled = 1
     }
 
     header_link.types {
@@ -21,6 +22,7 @@ TCEFORM {
     subheader.types {
       slubwebprofile_dashboard.disabled = 1
       slubwebprofile_eventfilter.disabled = 1
+      slubwebprofile_userdetail.disabled = 1
     }
 
     layout.types {
@@ -28,6 +30,7 @@ TCEFORM {
       slubwebprofile_eventfilter.disabled = 1
       slubwebprofile_eventlist.disabled = 1
       slubwebprofile_borrowinglist.disabled = 1
+      slubwebprofile_userdetail.disabled = 1
     }
 
     frame_class.types {
@@ -35,6 +38,7 @@ TCEFORM {
       slubwebprofile_eventfilter.disabled = 1
       slubwebprofile_eventlist.disabled = 1
       slubwebprofile_borrowinglist.disabled = 1
+      slubwebprofile_userdetail.disabled = 1
     }
 
     space_before_class.types {
@@ -42,6 +46,7 @@ TCEFORM {
       slubwebprofile_eventfilter.disabled = 1
       slubwebprofile_eventlist.disabled = 1
       slubwebprofile_borrowinglist.disabled = 1
+      slubwebprofile_userdetail.disabled = 1
     }
 
     space_after_class.types {
@@ -49,6 +54,7 @@ TCEFORM {
       slubwebprofile_eventfilter.disabled = 1
       slubwebprofile_eventlist.disabled = 1
       slubwebprofile_borrowinglist.disabled = 1
+      slubwebprofile_userdetail.disabled = 1
     }
 
     linkToTop.types {
@@ -56,6 +62,7 @@ TCEFORM {
       slubwebprofile_eventfilter.disabled = 1
       slubwebprofile_eventlist.disabled = 1
       slubwebprofile_borrowinglist.disabled = 1
+      slubwebprofile_userdetail.disabled = 1
     }
   }
 }

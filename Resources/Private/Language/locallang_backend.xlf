@@ -35,6 +35,13 @@
 				<source>List of borrowing media of a logged in user.</source>
 			</trans-unit>
 
+			<trans-unit id="contentElement.userdetail.title" resname="contentElement.userdetail.title">
+				<source>User detail</source>
+			</trans-unit>
+			<trans-unit id="contentElement.userdetail.description" resname="contentElement.userdetail.description">
+				<source>Details of a logged in user.</source>
+			</trans-unit>
+
 			<trans-unit id="extensionConfiguration.apiDomain" resname="extensionConfiguration.api.domain">
 				<source>Domain: The domain has to begin with "https://" and no trailing slash.</source>
 			</trans-unit>

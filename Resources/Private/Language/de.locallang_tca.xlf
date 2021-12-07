@@ -17,7 +17,10 @@
 				<source>Widgets</source>
 				<target>Widgets</target>
 			</trans-unit>
-
+			<trans-unit id="tt_content.pages">
+				<source>Selected pages</source>
+				<target>Ausgewählte Seiten</target>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>

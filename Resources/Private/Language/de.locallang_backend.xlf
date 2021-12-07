@@ -44,6 +44,15 @@
 				<target>Auflistung von ausgeliehenen Medien eines eingeloggten Benutzers.</target>
 			</trans-unit>
 
+			<trans-unit id="contentElement.userdetail.title" resname="contentElement.userdetail.title">
+				<source>User detail</source>
+				<target>Benutzerdetail</target>
+			</trans-unit>
+			<trans-unit id="contentElement.userdetail.description" resname="contentElement.userdetail.description">
+				<source>Details of a logged in user.</source>
+				<target>Detailinformationen zu einem eingeloggten Benutzer.</target>
+			</trans-unit>
+
 			<trans-unit id="extensionConfiguration.apiDomain" resname="extensionConfiguration.api.domain">
 				<source>Domain: The domain has to begin with "https://" and no trailing slash.</source>
 				<target>Domain: Die Domain muss mit "https://" anfangen und hat keinen Schrägstrich am Ende.</target>
