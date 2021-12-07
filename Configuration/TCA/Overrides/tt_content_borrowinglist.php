@@ -39,8 +39,19 @@ defined('TYPO3_MODE') || die();
                     --div--;' . $ll['core'] . ':notes,
                         rowDescription,
                     --div--;' . $ll['core'] . ':extended',
+            ]
+        ],
+        'columns' => [
+            'pi_flexform' => [
+                'label' => $ll['tca'] . ':pi_flexform',
+                'config' => [
+                    'ds' => [
+                        '*,' . $extensionName . '_' . $contentElementName => '
+                            FILE:EXT:' . $extensionKey . '/Configuration/FlexForms/' . $contentElementName . '.xml',
+                    ],
+                ],
             ],
-        ]
+        ],
     ]);
 
     // Add item to select field list (ctype)

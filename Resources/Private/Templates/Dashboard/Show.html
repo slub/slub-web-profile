@@ -21,15 +21,31 @@
             type="module"
             src="/typo3conf/ext/slub_web_profile/Resources/Public/JavaScript/dashboard.js"></script>
 
+        <f:comment>Personalise Dashboard</f:comment>
         <div class="dashboard__header">
-            <p>VerfügBARe Widgets</p>
+            <a tabindex="0" class="btn btn-personalise" role="button" title="Personalise popover"
+               href="#collapsePersonaliseMenu"
+               aria-expanded="false"
+               aria-controls="collapsePersonaliseMenu"
+               data-bs-toggle="collapse"
+               data-bs-target="#collapsePersonaliseMenu"
+               data-bs-trigger="focus"
+               data-bs-content="Personalise Dashboard">
+                <span class="icn-plus" aria-label="Open">+</span>
+                <f:translate key="general.personalise"/>
+            </a>
         </div>
-        <ul>
-            <f:for as="widget" each="{widgets}">
-                <li>{widget.header} ({widget.CType})</li>
-            </f:for>
-        </ul>
 
+        <f:comment>Widget menu selection</f:comment>
+        <div id="collapsePersonaliseMenu" class="dashboard__controller collapse show">
+            <ul>
+                <f:for as="widget" each="{widgets}">
+                    <li>{widget.header} <!--{widget.CType}--></li>
+                </f:for>
+            </ul>
+        </div>
+
+        <f:comment>Dashboard Widgets</f:comment>
         <div class="dashboard__widgets" id="js-dashboard-widgets">
             <f:for as="widget" each="{widgets}">
 

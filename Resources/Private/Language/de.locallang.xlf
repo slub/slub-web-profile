@@ -7,6 +7,10 @@
 				<source>o'clock</source>
 				<target>Uhr</target>
 			</trans-unit>
+			<trans-unit id="general.personalise" resname="general.personalise">
+				<source>Personalise Dashboard</source>
+				<target>Dashboard personalisieren </target>
+			</trans-unit>
 
 			<trans-unit id="eventItem.default.noEvents" resname="eventItem.default.noEvents">
 				<source>You have no subscribed events.</source>
