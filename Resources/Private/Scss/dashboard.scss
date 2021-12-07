@@ -1,4 +1,5 @@
 @import 'variables';
+@import 'keyframes';
 
 // Dashboard general
 .frame-type-slubwebprofile_dashboard {
@@ -33,7 +34,18 @@
 
 // Widget menu selection
 .dashboard__controller {
+  li {
+    list-style: none;
 
+    &:before {
+      content: '';
+      width: 2rem;
+      height: 2rem;
+      background-color: $white;
+      border-radius: 50%;
+      display: block;
+    }
+  }
 }
 
 // Dashboard Widgets
@@ -87,11 +99,5 @@
     width: 2rem;
     height: 2rem;
     fill: $lightgrey;
-  }
-
-  @keyframes spin {
-    100% {
-      transform: rotate(360deg);
-    }
   }
 }
