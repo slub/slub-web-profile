@@ -11,15 +11,11 @@ declare(strict_types=1);
 
 namespace Slub\SlubWebProfile\Controller;
 
-use Slub\SlubWebProfile\Service\EventService;
-use Slub\SlubWebProfile\Utility\FrontendUserUtility;
-use Slub\SlubWebProfile\Utility\LanguageUtility;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
 class BorrowingController extends ActionController
 {
     public function listAction(): void
     {
-
     }
 }

@@ -1,6 +1,7 @@
+@import 'utilities';
+
 // dashboard widgets inline styling for all
 .dashboard__widgets .widgets__item {
-
   header>h3,
   header>h4 {
     margin-top: 0;
@@ -27,13 +28,15 @@
     }
   }
 
-  .timedata__date {
-    display: flex;
-    flex-direction: column;
-    min-width: 15%;
+  .timedata {
+    &__date {
+      display: flex;
+      flex-direction: column;
+      min-width: 15%;
 
-    &-day {
-      font-size: 1.4rem;
+      &-day {
+        font-size: 1.4rem;
+      }
     }
   }
 }
