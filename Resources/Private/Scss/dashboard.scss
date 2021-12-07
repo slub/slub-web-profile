@@ -1,5 +1,6 @@
 @import 'variables';
 
+// Dashboard general
 .frame-type-slubwebprofile_dashboard {
   background-color: $brightgrey;
   padding: 1rem 0 4rem;
@@ -22,9 +23,20 @@
   }
 }
 
-.dashboard__header {}
+// Personalise Dashboard 
+.dashboard__header {
+  .btn-personalise {
+    background-color: $lightgrey;
+    border-color: $lightgrey;
+  }
+}
 
+// Widget menu selection
+.dashboard__controller {
 
+}
+
+// Dashboard Widgets
 .dashboard__widgets {
   display: grid;
   grid-column-gap: 0px;
@@ -47,6 +59,7 @@
     background-color: $white;
     padding: 1rem;
     margin: 1rem .5rem;
+    position: relative;
 
     @media screen and (min-width: $phoneLandscapeViewportWidth) {
       &--upright,
