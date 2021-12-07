@@ -2,7 +2,7 @@ TCEFORM {
   tt_content {
     CType.types {
       slubwebprofile_dashboard {
-        tt_content.allowed = slubwebprofile_eventlist, slubwebprofile_borrowinglist
+        tt_content.allowed = slubwebprofile_eventlist, slubwebprofile_borrowinglist, slubwebprofile_bookmarklist
       }
     }
 
@@ -11,6 +11,7 @@ TCEFORM {
       slubwebprofile_eventfilter.disabled = 1
       slubwebprofile_eventlist.disabled = 1
       slubwebprofile_borrowinglist.disabled = 1
+      slubwebprofile_bookmarklist.disabled = 1
       slubwebprofile_userdetail.disabled = 1
     }
 
@@ -30,6 +31,7 @@ TCEFORM {
       slubwebprofile_eventfilter.disabled = 1
       slubwebprofile_eventlist.disabled = 1
       slubwebprofile_borrowinglist.disabled = 1
+      slubwebprofile_bookmarklist.disabled = 1
       slubwebprofile_userdetail.disabled = 1
     }
 
@@ -38,6 +40,7 @@ TCEFORM {
       slubwebprofile_eventfilter.disabled = 1
       slubwebprofile_eventlist.disabled = 1
       slubwebprofile_borrowinglist.disabled = 1
+      slubwebprofile_bookmarklist.disabled = 1
       slubwebprofile_userdetail.disabled = 1
     }
 
@@ -46,6 +49,7 @@ TCEFORM {
       slubwebprofile_eventfilter.disabled = 1
       slubwebprofile_eventlist.disabled = 1
       slubwebprofile_borrowinglist.disabled = 1
+      slubwebprofile_bookmarklist.disabled = 1
       slubwebprofile_userdetail.disabled = 1
     }
 
@@ -54,6 +58,7 @@ TCEFORM {
       slubwebprofile_eventfilter.disabled = 1
       slubwebprofile_eventlist.disabled = 1
       slubwebprofile_borrowinglist.disabled = 1
+      slubwebprofile_bookmarklist.disabled = 1
       slubwebprofile_userdetail.disabled = 1
     }
 
@@ -62,6 +67,7 @@ TCEFORM {
       slubwebprofile_eventfilter.disabled = 1
       slubwebprofile_eventlist.disabled = 1
       slubwebprofile_borrowinglist.disabled = 1
+      slubwebprofile_bookmarklist.disabled = 1
       slubwebprofile_userdetail.disabled = 1
     }
   }
