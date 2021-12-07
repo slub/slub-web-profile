@@ -46,19 +46,6 @@ defined('TYPO3_MODE') || die();
     \TYPO3\CMS\Extbase\Utility\ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
 );
 
-// Configure plugin - bookmark list
-\TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
-    'Slub.SlubWebProfile',
-    'BookmarkList',
-    [
-        'Bookmark' => 'list'
-    ],
-    [
-        'Bookmark' => 'list'
-    ],
-    \TYPO3\CMS\Extbase\Utility\ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
-);
-
 // Configure plugin - user detail
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
     'Slub.SlubWebProfile',
@@ -68,6 +55,19 @@ defined('TYPO3_MODE') || die();
     ],
     [
         'User' => 'detail'
+    ],
+    \TYPO3\CMS\Extbase\Utility\ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
+);
+
+// Configure plugin - bookmark list
+\TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
+    'Slub.SlubWebProfile',
+    'BookmarkList',
+    [
+        'Bookmark' => 'list'
+    ],
+    [
+        'Bookmark' => 'list'
     ],
     \TYPO3\CMS\Extbase\Utility\ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
 );
@@ -82,9 +82,9 @@ foreach ([
     'wizard-dashboard' => 'Wizard/dashboard',
     'wizard-eventfilter' => 'Wizard/event-filter',
     'wizard-eventlist' => 'Wizard/event-list',
-    'wizard-bookmarklist' => 'Wizard/bookmark-list',
     'wizard-borrowinglist' => 'Wizard/borrowing-list',
-    'wizard-userdetail' => 'Wizard/user-detail'
+    'wizard-userdetail' => 'Wizard/user-detail',
+    'wizard-bookmarklist' => 'Wizard/bookmark-list'
 ] as $identifier => $path) {
     $iconRegistry->registerIcon(
         'slubwebprofile-' . $identifier,
