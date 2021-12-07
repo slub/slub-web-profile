@@ -1,10 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
-    <path fill="#FFF" d="M1 2h14v12H1V2z"></path>
-    <path fill="#999" d="M1 2v12h14V2H1zm1 1h12v10H2V3z"></path>
-    <path fill="#00afc8" d="M3 4h2v2H3z"></path>
-    <path fill="#B9B9B9" d="M6 4h7v2H6z"></path>
-    <path fill="#00afc8" d="M3 7h2v2H3z"></path>
-    <path fill="#B9B9B9" d="M6 7h7v2H6z"></path>
-    <path fill="#00afc8" d="M3 10h2v2H3z"></path>
-    <path fill="#B9B9B9" d="M6 10h7v2H6z"></path>
+    <path fill="#fff" d="M1,1h14v14H1V1z"/>
+    <path fill="#999" d="M1,1v14h14V1H1zm1 1h12v12H2V2z"/>
+    <path fill="#B9B9B9" d="M7,2.9H2.8c-0.2,0-0.2,0.2-0.2,0.2v5c0,0.2,0.2,0.2,0.2,0.2h4.1C7,8.3,7,8.1,7,8.1v-5C7.2,2.9,7,2.9,7,2.9
+	C7,2.8,7,2.8,7,2.9z M2.9,3.2h0.3v4.6H2.9V3.2z M3.7,3.2h3v4.6h-3C3.7,7.8,3.7,3.2,3.7,3.2z M4.2,3.7h2.3V4H4.2V3.7z"/>
+    <path fill="#B9B9B9" d="M7.7,3h5.6v5.2H7.7V3z"/>
+    <path fill="#fff" d="M9.7,6.8V4.5l1.1,0.7l1.1,0.5l-1.1,0.5L9.7,6.8z"/>
+    <path fill="#00AFC8" d="M12.3,12.1l-1.6,1.3c-0.1,0.1-0.2,0.1-0.3,0v-0.1v-2.6c0-0.1,0.1-0.2,0.2-0.2h0.1l1.6,1.3
+	C12.4,11.9,12.4,12,12.3,12.1L12.3,12.1z"/>
+    <path fill="#00AFC8" d="M7.8,9.8v2.6h3v-0.9H8.7V9.8H7.8z"/>
 </svg>

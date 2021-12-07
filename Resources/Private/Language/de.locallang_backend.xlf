@@ -44,6 +44,15 @@
 				<target>Auflistung von ausgeliehenen Medien eines eingeloggten Benutzers.</target>
 			</trans-unit>
 
+			<trans-unit id="contentElement.bookmarklist.title" resname="contentElement.bookmarklist.title">
+				<source>Bookmark search terms</source>
+				<target>Lesezeichen Suchbegriffe</target>
+			</trans-unit>
+			<trans-unit id="contentElement.bookmarklist.description" resname="contentElement.bookmarklist.description">
+				<source>Listing of the last search queries of a logged-in user.</source>
+				<target>Auflistung der letzten Suchanfragen eines eingeloggten Benutzers.</target>
+			</trans-unit>
+
 			<trans-unit id="extensionConfiguration.apiDomain" resname="extensionConfiguration.api.domain">
 				<source>Domain: The domain has to begin with "https://" and no trailing slash.</source>
 				<target>Domain: Die Domain muss mit "https://" anfangen und hat keinen Schrägstrich am Ende.</target>

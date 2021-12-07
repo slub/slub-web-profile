@@ -6,8 +6,8 @@
 
 <f:section name="Default">
     <!--TYPO3SEARCH_end-->
-	<f:if condition="{events}">
-		<f:then>
+    <f:if condition="{events}">
+        <f:then>
             <f:switch expression="{settings.layout}">
                 <f:case value="1">
                     <!--Tiles-View-->
@@ -72,13 +72,13 @@
                     </f:for>
                 </f:defaultCase>
             </f:switch>
-		</f:then>
-		<f:else>
-			<div class="event__no-found">
-				<f:translate key="eventItem.default.noEvents" />
-			</div>
-		</f:else>
-	</f:if>
-	<!--TYPO3SEARCH_begin-->
+        </f:then>
+        <f:else>
+            <div class="event__no-found">
+                <f:translate key="eventItem.default.noEvents" />
+            </div>
+        </f:else>
+    </f:if>
+    <!--TYPO3SEARCH_begin-->
 </f:section>
 </html>
