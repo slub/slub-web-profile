@@ -14,7 +14,9 @@
 			<trans-unit id="tt_content.widgets">
 				<source>Widgets</source>
 			</trans-unit>
-			
+			<trans-unit id="tt_content.pages">
+				<source>Selected pages</source>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>

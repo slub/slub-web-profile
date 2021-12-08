@@ -1,0 +1,49 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+	  xmlns:n="http://typo3.org/ns/GeorgRinger/News/ViewHelpers"
+	  data-namespace-typo3-fluid="true">
+<f:comment>Partials/Event/Widget.html</f:comment>
+
+<f:variable
+	name="eventsCalendar"
+	value="{f:format.json(
+		value: {
+			start: '{f:format.date(date: eventItem.startDateTime.timestamp, format: \'Y-m-dTH:i:s\')}',
+			end: '{f:format.date(date: eventItem.endDateTime.timestamp, format: \'Y-m-dTH:i:s\')}'
+		})},{eventsCalendar}"/>
+
+<f:if condition="{iterator.index} < {settings.limit}">
+	<li>
+		<f:comment>Date</f:comment>
+		<span class="eventwidget__date timedata__date">
+			<time class="timedata__date-month" datetime="{f:format.date(date:eventItem.startDateTime.format, format:'Y-m-d')}">
+				<f:format.date format="M">{eventItem.startDateTime.format}</f:format.date>
+			</time>
+			<time class="timedata__date-day" datetime="{f:format.date(date:eventItem.startDateTime.format, format:'Y-m-d')}">
+				<f:format.date format="d">{eventItem.startDateTime.format}</f:format.date>
+			</time>
+		</span>
+
+		<div class="widgetlist__column--right">
+			<span class="eventwidget__time timedata__time">
+				<time datetime="{f:format.date(date:eventItem.startDateTime.format, format:'Y-m-d')}">
+					<f:format.date format="{settings.timeFormat}">{eventItem.startDateTime.format}</f:format.date> <f:translate key="general.oClock"/>
+				</time>
+			</span>
+
+			<f:comment>Header</f:comment>
+			<f:link.action
+				extensionName="SlubEvents"
+				pluginName="Eventlist"
+				controller="Event"
+				action="show"
+				pageUid="{settings.detailPageUid}"
+				arguments="{event: eventItem.uid}"
+				title="{eventItem.title}"
+				class="eventwidget__title widget__title">
+				{eventItem.title}
+			</f:link.action>
+		<div>
+	</li>
+</f:if>
+
+</html>

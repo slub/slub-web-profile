@@ -23,8 +23,29 @@ mod {
         description = LLL:EXT:slub_web_profile/Resources/Private/Language/locallang_backend.xlf:contentElement.eventlist.description
         tt_content_defValues.CType = slubwebprofile_eventlist
       }
+
+      slubwebprofile_borrowinglist {
+        iconIdentifier = slubwebprofile-wizard-borrowinglist
+        title = LLL:EXT:slub_web_profile/Resources/Private/Language/locallang_backend.xlf:contentElement.borrowinglist.title
+        description = LLL:EXT:slub_web_profile/Resources/Private/Language/locallang_backend.xlf:contentElement.borrowinglist.description
+        tt_content_defValues.CType = slubwebprofile_borrowinglist
+      }
+
+      slubwebprofile_userdetail {
+        iconIdentifier = slubwebprofile-wizard-userdetail
+        title = LLL:EXT:slub_web_profile/Resources/Private/Language/locallang_backend.xlf:contentElement.userdetail.title
+        description = LLL:EXT:slub_web_profile/Resources/Private/Language/locallang_backend.xlf:contentElement.userdetail.description
+        tt_content_defValues.CType = slubwebprofile_userdetail
+      }
+
+      slubwebprofile_bookmarklist {
+        iconIdentifier = slubwebprofile-wizard-bookmarklist
+        title = LLL:EXT:slub_web_profile/Resources/Private/Language/locallang_backend.xlf:contentElement.bookmarklist.title
+        description = LLL:EXT:slub_web_profile/Resources/Private/Language/locallang_backend.xlf:contentElement.bookmarklist.description
+        tt_content_defValues.CType = slubwebprofile_bookmarklist
+      }
     }
 
-    show := addToList(slubwebprofile_dashboard, slubwebprofile_eventfilter, slubwebprofile_eventlist)
+    show := addToList(slubwebprofile_dashboard, slubwebprofile_eventfilter, slubwebprofile_eventlist, slubwebprofile_borrowinglist, slubwebprofile_bookmarklist, slubwebprofile_userdetail)
   }
 }

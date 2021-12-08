@@ -14,6 +14,9 @@ plugin.tx_slubwebprofile {
           # cat=SLUB Profile Service/76573002_Api/101; type=string; label=Path for event list (sys_language_uid = 1)
           1 = /en/events/user/
         }
+
+        # cat=SLUB Profile Service/76573002_Api/100; type=string; label=Path for user detail
+        userDetail = /benutzer/
       }
     }
   }

@@ -6,8 +6,11 @@
 			<trans-unit id="general.oClock" resname="general.oClock">
 				<source>o'clock</source>
 			</trans-unit>
-
-			<trans-unit id="event.default.noEvents" resname="event.default.noEvents">
+			<trans-unit id="general.personalise" resname="general.personalise">
+				<source>Personalise Dashboard</source>
+			</trans-unit>
+			
+			<trans-unit id="eventItem.default.noEvents" resname="eventItem.default.noEvents">
 				<source>You have no subscribed events.</source>
 			</trans-unit>
 
@@ -17,13 +20,13 @@
 			<trans-unit id="event.filter.reset" resname="event.filter.reset">
 				<source>All</source>
 			</trans-unit>
-			<trans-unit id="event.teaser.more" resname="event.teaser.more">
+			<trans-unit id="eventItem.teaser.more" resname="eventItem.teaser.more">
 				<source>More</source>
 			</trans-unit>
 			<trans-unit id="event.teaser.noEvents" resname="event.teaser.noEvents">
 				<source>No subscribed events.</source>
 			</trans-unit>
-			<trans-unit id="event.unsubscribe" resname="event.unsubscribe">
+			<trans-unit id="eventItem.unsubscribe" resname="eventItem.unsubscribe">
 				<source>Unsubscribe from the event</source>
 			</trans-unit>
 		</body>

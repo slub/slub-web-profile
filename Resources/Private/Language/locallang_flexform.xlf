@@ -14,7 +14,7 @@
 				<source>Layout</source>
 			</trans-unit>
 			<trans-unit id="settings.layout.1" resname="settings.layout.1">
-				<source>Default</source>
+				<source>Tiles</source>
 			</trans-unit>
 			<trans-unit id="settings.layout.2" resname="settings.layout.2">
 				<source>Widget</source>

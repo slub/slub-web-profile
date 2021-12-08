@@ -1,0 +1,42 @@
+@import 'utilities';
+
+// dashboard widgets inline styling for all
+.dashboard__widgets .widgets__item {
+  header>h3,
+  header>h4 {
+    margin-top: 0;
+  }
+
+  .btn-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+  }
+
+  .widgetlist {
+    margin-top: 0;
+    padding-left: 0;
+
+    li {
+      display: flex;
+      margin-bottom: 1rem;
+    }
+    
+    &__column--right {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  .timedata {
+    &__date {
+      display: flex;
+      flex-direction: column;
+      min-width: 15%;
+
+      &-day {
+        font-size: 1.4rem;
+      }
+    }
+  }
+}

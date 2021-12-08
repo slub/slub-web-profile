@@ -28,6 +28,27 @@
 				<source>List of events of a logged in user.</source>
 			</trans-unit>
 
+			<trans-unit id="contentElement.borrowinglist.title" resname="contentElement.borrowinglist.title">
+				<source>Borrowing media list</source>
+			</trans-unit>
+			<trans-unit id="contentElement.borrowinglist.description" resname="contentElement.borrowinglist.description">
+				<source>List of borrowing media of a logged in user.</source>
+			</trans-unit>
+
+			<trans-unit id="contentElement.bookmarklist.title" resname="contentElement.bookmarklist.title">
+				<source>Bookmark search terms</source>
+			</trans-unit>
+			<trans-unit id="contentElement.bookmarklist.description" resname="contentElement.bookmarklist.description">
+				<source>Listing of the last search queries of a logged-in user.</source>
+			</trans-unit>
+
+			<trans-unit id="contentElement.userdetail.title" resname="contentElement.userdetail.title">
+				<source>User detail</source>
+			</trans-unit>
+			<trans-unit id="contentElement.userdetail.description" resname="contentElement.userdetail.description">
+				<source>Details of a logged in user.</source>
+			</trans-unit>
+
 			<trans-unit id="extensionConfiguration.apiDomain" resname="extensionConfiguration.api.domain">
 				<source>Domain: The domain has to begin with "https://" and no trailing slash.</source>
 			</trans-unit>

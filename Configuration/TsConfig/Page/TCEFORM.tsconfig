@@ -2,7 +2,7 @@ TCEFORM {
   tt_content {
     CType.types {
       slubwebprofile_dashboard {
-        tt_content.allowed = slubwebprofile_eventlist
+        tt_content.allowed = slubwebprofile_eventlist, slubwebprofile_borrowinglist, slubwebprofile_bookmarklist
       }
     }
 
@@ -10,6 +10,9 @@ TCEFORM {
       slubwebprofile_dashboard.disabled = 1
       slubwebprofile_eventfilter.disabled = 1
       slubwebprofile_eventlist.disabled = 1
+      slubwebprofile_borrowinglist.disabled = 1
+      slubwebprofile_userdetail.disabled = 1
+      slubwebprofile_bookmarklist.disabled = 1
     }
 
     header_link.types {
@@ -20,36 +23,52 @@ TCEFORM {
     subheader.types {
       slubwebprofile_dashboard.disabled = 1
       slubwebprofile_eventfilter.disabled = 1
+      slubwebprofile_userdetail.disabled = 1
     }
 
     layout.types {
       slubwebprofile_dashboard.disabled = 1
       slubwebprofile_eventfilter.disabled = 1
       slubwebprofile_eventlist.disabled = 1
+      slubwebprofile_borrowinglist.disabled = 1
+      slubwebprofile_userdetail.disabled = 1
+      slubwebprofile_bookmarklist.disabled = 1
     }
 
     frame_class.types {
       slubwebprofile_dashboard.disabled = 1
       slubwebprofile_eventfilter.disabled = 1
       slubwebprofile_eventlist.disabled = 1
+      slubwebprofile_borrowinglist.disabled = 1
+      slubwebprofile_userdetail.disabled = 1
+      slubwebprofile_bookmarklist.disabled = 1
     }
 
     space_before_class.types {
       slubwebprofile_dashboard.disabled = 1
       slubwebprofile_eventfilter.disabled = 1
       slubwebprofile_eventlist.disabled = 1
+      slubwebprofile_borrowinglist.disabled = 1
+      slubwebprofile_userdetail.disabled = 1
+      slubwebprofile_bookmarklist.disabled = 1
     }
 
     space_after_class.types {
       slubwebprofile_dashboard.disabled = 1
       slubwebprofile_eventfilter.disabled = 1
       slubwebprofile_eventlist.disabled = 1
+      slubwebprofile_borrowinglist.disabled = 1
+      slubwebprofile_userdetail.disabled = 1
+      slubwebprofile_bookmarklist.disabled = 1
     }
 
     linkToTop.types {
       slubwebprofile_dashboard.disabled = 1
       slubwebprofile_eventfilter.disabled = 1
       slubwebprofile_eventlist.disabled = 1
+      slubwebprofile_borrowinglist.disabled = 1
+      slubwebprofile_userdetail.disabled = 1
+      slubwebprofile_bookmarklist.disabled = 1
     }
   }
 }

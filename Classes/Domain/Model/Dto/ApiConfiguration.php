@@ -26,6 +26,11 @@ class ApiConfiguration
     protected $eventListUri;
 
     /**
+     * @var string
+     */
+    protected $userDetailUri;
+
+    /**
      * @var ObjectManager
      */
     protected $objectManager;
@@ -42,6 +47,7 @@ class ApiConfiguration
         $settings = $this->getPluginSettings();
 
         $this->setEventListUri($domain . $settings['api']['path']['eventList'][$languageUid]);
+        $this->setuserDetailUri($domain . $settings['api']['path']['userDetail']);
     }
 
     /**
@@ -58,6 +64,22 @@ class ApiConfiguration
     public function setEventListUri($eventListUri = ''): void
     {
         $this->eventListUri = $eventListUri;
+    }
+
+    /**
+     * @return string
+     */
+    public function getUserDetailUri(): string
+    {
+        return $this->userDetailUri;
+    }
+
+    /**
+     * @param string $userDetailUri
+     */
+    public function setUserDetailUri($userDetailUri = ''): void
+    {
+        $this->userDetailUri = $userDetailUri;
     }
 
     /**

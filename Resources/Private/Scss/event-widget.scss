@@ -1,0 +1,17 @@
+@import 'variables';
+
+@media screen and (min-width: $tabletViewportWidth) {
+  .frame-type-slubwebprofile_eventlist {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    header {
+      flex: 0 0 100%;
+    }
+
+    .eventwidget {
+      flex: 0 0 47%;
+    }
+  }
+}

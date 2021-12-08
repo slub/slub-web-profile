@@ -1,0 +1,37 @@
+@import 'variables';
+
+.frame-type-slubwebprofile_eventlist {
+  background-color: $brightgrey;
+  padding: 1rem 0 4rem;
+  position: relative;
+
+  &:before,
+  &:after {
+    content: '';
+    background-color: $brightgrey;
+    width: 50%;
+    left: -50%;
+    position: absolute;
+    height: 100%;
+    top: 0;
+  }
+
+  &:after {
+    right: -50%;
+    left: auto;
+  }
+}
+
+/* Basic framework for specifications
+.eventtiles {
+  &__item {}
+
+  &__title {}
+
+  &__date {}
+
+  &__time {}
+
+  &__location {}
+}
+*/
