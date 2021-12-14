@@ -1,3 +1,3 @@
-import * as widget from './Service/widget.js'
+import * as widget from './Service/Dashboard/widget.js'
 
 widget.initialize();

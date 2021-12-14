@@ -17,5 +17,11 @@ class BookmarkController extends ActionController
 {
     public function listAction(): void
     {
+        $content = $this->configurationManager->getContentObject()->data;
+
+        $this->view->assignMultiple([
+            'bookmark' => true,
+            'content' => $content
+        ]);
     }
 }

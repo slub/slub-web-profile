@@ -21,7 +21,7 @@
                         type="text/css"
                         media="all"
                         href="/typo3conf/ext/slub_web_profile/Resources/Public/Css/event-tiles.css"/>
-                    
+
                     <div class="eventtiles tiles">
                         <f:for as="eventItem" each="{events}" iteration="iterator">
                             <f:render partial="Event/Tiles" arguments="{eventItem: eventItem,settings:settings,iterator:iterator}" />
@@ -44,7 +44,10 @@
                         name="eventsCalendar"
                         value=""/>
 
-                    <button type="button" class="btn-close" aria-label="Close"></button>
+                    <f:render
+                        partial="Widget/CloseButton"
+                        arguments="{id: content.uid}" />
+
                     <div class="eventwidget">
                         <ul class="widgetlist">
                             <f:for as="eventItem" each="{events}" iteration="iterator">
@@ -57,7 +60,7 @@
                             </a>
                         </div>
                     </div>
-                    
+
                     <script type="text/javascript">
                         const widgetEventTeaserCalendar = [{eventsCalendar -> f:format.raw()}];
                     </script>

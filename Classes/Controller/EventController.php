@@ -33,17 +33,14 @@ class EventController extends ActionController
 
     public function listAction(): void
     {
-        $events = $this->eventService->getEvents(
-            FrontendUserUtility::getIdentifier()
-        );
-
-        $language = LanguageUtility::getSiteLanguage(
-            $this->configurationManager->getContentObject()->data['pid']
-        );
+        $events = $this->eventService->getEvents(FrontendUserUtility::getIdentifier());
+        $content = $this->configurationManager->getContentObject()->data;
+        $language = LanguageUtility::getSiteLanguage($content['pid']);
 
         $this->view->assignMultiple([
             'events' => $events,
-            'language' => $language
+            'language' => $language,
+            'content' => $content
         ]);
     }
 }

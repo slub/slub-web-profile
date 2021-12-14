@@ -16,7 +16,10 @@
                 <f:case value="2">
                     <!--Widgets-View-->
                     Widget View of 'Borrowing media list'
-                    <button type="button" class="btn-close" aria-label="Close"></button>
+
+                    <f:render
+                        partial="Widget/CloseButton"
+                        arguments="{id: content.uid}" />
                 </f:case>
                 <f:defaultCase>
                      <!--Borrowing-Item-View-->
@@ -26,7 +29,7 @@
 		</f:then>
 		<f:else>
             <button type="button" class="btn-close" aria-label="Close"></button>
-			Templates/Borrowing/List.html 
+			Templates/Borrowing/List.html
 		</f:else>
 	</f:if>
 	<!--TYPO3SEARCH_begin-->

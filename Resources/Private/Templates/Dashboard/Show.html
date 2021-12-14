@@ -40,7 +40,9 @@
         <div id="collapsePersonaliseMenu" class="dashboard__controller collapse show">
             <ul>
                 <f:for as="widget" each="{widgets}">
-                    <li>{widget.header} <!--{widget.CType}--></li>
+                    <li id="js-dashboard-controller-item-{widget.uid}" class="controller__item controller__item--is-disabled">
+                        {widget.header}
+                    </li>
                 </f:for>
             </ul>
         </div>
@@ -58,11 +60,12 @@
                     </f:case>
                     <f:defaultCase><f:variable name="alignment">default</f:variable></f:defaultCase>
                 </f:switch>
-                
+
                 <div
                     class="js-widgets-item js-widgets-loading widgets__item widgets__item--{alignment}"
                     data-widget="{widget.uid}"
                     data-uri="{uri.path}"
+                    data-type="{widget.CType}"
                     id="js-widgets-item-{widget.uid}">
                     <svg class="widget__loading" viewbox="0 0 128 128">
                         <use href="#svg-icon-loading"></use>

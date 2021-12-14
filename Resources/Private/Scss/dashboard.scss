@@ -24,7 +24,7 @@
   }
 }
 
-// Personalise Dashboard 
+// Personalise Dashboard
 .dashboard__header {
   .btn-personalise {
     background-color: $lightgrey;
@@ -44,6 +44,10 @@
       background-color: $white;
       border-radius: 50%;
       display: block;
+    }
+
+    &.controller__item--is-disabled {
+      opacity: .5;
     }
   }
 }
