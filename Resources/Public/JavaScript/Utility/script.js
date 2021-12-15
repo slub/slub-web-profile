@@ -6,9 +6,7 @@ export const load = (data) => {
   dataObject.innerHTML = data;
   let scripts = dataObject.querySelectorAll('script');
 
-  scripts.forEach((script) => {
-    addToHead(script);
-  });
+  scripts.forEach((script) => addToHead(script));
 }
 
 /**

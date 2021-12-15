@@ -36,11 +36,35 @@
             </a>
         </div>
 
+        <f:for as="widget" each="{widgets}">
+            <f:switch expression="{widget.CType}">
+                <f:case value="slubwebprofile_eventlist">
+                    <f:variable name="alignment{widget.CType}" value="transverse"/>
+                </f:case>
+                <f:case value="slubwebprofile_servicelist">
+                    <f:variable name="alignment{widget.CType}" value="upright"/>
+                </f:case>
+                <f:defaultCase>
+                    <f:variable name="alignment{widget.CType}" value="default"/>
+                </f:defaultCase>
+            </f:switch>
+        </f:for>
+
         <f:comment>Widget menu selection</f:comment>
         <div id="collapsePersonaliseMenu" class="dashboard__controller collapse show">
             <ul>
                 <f:for as="widget" each="{widgets}">
-                    <li id="js-dashboard-controller-item-{widget.uid}" class="controller__item controller__item--is-disabled">
+                    <li
+                        id="js-dashboard-controller-item-{widget.uid}"
+                        data-widget="{f:format.json(
+                            value: {
+                                id: widget.uid,
+                                type: widget.CType,
+                                alignment: '{alignment{widget.CType}}'
+                            },
+                            forceObject: true
+                        )}"
+                        class="js-dashboard-controller-item controller__item controller__item--is-disabled">
                         {widget.header}
                     </li>
                 </f:for>
@@ -48,24 +72,25 @@
         </div>
 
         <f:comment>Dashboard Widgets</f:comment>
-        <div class="dashboard__widgets" id="js-dashboard-widgets">
-            <f:for as="widget" each="{widgets}">
-
-                <f:switch expression="{widget.CType}">
-                    <f:case value="slubwebprofile_eventlist">
-                        <f:variable name="alignment">transverse</f:variable>
-                    </f:case>
-                    <f:case value="slubwebprofile_servicelist">
-                        <f:variable name="alignment">upright</f:variable>
-                    </f:case>
-                    <f:defaultCase><f:variable name="alignment">default</f:variable></f:defaultCase>
-                </f:switch>
-
+        <div
+            class="dashboard__widgets"
+            id="js-dashboard-widgets"
+            data-uri="{uri.path}">
+            <template id="js-widget-template">
                 <div
-                    class="js-widgets-item js-widgets-loading widgets__item widgets__item--{alignment}"
-                    data-widget="{widget.uid}"
-                    data-uri="{uri.path}"
-                    data-type="{widget.CType}"
+                    class="js-widgets-item js-widgets-loading widgets__item widgets__item--###alignment###"
+                    data-widget-id="###widget###"
+                    id="js-widgets-item-###widget###">
+                    <svg class="widget__loading" viewbox="0 0 128 128">
+                        <use href="#svg-icon-loading"></use>
+                    </svg>
+                </div>
+            </template>
+
+            <f:for as="widget" each="{widgets}">
+                <div
+                    class="js-widgets-item js-widgets-loading widgets__item widgets__item--{alignment{widget.CType}}"
+                    data-widget-id="{widget.uid}"
                     id="js-widgets-item-{widget.uid}">
                     <svg class="widget__loading" viewbox="0 0 128 128">
                         <use href="#svg-icon-loading"></use>

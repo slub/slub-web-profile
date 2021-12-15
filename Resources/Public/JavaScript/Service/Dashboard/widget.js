@@ -9,12 +9,22 @@ const loadingClass = 'js-widgets-loading';
 /**
  * @type {string}
  */
-const widgetsSelector = '#js-dashboard-widgets > .js-widgets-item';
+const widgetTemplateSelector = '#js-widget-template';
 
 /**
  * @type {string}
  */
-let widgetSelector = '#js-widgets-item-###widgetId###'
+const widgetsContainerSelector = '#js-dashboard-widgets';
+
+/**
+ * @type {string}
+ */
+const widgetsSelector = `${widgetsContainerSelector} >  .js-widgets-item`;
+
+/**
+ * @type {string}
+ */
+const widgetSelector = '#js-widgets-item-###widgetId###'
 
 /**
  * @type {string}
@@ -24,15 +34,15 @@ const closeButtonSelector = '#js-widget-close-button-###widgetId###';
 /**
  * @type {string}
  */
-let queryString = '?tx_slubwebprofile_ajax[tt_content]=###widgetId###';
+const queryString = '?tx_slubwebprofile_ajax[tt_content]=###widgetId###';
 
 export const initialize = () => {
   const widgets = document.querySelectorAll(widgetsSelector);
 
   if (widgets.length > 0) {
     widgets.forEach((widget) => {
-      const widgetId = parseInt(widget.dataset.widget);
-      const uri = widget.dataset.uri;
+      const widgetId = parseInt(widget.dataset.widgetId);
+      const uri = getWidgetUri();
 
       loadWidget(widgetId, uri)
         .then(data => insertData(data, widgetId))
@@ -81,15 +91,26 @@ const insertData = (data= '', widgetId = 0) => {
 }
 
 /**
+ * @param {object} settings contains id, type and alignment
+ */
+const insertWidgetContainer = (settings) => {
+  const container = document.querySelector(widgetsContainerSelector);
+  let template = document.querySelector(widgetTemplateSelector).innerHTML;
+
+  template = template.replaceAll('###widget###', settings.id);
+  template = template.replaceAll('###alignment###', settings.alignment);
+
+  container.insertAdjacentHTML('beforeend', template);
+}
+
+/**
  * @param {number} widgetId
  */
 const listenCloseButton = (widgetId) => {
   const id = replaceWidgetId(closeButtonSelector, widgetId);
   const closeButton = document.querySelector(id);
 
-  if (closeButton) {
-    closeButton.addEventListener('click', () => hideWidget(widgetId));
-  }
+  closeButton && closeButton.addEventListener('click', () => hideWidget(widgetId));
 }
 
 /**
@@ -100,16 +121,47 @@ const hideWidget = (widgetId) => {
   const widget = document.querySelector(widgetSelectorId);
 
   removeWidget(widget);
+
+console.log('from hideWidget');
 console.log(getActiveWidgets());
   // call Service/user.js -> updateDashboardSettings()
   // give the active widgets or call the function getActiveWidgets from there
 }
 
+/**
+ * @param {object} settings contains id, type and alignment
+ */
+export const addWidget = (settings) => {
+  const uri = getWidgetUri();
+  const widgetId = parseInt(settings.id);
+
+  insertWidgetContainer(settings);
+  loadWidget(widgetId, uri)
+    .then(data => insertData(data, widgetId))
+    .then(() => listenCloseButton(widgetId))
+    .catch(error => console.error(error));
+
+console.log('from addWidget');
+console.log(getActiveWidgets());
+  // call Service/user.js -> updateDashboardSettings()
+  // give the active widgets or call the function getActiveWidgets from there
+}
+
+/**
+ * @returns {[]}
+ */
 const getActiveWidgets = () => {
   const widgets = document.querySelectorAll(widgetsSelector);
   let types = [];
 
-  widgets.length > 0 && widgets.forEach((widget) => !widget.dataset.removing && types.push(widget.dataset.type));
+  widgets.length > 0 && widgets.forEach((widget) => {
+    if (!widget.dataset.removing) {
+      const widgetId = parseInt(widget.dataset.widgetId);
+      const widgetSettings = controller.getItemSettings(widgetId);
+
+      types.push(widgetSettings.type);
+    }
+  });
 
   return types;
 }
@@ -122,12 +174,17 @@ const getActiveWidgets = () => {
 const replaceWidgetId = (string, widgetId) => string.replace('###widgetId###', widgetId.toString());
 
 /**
+ * @return {string}
+ */
+const getWidgetUri = () => document.querySelector(widgetsContainerSelector).dataset.uri;
+
+/**
  * @param {HTMLObjectElement|Element} widget
  * @param {number} opacity
  */
 const removeWidget = (widget, opacity= 1) => {
   if (opacity === 1) {
-    controller.hideItem(parseInt(widget.dataset.widget));
+    controller.toggleItem(parseInt(widget.dataset.widgetId));
     widget.setAttribute('data-removing', '1');
   }
 

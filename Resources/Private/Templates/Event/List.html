@@ -61,15 +61,63 @@
                         </div>
                     </div>
 
-                    <script type="text/javascript">
-                        const widgetEventTeaserCalendar = [{eventsCalendar -> f:format.raw()}];
+                    <script type="module">
+                        import {} from '/typo3conf/ext/slub_web_profile/Resources/Public/JavaScript/Vendor/calendar.js'
+
+                        /**
+                         * @type {[]}
+                         */
+                        const widgetEventTeaserCalendar = [<f:format.raw>{eventsCalendar}</f:format.raw>];
+
+                        /**
+                         * @type {HTMLElement}
+                         */
+                        const calendarElement = document.querySelector('#js-widget-event-teaser-calendar');
+
+                        /**
+                         * @type {string}
+                         */
+                        const language = calendarElement.dataset.language;
+
+                        /**
+                         * @type {Object}
+                         */
+                        let translation = {
+                            'de-DE': {
+                                'weekDays': ['Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa', 'So'],
+                                'months': ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember']
+                            },
+                            'default': {
+                                'weekDays': ['Mon', 'Due', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+                                'months': ['January', 'February', 'March', 'April', 'Mai', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+                            }
+                        };
+
+                        /**
+                         * @param {string} identifier
+                         * @returns {string[]|*}
+                         */
+                        const getTranslation = (identifier) => {
+                            if (translation[identifier] === undefined) {
+                                identifier = 'default';
+                            }
+
+                            return translation[identifier];
+                        }
+
+                        new Calendar({
+                            id: '#js-widget-event-teaser-calendar',
+                            calendarSize: 'small',
+                            customMonthValues: getTranslation(language).months,
+                            customWeekdayValues: getTranslation(language).weekDays,
+                            eventsData: widgetEventTeaserCalendar
+                        });
                     </script>
-                    <script type="module" src="/typo3conf/ext/slub_web_profile/Resources/Public/JavaScript/calendar.js"></script>
 
                     <div id="js-widget-event-teaser-calendar" data-language="{language.hreflang}"></div>
                 </f:case>
                 <f:defaultCase>
-                     <!--Eventitem-View-->
+                    <!--Eventitem-View-->
                     <f:for as="eventItem" each="{events}" iteration="iterator">
                         <f:render partial="Event/Item" arguments="{eventItem: eventItem,settings:settings,iterator:iterator}" />
                     </f:for>
