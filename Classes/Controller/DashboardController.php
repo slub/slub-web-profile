@@ -59,7 +59,8 @@ class DashboardController extends ActionController
 
         $this->view->assignMultiple([
             'widgets' => $this->widgetService->findByDashboard($dashboardUid),
-            'uri' => LanguageUtility::getSiteLanguage($pageUid)->getBase()
+            'uri' => LanguageUtility::getSiteLanguage($pageUid)->getBase(),
+            'pageUid' => $pageUid
         ]);
     }
 }

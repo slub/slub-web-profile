@@ -20,7 +20,7 @@ const widgetsContainerSelector = '#js-dashboard-widgets';
 /**
  * @type {string}
  */
-const widgetsSelector = `${widgetsContainerSelector} >  .js-widgets-item`;
+const widgetsSelector = `${widgetsContainerSelector} > .js-widgets-item`;
 
 /**
  * @type {string}
@@ -160,7 +160,7 @@ const getActiveWidgets = () => {
 }
 
 const updateUserProfile = () => {
-  dashboardUser.updateWidgets(getActiveWidgets())
+  dashboardUser.updateWidgets(getPageUid(), getActiveWidgets())
     .then(data => console.log(data))
     .catch(error => console.error(error));
 }
@@ -176,6 +176,11 @@ const replaceWidgetId = (string, widgetId) => string.replace('###widgetId###', w
  * @returns {string}
  */
 const getWidgetUri = () => document.querySelector(widgetsContainerSelector).dataset.uri;
+
+/**
+ * @returns {number}
+ */
+const getPageUid = () => parseInt(document.querySelector(widgetsContainerSelector).dataset.pageUid);
 
 /**
  * @param {HTMLObjectElement|Element} widget

@@ -16,6 +16,7 @@ use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\MiddlewareInterface;
 use Psr\Http\Server\RequestHandlerInterface;
 use Slub\SlubWebProfile\Service\UserService;
+use Slub\SlubWebProfile\Service\WidgetService;
 use Slub\SlubWebProfile\Utility\ConstantsUtility;
 use Slub\SlubWebProfile\Utility\FrontendUserUtility;
 use TYPO3\CMS\Core\Context\Exception\AspectNotFoundException;
@@ -27,24 +28,22 @@ use TYPO3\CMS\Extbase\Object\ObjectManager;
 class AjaxUserWidget implements MiddlewareInterface
 {
     /**
-     * @var string
-     */
-    protected $action = '';
-
-    /**
-     * @var array
-     */
-    protected $widgets = [];
-
-    /**
      * @var UserService
      */
     protected $userService;
 
+    /**
+     * @var WidgetService
+     */
+    protected $widgetService;
+
     public function __construct()
     {
+        /** @var ObjectManager $objectManager */
         $objectManager = GeneralUtility::makeInstance(ObjectManager::class);
+
         $this->userService = $objectManager->get(UserService::class);
+        $this->widgetService = $objectManager->get(WidgetService::class);
     }
 
     /**
@@ -66,21 +65,21 @@ class AjaxUserWidget implements MiddlewareInterface
         }
 
         $content = $this->getContent();
-
-        $this->setAction($content);
-        $this->setWidgets($content);
+        $allowedWidgets = $this->widgetService->getAllowedWidgets((int)$content['pageUid']);
+        $widgets = $this->widgetService->validateWidgets($content['widgets'], $allowedWidgets);
 
         //@todo include this condition again
-        /*if ($this->action !== 'update') {
+        /*if ($content['action'] !== 'update') {
             return $response;
         }*/
 
-        $x = $this->userService->updateUser($userIdentifier, $this->widgets);
+        $x = $this->userService->updateUser($userIdentifier, $widgets);
 
         // @todo remove test data
         $data = [
             'usr' => $userIdentifier,
-            'widgets' => implode(', ', $this->widgets),
+            'allowedWidgets' => implode(', ', $allowedWidgets),
+            'widgets' => implode(', ', $widgets),
             'status' => 'ok',
             'x' => $x
         ];
@@ -92,19 +91,6 @@ class AjaxUserWidget implements MiddlewareInterface
             ->withHeader('Content-Type', 'application/json; charset=utf-8')
             ->withBody($responseBody)
             ->withStatus(200);
-    }
-
-    protected function setWidgets(array $content): void
-    {
-        $this->widgets = $content['widgets'] ?? [];
-    }
-
-    /**
-     * @param array $content
-     */
-    protected function setAction(array $content): void
-    {
-        $this->action = $content['action'] ?? '';
     }
 
     /**

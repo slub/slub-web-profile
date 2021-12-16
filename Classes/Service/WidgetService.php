@@ -11,9 +11,13 @@ declare(strict_types=1);
 
 namespace Slub\SlubWebProfile\Service;
 
+use Slub\SlubWebProfile\Utility\ConstantsUtility;
+use TYPO3\CMS\Backend\Utility\BackendUtility;
 use TYPO3\CMS\Core\Database\Connection;
 use TYPO3\CMS\Core\Database\ConnectionPool;
 use TYPO3\CMS\Core\Database\Query\QueryBuilder;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Extbase\Object\ObjectManager;
 
 class WidgetService
 {
@@ -22,12 +26,12 @@ class WidgetService
      */
     protected $connectionPool;
 
-    /**
-     * @param ConnectionPool $connectionPool
-     */
-    public function injectConnectionPool(ConnectionPool $connectionPool): void
+    public function __construct()
     {
-        $this->connectionPool = $connectionPool;
+        /** @var ObjectManager $objectManager */
+        $objectManager = GeneralUtility::makeInstance(ObjectManager::class);
+
+        $this->connectionPool = $objectManager->get(ConnectionPool::class);
     }
 
     /**
@@ -55,6 +59,43 @@ class WidgetService
             ->orderBy('sorting', 'ASC')
             ->execute()
             ->fetchAll();
+    }
+
+    /**
+     * @param array $widgets
+     * @param array $validWidgets
+     * @return array
+     */
+    public function validateWidgets(array $widgets, array $validWidgets): array
+    {
+        $validatedWidgets = [];
+
+        foreach ($widgets as $widget) {
+            if (in_array($widget, $validWidgets, true)) {
+                $validatedWidgets[] = $widget;
+            }
+        }
+
+        return array_unique($validatedWidgets);
+    }
+
+    /**
+     * @param int $pageUid
+     * @param string $contentElement
+     * @param string $column
+     * @return array
+     */
+    public function getAllowedWidgets(
+        int $pageUid,
+        string $contentElement = ConstantsUtility::EXTENSION_NAME . '_dashboard',
+        string $column = 'tt_content'
+    ): array {
+        $pageTsConfig = BackendUtility::getPagesTSconfig($pageUid);
+
+        return GeneralUtility::trimExplode(
+            ',',
+            $pageTsConfig['TCEFORM.']['tt_content.']['CType.']['types.'][$contentElement . '.'][$column . '.']['allowed']
+        );
     }
 
     /**
