@@ -11,13 +11,22 @@ defined('TYPO3_MODE') || die();
 
 return [
     'frontend' => [
-        'slub/slub-web-profile/content-element' => [
-            'target' => \Slub\SlubWebProfile\Middleware\ContentElement::class,
+        'slub/slub-web-profile/ajax-content-element' => [
+            'target' => \Slub\SlubWebProfile\Middleware\AjaxContentElement::class,
             'before' => [
                 'typo3/cms-frontend/output-compression',
             ],
             'after' => [
                 'typo3/cms-frontend/content-length-headers',
+            ],
+        ],
+        'slub/slub-web-profile/ajax-user-widget' => [
+            'target' => \Slub\SlubWebProfile\Middleware\AjaxUserWidget::class,
+            'before' => [
+                'typo3/cms-frontend/content-length-header',
+            ],
+            'after' => [
+                'typo3/cms-frontend/shortcut-and-mountpoint-redirect',
             ],
         ],
     ],

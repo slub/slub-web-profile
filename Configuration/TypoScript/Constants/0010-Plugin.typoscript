@@ -10,13 +10,15 @@ plugin.tx_slubwebprofile {
       path {
         eventList {
           # cat=SLUB Profile Service/76573002_Api/100; type=string; label=Path for event list (sys_language_uid = 0)
-          0 = /veranstaltungen/benutzer/
+          0 = /veranstaltungen/benutzer/###USER_ID###
           # cat=SLUB Profile Service/76573002_Api/101; type=string; label=Path for event list (sys_language_uid = 1)
-          1 = /en/events/user/
+          1 = /en/events/user/###USER_ID###
         }
 
-        # cat=SLUB Profile Service/76573002_Api/100; type=string; label=Path for user detail
-        userDetail = /benutzer/
+        # cat=SLUB Profile Service/76573002_Api/110; type=string; label=Path for user detail
+        userDetail = /benutzer/###USER_ID###
+        # cat=SLUB Profile Service/76573002_Api/120; type=string; label=Path for user update
+        userUpdate = /benutzer/update/###USER_ID###
       }
     }
   }

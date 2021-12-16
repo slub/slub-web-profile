@@ -52,7 +52,7 @@ class EventService
             return null;
         }
 
-        $uri = $this->apiConfiguration->getEventListUri() . $user;
+        $uri = $this->apiConfiguration->getEventListUri();
 
         return $this->request->process($uri);
     }

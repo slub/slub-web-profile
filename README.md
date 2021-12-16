@@ -38,6 +38,8 @@ Setup / Constant | Comment
 plugin.tx_slubwebprofile.settings.api.path.eventList   | "language array" to collect paths to call the event list. The numbers (sys_language_uid) have to fit with your configured languages.
 plugin.tx_slubwebprofile.settings.api.path.eventList.0 | Path for the sys_language_uid "0" (as example german), begins and ends with a slash, will be extended with userId
 plugin.tx_slubwebprofile.settings.api.path.eventList.1 | Path for the sys_language_uid "1" (as example english), begins and ends with a slash, will be extended with userId
+plugin.tx_slubwebprofile.settings.api.path.userDetail  | Get a single user data
+plugin.tx_slubwebprofile.settings.api.path.userUpdate  | Update a single user data
 
 [1]: https://getcomposer.org/
 [2]: https://semver.org/

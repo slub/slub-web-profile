@@ -19,6 +19,7 @@ plugin.tx_slubwebprofile {
         }
 
         userDetail = {$plugin.tx_slubwebprofile.settings.api.path.userDetail}
+        userUpdate = {$plugin.tx_slubwebprofile.settings.api.path.userUpdate}
       }
     }
   }

@@ -22,10 +22,7 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
 use TYPO3\CMS\Frontend\Controller\TypoScriptFrontendController;
 
-/**
- * Class ContentElement returns a content element called by his id
- */
-class ContentElement implements MiddlewareInterface
+class AjaxContentElement implements MiddlewareInterface
 {
     /**
      * @var array

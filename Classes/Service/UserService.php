@@ -46,7 +46,7 @@ class UserService
      * @param int $user
      * @return array|null
      */
-    public function getUserDetail(int $user): ?array
+    public function getUser(int $user): ?array
     {
         if ($user === 0) {
             return null;
@@ -55,5 +55,21 @@ class UserService
         $uri = $this->apiConfiguration->getUserDetailUri() . $user;
 
         return $this->request->process($uri)[0];
+    }
+
+    /**
+     * @param int $user
+     * @param array $data
+     * @return array|null
+     */
+    public function updateUser(int $user, array $data): ?array
+    {
+        if ($user === 0) {
+            return null;
+        }
+
+        $uri = $this->apiConfiguration->getUserUpdateUri();
+
+        return $this->request->process($uri, 'POST', $data);
     }
 }

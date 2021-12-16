@@ -15,4 +15,7 @@ class ConstantsUtility
 {
     public const EXTENSION_NAME = 'slubwebprofile';
     public const EXTENSION_KEY = 'slub_web_profile';
+    public const PLACEHOLDER = [
+        'userId' => '###USER_ID###'
+    ];
 }

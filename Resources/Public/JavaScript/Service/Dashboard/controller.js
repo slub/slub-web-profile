@@ -1,4 +1,4 @@
-import * as widget from './widget.js'
+import * as dashboardWidget from './widget.js'
 
 /**
  * @type {string}
@@ -30,13 +30,13 @@ const addWidget = (item) => {
     const widgetId = parseInt(widgetData.id);
 
     toggleItem(widgetId);
-    widget.addWidget(widgetData);
+    dashboardWidget.addWidget(widgetData);
   }
 }
 
 /**
  * @param {number} id
- * @return {object}
+ * @returns {object}
  */
 export const getItemSettings = (id) => {
   const itemSelectorId = replaceItemId(itemSelector, id);
@@ -57,6 +57,6 @@ export const toggleItem = (itemId) => {
 /**
  * @param {string} string
  * @param {number} itemId
- * @return {string}
+ * @returns {string}
  */
 const replaceItemId = (string, itemId) => string.replace('###itemId###', itemId.toString());

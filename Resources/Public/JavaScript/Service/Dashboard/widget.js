@@ -1,5 +1,6 @@
 import * as script from '../../Utility/script.js'
-import * as controller from './controller.js'
+import * as dashboardController from './controller.js'
+import * as dashboardUser from './user.js'
 
 /**
  * @type {string}
@@ -121,11 +122,7 @@ const hideWidget = (widgetId) => {
   const widget = document.querySelector(widgetSelectorId);
 
   removeWidget(widget);
-
-console.log('from hideWidget');
-console.log(getActiveWidgets());
-  // call Service/user.js -> updateDashboardSettings()
-  // give the active widgets or call the function getActiveWidgets from there
+  updateUserProfile();
 }
 
 /**
@@ -140,11 +137,7 @@ export const addWidget = (settings) => {
     .then(data => insertData(data, widgetId))
     .then(() => listenCloseButton(widgetId))
     .catch(error => console.error(error));
-
-console.log('from addWidget');
-console.log(getActiveWidgets());
-  // call Service/user.js -> updateDashboardSettings()
-  // give the active widgets or call the function getActiveWidgets from there
+  updateUserProfile();
 }
 
 /**
@@ -157,7 +150,7 @@ const getActiveWidgets = () => {
   widgets.length > 0 && widgets.forEach((widget) => {
     if (!widget.dataset.removing) {
       const widgetId = parseInt(widget.dataset.widgetId);
-      const widgetSettings = controller.getItemSettings(widgetId);
+      const widgetSettings = dashboardController.getItemSettings(widgetId);
 
       types.push(widgetSettings.type);
     }
@@ -166,15 +159,21 @@ const getActiveWidgets = () => {
   return types;
 }
 
+const updateUserProfile = () => {
+  dashboardUser.updateWidgets(getActiveWidgets())
+    .then(data => console.log(data))
+    .catch(error => console.error(error));
+}
+
 /**
  * @param {string} string
  * @param {number} widgetId
- * @return {string}
+ * @returns {string}
  */
 const replaceWidgetId = (string, widgetId) => string.replace('###widgetId###', widgetId.toString());
 
 /**
- * @return {string}
+ * @returns {string}
  */
 const getWidgetUri = () => document.querySelector(widgetsContainerSelector).dataset.uri;
 
@@ -184,7 +183,7 @@ const getWidgetUri = () => document.querySelector(widgetsContainerSelector).data
  */
 const removeWidget = (widget, opacity= 1) => {
   if (opacity === 1) {
-    controller.toggleItem(parseInt(widget.dataset.widgetId));
+    dashboardController.toggleItem(parseInt(widget.dataset.widgetId));
     widget.setAttribute('data-removing', '1');
   }
 

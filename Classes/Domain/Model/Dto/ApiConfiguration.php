@@ -12,8 +12,10 @@ declare(strict_types=1);
 namespace Slub\SlubWebProfile\Domain\Model\Dto;
 
 use Slub\SlubWebProfile\Utility\ConstantsUtility;
+use Slub\SlubWebProfile\Utility\FrontendUserUtility;
 use Slub\SlubWebProfile\Utility\LanguageUtility;
 use TYPO3\CMS\Core\Configuration\ExtensionConfiguration;
+use TYPO3\CMS\Core\Context\Exception\AspectNotFoundException;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface;
 use TYPO3\CMS\Extbase\Object\ObjectManager;
@@ -31,6 +33,11 @@ class ApiConfiguration
     protected $userDetailUri;
 
     /**
+     * @var string
+     */
+    protected $userUpdateUri;
+
+    /**
      * @var ObjectManager
      */
     protected $objectManager;
@@ -44,10 +51,13 @@ class ApiConfiguration
 
         $languageUid = LanguageUtility::getUid() ?? 0;
         $domain = $extensionConfiguration->get(ConstantsUtility::EXTENSION_KEY, 'apiDomain');
-        $settings = $this->getPluginSettings();
 
-        $this->setEventListUri($domain . $settings['api']['path']['eventList'][$languageUid]);
-        $this->setuserDetailUri($domain . $settings['api']['path']['userDetail']);
+        $settings = $this->getPluginSettings();
+        $paths = $this->preparePaths($settings['api']['path']);
+
+        $this->setEventListUri($domain . $paths['eventList'][$languageUid]);
+        $this->setUserDetailUri($domain . $paths['userDetail']);
+        $this->setUserUpdateUri($domain . $paths['userUpdate']);
     }
 
     /**
@@ -83,6 +93,22 @@ class ApiConfiguration
     }
 
     /**
+     * @return string
+     */
+    public function getUserUpdateUri(): string
+    {
+        return $this->userUpdateUri;
+    }
+
+    /**
+     * @param string $userUpdateUri
+     */
+    public function setUserUpdateUri($userUpdateUri = ''): void
+    {
+        $this->userUpdateUri = $userUpdateUri;
+    }
+
+    /**
      * @return array
      */
     protected function getPluginSettings(): array
@@ -93,6 +119,43 @@ class ApiConfiguration
         return $configurationManager->getConfiguration(
             ConfigurationManagerInterface::CONFIGURATION_TYPE_SETTINGS,
             ConstantsUtility::EXTENSION_NAME
+        );
+    }
+
+    /**
+     * @param array $paths
+     * @return array
+     * @throws AspectNotFoundException
+     */
+    protected function preparePaths(array $paths): array
+    {
+        $preparedPaths = [];
+        $userIdentifier = FrontendUserUtility::getIdentifier();
+
+        foreach ($paths as $key => $path) {
+            if (is_array($path)) {
+                foreach ($path as $pathItem) {
+                    $preparedPaths[$key][] = $this->replaceUserId($userIdentifier, $pathItem);
+                }
+            } else {
+                $preparedPaths[$key] = $this->replaceUserId($userIdentifier, $path);
+            }
+        }
+
+        return $preparedPaths;
+    }
+
+    /**
+     * @param int $userId
+     * @param string $string
+     * @return string
+     */
+    protected function replaceUserId(int $userId, string $string): string
+    {
+        return str_replace(
+            ConstantsUtility::PLACEHOLDER['userId'],
+            $userId,
+            $string
         );
     }
 }

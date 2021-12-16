@@ -33,7 +33,7 @@ class UserController extends ActionController
 
     public function detailAction(): void
     {
-        $user = $this->userService->getUserDetail(
+        $user = $this->userService->getUser(
             FrontendUserUtility::getIdentifier()
         );
 
