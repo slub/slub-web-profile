@@ -68,20 +68,18 @@ class AjaxUserWidget implements MiddlewareInterface
         $allowedWidgets = $this->widgetService->getAllowedWidgets((int)$content['pageUid']);
         $widgets = $this->widgetService->validateWidgets($content['widgets'], $allowedWidgets);
 
-        //@todo include this condition again
-        /*if ($content['action'] !== 'update') {
+        if ($content['action'] !== 'update') {
             return $response;
-        }*/
+        }
 
-        $x = $this->userService->updateUser($userIdentifier, $widgets);
+        $updatedUser = $this->userService->updateUser($userIdentifier, $widgets);
 
-        // @todo remove test data
+        // @todo remove test data, return only kind of status, remove user later because it is not a call to get the user data
         $data = [
-            'usr' => $userIdentifier,
-            'allowedWidgets' => implode(', ', $allowedWidgets),
-            'widgets' => implode(', ', $widgets),
-            'status' => 'ok',
-            'x' => $x
+            'user' => $userIdentifier,
+            'updatedUser' => $updatedUser,
+            'allowedWidgets' => $allowedWidgets,
+            'widgets' => $widgets
         ];
 
         $responseBody = new Stream('php://temp', 'rw');
