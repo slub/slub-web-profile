@@ -51,6 +51,7 @@ class AjaxUserWidget implements MiddlewareInterface
      * @param RequestHandlerInterface $handler
      * @return ResponseInterface
      * @throws AspectNotFoundException
+     * @throws \JsonException
      */
     public function process(
         ServerRequestInterface $request,
@@ -64,15 +65,22 @@ class AjaxUserWidget implements MiddlewareInterface
             return $response;
         }
 
-        $content = $this->getContent();
+        $content = $this->getMyFileContent();
         $allowedWidgets = $this->widgetService->getAllowedWidgets((int)$content['pageUid']);
-        $widgets = $this->widgetService->validateWidgets($content['widgets'], $allowedWidgets);
+        $widgets = $this->widgetService->validateWidgets((array)$content['widgets'], $allowedWidgets);
 
         if ($content['action'] !== 'update') {
             return $response;
         }
 
-        $updatedUser = $this->userService->updateUser($userIdentifier, $widgets);
+        $updatedUser = $this->userService->updateUser(
+            $userIdentifier,
+            [
+                'body' => json_encode([
+                    'widgets' => $widgets
+                ], JSON_THROW_ON_ERROR)
+            ]
+        );
 
         // @todo remove test data, return only kind of status, remove user later because it is not a call to get the user data
         $data = [
@@ -83,7 +91,7 @@ class AjaxUserWidget implements MiddlewareInterface
         ];
 
         $responseBody = new Stream('php://temp', 'rw');
-        $responseBody->write(json_encode($data));
+        $responseBody->write(json_encode($data, JSON_THROW_ON_ERROR));
 
         return (new Response())
             ->withHeader('Content-Type', 'application/json; charset=utf-8')
@@ -93,10 +101,11 @@ class AjaxUserWidget implements MiddlewareInterface
 
     /**
      * @return array
+     * @throws \JsonException
      */
-    protected function getContent(): array
+    protected function getMyFileContent(): array
     {
-        return json_decode(file_get_contents('php://input'), true) ?? [];
+        return json_decode(file_get_contents('php://input'), true, 512, JSON_THROW_ON_ERROR) ?? [];
     }
 
     /**

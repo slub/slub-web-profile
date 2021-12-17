@@ -52,7 +52,7 @@ class UserService
             return null;
         }
 
-        $uri = $this->apiConfiguration->getUserDetailUri() . $user;
+        $uri = $this->apiConfiguration->getUserDetailUri();
 
         return $this->request->process($uri)[0];
     }
