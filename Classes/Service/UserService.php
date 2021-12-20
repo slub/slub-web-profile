@@ -45,6 +45,7 @@ class UserService
     /**
      * @param int $user
      * @return array|null
+     * @throws \JsonException
      */
     public function getUser(int $user): ?array
     {
@@ -54,13 +55,14 @@ class UserService
 
         $uri = $this->apiConfiguration->getUserDetailUri();
 
-        return $this->request->process($uri)[0];
+        return $this->request->process($uri);
     }
 
     /**
      * @param int $user
      * @param array $data
      * @return array|null
+     * @throws \JsonException
      */
     public function updateUser(int $user, array $data): ?array
     {
