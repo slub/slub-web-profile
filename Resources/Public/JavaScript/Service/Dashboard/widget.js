@@ -1,6 +1,7 @@
 import * as script from '../../Utility/script.js'
 import * as dashboardController from './controller.js'
 import * as dashboardUser from './user.js'
+import * as messageStatus from '../Message/status.js'
 
 /**
  * @type {string}
@@ -98,7 +99,7 @@ const insertWidgetContainer = (settings) => {
   const container = document.querySelector(widgetsContainerSelector);
   let template = document.querySelector(widgetTemplateSelector).innerHTML;
 
-  template = template.replaceAll('###widget###', settings.id);
+  template = template.replaceAll('###id###', settings.id);
   template = template.replaceAll('###alignment###', settings.alignment);
 
   container.insertAdjacentHTML('beforeend', template);
@@ -161,7 +162,7 @@ const getActiveWidgets = () => {
 
 const updateUserProfile = () => {
   dashboardUser.updateWidgets(getPageUid(), getActiveWidgets())
-    .then(data => console.log(data))
+    .then(data => messageStatus.initialize(parseInt(data.code)))
     .catch(error => console.error(error));
 }
 

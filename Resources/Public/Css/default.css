@@ -1,0 +1,21 @@
+.api-message-status {
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 300;
+    border: 2px grey solid;
+    background: lightgrey;
+    padding: 1rem;
+}
+
+.api-message-status--successful {
+    border-color: green;
+    color: green;
+    background: lightgreen;
+}
+
+.api-message-status--error {
+    border-color: red;
+    color: red;
+    background: lightcoral;
+}
