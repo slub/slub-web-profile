@@ -38,6 +38,7 @@ class UserController extends ActionController
         );
 
         $pages = MenuUtility::getList(
+            /** @extensionScannerIgnoreLine */
             $this->configurationManager->getContentObject()
         )['menu'];
 

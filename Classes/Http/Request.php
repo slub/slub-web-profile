@@ -53,6 +53,7 @@ class Request implements LoggerAwareInterface
 
             return $this->getContent($response, $uri);
         } catch (RequestException $e) {
+            /** @extensionScannerIgnoreLine */
             $this->logger->error($e->getMessage());
 
             return null;

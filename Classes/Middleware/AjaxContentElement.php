@@ -69,16 +69,17 @@ class AjaxContentElement implements MiddlewareInterface
      */
     protected function handleIntScript(string $html): string
     {
-        $tsfe = $this->getTypoScriptFrontendController();
+        $frontendController = $this->getTypoScriptFrontendController();
 
-        if ($tsfe === null) {
+        if ($frontendController === null) {
             throw new InvalidDataException('The specified data is "null" but "TypoScriptFrontendController" is expected.', 1277859941);
         }
 
-        $tsfe->content = $html;
-        $tsfe->INTincScript();
+        /** @extensionScannerIgnoreLine */
+        $frontendController->content = $html;
+        $frontendController->INTincScript();
 
-        return $tsfe->content;
+        return $frontendController->content;
     }
 
     /**

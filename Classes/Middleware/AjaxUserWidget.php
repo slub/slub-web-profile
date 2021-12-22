@@ -73,25 +73,17 @@ class AjaxUserWidget implements MiddlewareInterface
             return $response;
         }
 
-        $updatedUser = $this->userService->updateUser(
+        $status = $this->userService->updateUser(
             $userIdentifier,
             [
                 'body' => json_encode([
                     'widgets' => $widgets
                 ], JSON_THROW_ON_ERROR)
             ]
-        );
-
-        // @todo remove test data, return only kind of status, remove user later because it is not a call to get the user data
-        $data = [
-            'user' => $userIdentifier,
-            'updatedUser' => $updatedUser,
-            'allowedWidgets' => $allowedWidgets,
-            'widgets' => $widgets
-        ];
+        ) ?? [];
 
         $responseBody = new Stream('php://temp', 'rw');
-        $responseBody->write(json_encode($data, JSON_THROW_ON_ERROR));
+        $responseBody->write(json_encode($status, JSON_THROW_ON_ERROR));
 
         return (new Response())
             ->withHeader('Content-Type', 'application/json; charset=utf-8')
@@ -105,7 +97,12 @@ class AjaxUserWidget implements MiddlewareInterface
      */
     protected function getMyFileContent(): array
     {
-        return json_decode(file_get_contents('php://input'), true, 512, JSON_THROW_ON_ERROR) ?? [];
+        return json_decode(
+            file_get_contents('php://input'),
+            true,
+            512,
+            JSON_THROW_ON_ERROR
+        ) ?? [];
     }
 
     /**

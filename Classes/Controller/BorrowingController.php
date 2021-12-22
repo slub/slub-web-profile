@@ -17,6 +17,7 @@ class BorrowingController extends ActionController
 {
     public function listAction(): void
     {
+        /** @extensionScannerIgnoreLine */
         $content = $this->configurationManager->getContentObject()->data;
 
         $this->view->assignMultiple([

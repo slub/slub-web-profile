@@ -46,6 +46,7 @@ class DashboardController extends ActionController
 
     public function showAction(): void
     {
+        /** @extensionScannerIgnoreLine */
         $content = $this->configurationManager->getContentObject()->data;
         $languageUid = LanguageUtility::getUid();
         $dashboardUid = $content['uid'];
