@@ -1,6 +1,9 @@
+{namespace slub=Slub\SlubWebProfile\ViewHelpers}
+
 <html
     data-namespace-typo3-fluid="true"
-    xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers">
+    xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+    xmlns:slub="http://typo3.org/ns/Slub/SlubWebProfile/ViewHelpers">
 <f:layout name="Default"/>
 
 <f:section name="Default">
@@ -54,7 +57,14 @@
         <div id="collapsePersonaliseMenu" class="dashboard__controller collapse show">
             <ul>
                 <f:for as="widget" each="{widgets}">
+                    <f:variable name="disabled" value=""/>
+
+                    <f:if condition="{slub:php.inArray(string: widget.CType, array: userWidgets)}">
+                        <f:variable name="disabled" value=" controller__item--is-disabled"/>
+                    </f:if>
+
                     <li
+                        class="js-dashboard-controller-item controller__item{disabled}"
                         id="js-dashboard-controller-item-{widget.uid}"
                         data-widget="{f:format.json(
                             value: {
@@ -63,8 +73,7 @@
                                 alignment: '{alignment{widget.CType}}'
                             },
                             forceObject: true
-                        )}"
-                        class="js-dashboard-controller-item controller__item controller__item--is-disabled">
+                        )}">
                         {widget.header}
                     </li>
                 </f:for>
@@ -89,14 +98,16 @@
             </template>
 
             <f:for as="widget" each="{widgets}">
-                <div
-                    class="js-widgets-item js-widgets-loading widgets__item widgets__item--{alignment{widget.CType}}"
-                    data-widget-id="{widget.uid}"
-                    id="js-widgets-item-{widget.uid}">
-                    <svg class="widget__loading" viewbox="0 0 128 128">
-                        <use href="#svg-icon-loading"></use>
-                    </svg>
-                </div>
+                <f:if condition="{slub:php.inArray(string: widget.CType, array: userWidgets)}">
+                    <div
+                        class="js-widgets-item js-widgets-loading widgets__item widgets__item--{alignment{widget.CType}}"
+                        data-widget-id="{widget.uid}"
+                        id="js-widgets-item-{widget.uid}">
+                        <svg class="widget__loading" viewbox="0 0 128 128">
+                            <use href="#svg-icon-loading"></use>
+                        </svg>
+                    </div>
+                </f:if>
             </f:for>
         </div>
 

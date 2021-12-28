@@ -17,7 +17,6 @@ use TYPO3\CMS\Core\Database\Connection;
 use TYPO3\CMS\Core\Database\ConnectionPool;
 use TYPO3\CMS\Core\Database\Query\QueryBuilder;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
-use TYPO3\CMS\Extbase\Object\ObjectManager;
 
 class WidgetService
 {
@@ -26,12 +25,34 @@ class WidgetService
      */
     protected $connectionPool;
 
-    public function __construct()
-    {
-        /** @var ObjectManager $objectManager */
-        $objectManager = GeneralUtility::makeInstance(ObjectManager::class);
+    /**
+     * @var UserService
+     */
+    protected $userService;
 
-        $this->connectionPool = $objectManager->get(ConnectionPool::class);
+    /**
+     * @param ConnectionPool $connectionPool
+     */
+    public function injectConnectionPool(ConnectionPool $connectionPool): void
+    {
+        $this->connectionPool = $connectionPool;
+    }
+
+    /**
+     * @param UserService $userService
+     */
+    public function injectUserService(UserService $userService): void
+    {
+        $this->userService = $userService;
+    }
+
+    /**
+     * @return array
+     * @throws \JsonException
+     */
+    public function getUserWidgets(): array
+    {
+        return $this->userService->getDashboardUser()['dashboardWidgets'] ?? [];
     }
 
     /**

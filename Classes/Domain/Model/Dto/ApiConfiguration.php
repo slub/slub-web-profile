@@ -16,6 +16,7 @@ use Slub\SlubWebProfile\Utility\FrontendUserUtility;
 use Slub\SlubWebProfile\Utility\LanguageUtility;
 use TYPO3\CMS\Core\Configuration\ExtensionConfiguration;
 use TYPO3\CMS\Core\Context\Exception\AspectNotFoundException;
+use TYPO3\CMS\Core\Exception;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface;
 use TYPO3\CMS\Extbase\Object\ObjectManager;
@@ -30,12 +31,17 @@ class ApiConfiguration
     /**
      * @var string
      */
-    protected $userDetailUri;
+    protected $userAccountDetailUri;
 
     /**
      * @var string
      */
-    protected $userUpdateUri;
+    protected $userDashboardDetailUri;
+
+    /**
+     * @var string
+     */
+    protected $userDashboardUpdateUri;
 
     /**
      * @var ObjectManager
@@ -56,8 +62,9 @@ class ApiConfiguration
         $paths = $this->preparePaths($settings['api']['path']);
 
         $this->setEventListUri($domain . $paths['eventList'][$languageUid]);
-        $this->setUserDetailUri($domain . $paths['userDetail']);
-        $this->setUserUpdateUri($domain . $paths['userUpdate']);
+        $this->setUserAccountDetailUri($domain . $paths['userAccountDetail']);
+        $this->setUserDashboardDetailUri($domain . $paths['userDashboardDetail']);
+        $this->setUserDashboardUpdateUri($domain . $paths['userDashboardUpdate']);
     }
 
     /**
@@ -79,33 +86,49 @@ class ApiConfiguration
     /**
      * @return string
      */
-    public function getUserDetailUri(): string
+    public function getUserAccountDetailUri(): string
     {
-        return $this->userDetailUri;
+        return $this->userAccountDetailUri;
     }
 
     /**
-     * @param string $userDetailUri
+     * @param string $userAccountDetailUri
      */
-    public function setUserDetailUri($userDetailUri = ''): void
+    public function setUserAccountDetailUri($userAccountDetailUri = ''): void
     {
-        $this->userDetailUri = $userDetailUri;
+        $this->userAccountDetailUri = $userAccountDetailUri;
     }
 
     /**
      * @return string
      */
-    public function getUserUpdateUri(): string
+    public function getUserDashboardDetailUri(): string
     {
-        return $this->userUpdateUri;
+        return $this->userDashboardDetailUri;
     }
 
     /**
-     * @param string $userUpdateUri
+     * @param string $userDashboardDetailUri
      */
-    public function setUserUpdateUri($userUpdateUri = ''): void
+    public function setUserDashboardDetailUri($userDashboardDetailUri = ''): void
     {
-        $this->userUpdateUri = $userUpdateUri;
+        $this->userDashboardDetailUri = $userDashboardDetailUri;
+    }
+
+    /**
+     * @return string
+     */
+    public function getUserDashboardUpdateUri(): string
+    {
+        return $this->userDashboardUpdateUri;
+    }
+
+    /**
+     * @param string $userDashboardUpdateUri
+     */
+    public function setUserDashboardUpdateUri($userDashboardUpdateUri = ''): void
+    {
+        $this->userDashboardUpdateUri = $userDashboardUpdateUri;
     }
 
     /**
@@ -125,7 +148,7 @@ class ApiConfiguration
     /**
      * @param array $paths
      * @return array
-     * @throws AspectNotFoundException
+     * @throws AspectNotFoundException|Exception
      */
     protected function preparePaths(array $paths): array
     {

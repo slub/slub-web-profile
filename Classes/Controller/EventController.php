@@ -12,7 +12,6 @@ declare(strict_types=1);
 namespace Slub\SlubWebProfile\Controller;
 
 use Slub\SlubWebProfile\Service\EventService;
-use Slub\SlubWebProfile\Utility\FrontendUserUtility;
 use Slub\SlubWebProfile\Utility\LanguageUtility;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
@@ -35,7 +34,7 @@ class EventController extends ActionController
     {
         /** @extensionScannerIgnoreLine */
         $content = $this->configurationManager->getContentObject()->data;
-        $events = $this->eventService->getEvents(FrontendUserUtility::getIdentifier());
+        $events = $this->eventService->getEvents();
         $language = LanguageUtility::getSiteLanguage($content['pid']);
 
         $this->view->assignMultiple([

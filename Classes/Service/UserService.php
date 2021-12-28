@@ -43,17 +43,23 @@ class UserService
     }
 
     /**
-     * @param int $user
      * @return array|null
      * @throws \JsonException
      */
-    public function getUser(int $user): ?array
+    public function getUserAccount(): ?array
     {
-        if ($user === 0) {
-            return null;
-        }
+        $uri = $this->apiConfiguration->getUserAccountDetailUri();
 
-        $uri = $this->apiConfiguration->getUserDetailUri();
+        return $this->request->process($uri);
+    }
+
+    /**
+     * @return array|null
+     * @throws \JsonException
+     */
+    public function getDashboardUser(): ?array
+    {
+        $uri = $this->apiConfiguration->getUserDashboardDetailUri();
 
         return $this->request->process($uri);
     }
@@ -70,7 +76,7 @@ class UserService
             return null;
         }
 
-        $uri = $this->apiConfiguration->getUserUpdateUri();
+        $uri = $this->apiConfiguration->getUserDashboardUpdateUri();
 
         return $this->request->process($uri, 'POST', $data);
     }

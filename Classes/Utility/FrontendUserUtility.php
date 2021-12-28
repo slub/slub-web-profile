@@ -13,6 +13,7 @@ namespace Slub\SlubWebProfile\Utility;
 
 use TYPO3\CMS\Core\Context\Context;
 use TYPO3\CMS\Core\Context\Exception\AspectNotFoundException;
+use TYPO3\CMS\Core\Exception;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 class FrontendUserUtility
@@ -20,6 +21,7 @@ class FrontendUserUtility
     /**
      * @return int
      * @throws AspectNotFoundException
+     * @throws Exception
      */
     public static function getIdentifier(): int
     {

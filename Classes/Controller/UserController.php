@@ -12,7 +12,6 @@ declare(strict_types=1);
 namespace Slub\SlubWebProfile\Controller;
 
 use Slub\SlubWebProfile\Service\UserService;
-use Slub\SlubWebProfile\Utility\FrontendUserUtility;
 use Slub\SlubWebProfile\Utility\MenuUtility;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
@@ -33,14 +32,10 @@ class UserController extends ActionController
 
     public function detailAction(): void
     {
-        $user = $this->userService->getUser(
-            FrontendUserUtility::getIdentifier()
-        );
-
-        $pages = MenuUtility::getList(
-            /** @extensionScannerIgnoreLine */
-            $this->configurationManager->getContentObject()
-        )['menu'];
+        /** @extensionScannerIgnoreLine */
+        $content = $this->configurationManager->getContentObject();
+        $user = $this->userService->getUserAccount();
+        $pages = MenuUtility::getList($content)['menu'];
 
         $this->view->assignMultiple([
             'user' => $user,
