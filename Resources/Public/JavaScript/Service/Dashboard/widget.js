@@ -93,14 +93,13 @@ const insertData = (data= '', widgetId = 0) => {
 }
 
 /**
- * @param {object} settings contains id, type and alignment
+ * @param {object} settings contains id and type
  */
 const insertWidgetContainer = (settings) => {
   const container = document.querySelector(widgetsContainerSelector);
   let template = document.querySelector(widgetTemplateSelector).innerHTML;
 
   template = template.replaceAll('###id###', settings.id);
-  template = template.replaceAll('###alignment###', settings.alignment);
 
   container.insertAdjacentHTML('beforeend', template);
 }
@@ -128,7 +127,7 @@ export const hideWidget = (widgetId) => {
 }
 
 /**
- * @param {object} settings contains id, type and alignment
+ * @param {object} settings contains id and type
  */
 export const addWidget = (settings) => {
   const uri = getWidgetUri();

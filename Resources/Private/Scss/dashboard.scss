@@ -76,20 +76,6 @@
     padding: 1rem;
     margin: 1rem .5rem;
     position: relative;
-
-    @media screen and (min-width: $phoneLandscapeViewportWidth) {
-      &--upright,
-      &--transverse {
-        grid-column-start: span 2;
-      }
-    }
-
-    @media screen and (min-width: $tabletLandscapeViewportWidth) {
-      &--upright {
-        grid-row-start: span 2;
-        grid-column-start: span 1;
-      }
-    }
   }
 
   .js-widgets-loading {

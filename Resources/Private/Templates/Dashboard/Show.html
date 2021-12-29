@@ -39,20 +39,6 @@
             </a>
         </div>
 
-        <f:for as="widget" each="{widgets}">
-            <f:switch expression="{widget.CType}">
-                <f:case value="slubwebprofile_eventlist">
-                    <f:variable name="alignment{widget.CType}" value="transverse"/>
-                </f:case>
-                <f:case value="slubwebprofile_servicelist">
-                    <f:variable name="alignment{widget.CType}" value="upright"/>
-                </f:case>
-                <f:defaultCase>
-                    <f:variable name="alignment{widget.CType}" value="default"/>
-                </f:defaultCase>
-            </f:switch>
-        </f:for>
-
         <f:comment>Widget menu selection</f:comment>
         <div id="collapsePersonaliseMenu" class="dashboard__controller collapse show">
             <ul>
@@ -69,8 +55,7 @@
                         data-widget="{f:format.json(
                             value: {
                                 id: widget.uid,
-                                type: widget.CType,
-                                alignment: '{alignment{widget.CType}}'
+                                type: widget.CType
                             },
                             forceObject: true
                         )}">
@@ -87,14 +72,7 @@
             data-uri="{uri.path}"
             data-page-uid="{pageUid}">
             <template id="js-widget-template">
-                <div
-                    class="js-widgets-item js-widgets-loading widgets__item widgets__item--###alignment###"
-                    data-widget-id="###id###"
-                    id="js-widgets-item-###id###">
-                    <svg class="widget__loading" viewbox="0 0 128 128">
-                        <use href="#svg-icon-loading"></use>
-                    </svg>
-                </div>
+                <f:render section="Widget" arguments="{id: '###id###'}"/>
             </template>
 
             <f:if condition="{userWidgets -> f:count()} > 0">
@@ -102,24 +80,14 @@
                     <f:for as="userWidget" each="{userWidgets}">
                         <f:for as="widget" each="{widgets}">
                             <f:if condition="{userWidget} == {widget.CType}">
-                                <f:render
-                                    section="Widget"
-                                    arguments="{
-                                        widget: widget,
-                                        alignment: alignment
-                                    }"/>
-                              </f:if>
+                                <f:render section="Widget" arguments="{id: widget.uid}"/>
+                            </f:if>
                         </f:for>
                     </f:for>
                 </f:then>
                 <f:else>
                     <f:for as="widget" each="{widgets}">
-                        <f:render
-                            section="Widget"
-                            arguments="{
-                                widget: widget,
-                                alignment: alignment
-                            }"/>
+                        <f:render section="Widget" arguments="{id: widget.uid}"/>
                     </f:for>
                 </f:else>
             </f:if>
@@ -135,9 +103,9 @@
 
 <f:section name="Widget">
     <div
-        class="js-widgets-item js-widgets-loading widgets__item widgets__item--{alignment{widget.CType}}"
-        data-widget-id="{widget.uid}"
-        id="js-widgets-item-{widget.uid}">
+        class="js-widgets-item js-widgets-loading widgets__item"
+        data-widget-id="{id}"
+        id="js-widgets-item-{id}">
         <svg class="widget__loading" viewbox="0 0 128 128">
             <use href="#svg-icon-loading"></use>
         </svg>
