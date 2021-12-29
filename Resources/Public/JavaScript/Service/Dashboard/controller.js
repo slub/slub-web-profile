@@ -33,9 +33,7 @@ export const initialize = () => {
 const addWidget = (item) => {
   if (!item.classList.contains(itemDisabledClass)) {
     const widgetData = JSON.parse(item.dataset.widget);
-    const widgetId = parseInt(widgetData.id);
 
-    //toggleItem(widgetId);
     dashboardWidget.addWidget(widgetData);
   }
 }
@@ -48,7 +46,6 @@ const removeWidget = (item) => {
     const widgetData = JSON.parse(item.dataset.widget);
     const widgetId = parseInt(widgetData.id);
 
-    //toggleItem(widgetId);
     dashboardWidget.hideWidget(widgetId);
   }
 }

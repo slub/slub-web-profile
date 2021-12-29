@@ -59,7 +59,7 @@
                 <f:for as="widget" each="{widgets}">
                     <f:variable name="disabled" value=""/>
 
-                    <f:if condition="{slub:php.inArray(string: widget.CType, array: userWidgets)}">
+                    <f:if condition="{userWidgets -> f:count()} == 0 || {slub:php.inArray(string: widget.CType, array: userWidgets)}">
                         <f:variable name="disabled" value=" controller__item--is-disabled"/>
                     </f:if>
 
