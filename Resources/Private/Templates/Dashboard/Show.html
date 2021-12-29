@@ -97,18 +97,32 @@
                 </div>
             </template>
 
-            <f:for as="widget" each="{widgets}">
-                <f:if condition="{slub:php.inArray(string: widget.CType, array: userWidgets)}">
-                    <div
-                        class="js-widgets-item js-widgets-loading widgets__item widgets__item--{alignment{widget.CType}}"
-                        data-widget-id="{widget.uid}"
-                        id="js-widgets-item-{widget.uid}">
-                        <svg class="widget__loading" viewbox="0 0 128 128">
-                            <use href="#svg-icon-loading"></use>
-                        </svg>
-                    </div>
-                </f:if>
-            </f:for>
+            <f:if condition="{userWidgets -> f:count()} > 0">
+                <f:then>
+                    <f:for as="userWidget" each="{userWidgets}">
+                        <f:for as="widget" each="{widgets}">
+                            <f:if condition="{userWidget} == {widget.CType}">
+                                <f:render
+                                    section="Widget"
+                                    arguments="{
+                                        widget: widget,
+                                        alignment: alignment
+                                    }"/>
+                              </f:if>
+                        </f:for>
+                    </f:for>
+                </f:then>
+                <f:else>
+                    <f:for as="widget" each="{widgets}">
+                        <f:render
+                            section="Widget"
+                            arguments="{
+                                widget: widget,
+                                alignment: alignment
+                            }"/>
+                    </f:for>
+                </f:else>
+            </f:if>
         </div>
 
         <svg aria-hidden="true" focusable="false" style="display:none;" xmlns="http://www.w3.org/2000/svg">
@@ -117,5 +131,16 @@
             </symbol>
         </svg>
     </f:if>
+</f:section>
+
+<f:section name="Widget">
+    <div
+        class="js-widgets-item js-widgets-loading widgets__item widgets__item--{alignment{widget.CType}}"
+        data-widget-id="{widget.uid}"
+        id="js-widgets-item-{widget.uid}">
+        <svg class="widget__loading" viewbox="0 0 128 128">
+            <use href="#svg-icon-loading"></use>
+        </svg>
+    </div>
 </f:section>
 </html>

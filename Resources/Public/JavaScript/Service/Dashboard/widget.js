@@ -118,10 +118,11 @@ const listenCloseButton = (widgetId) => {
 /**
  * @param {number} widgetId
  */
-const hideWidget = (widgetId) => {
+export const hideWidget = (widgetId) => {
   const widgetSelectorId = replaceWidgetId(widgetSelector, widgetId);
   const widget = document.querySelector(widgetSelectorId);
 
+  dashboardController.toggleItem(widgetId);
   removeWidget(widget);
   updateUserProfile();
 }
@@ -133,6 +134,7 @@ export const addWidget = (settings) => {
   const uri = getWidgetUri();
   const widgetId = parseInt(settings.id);
 
+  dashboardController.toggleItem(widgetId);
   insertWidgetContainer(settings);
   loadWidget(widgetId, uri)
     .then(data => insertData(data, widgetId))
@@ -189,7 +191,6 @@ const getPageUid = () => parseInt(document.querySelector(widgetsContainerSelecto
  */
 const removeWidget = (widget, opacity= 1) => {
   if (opacity === 1) {
-    dashboardController.toggleItem(parseInt(widget.dataset.widgetId));
     widget.setAttribute('data-removing', '1');
   }
 

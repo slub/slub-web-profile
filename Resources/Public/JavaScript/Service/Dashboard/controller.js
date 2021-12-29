@@ -18,7 +18,13 @@ const itemSelector = '#js-dashboard-controller-item-###itemId###';
 export const initialize = () => {
   const items = document.querySelectorAll(itemsSelector);
 
-  items.length > 0 && items.forEach((item) => item.addEventListener('click', () => addWidget(item)));
+  items.length > 0 && items.forEach((item) => item.addEventListener('click', () => {
+    if (item.classList.contains(itemDisabledClass)) {
+      removeWidget(item);
+    } else {
+      addWidget(item);
+    }
+  }));
 }
 
 /**
@@ -29,8 +35,21 @@ const addWidget = (item) => {
     const widgetData = JSON.parse(item.dataset.widget);
     const widgetId = parseInt(widgetData.id);
 
-    toggleItem(widgetId);
+    //toggleItem(widgetId);
     dashboardWidget.addWidget(widgetData);
+  }
+}
+
+/**
+ * @param {HTMLObjectElement|Element} item
+ */
+const removeWidget = (item) => {
+  if (item.classList.contains(itemDisabledClass)) {
+    const widgetData = JSON.parse(item.dataset.widget);
+    const widgetId = parseInt(widgetData.id);
+
+    //toggleItem(widgetId);
+    dashboardWidget.hideWidget(widgetId);
   }
 }
 
