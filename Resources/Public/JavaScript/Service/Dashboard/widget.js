@@ -55,7 +55,6 @@ export const initialize = () => {
 }
 
 /**
- *
  * @param widgetId
  * @param uri
  * @returns {Promise<string>}
