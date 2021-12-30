@@ -122,7 +122,7 @@ export const hideWidget = (widgetId) => {
   const widget = document.querySelector(widgetSelectorId);
 
   dashboardController.toggleItem(widgetId);
-  removeWidget(widget);
+  removeWidget(widget).then();
   updateUserProfile();
 }
 
@@ -140,6 +140,22 @@ export const addWidget = (settings) => {
     .then(() => listenCloseButton(widgetId))
     .catch(error => console.error(error));
   updateUserProfile();
+}
+
+/**
+ * @param {HTMLObjectElement|Element} widget
+ * @param {number} opacity
+ */
+const removeWidget = async (widget, opacity= 1) => {
+  opacity === 1 && widget.setAttribute('data-removing', '1');
+  widget.style.opacity < 0 && widget.remove();
+
+  await wait(50);
+
+  opacity -= 0.1;
+  widget.style.opacity = opacity.toString();
+
+  await removeWidget(widget, opacity);
 }
 
 /**
@@ -185,20 +201,7 @@ const getWidgetUri = () => document.querySelector(widgetsContainerSelector).data
 const getPageUid = () => parseInt(document.querySelector(widgetsContainerSelector).dataset.pageUid);
 
 /**
- * @param {HTMLObjectElement|Element} widget
- * @param {number} opacity
+ * @param {number} milliseconds
+ * @returns {Promise<unknown>}
  */
-const removeWidget = (widget, opacity= 1) => {
-  if (opacity === 1) {
-    widget.setAttribute('data-removing', '1');
-  }
-
-  widget.style.opacity < 0 && widget.remove();
-
-  setTimeout(() => {
-    opacity -= 0.1;
-    widget.style.opacity = opacity.toString();
-
-    removeWidget(widget, opacity);
-  }, 50);
-}
+const wait = async (milliseconds) => new Promise((resolve) => setTimeout(resolve, milliseconds));
