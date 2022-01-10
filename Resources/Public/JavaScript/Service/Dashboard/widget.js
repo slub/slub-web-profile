@@ -1,6 +1,6 @@
 import * as script from '../../Utility/script.js'
 import * as dashboardController from './controller.js'
-import * as dashboardUser from './user.js'
+import * as dashboardRequest from './request.js'
 import * as messageStatus from '../Message/status.js'
 
 /**
@@ -177,7 +177,7 @@ const getActiveWidgets = () => {
 }
 
 const updateUserProfile = () => {
-  dashboardUser.updateWidgets(getPageUid(), getActiveWidgets())
+  dashboardRequest.updateWidgets(getPageUid(), getActiveWidgets())
     .then(data => messageStatus.initialize(parseInt(data.code)))
     .catch(error => console.error(error));
 }
