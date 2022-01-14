@@ -52,7 +52,9 @@ class WidgetService
      */
     public function getUserWidgets(): array
     {
-        return $this->userService->getDashboardUser()['dashboardWidgets'] ?? [];
+        $widgets = $this->userService->getDashboardUser()['dashboardWidgets'] ?? [];
+
+        return explode(',', $widgets);
     }
 
     /**

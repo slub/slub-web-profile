@@ -20,6 +20,15 @@ return [
                 'typo3/cms-frontend/content-length-headers',
             ],
         ],
+        'slub/slub-web-profile/ajax-user-search-query' => [
+            'target' => \Slub\SlubWebProfile\Middleware\AjaxUserSearchQuery::class,
+            'before' => [
+                'typo3/cms-frontend/content-length-header',
+            ],
+            'after' => [
+                'typo3/cms-frontend/shortcut-and-mountpoint-redirect',
+            ],
+        ],
         'slub/slub-web-profile/ajax-user-widget' => [
             'target' => \Slub\SlubWebProfile\Middleware\AjaxUserWidget::class,
             'before' => [

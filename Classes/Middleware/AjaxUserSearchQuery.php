@@ -17,7 +17,6 @@ use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\MiddlewareInterface;
 use Psr\Http\Server\RequestHandlerInterface;
 use Slub\SlubWebProfile\Service\UserService;
-use Slub\SlubWebProfile\Service\WidgetService;
 use Slub\SlubWebProfile\Utility\ConstantsUtility;
 use Slub\SlubWebProfile\Utility\FileUtility;
 use Slub\SlubWebProfile\Utility\FrontendUserUtility;
@@ -28,17 +27,12 @@ use TYPO3\CMS\Core\Http\Stream;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Object\ObjectManager;
 
-class AjaxUserWidget implements MiddlewareInterface
+class AjaxUserSearchQuery implements MiddlewareInterface
 {
     /**
      * @var UserService
      */
     protected $userService;
-
-    /**
-     * @var WidgetService
-     */
-    protected $widgetService;
 
     public function __construct()
     {
@@ -46,7 +40,6 @@ class AjaxUserWidget implements MiddlewareInterface
         $objectManager = GeneralUtility::makeInstance(ObjectManager::class);
 
         $this->userService = $objectManager->get(UserService::class);
-        $this->widgetService = $objectManager->get(WidgetService::class);
     }
 
     /**
@@ -61,49 +54,34 @@ class AjaxUserWidget implements MiddlewareInterface
         RequestHandlerInterface $handler
     ): ResponseInterface {
         $response = $handler->handle($request);
-        $userWidget = (int)$request->getQueryParams()['tx_' . ConstantsUtility::EXTENSION_NAME . '_ajax']['userWidget'];
+        $userSearchQuery = (int)$request->getQueryParams()['tx_' . ConstantsUtility::EXTENSION_NAME . '_ajax']['userSearchQuery'];
         $userIdentifier = FrontendUserUtility::getIdentifier();
 
-        if ($userWidget === 0 || $userIdentifier === 0) {
+        if ($userSearchQuery === 0 || $userIdentifier === 0) {
             return $response;
         }
 
         $content = FileUtility::getContent();
 
-        if ($content['action'] !== 'update') {
+        if ($content['action'] !== 'add') {
             return $response;
         }
 
-        $responseDashboard = (array)$this->userService->updateUserDashboard(
+        $responseSearchQuery = (array)$this->userService->addUserSearchQuery(
             $userIdentifier,
             [
                 'body' => json_encode([
-                    'widgets' => $this->getWidgets(
-                        (int)$content['pageUid'],
-                        (array)$content['widgets']
-                    )
+                    'searchQuery' => $content['data']
                 ], JSON_THROW_ON_ERROR)
             ]
         );
 
         $responseBody = new Stream('php://temp', 'rw');
-        $responseBody->write(json_encode($responseDashboard, JSON_THROW_ON_ERROR));
+        $responseBody->write(json_encode($responseSearchQuery, JSON_THROW_ON_ERROR));
 
         return (new Response())
             ->withHeader('Content-Type', 'application/json; charset=utf-8')
             ->withBody($responseBody)
             ->withStatus(200);
-    }
-
-    /**
-     * @param int $pageUid
-     * @param array $widgets
-     * @return array
-     */
-    protected function getWidgets(int $pageUid, array $widgets): array
-    {
-        $allowedWidgets = $this->widgetService->getAllowedWidgets($pageUid);
-
-        return $this->widgetService->validateWidgets($widgets, $allowedWidgets);
     }
 }

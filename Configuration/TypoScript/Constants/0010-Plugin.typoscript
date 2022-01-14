@@ -20,7 +20,9 @@ plugin.tx_slubwebprofile {
         # cat=SLUB Profile Service/76573002_Api/120; type=string; label=Path for user dashboard detail (contains: user dashboard)
         userDashboardDetail = /benutzer/dashboard/###USER_ID###
         # cat=SLUB Profile Service/76573002_Api/120; type=string; label=Path for user dashboard update (contains: user dashboard)
-        userDashboardUpdate = /benutzer/dashboard/update/###USER_ID###
+        userDashboardUpdate = /benutzer/dashboard/aktualisieren/###USER_ID###
+        # cat=SLUB Profile Service/76573002_Api/120; type=string; label=Path for user search query add (contains: user search query)
+        userSearchQueryAdd = /benutzer/suchanfrage/hinzufuegen/###USER_ID###
       }
     }
   }

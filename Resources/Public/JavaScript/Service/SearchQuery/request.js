@@ -1,15 +1,14 @@
 /**
  * @type {string}
  */
-const uriUserAddSearchQuery = '/?tx_slubwebprofile_ajax[userAddSearchQuery]=1';
+const uriUserSearchQuery = '/?tx_slubwebprofile_ajax[userSearchQuery]=1';
 
 /**
  * @param {object} data
  * @returns {Promise<any>}
  */
 export const addSearchQuery = async (data) => {
-console.log(data);
-  /*const response = await fetch(uriUserAddSearchQuery, {
+  const response = await fetch(uriUserSearchQuery, {
     headers: {
       'Content-Type': 'application/json; charset=utf-8'
     },
@@ -21,5 +20,5 @@ console.log(data);
     })
   });
 
-  return response.json();*/
+  return response.json();
 }

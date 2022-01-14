@@ -70,13 +70,30 @@ class UserService
      * @return array|null
      * @throws \JsonException
      */
-    public function updateUser(int $user, array $data): ?array
+    public function updateUserDashboard(int $user, array $data): ?array
     {
         if ($user === 0) {
             return null;
         }
 
         $uri = $this->apiConfiguration->getUserDashboardUpdateUri();
+
+        return $this->request->process($uri, 'POST', $data);
+    }
+
+    /**
+     * @param int $user
+     * @param array $data
+     * @return array|null
+     * @throws \JsonException
+     */
+    public function addUserSearchQuery(int $user, array $data): ?array
+    {
+        if ($user === 0) {
+            return null;
+        }
+
+        $uri = $this->apiConfiguration->getUserSearchQueryAddUri();
 
         return $this->request->process($uri, 'POST', $data);
     }
