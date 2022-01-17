@@ -4,7 +4,12 @@ import * as searchQueryRequest from './request.js'
 /**
  * @type {string}
  */
-const addButtonSelector = '#js-search-query-add';
+const addSelector = '#js-search-query-add';
+
+/**
+ * @type {string}
+ */
+const addButtonSelector = '#js-search-query-add-button';
 
 /**
  * @type {string}
@@ -12,7 +17,12 @@ const addButtonSelector = '#js-search-query-add';
 const searchTypeSelector = '#search-modifier-group .search-modifier.active';
 
 /**
- * @type {HTMLObjectElement}
+ * @type {HTMLObjectElement|Element}
+ */
+const addElement = document.querySelector(addSelector);
+
+/**
+ * @type {HTMLObjectElement|Element}
  */
 const addButtonElement = document.querySelector(addButtonSelector);
 
@@ -33,15 +43,17 @@ const searchTypes = [
 /**
  * @returns {string}
  */
-export const showAddButton = () => addButtonElement.style.display = 'block';
+export const showAddButton = () => addElement.style.display = 'block';
 
 export const listenAddButton = () => addButtonElement.addEventListener('click', () => addSearchQuery());
 
 const addSearchQuery = async () => {
   const searchType = getSearchType();
+  const numberOfResults = getNumberOfResults() ?? 0;
   const query = await getQuery(searchType) ?? [];
   const searchQuery = {
     type: searchType,
+    numberOfResults: numberOfResults,
     query: query,
   };
 
@@ -55,11 +67,16 @@ const addSearchQuery = async () => {
 }
 
 /**
+ * @returns {number}
+ */
+const getNumberOfResults = () => parseInt(addButtonElement.dataset.resultCount);
+
+/**
  * @param {string} searchType
  * @returns []
  */
 const getQuery = async (searchType) => {
-  let search = await import(`./Types/${searchType}-search.js`);
+  const search = await import(`./Types/${searchType}-search.js`)
 
   return search.getQuery();
 }
