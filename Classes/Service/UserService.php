@@ -87,13 +87,13 @@ class UserService
      * @return array|null
      * @throws \JsonException
      */
-    public function addUserSearchQuery(int $user, array $data): ?array
+    public function updateUserSearchQuery(int $user, array $data): ?array
     {
         if ($user === 0) {
             return null;
         }
 
-        $uri = $this->apiConfiguration->getUserSearchQueryAddUri();
+        $uri = $this->apiConfiguration->getUserSearchQueryUpdateUri();
 
         return $this->request->process($uri, 'POST', $data);
     }

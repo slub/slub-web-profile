@@ -67,7 +67,7 @@ class AjaxUserSearchQuery implements MiddlewareInterface
             return $response;
         }
 
-        $responseSearchQuery = (array)$this->userService->addUserSearchQuery(
+        $responseSearchQuery = (array)$this->userService->updateUserSearchQuery(
             $userIdentifier,
             [
                 'body' => json_encode([

@@ -46,7 +46,7 @@ class ApiConfiguration
     /**
      * @var string
      */
-    protected $userSearchQueryAddUri;
+    protected $userSearchQueryUpdateUri;
 
     /**
      * @var ObjectManager
@@ -70,7 +70,7 @@ class ApiConfiguration
         $this->setUserAccountDetailUri($domain . $paths['userAccountDetail']);
         $this->setUserDashboardDetailUri($domain . $paths['userDashboardDetail']);
         $this->setUserDashboardUpdateUri($domain . $paths['userDashboardUpdate']);
-        $this->setUserSearchQueryAddUri($domain . $paths['userSearchQueryAdd']);
+        $this->setUserSearchQueryUpdateUri($domain . $paths['userSearchQueryUpdate']);
     }
 
     /**
@@ -140,17 +140,17 @@ class ApiConfiguration
     /**
      * @return string
      */
-    public function getUserSearchQueryAddUri(): string
+    public function getUserSearchQueryUpdateUri(): string
     {
-        return $this->userSearchQueryAddUri;
+        return $this->userSearchQueryUpdateUri;
     }
 
     /**
-     * @param string $userSearchQueryAddUri
+     * @param string $userSearchQueryUpdateUri
      */
-    public function setUserSearchQueryAddUri($userSearchQueryAddUri = ''): void
+    public function setUserSearchQueryUpdateUri($userSearchQueryUpdateUri = ''): void
     {
-        $this->userSearchQueryAddUri = $userSearchQueryAddUri;
+        $this->userSearchQueryUpdateUri = $userSearchQueryUpdateUri;
     }
 
     /**

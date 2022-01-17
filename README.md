@@ -35,13 +35,13 @@ The general domain to call the "profile service" can be set in the field "Domain
 
 Setup / Constant | Comment
 ---------------- | -------
-plugin.tx_slubwebprofile.settings.api.path.eventList           | "language array" to collect paths to call the event list. The numbers (sys_language_uid) have to fit with your configured languages.
-plugin.tx_slubwebprofile.settings.api.path.eventList.0         | Path for the sys_language_uid "0" (as example german), begins and ends with a slash, will be extended with userId
-plugin.tx_slubwebprofile.settings.api.path.eventList.1         | Path for the sys_language_uid "1" (as example english), begins and ends with a slash, will be extended with userId
-plugin.tx_slubwebprofile.settings.api.path.userAccountDetail   | Get a single user (contains: account) data
-plugin.tx_slubwebprofile.settings.api.path.userDashboardDetail | Get a single user (contains: dashboard) data
-plugin.tx_slubwebprofile.settings.api.path.userDashboardUpdate | Update a single user (contains: dashboard) data
-plugin.tx_slubwebprofile.settings.api.path.userSearchQueryAdd  | Add a single user (contains: search query) data
+plugin.tx_slubwebprofile.settings.api.path.eventList             | "language array" to collect paths to call the event list. The numbers (sys_language_uid) have to fit with your configured languages.
+plugin.tx_slubwebprofile.settings.api.path.eventList.0           | Path for the sys_language_uid "0" (as example german), begins and ends with a slash, will be extended with userId
+plugin.tx_slubwebprofile.settings.api.path.eventList.1           | Path for the sys_language_uid "1" (as example english), begins and ends with a slash, will be extended with userId
+plugin.tx_slubwebprofile.settings.api.path.userAccountDetail     | Get a single user (contains: account) data
+plugin.tx_slubwebprofile.settings.api.path.userDashboardDetail   | Get a single user (contains: dashboard) data
+plugin.tx_slubwebprofile.settings.api.path.userDashboardUpdate   | Update a single user (contains: dashboard) data
+plugin.tx_slubwebprofile.settings.api.path.userSearchQueryUpdate | Update a single user (contains: search query) data
 
 [1]: https://getcomposer.org/
 [2]: https://semver.org/
