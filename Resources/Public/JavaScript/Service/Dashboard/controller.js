@@ -1,4 +1,4 @@
-import * as dashboardWidget from './widget.js'
+import * as dashboardWidget from './widget.js';
 
 /**
  * @type {string}

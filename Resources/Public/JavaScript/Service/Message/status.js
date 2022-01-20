@@ -1,4 +1,4 @@
-import * as utilityLanguage from '../../Utility/language.js'
+import * as utilityLanguage from '../../Utility/language.js';
 
 /**
  * @type {{default: {status: {"200": string, "500": string}}, "de-DE": {status: {"200": string, "500": string}}}}

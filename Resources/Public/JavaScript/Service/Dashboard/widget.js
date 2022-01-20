@@ -1,7 +1,7 @@
-import * as script from '../../Utility/script.js'
-import * as dashboardController from './controller.js'
-import * as dashboardRequest from './request.js'
-import * as messageStatus from '../Message/status.js'
+import * as script from '../../Utility/script.js';
+import * as dashboardController from './controller.js';
+import * as dashboardRequest from './request.js';
+import * as messageStatus from '../Message/status.js';
 
 /**
  * @type {string}

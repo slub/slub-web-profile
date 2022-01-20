@@ -4,8 +4,10 @@
 const addSelector = document.querySelector('#js-search-query-add');
 
 if (addSelector) {
-  let addSearchQuery = await import('./Service/SearchQuery/add.js');
+  let initialize = await import('./Service/SearchQuery/Add/initialize.js');
+  let process = await import('./Service/SearchQuery/Add/process.js');
 
-  addSearchQuery.showAddButton();
-  addSearchQuery.listenAddButton();
+  initialize.showAdd();
+  initialize.listenAddButton();
+  process.listenSubmit();
 }

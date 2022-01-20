@@ -1,15 +1,16 @@
-import * as messageStatus from '../Message/status.js'
-import * as searchQueryRequest from './request.js'
+import * as addInitialize from './initialize.js';
+import * as messageStatus from '../../Message/status.js';
+import * as searchQueryRequest from '../request.js';
 
 /**
  * @type {string}
  */
-const addSelector = '#js-search-query-add';
+const submitSelector = '#js-search-query-add-submit';
 
 /**
  * @type {string}
  */
-const addButtonSelector = '#js-search-query-add-button';
+const descriptionSelector = '#js-search-query-add-description';
 
 /**
  * @type {string}
@@ -19,12 +20,12 @@ const searchTypeSelector = '#search-modifier-group .search-modifier.active';
 /**
  * @type {HTMLObjectElement|Element}
  */
-const addElement = document.querySelector(addSelector);
+const submitElement = document.querySelector(submitSelector);
 
 /**
  * @type {HTMLObjectElement|Element}
  */
-const addButtonElement = document.querySelector(addButtonSelector);
+const descriptionElement = document.querySelector(descriptionSelector);
 
 /**
  * @type {({identifier: string, type: string}|{identifier: string, type: string})[]}
@@ -40,22 +41,19 @@ const searchTypes = [
   }
 ];
 
-/**
- * @returns {string}
- */
-export const showAddButton = () => addElement.style.display = 'block';
-
-export const listenAddButton = () => addButtonElement.addEventListener('click', () => addSearchQuery());
+export const listenSubmit = () => submitElement.addEventListener('click', () => addSearchQuery());
 
 const addSearchQuery = async () => {
   const searchType = getSearchType();
-  const numberOfResults = getNumberOfResults() ?? 0;
   const query = await getQuery(searchType) ?? [];
   const searchQuery = {
     type: searchType,
-    numberOfResults: numberOfResults,
     query: query,
+    numberOfResults: getNumberOfResults() ?? 0,
+    description: getDescription() ?? ''
   };
+
+  addInitialize.hideAddResult();
 
   if (query.length === 0) {
     messageStatus.initialize(501);
@@ -67,9 +65,14 @@ const addSearchQuery = async () => {
 }
 
 /**
+ * @returns {string}
+ */
+const getDescription = () => descriptionElement.value;
+
+/**
  * @returns {number}
  */
-const getNumberOfResults = () => parseInt(addButtonElement.dataset.resultCount);
+const getNumberOfResults = () => parseInt(submitElement.dataset.resultCount);
 
 /**
  * @param {string} searchType
@@ -85,6 +88,7 @@ const getQuery = async (searchType) => {
  * @returns {string|undefined}
  */
 const getSearchType = () => {
+  // Read here because it can change between initialization and process
   const searchTypeElement = document.querySelector(searchTypeSelector);
   let currentSearchType = {};
 
