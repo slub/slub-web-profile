@@ -16,7 +16,7 @@ use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\MiddlewareInterface;
 use Psr\Http\Server\RequestHandlerInterface;
-use Slub\SlubWebProfile\Service\UserService;
+use Slub\SlubWebProfile\Service\UserDashboardService as UserService;
 use Slub\SlubWebProfile\Service\WidgetService;
 use Slub\SlubWebProfile\Utility\ConstantsUtility;
 use Slub\SlubWebProfile\Utility\FileUtility;

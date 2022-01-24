@@ -21,6 +21,7 @@ plugin.tx_slubwebprofile {
         userAccountDetail = {$plugin.tx_slubwebprofile.settings.api.path.userAccountDetail}
         userDashboardDetail = {$plugin.tx_slubwebprofile.settings.api.path.userDashboardDetail}
         userDashboardUpdate = {$plugin.tx_slubwebprofile.settings.api.path.userDashboardUpdate}
+        userSearchQueryDetail = {$plugin.tx_slubwebprofile.settings.api.path.userSearchQueryDetail}
         userSearchQueryUpdate = {$plugin.tx_slubwebprofile.settings.api.path.userSearchQueryUpdate}
       }
     }

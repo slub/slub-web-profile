@@ -21,6 +21,8 @@ plugin.tx_slubwebprofile {
         userDashboardDetail = /benutzer/dashboard/###USER_ID###
         # cat=SLUB Profile Service/76573002_Api/120; type=string; label=Path for user dashboard update (contains: user dashboard)
         userDashboardUpdate = /benutzer/dashboard/aktualisieren/###USER_ID###
+        # cat=SLUB Profile Service/76573002_Api/120; type=string; label=Path for user search query detail (contains: user search query)
+        userSearchQueryDetail = /benutzer/suchanfrage/###USER_ID###
         # cat=SLUB Profile Service/76573002_Api/120; type=string; label=Path for user search query update (contains: user search query)
         userSearchQueryUpdate = /benutzer/suchanfrage/aktualisieren/###USER_ID###
       }

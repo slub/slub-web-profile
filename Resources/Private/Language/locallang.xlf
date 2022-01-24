@@ -3,16 +3,21 @@
 	<file source-language="en" datatype="plaintext" original="messages" date="2012-11-01T14:46:01Z"  product-name="slub_web_profile">
 		<header/>
 		<body>
+
+			<!--
+				General
+			-->
+
 			<trans-unit id="general.oClock" resname="general.oClock">
 				<source>o'clock</source>
 			</trans-unit>
 			<trans-unit id="general.personalise" resname="general.personalise">
 				<source>Personalise Dashboard</source>
 			</trans-unit>
-			
-			<trans-unit id="eventItem.default.noEvents" resname="eventItem.default.noEvents">
-				<source>You have no subscribed events.</source>
-			</trans-unit>
+
+			<!--
+				Event
+			-->
 
 			<trans-unit id="event.filter.label" resname="event.filter.label">
 				<source>Filter by event type</source>
@@ -20,14 +25,31 @@
 			<trans-unit id="event.filter.reset" resname="event.filter.reset">
 				<source>All</source>
 			</trans-unit>
-			<trans-unit id="eventItem.teaser.more" resname="eventItem.teaser.more">
+			<trans-unit id="event.default.empty" resname="event.default.empty">
+				<source>You have no subscribed events.</source>
+			</trans-unit>
+			<trans-unit id="event.default.unsubscribe" resname="event.default.unsubscribe">
+				<source>Unsubscribe from the event</source>
+			</trans-unit>
+			<trans-unit id="event.widget.more" resname="event.widget.more">
 				<source>More</source>
 			</trans-unit>
-			<trans-unit id="event.teaser.noEvents" resname="event.teaser.noEvents">
-				<source>No subscribed events.</source>
+
+			<!--
+				Search query
+			-->
+
+			<trans-unit id="searchQuery.default.empty" resname="searchQuery.default.empty">
+				<source>You have no subscribed search queries.</source>
 			</trans-unit>
-			<trans-unit id="eventItem.unsubscribe" resname="eventItem.unsubscribe">
-				<source>Unsubscribe from the event</source>
+			<trans-unit id="searchQuery.widget.more" resname="searchQuery.widget.more">
+				<source>More</source>
+			</trans-unit>
+			<trans-unit id="searchQuery.widget.result" resname="searchQuery.widget.result">
+				<source>%1$s result</source>
+			</trans-unit>
+			<trans-unit id="searchQuery.widget.results" resname="searchQuery.widget.results">
+				<source>%1$s results</source>
 			</trans-unit>
 		</body>
 	</file>

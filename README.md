@@ -41,6 +41,7 @@ plugin.tx_slubwebprofile.settings.api.path.eventList.1           | Path for the 
 plugin.tx_slubwebprofile.settings.api.path.userAccountDetail     | Get a single user (contains: account) data
 plugin.tx_slubwebprofile.settings.api.path.userDashboardDetail   | Get a single user (contains: dashboard) data
 plugin.tx_slubwebprofile.settings.api.path.userDashboardUpdate   | Update a single user (contains: dashboard) data
+plugin.tx_slubwebprofile.settings.api.path.userSearchQueryDetail | Get a single user (contains: search query) data
 plugin.tx_slubwebprofile.settings.api.path.userSearchQueryUpdate | Update a single user (contains: search query) data
 
 [1]: https://getcomposer.org/

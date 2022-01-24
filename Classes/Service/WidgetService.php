@@ -11,6 +11,7 @@ declare(strict_types=1);
 
 namespace Slub\SlubWebProfile\Service;
 
+use Slub\SlubWebProfile\Service\UserDashboardService as UserService;
 use Slub\SlubWebProfile\Utility\ConstantsUtility;
 use TYPO3\CMS\Backend\Utility\BackendUtility;
 use TYPO3\CMS\Core\Database\Connection;
@@ -52,7 +53,7 @@ class WidgetService
      */
     public function getUserWidgets(): array
     {
-        $widgets = $this->userService->getDashboardUser()['dashboardWidgets'] ?? [];
+        $widgets = $this->userService->getUserDashboard()['dashboardWidgets'] ?? [];
 
         return explode(',', $widgets);
     }

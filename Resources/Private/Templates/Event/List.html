@@ -6,60 +6,54 @@
 
 <f:section name="Default">
     <!--TYPO3SEARCH_end-->
-    <f:if condition="{events}">
-        <f:then>
-            <f:switch expression="{settings.layout}">
-                <f:case value="1">
-                    <!--Tiles-View-->
-                    <link
-                        rel="stylesheet"
-                        type="text/css"
-                        media="all"
-                        href="/typo3conf/ext/slub_web_profile/Resources/Public/Css/tiles.css"/>
-                    <link
-                        rel="stylesheet"
-                        type="text/css"
-                        media="all"
-                        href="/typo3conf/ext/slub_web_profile/Resources/Public/Css/event-tiles.css"/>
+    <f:variable name="countEvent" value="{events -> f:count()}"/>
 
-                    <div class="eventtiles tiles">
-                        <f:for as="eventItem" each="{events}" iteration="iterator">
-                            <f:render partial="Event/Tiles" arguments="{eventItem: eventItem,settings:settings,iterator:iterator}" />
-                        </f:for>
-                    </div>
-                </f:case>
-                <f:case value="2">
-                    <!--Widgets-View-->
-                    <f:render
-                        partial="Widget/CloseButton"
-                        arguments="{id: content.uid}" />
+    <f:if condition="{countEvent} == 0">
+        <div class="list__no-found">
+            <f:translate key="event.default.empty" />
+        </div>
+    </f:if>
 
-                    <div class="eventwidget">
-                        <ul class="widgetlist">
-                            <f:for as="eventItem" each="{events}" iteration="iterator">
-                                <f:render partial="Event/Widget" arguments="{eventItem: eventItem,settings:settings,iterator:iterator}" />
-                            </f:for>
-                        </ul>
-                        <div class="footerdata">
-                            <a class="footerdata__morelink" href="{f:uri.typolink(parameter: settings.listPageUid)}">
-                                <f:translate key="eventItem.teaser.more"/>
-                            </a>
-                        </div>
-                    </div>
-                </f:case>
-                <f:defaultCase>
-                    <!--Eventitem-View-->
-                    <f:for as="eventItem" each="{events}" iteration="iterator">
-                        <f:render partial="Event/Item" arguments="{eventItem: eventItem,settings:settings,iterator:iterator}" />
-                    </f:for>
-                </f:defaultCase>
-            </f:switch>
-        </f:then>
-        <f:else>
-            <div class="event__no-found">
-                <f:translate key="eventItem.default.noEvents" />
-            </div>
-        </f:else>
+    <f:if condition="{countEvent} > 0 && {settings.layout} == 1">
+        <!--Default-View-->
+        <link
+            rel="stylesheet"
+            type="text/css"
+            media="all"
+            href="/typo3conf/ext/slub_web_profile/Resources/Public/Css/tiles.css"/>
+        <link
+            rel="stylesheet"
+            type="text/css"
+            media="all"
+            href="/typo3conf/ext/slub_web_profile/Resources/Public/Css/event-tiles.css"/>
+
+        <div class="eventtiles tiles">
+            <f:for as="eventItem" each="{events}" iteration="iterator">
+                <f:render partial="Event/Default" arguments="{eventItem: eventItem, settings: settings, iterator: iterator}" />
+            </f:for>
+        </div>
+    </f:if>
+
+    <f:if condition="{countEvent} > 0 && {settings.layout} == 2">
+        <!--Widgets-View-->
+        <f:render
+            partial="Widget/CloseButton"
+            arguments="{id: content.uid}" />
+
+        <div class="eventwidget">
+            <ul class="widgetlist">
+                <f:for as="eventItem" each="{events}" iteration="iterator">
+                    <f:render partial="Event/Widget" arguments="{eventItem: eventItem, settings: settings, iterator: iterator}" />
+                </f:for>
+            </ul>
+
+            <f:render
+                partial="Widget/Footer"
+                arguments="{
+                    pageUid: settings.listPageUid,
+                    title: '{f:translate(key: \'event.widget.more\')}'
+                }"/>
+        </div>
     </f:if>
     <!--TYPO3SEARCH_begin-->
 </f:section>

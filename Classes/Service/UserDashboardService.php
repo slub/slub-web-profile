@@ -14,7 +14,7 @@ namespace Slub\SlubWebProfile\Service;
 use Slub\SlubWebProfile\Domain\Model\Dto\ApiConfiguration;
 use Slub\SlubWebProfile\Http\Request;
 
-class UserService
+class UserDashboardService
 {
     /**
      * @var ApiConfiguration
@@ -46,18 +46,7 @@ class UserService
      * @return array|null
      * @throws \JsonException
      */
-    public function getUserAccount(): ?array
-    {
-        $uri = $this->apiConfiguration->getUserAccountDetailUri();
-
-        return $this->request->process($uri);
-    }
-
-    /**
-     * @return array|null
-     * @throws \JsonException
-     */
-    public function getDashboardUser(): ?array
+    public function getUserDashboard(): ?array
     {
         $uri = $this->apiConfiguration->getUserDashboardDetailUri();
 
@@ -77,23 +66,6 @@ class UserService
         }
 
         $uri = $this->apiConfiguration->getUserDashboardUpdateUri();
-
-        return $this->request->process($uri, 'POST', $data);
-    }
-
-    /**
-     * @param int $user
-     * @param array $data
-     * @return array|null
-     * @throws \JsonException
-     */
-    public function updateUserSearchQuery(int $user, array $data): ?array
-    {
-        if ($user === 0) {
-            return null;
-        }
-
-        $uri = $this->apiConfiguration->getUserSearchQueryUpdateUri();
 
         return $this->request->process($uri, 'POST', $data);
     }

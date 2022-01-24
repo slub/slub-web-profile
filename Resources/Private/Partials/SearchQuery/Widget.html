@@ -1,0 +1,37 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+      data-namespace-typo3-fluid="true">
+<f:comment>Partials/SearchQuery/Widget.html</f:comment>
+
+<f:if condition="{iterator.index} < {settings.limit}">
+    <li>
+        <f:comment>Date</f:comment>
+        <span class="searchquerywidget__date timedata__date">
+            <time class="timedata__date-month" datetime="{f:format.date(date:searchQueryItem.creationDate.format, format:'Y-m-d')}">
+                <f:format.date format="M">{searchQueryItem.creationDate.format}</f:format.date>
+            </time>
+            <time class="timedata__date-day" datetime="{f:format.date(date:searchQueryItem.creationDate.format, format:'Y-m-d')}">
+                <f:format.date format="d">{searchQueryItem.creationDate.format}</f:format.date>
+            </time>
+        </span>
+
+        <div class="widgetlist__column--right">
+            <span class="searchquerywidget__time timedata__time">
+                <time datetime="{f:format.date(date:searchQueryItem.creationDate.format, format:'Y-m-d')}">
+                    <f:format.date format="{settings.timeFormat}">{searchQueryItem.creationDate.format}</f:format.date> <f:translate key="general.oClock"/>
+                </time>
+            </span>
+            {searchQueryItem.title}
+        <div>
+        <div>
+            <f:if condition="{searchQueryItem.numberOfResults} == 1">
+                <f:then>
+                    <f:translate key="searchQuery.widget.result" arguments="{0: searchQueryItem.numberOfResults}"/>
+                </f:then>
+                <f:else>
+                    <f:translate key="searchQuery.widget.results" arguments="{0: searchQueryItem.numberOfResults}"/>
+                </f:else>
+            </f:if>
+        </div>
+    </li>
+</f:if>
+</html>

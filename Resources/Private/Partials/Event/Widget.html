@@ -1,15 +1,6 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
-	  xmlns:n="http://typo3.org/ns/GeorgRinger/News/ViewHelpers"
 	  data-namespace-typo3-fluid="true">
 <f:comment>Partials/Event/Widget.html</f:comment>
-
-<f:variable
-	name="eventsCalendar"
-	value="{f:format.json(
-		value: {
-			start: '{f:format.date(date: eventItem.startDateTime.timestamp, format: \'Y-m-dTH:i:s\')}',
-			end: '{f:format.date(date: eventItem.endDateTime.timestamp, format: \'Y-m-dTH:i:s\')}'
-		})},{eventsCalendar}"/>
 
 <f:if condition="{iterator.index} < {settings.limit}">
 	<li>

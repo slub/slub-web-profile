@@ -11,7 +11,7 @@ declare(strict_types=1);
 
 namespace Slub\SlubWebProfile\Controller;
 
-use Slub\SlubWebProfile\Service\UserService;
+use Slub\SlubWebProfile\Service\UserAccountService as UserService;
 use Slub\SlubWebProfile\Utility\MenuUtility;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 

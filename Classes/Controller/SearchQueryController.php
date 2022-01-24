@@ -11,17 +11,32 @@ declare(strict_types=1);
 
 namespace Slub\SlubWebProfile\Controller;
 
+use Slub\SlubWebProfile\Service\UserSearchQueryService as UserService;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
 class SearchQueryController extends ActionController
 {
+    /**
+     * @var UserService
+     */
+    protected $userService;
+
+    /**
+     * @param UserService $userService
+     */
+    public function injectUserService(UserService $userService): void
+    {
+        $this->userService = $userService;
+    }
+
     public function listAction(): void
     {
         /** @extensionScannerIgnoreLine */
         $content = $this->configurationManager->getContentObject()->data;
+        $user = $this->userService->getUserSearchQuery();
 
         $this->view->assignMultiple([
-            'searchQuery' => true,
+            'user' => $user,
             'content' => $content
         ]);
     }

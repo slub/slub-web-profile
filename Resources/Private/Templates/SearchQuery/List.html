@@ -6,32 +6,40 @@
 
 <f:section name="Default">
     <!--TYPO3SEARCH_end-->
-	<f:if condition="{searchQuery}">
-		<f:then>
-            <f:switch expression="{settings.layout}">
-                <f:case value="1">
-                    <!--Tiles-View-->
-                    Tiles View of 'Search query list'
-                </f:case>
-                <f:case value="2">
-                    <!--Widgets-View-->
-                    Widget View of 'Search query list'
+    <f:variable name="countSearchQuery" value="{user.searchQuery -> f:count()}"/>
 
-                    <f:render
-                        partial="Widget/CloseButton"
-                        arguments="{id: content.uid}" />
-                </f:case>
-                <f:defaultCase>
-                     <!--Bookmark-Item-View-->
-                    Search query list
-                </f:defaultCase>
-            </f:switch>
-		</f:then>
-		<f:else>
-            <button type="button" class="btn-close" aria-label="Close"></button>
-			Templates/SearchQuery/List.html
-		</f:else>
-	</f:if>
-	<!--TYPO3SEARCH_begin-->
+    <f:if condition="{countSearchQuery} == 0">
+        <div class="list__no-found">
+            <f:translate key="searchQuery.default.empty" />
+        </div>
+    </f:if>
+
+    <f:if condition="{countSearchQuery} > 0 && {settings.layout} == 1">
+        <!--Default-View-->
+        Tiles View of 'Search query list'
+    </f:if>
+
+    <f:if condition="{countSearchQuery} > 0 && {settings.layout} == 2">
+        <!--Widgets-View-->
+        <f:render
+            partial="Widget/CloseButton"
+            arguments="{id: content.uid}" />
+
+        <div class="searchquerywidget">
+            <ul class="widgetlist">
+                <f:for as="searchQuery" each="{user.searchQuery}" iteration="iterator">
+                    <f:render partial="SearchQuery/Widget" arguments="{searchQueryItem: searchQuery, settings: settings, iterator: iterator}" />
+                </f:for>
+            </ul>
+
+            <f:render
+                partial="Widget/Footer"
+                arguments="{
+                    pageUid: settings.listPageUid,
+                    title: '{f:translate(key: \'searchQuery.widget.more\')}'
+                }"/>
+        </div>
+    </f:if>
+    <!--TYPO3SEARCH_begin-->
 </f:section>
 </html>

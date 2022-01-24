@@ -20,7 +20,6 @@ use TYPO3\CMS\Core\Exception;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface;
 use TYPO3\CMS\Extbase\Object\ObjectManager;
-use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 
 class ApiConfiguration
 {
@@ -43,6 +42,11 @@ class ApiConfiguration
      * @var string
      */
     protected $userDashboardUpdateUri;
+
+    /**
+     * @var string
+     */
+    protected $userSearchQueryDetailUri;
 
     /**
      * @var string
@@ -71,6 +75,7 @@ class ApiConfiguration
         $this->setUserAccountDetailUri($domain . $paths['userAccountDetail']);
         $this->setUserDashboardDetailUri($domain . $paths['userDashboardDetail']);
         $this->setUserDashboardUpdateUri($domain . $paths['userDashboardUpdate']);
+        $this->setUserSearchQueryDetailUri($domain . $paths['userSearchQueryDetail']);
         $this->setUserSearchQueryUpdateUri($domain . $paths['userSearchQueryUpdate']);
     }
 
@@ -136,6 +141,22 @@ class ApiConfiguration
     public function setUserDashboardUpdateUri($userDashboardUpdateUri = ''): void
     {
         $this->userDashboardUpdateUri = $userDashboardUpdateUri;
+    }
+
+    /**
+     * @return string
+     */
+    public function getUserSearchQueryDetailUri(): string
+    {
+        return $this->userSearchQueryDetailUri;
+    }
+
+    /**
+     * @param string $userSearchQueryDetailUri
+     */
+    public function setUserSearchQueryDetailUri($userSearchQueryDetailUri = ''): void
+    {
+        $this->userSearchQueryDetailUri = $userSearchQueryDetailUri;
     }
 
     /**

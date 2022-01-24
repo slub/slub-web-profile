@@ -44,10 +44,10 @@
 		</span>
 	</f:if>
 
-	<f:if condition="{eventItem.unsubscribeUrl}">
+	<f:if condition="{event.default.unsubscribeUrl}">
 		<div class="footerdata">
-			<a href="{eventItem.unsubscribeUrl}" class="footerdata__unsubscribe" >
-				<f:translate key="eventItem.unsubscribe"/>
+			<a href="{event.default.unsubscribeUrl}" class="footerdata__unsubscribe" >
+				<f:translate key="event.default.unsubscribe"/>
 			</a>
 		</div>
 	</f:if>
