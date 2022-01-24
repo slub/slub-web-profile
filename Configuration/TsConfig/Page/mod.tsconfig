@@ -38,14 +38,14 @@ mod {
         tt_content_defValues.CType = slubwebprofile_userdetail
       }
 
-      slubwebprofile_bookmarklist {
-        iconIdentifier = slubwebprofile-wizard-bookmarklist
-        title = LLL:EXT:slub_web_profile/Resources/Private/Language/locallang_backend.xlf:contentElement.bookmarklist.title
-        description = LLL:EXT:slub_web_profile/Resources/Private/Language/locallang_backend.xlf:contentElement.bookmarklist.description
-        tt_content_defValues.CType = slubwebprofile_bookmarklist
+      slubwebprofile_searchquerylist {
+        iconIdentifier = slubwebprofile-wizard-searchquerylist
+        title = LLL:EXT:slub_web_profile/Resources/Private/Language/locallang_backend.xlf:contentElement.searchquerylist.title
+        description = LLL:EXT:slub_web_profile/Resources/Private/Language/locallang_backend.xlf:contentElement.searchquerylist.description
+        tt_content_defValues.CType = slubwebprofile_searchquerylist
       }
     }
 
-    show := addToList(slubwebprofile_dashboard, slubwebprofile_eventfilter, slubwebprofile_eventlist, slubwebprofile_borrowinglist, slubwebprofile_bookmarklist, slubwebprofile_userdetail)
+    show := addToList(slubwebprofile_dashboard, slubwebprofile_eventfilter, slubwebprofile_eventlist, slubwebprofile_borrowinglist, slubwebprofile_searchquerylist, slubwebprofile_userdetail)
   }
 }

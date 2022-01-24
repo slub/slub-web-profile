@@ -13,7 +13,7 @@ namespace Slub\SlubWebProfile\Controller;
 
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
-class BookmarkController extends ActionController
+class SearchQueryController extends ActionController
 {
     public function listAction(): void
     {
@@ -21,7 +21,7 @@ class BookmarkController extends ActionController
         $content = $this->configurationManager->getContentObject()->data;
 
         $this->view->assignMultiple([
-            'bookmark' => true,
+            'searchQuery' => true,
             'content' => $content
         ]);
     }

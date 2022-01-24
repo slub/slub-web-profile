@@ -66,5 +66,5 @@ defined('TYPO3_MODE') || die();
     );
 })(
     'slub_web_profile',
-    'bookmarklist'
+    'searchquerylist'
 );

@@ -44,11 +44,11 @@
 				<target>Auflistung von ausgeliehenen Medien eines eingeloggten Benutzers.</target>
 			</trans-unit>
 
-			<trans-unit id="contentElement.bookmarklist.title" resname="contentElement.bookmarklist.title">
-				<source>Bookmark search terms</source>
-				<target>Lesezeichen Suchbegriffe</target>
+			<trans-unit id="contentElement.searchquerylist.title" resname="contentElement.searchquerylist.title">
+				<source>Search query list</source>
+				<target>Liste mit Suchanfragen</target>
 			</trans-unit>
-			<trans-unit id="contentElement.bookmarklist.description" resname="contentElement.bookmarklist.description">
+			<trans-unit id="contentElement.searchquerylist.description" resname="contentElement.searchquerylist.description">
 				<source>Listing of the last search queries of a logged-in user.</source>
 				<target>Auflistung der letzten Suchanfragen eines eingeloggten Benutzers.</target>
 			</trans-unit>

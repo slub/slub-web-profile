@@ -59,15 +59,15 @@ defined('TYPO3_MODE') || die();
     \TYPO3\CMS\Extbase\Utility\ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
 );
 
-// Configure plugin - bookmark list
+// Configure plugin - search query list
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
     'Slub.SlubWebProfile',
-    'BookmarkList',
+    'SearchQueryList',
     [
-        'Bookmark' => 'list'
+        'SearchQuery' => 'list'
     ],
     [
-        'Bookmark' => 'list'
+        'SearchQuery' => 'list'
     ],
     \TYPO3\CMS\Extbase\Utility\ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
 );
@@ -84,7 +84,7 @@ foreach ([
     'wizard-eventlist' => 'Wizard/event-list',
     'wizard-borrowinglist' => 'Wizard/borrowing-list',
     'wizard-userdetail' => 'Wizard/user-detail',
-    'wizard-bookmarklist' => 'Wizard/bookmark-list'
+    'wizard-searchquerylist' => 'Wizard/search-query-list'
 ] as $identifier => $path) {
     $iconRegistry->registerIcon(
         'slubwebprofile-' . $identifier,

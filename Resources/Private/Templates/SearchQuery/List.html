@@ -2,20 +2,20 @@
     xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
     data-namespace-typo3-fluid="true">
 <f:layout name="Default"/>
-<!-- Templates/Event/List.html -->
+<!-- Templates/SearchQuery/List.html -->
 
 <f:section name="Default">
     <!--TYPO3SEARCH_end-->
-	<f:if condition="{bookmark}">
+	<f:if condition="{searchQuery}">
 		<f:then>
             <f:switch expression="{settings.layout}">
                 <f:case value="1">
                     <!--Tiles-View-->
-                    Tiles View of 'Bookmark media list'
+                    Tiles View of 'Search query list'
                 </f:case>
                 <f:case value="2">
                     <!--Widgets-View-->
-                    Widget View of 'Bookmark media list'
+                    Widget View of 'Search query list'
 
                     <f:render
                         partial="Widget/CloseButton"
@@ -23,13 +23,13 @@
                 </f:case>
                 <f:defaultCase>
                      <!--Bookmark-Item-View-->
-                    Bookmark media list
+                    Search query list
                 </f:defaultCase>
             </f:switch>
 		</f:then>
 		<f:else>
             <button type="button" class="btn-close" aria-label="Close"></button>
-			Templates/Bookmark/List.html
+			Templates/SearchQuery/List.html
 		</f:else>
 	</f:if>
 	<!--TYPO3SEARCH_begin-->
