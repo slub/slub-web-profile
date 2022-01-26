@@ -1,14 +1,14 @@
 @import 'variables';
 
 .frame-type-slubwebprofile_eventlist {
-  background-color: $brightgrey;
+  background-color: $secondary-petrol-light;
   padding: 1rem 0 4rem;
   position: relative;
 
   &:before,
   &:after {
     content: '';
-    background-color: $brightgrey;
+    background-color: $secondary-petrol-light;
     width: 50%;
     left: -50%;
     position: absolute;

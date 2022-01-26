@@ -4,29 +4,33 @@
 .tiles {
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem 2rem;
+  gap: 1rem 4rem;
+  margin-top: 3.5rem;
 
   &__item {
     display: flex;
     flex-direction: column;
     margin-bottom: 1rem;
     background-color: $white;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+    font-family: 'VistaSansBook',Arial,Helvetica,sans-serif;
     padding: 1rem;
     flex: 100%;
 
     @media screen and (min-width: $tabletViewportWidth) {
-      flex: 0 47.5%;
+      flex: 0 45.5%;
     }
 
     @media screen and (min-width: $desktopViewportWidth) {
-      flex: 0 31.4%;
+      flex: 0 29.4%;
     }
   }
 
   // Title
   &__title a {
     text-decoration: none;
-    font-size: 1.2em;
+    font-size: 1em;
+    font-family: 'VistaSansBold',Arial,Helvetica,sans-serif;
   }
 
   // Category
@@ -35,10 +39,27 @@
 
     &__tag {
       margin: 0 3px 3px;
-      background-color: $lightgrey;
-      padding: .1rem .5rem;
+      font-family: 'VistaSansBold',Arial,Helvetica,sans-serif;
+      background-color: $primary-red;
+      border: 1px solid $primary-red;
+      text-transform: uppercase;
+      color: $white;
+      font-size: .8rem;
+      padding: 0 5px;
       display: inline-block;
       cursor: pointer;
+
+      &:before {
+        position: relative;
+        content: ">";
+        margin-right: 4px;
+        top: -1px;
+      }
+
+      &:hover {
+        background-color: $white;
+        color: $primary-red;
+      }
     }
   }
 
