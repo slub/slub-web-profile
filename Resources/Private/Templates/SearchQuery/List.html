@@ -6,7 +6,7 @@
 
 <f:section name="Default">
     <!--TYPO3SEARCH_end-->
-    <f:variable name="countSearchQuery" value="{user.searchQuery -> f:count()}"/>
+    <f:variable name="countSearchQuery" value="{searchQuery -> f:count()}"/>
 
     <f:if condition="{countSearchQuery} == 0">
         <div class="list__no-found">
@@ -27,8 +27,8 @@
 
         <div class="searchquerywidget">
             <ul class="widgetlist">
-                <f:for as="searchQuery" each="{user.searchQuery}" iteration="iterator">
-                    <f:render partial="SearchQuery/Widget" arguments="{searchQueryItem: searchQuery, settings: settings, iterator: iterator}" />
+                <f:for as="searchQueryItem" each="{searchQuery}" iteration="iterator">
+                    <f:render partial="SearchQuery/Widget" arguments="{searchQueryItem: searchQueryItem, settings: settings, iterator: iterator}" />
                 </f:for>
             </ul>
 

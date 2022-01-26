@@ -34,6 +34,9 @@
 			<trans-unit id="settings.detailPageUid" resname="settings.detailPageUid">
 				<source>Page with detail view</source>
 			</trans-unit>
+			<trans-unit id="settings.searchResultPageUid" resname="settings.searchResultPageUid">
+				<source>Page with search result view</source>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>

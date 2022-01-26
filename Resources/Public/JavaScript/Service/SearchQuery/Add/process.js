@@ -79,7 +79,7 @@ const getNumberOfResults = () => parseInt(submitElement.dataset.resultCount);
  * @returns []
  */
 const getQuery = async (searchType) => {
-  const search = await import(`./Types/${searchType}-search.js`)
+  const search = await import(`./Types/${searchType}-search.js`);
 
   return search.getQuery();
 }

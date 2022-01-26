@@ -44,6 +44,10 @@
 				<source>Page with detail view</source>
 				<target>Seite mit Detailansicht</target>
 			</trans-unit>
+			<trans-unit id="settings.searchResultPageUid" resname="settings.searchResultPageUid">
+				<source>Page with search result view</source>
+				<target>Seite mit Suchergebnisansicht</target>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>

@@ -20,7 +20,16 @@
                     <f:format.date format="{settings.timeFormat}">{searchQueryItem.creationDate.format}</f:format.date> <f:translate key="general.oClock"/>
                 </time>
             </span>
-            {searchQueryItem.title}
+
+            <f:link.page
+                pageUid="{settings.searchResultPageUid}"
+                additionalParams="{
+                    tx_find_find: {
+                        q: searchQueryItem.queryPrepared
+                    }
+                }">
+                {searchQueryItem.title}
+            </f:link.page>
         </div>
         <div>
             <f:if condition="{searchQueryItem.numberOfResults} == 1">
