@@ -58,10 +58,12 @@ class SearchQueryService
         $queryArray = (array)json_decode($query, true, 512, JSON_THROW_ON_ERROR);
         $queries = [];
 
-        if (count($queryArray) > 0) {
-            foreach ($queryArray as $queryItem) {
-                $queries[$queryItem['field']] = $queryItem['input'];
-            }
+        if (count($queryArray) === 0) {
+            return $queries;
+        }
+
+        foreach ($queryArray as $queryItem) {
+            $queries[$queryItem['field']] = $queryItem['input'];
         }
 
         return $queries;

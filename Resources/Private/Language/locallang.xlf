@@ -39,8 +39,35 @@
 				Search query
 			-->
 
+			<trans-unit id="searchQuery.type.simple" resname="searchQuery.type.simple">
+				<source>Simple search</source>
+			</trans-unit>
+			<trans-unit id="searchQuery.type.extended" resname="searchQuery.type.extended">
+				<source>Advanced search</source>
+			</trans-unit>
 			<trans-unit id="searchQuery.default.empty" resname="searchQuery.default.empty">
 				<source>You have no subscribed search queries.</source>
+			</trans-unit>
+			<trans-unit id="searchQuery.default.table.th.title" resname="searchQuery.default.table.th.title">
+				<source>Title</source>
+			</trans-unit>
+			<trans-unit id="searchQuery.default.table.th.results" resname="searchQuery.default.table.th.results">
+				<source>Hits</source>
+			</trans-unit>
+			<trans-unit id="searchQuery.default.table.th.date" resname="searchQuery.default.table.th.date">
+				<source>Date</source>
+			</trans-unit>
+			<trans-unit id="searchQuery.default.type" resname="searchQuery.default.type">
+				<source><![CDATA[<strong>Type:</strong> %1$s]]></source>
+			</trans-unit>
+			<trans-unit id="searchQuery.default.fields" resname="searchQuery.default.fields">
+				<source><![CDATA[<strong>Fields:</strong> %1$s]]></source>
+			</trans-unit>
+			<trans-unit id="searchQuery.default.description" resname="searchQuery.default.description">
+				<source><![CDATA[<strong>Description:</strong> %1$s]]></source>
+			</trans-unit>
+			<trans-unit id="searchQuery.default.description.empty" resname="searchQuery.default.description.empty">
+				<source>-</source>
 			</trans-unit>
 			<trans-unit id="searchQuery.widget.more" resname="searchQuery.widget.more">
 				<source>More</source>

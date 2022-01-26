@@ -1,13 +1,36 @@
 /**
+ * @type {string}
+ */
+const listSelector = '#js-search-query-list';
+
+/**
+ * @type {string}
+ */
+const addSelector = '#js-search-query-add';
+
+/**
  * @type {Element}
  */
-const addSelector = document.querySelector('#js-search-query-add');
+const addElement = document.querySelector(addSelector);
 
-if (addSelector) {
-  let initialize = await import('./Service/SearchQuery/Add/initialize.js');
-  let process = await import('./Service/SearchQuery/Add/process.js');
+/**
+ * @type {Element}
+ */
+const listElement = document.querySelector(listSelector);
 
-  initialize.showAdd();
-  initialize.listenAddButton();
-  process.listenSubmit();
+if (addElement) {
+  let addInitialize = await import('./Service/SearchQuery/Add/initialize.js');
+  let addProcess = await import('./Service/SearchQuery/Add/process.js');
+
+  addInitialize.showAdd();
+  addInitialize.listenAddButton();
+  addProcess.listenSubmit();
+}
+
+if (listElement) {
+  let listDelete = await import('./Service/SearchQuery/List/delete.js');
+  let listSelectAll = await import('./Service/SearchQuery/List/select-all.js');
+
+  listDelete.listenDelete();
+  listSelectAll.listenButton();
 }

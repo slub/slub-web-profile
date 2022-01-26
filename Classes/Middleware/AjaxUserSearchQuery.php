@@ -56,6 +56,7 @@ class AjaxUserSearchQuery implements MiddlewareInterface
         $response = $handler->handle($request);
         $userSearchQuery = (int)$request->getQueryParams()['tx_' . ConstantsUtility::EXTENSION_NAME . '_ajax']['userSearchQuery'];
         $userIdentifier = FrontendUserUtility::getIdentifier();
+        $allowedActions = ['add', 'delete'];
 
         if ($userSearchQuery === 0 || $userIdentifier === 0) {
             return $response;
@@ -63,7 +64,7 @@ class AjaxUserSearchQuery implements MiddlewareInterface
 
         $content = FileUtility::getContent();
 
-        if ($content['action'] !== 'add') {
+        if (!in_array($content['action'], $allowedActions, true)) {
             return $response;
         }
 

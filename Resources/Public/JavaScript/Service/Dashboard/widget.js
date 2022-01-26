@@ -1,3 +1,4 @@
+import * as utilityAnimation from '../../Utility/animation.js';
 import * as script from '../../Utility/script.js';
 import * as dashboardController from './controller.js';
 import * as dashboardRequest from './request.js';
@@ -121,7 +122,8 @@ export const hideWidget = (widgetId) => {
   const widget = document.querySelector(widgetSelectorId);
 
   dashboardController.toggleItem(widgetId);
-  removeWidget(widget).then();
+  utilityAnimation.removeItem(widget);
+
   updateUserProfile();
 }
 
@@ -139,22 +141,6 @@ export const addWidget = (settings) => {
     .then(() => listenCloseButton(widgetId))
     .catch(error => console.error(error));
   updateUserProfile();
-}
-
-/**
- * @param {HTMLObjectElement|Element} widget
- * @param {number} opacity
- */
-const removeWidget = async (widget, opacity= 1) => {
-  opacity === 1 && widget.setAttribute('data-removing', '1');
-  widget.style.opacity < 0 && widget.remove();
-
-  await wait(50);
-
-  opacity -= 0.1;
-  widget.style.opacity = opacity.toString();
-
-  await removeWidget(widget, opacity);
 }
 
 /**

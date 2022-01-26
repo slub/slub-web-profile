@@ -46,9 +46,49 @@
 				Search query
 			-->
 
+			<trans-unit id="searchQuery.type.simple" resname="searchQuery.type.simple">
+				<source>Simple search</source>
+				<target>Einfache Suche</target>
+			</trans-unit>
+			<trans-unit id="searchQuery.type.extended" resname="searchQuery.type.extended">
+				<source>Advanced search</source>
+				<target>Erweiterte Suche</target>
+			</trans-unit>
+			<trans-unit id="searchQuery.default.table.th.title" resname="searchQuery.default.table.th.title">
+				<source>Title</source>
+				<target>Titel</target>
+			</trans-unit>
 			<trans-unit id="searchQuery.default.empty" resname="searchQuery.default.empty">
 				<source>You have no subscribed search queries.</source>
 				<target>Sie haben keine gespeicherten Suchanfragen.</target>
+			</trans-unit>
+			<trans-unit id="searchQuery.default.table.th.title" resname="searchQuery.default.table.th.title">
+				<source>Title</source>
+				<target>Titel</target>
+			</trans-unit>
+			<trans-unit id="searchQuery.default.table.th.results" resname="searchQuery.default.table.th.results">
+				<source>Hits</source>
+				<target>Treffer</target>
+			</trans-unit>
+			<trans-unit id="searchQuery.default.table.th.date" resname="searchQuery.default.table.th.date">
+				<source>Date</source>
+				<target>Datum</target>
+			</trans-unit>
+			<trans-unit id="searchQuery.default.type" resname="searchQuery.default.type">
+				<source><![CDATA[<strong>Type:</strong> %1$s]]></source>
+				<target><![CDATA[<strong>Typ:</strong> %1$s]]></target>
+			</trans-unit>
+			<trans-unit id="searchQuery.default.fields" resname="searchQuery.default.fields">
+				<source><![CDATA[<strong>Fields:</strong> %1$s]]></source>
+				<target><![CDATA[<strong>Felder:</strong> %1$s]]></target>
+			</trans-unit>
+			<trans-unit id="searchQuery.default.description" resname="searchQuery.default.description">
+				<source><![CDATA[<strong>Description:</strong> %1$s]]></source>
+				<target><![CDATA[<strong>Beschreibung:</strong> %1$s]]></target>
+			</trans-unit>
+			<trans-unit id="searchQuery.default.description.empty" resname="searchQuery.default.description.empty">
+				<source>-</source>
+				<target>-</target>
 			</trans-unit>
 			<trans-unit id="searchQuery.widget.more" resname="searchQuery.widget.more">
 				<source><![CDATA[<strong>More</strong> search queries]]></source>

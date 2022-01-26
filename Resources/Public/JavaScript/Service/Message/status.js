@@ -1,3 +1,4 @@
+import * as utilityAnimation from '../../Utility/animation.js';
 import * as utilityLanguage from '../../Utility/language.js';
 
 /**
@@ -49,11 +50,12 @@ const bodySelector = document.querySelector('body');
 /**
  * @param {number} statusCode
  */
-export const initialize = (statusCode) => {
+export const initialize = async (statusCode) => {
   const id = `js-${elementId}-${Date.now()}`;
 
   addMessage(id, statusCode);
-  setTimeout(() => removeMessage(document.getElementById(id)), timeoutMessage);
+  await wait(timeoutMessage);
+  utilityAnimation.removeItem(document.getElementById(id));
 }
 
 /**
@@ -77,16 +79,7 @@ const addMessage = (id, statusCode) => {
 }
 
 /**
- * @param {HTMLObjectElement|Element} message
- * @param {number} opacity
+ * @param {number} milliseconds
+ * @returns {Promise<unknown>}
  */
-const removeMessage = (message, opacity= 1) => {
-  message.style.opacity < 0 && message.remove();
-
-  setTimeout(() => {
-    opacity -= 0.1;
-    message.style.opacity = opacity.toString();
-
-    removeMessage(message, opacity);
-  }, 50);
-}
+const wait = async (milliseconds) => new Promise((resolve) => setTimeout(resolve, milliseconds));

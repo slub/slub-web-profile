@@ -1,0 +1,59 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+      data-namespace-typo3-fluid="true">
+<f:comment>Partials/SearchQuery/Default.html</f:comment>
+
+<f:variable
+    name="searchType"
+    value="{f:translate(id: 'LLL:EXT:slub_web_profile/Resources/Private/Language/locallang.xlf:searchQuery.type.{searchQueryItem.type}')}"/>
+
+<f:variable name="searchFields">
+    <f:for as="query" each="{searchQueryItem.queryPrepared}" key="key" iteration="iteration"><f:if condition="{iteration.index} > 0">, </f:if><f:translate key="LLL:EXT:slub_katalog_beta/Resources/Private/Language/locallang.xml:search.fieldselector.{key}"/></f:for>
+</f:variable>
+
+<f:variable name="searchDescription">
+    <f:if condition="{searchQueryItem.description}">
+        <f:then>
+            <f:format.nl2br>{searchQueryItem.description}</f:format.nl2br>
+        </f:then>
+        <f:else>
+            <f:translate id="LLL:EXT:slub_web_profile/Resources/Private/Language/locallang.xlf:searchQuery.default.description.empty" />
+        </f:else>
+    </f:if>
+</f:variable>
+
+<tr id="js-search-query-list-item-{searchQueryItem.uid}-title">
+    <td>
+        {searchQueryItem.title}
+
+        <f:format.raw>
+            <f:translate
+                id="LLL:EXT:slub_web_profile/Resources/Private/Language/locallang.xlf:searchQuery.default.type"
+                arguments="{0: searchType}"/>
+        </f:format.raw>
+
+        <f:format.raw>
+            <f:translate
+                id="LLL:EXT:slub_web_profile/Resources/Private/Language/locallang.xlf:searchQuery.default.fields"
+                arguments="{0: searchFields}"/>
+        </f:format.raw>
+    </td>
+    <td>{searchQueryItem.numberOfResults}</td>
+    <td>
+        <time datetime="{f:format.date(date:searchQueryItem.creationDate.format, format:'Y-m-d')}">
+            <f:format.date format="{settings.dateFormat}">{searchQueryItem.creationDate.format}</f:format.date>
+        </time>
+    </td>
+    <td>
+        <input type="checkbox" class="js-search-query-list-item" name="search_query_item[]" value="{searchQueryItem.uid}"/>
+    </td>
+</tr>
+<tr id="js-search-query-list-item-{searchQueryItem.uid}-content">
+    <td colspan="4">
+        <f:format.raw>
+            <f:translate
+                id="LLL:EXT:slub_web_profile/Resources/Private/Language/locallang.xlf:searchQuery.default.description"
+                arguments="{0: searchDescription}"/>
+        </f:format.raw>
+    </td>
+</tr>
+</html>
