@@ -7,30 +7,60 @@
 <f:section name="Default">
     <!--TYPO3SEARCH_end-->
     <f:if condition="{user}">
-        <svg height="100" viewBox="0 0 100 100" width="100" xmlns="http://www.w3.org/2000/svg">
-            <g fill="#e00" transform="translate(6 1)">
-                <path d="m18 0v9.06l61.836 8.613v65.06l9.164 1.267v-74.105z"/>
-                <path d="m0 88.097 71 9.903v-74.098l-71-9.902z"/>
-            </g>
-        </svg>
-
-        <br />
-
-        <p>
-            <strong>{user.accountData.name}</strong>
-            <br />
-            {user.accountData.X_category_desc}
-        </p>
-
-        <f:if condition="{pages -> f:count()} > 0">
-            <ul>
-                <f:for as="page" each="{pages}">
-                    <li>
-                        <a href="{page.link}">{page.title}</a>
-                    </li>
-                </f:for>
-            </ul>
-        </f:if>
+        <link
+            rel="stylesheet"
+            type="text/css"
+            media="all"
+            href="/typo3conf/ext/slub_web_profile/Resources/Public/Css/userdetail.css"/>
+        <div class="userdetail">
+            <div class="userdetail__profil userprofil">
+                <p>
+                    <span class="userprofil__name">{user.accountData.name}</span>
+                    <f:if condition="{user.accountData.X_category_desc}">
+                        <span class="userprofil__desc">{user.accountData.X_category_desc}</span>
+                    </f:if>
+                </p>
+                <f:link.typolink parameter="{profilLink}">
+                    <f:if condition="{user.accountData.image}">
+                        <f:then>
+                            <img src="{user.accountData.image}" class="userprofil__image" />
+                        </f:then>
+                        <f:else>
+                            <div class="userprofil__image">
+                                <svg height="100" viewBox="0 0 100 100" width="100" xmlns="http://www.w3.org/2000/svg">
+                                    <g fill="#e00" transform="translate(6 1)">
+                                        <path d="m18 0v9.06l61.836 8.613v65.06l9.164 1.267v-74.105z"/>
+                                        <path d="m0 88.097 71 9.903v-74.098l-71-9.902z"/>
+                                    </g>
+                                </svg>
+                            </div>
+                        </f:else>
+                    </f:if>
+                </f:link.typolink>
+            </div>
+            <f:if condition="{pages -> f:count()} > 0">
+                <div class="userdetail__linklist">
+                    <script src="/typo3conf/ext/slub_web_profile/Resources/Public/JavaScript/toggle.js"></script>
+                    <button class="js-dropdown dropdown__toggle btn" type="button" aria-controls="dropdownMenu" data-bs-toggle="dropdown" aria-expanded="false">
+                        <f:if condition="{profilName}">
+                            <f:then>{profilName}</f:then>
+                            <f:else>{f:translate(key: 'userdetail.dropdown.label')}</f:else>
+                        </f:if>
+                    </button>
+                    <ul class="dropdown__menu" aria-labelledby="dropdownMenu" role="listbox" aria-activedescendant="default">
+                        <f:for as="page" each="{pages}">
+                            <li class="dropdown__item">
+                                <a class="dropdown__link" href="{page.link}">{page.title}
+                                    <f:if condition="{page.data.subtitle}">
+                                        <span>{page.data.subtitle}</span>
+                                    </f:if>
+                                </a>
+                            </li>
+                        </f:for>
+                    </ul>
+                </div>      
+            </f:if>
+        </div>
     </f:if>
     <!--TYPO3SEARCH_begin-->
 </f:section>

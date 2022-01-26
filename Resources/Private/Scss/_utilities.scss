@@ -1,3 +1,5 @@
+@import 'variables';
+
 // Basic styles
 .btn {
   display: inline-block;
@@ -25,7 +27,7 @@
     opacity: .75;
   }
 }
-
+/*
 .collapse {
   &:not(.show) {
     display: none;
@@ -36,4 +38,80 @@
   height: 0;
   overflow: hidden;
   transition: height 0.35s ease;
+}
+*/
+
+.content .dropdown {
+  
+  &__toggle {
+    background-color: $secondary-petrol-green;
+    font-family: "VistaSansBold",Verdana,Arial,Helvetica,sans-serif;
+    display: block;
+    width: 100%;
+    color: $white;
+    border-bottom: 2px solid $secondary-petrol;
+    text-transform: uppercase;
+    transition: all 0.5s;
+    text-align: left;
+
+    &:hover,
+    &.show {
+      background-color: $secondary-petrol;
+    }
+  }
+
+  &__menu {
+    list-style: none;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    min-width: calc(100% - 30px);
+    background-color: rgba($secondary-petrol, .9);
+    padding: .5rem 0;
+    position: absolute;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    margin: 0;
+    transform: translateY(-2em);
+    transform-origin: center top;
+    transition: all 0.3s ease-in-out 0s,visibility 0s linear 0.3s;
+
+    &:before {
+      position: absolute;
+      top: -10px; 
+      left: 45%;
+      width: 0;
+      height: 0;
+      border: 10px solid transparent;
+      border-top-width: 10px;
+      border-bottom-color: transparent;
+      border-top-width: 0;
+      border-bottom-color: rgba($secondary-petrol, .9);
+      content: " ";
+    }
+
+    &.show {
+      visibility: visible;
+      opacity: 1;
+      transform: translateY(20px);
+      transition-delay: 0s, 0s, 0.3s;
+    }
+  }
+
+  &__link {
+    color: $white;
+    text-decoration: none;
+    text-transform: uppercase;
+    display: block;
+    padding: .7rem 1.3rem;
+
+    &:hover {
+      color: $white;
+      background-color: $secondary-petrol-midsoft;
+    }
+
+    span {
+      display: block;
+      font-size: 9px;
+    }
+  }
 }

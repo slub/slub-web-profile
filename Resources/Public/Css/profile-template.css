@@ -1,1 +1,1 @@
-.content__dashboard{overflow:hidden}
+.content__dashboard{overflow:hidden}@media screen and (min-width: 1200px){.content__col{position:relative;width:100%;padding-right:15px;padding-left:15px}.content__col-left{-webkit-box-flex:0;-ms-flex:0 0 70%;flex:0 0 70%;max-width:70%}.content__col-right{-webkit-box-flex:0;-ms-flex:0 0 30%;flex:0 0 30%;max-width:30%}}@media screen and (min-width: 1200px){.row{display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;margin-right:-15px;margin-left:-15px}}

@@ -1,0 +1,74 @@
+@import 'variables';
+@import 'utilities';
+
+// slubwebprofile_userdetail
+.userdetail {
+  font-family: "VistaSansBold",Verdana,Arial,Helvetica,sans-serif;
+
+  &__profil {
+    text-align: right;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  &__linklist {
+
+    .dropdown__toggle {
+      &:after {
+        display: inline-block;
+        content: "";
+        background: transparent url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23fff'%3e%3cpath d='M.293.293a1 1 0 011.414 0L8 6.586 14.293.293a1 1 0 111.414 1.414L9.414 8l6.293 6.293a1 1 0 01-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 01-1.414-1.414L6.586 8 .293 1.707a1 1 0 010-1.414z'/%3e%3c/svg%3e") center/1em auto no-repeat;
+        width: 15px;
+        height: 15px;
+        position: absolute;
+        right: 23px;
+      }
+
+      &:before {
+        display: inline-block;
+        content: "";
+        background: transparent url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23fff'%3e%3cpath d='M.293.293a1 1 0 011.414 0L8 6.586 14.293.293a1 1 0 111.414 1.414L9.414 8l6.293 6.293a1 1 0 01-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 01-1.414-1.414L6.586 8 .293 1.707a1 1 0 010-1.414z'/%3e%3c/svg%3e") center/1em auto no-repeat;
+        width: 15px;
+        height: 15px;
+        margin-right: 5px;
+        margin-bottom: -2px;
+      }
+    }
+  }
+}
+
+.userprofil {
+  margin-bottom: 2rem;
+
+  &__name {
+    font-size: 1.17em;
+    color: $primary-red;
+    display: block;
+  }
+  &__desc {
+    color: $secondary-petrol;
+    text-transform: uppercase;
+    font-size: 14px;
+
+    &:before {
+      content: "> ";
+    }
+  }
+  &__image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $lightgrey;
+    border-radius: 100px;
+    text-transform: uppercase;
+    width: 50px;
+    height: 50px;
+    margin-left: 1rem;
+
+    @media screen and (min-width: $desktopViewportWidth) {
+      width: 125px;
+      height: 125px;
+    }
+  }
+}

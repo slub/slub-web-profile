@@ -51,6 +51,14 @@
 			<trans-unit id="searchQuery.widget.results" resname="searchQuery.widget.results">
 				<source>%1$s results</source>
 			</trans-unit>
+
+			<!--
+				Userdetail
+			-->
+
+			<trans-unit id="userdetail.dropdown.label" resname="userdetail.dropdown.label">
+				<source>My profile</source>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>

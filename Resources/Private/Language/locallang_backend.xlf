@@ -57,7 +57,13 @@
 				<source>SLUB Web Profile</source>
 			</trans-unit>
 			<trans-unit id="backendLayout.webProfile.description" resname="backendLayout.webProfile.description">
-				<source>One column and content left</source>
+				<source>Two columns (colpos 1,2) with large content column (colpos 0)</source>
+			</trans-unit>
+			<trans-unit id="backendLayout.column.leftcol" resname="backendLayout.column.leftcol">
+				<source>Left</source>
+			</trans-unit>
+			<trans-unit id="backendLayout.column.rightcol" resname="backendLayout.column.rightcol">
+				<source>Right (slide)</source>
 			</trans-unit>
 			<trans-unit id="backendLayout.column.content" resname="backendLayout.column.content">
 				<source>Content</source>

@@ -23,7 +23,6 @@ TCEFORM {
     subheader.types {
       slubwebprofile_dashboard.disabled = 1
       slubwebprofile_eventfilter.disabled = 1
-      slubwebprofile_userdetail.disabled = 1
     }
 
     layout.types {

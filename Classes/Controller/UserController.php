@@ -36,10 +36,14 @@ class UserController extends ActionController
         $content = $this->configurationManager->getContentObject();
         $user = $this->userService->getUserAccount();
         $pages = MenuUtility::getList($content)['menu'];
+        $profilName = $this->configurationManager->getContentObject()->data['subheader'];
+        $profilLink = $this->configurationManager->getContentObject()->data['header_link'];
 
         $this->view->assignMultiple([
             'user' => $user,
-            'pages' => $pages
+            'pages' => $pages,
+            'profilName' => $profilName,
+            'profilLink' => $profilLink
         ]);
     }
 }
