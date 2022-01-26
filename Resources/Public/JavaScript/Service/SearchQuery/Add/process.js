@@ -56,7 +56,7 @@ const addSearchQuery = async () => {
   addInitialize.hideAddResult();
 
   if (query.length === 0) {
-    messageStatus.initialize(501);
+    await messageStatus.initialize(501);
   } else {
     searchQueryRequest.addSearchQuery(searchQuery)
       .then(data => messageStatus.initialize(parseInt(data.code)))
