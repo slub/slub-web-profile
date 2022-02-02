@@ -60,9 +60,8 @@ const deleteSearchQuery = async () => {
     delete: deleteIds
   };
 
-  buttonElement.disabled = true;
-
   if (deleteIds.length > 0) {
+    buttonElement.disabled = true;
     searchQueryRequest.deleteSearchQuery(searchQuery)
       .then(data => handleResult(data, deleteIds))
       .catch(error => console.error(error));
