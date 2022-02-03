@@ -75,21 +75,38 @@
 				<target>Datum</target>
 			</trans-unit>
 			<trans-unit id="searchQuery.default.type" resname="searchQuery.default.type">
-				<source><![CDATA[<strong>Type:</strong> %1$s]]></source>
-				<target><![CDATA[<strong>Typ:</strong> %1$s]]></target>
+				<source>Type:</source>
+				<target>Typ:</target>
 			</trans-unit>
 			<trans-unit id="searchQuery.default.fields" resname="searchQuery.default.fields">
-				<source><![CDATA[<strong>Fields:</strong> %1$s]]></source>
-				<target><![CDATA[<strong>Felder:</strong> %1$s]]></target>
+				<source>Fields:</source>
+				<target>Felder:</target>
 			</trans-unit>
 			<trans-unit id="searchQuery.default.description" resname="searchQuery.default.description">
-				<source><![CDATA[<strong>Description:</strong> %1$s]]></source>
-				<target><![CDATA[<strong>Beschreibung:</strong> %1$s]]></target>
+				<source>Description:</source>
+				<target>Beschreibung:</target>
 			</trans-unit>
 			<trans-unit id="searchQuery.default.description.empty" resname="searchQuery.default.description.empty">
 				<source>-</source>
 				<target>-</target>
 			</trans-unit>
+			<trans-unit id="searchQuery.default.action.selectAll" resname="searchQuery.default.action.selectAll">
+				<source>Select all</source>
+				<target>Alles auswählen</target>
+			</trans-unit>
+			<trans-unit id="searchQuery.default.action.deselectAll" resname="searchQuery.default.action.deselectAll">
+				<source>Deselect all</source>
+				<target>Nichts auswählen</target>
+			</trans-unit>
+			<trans-unit id="searchQuery.default.action.export" resname="searchQuery.default.action.export">
+				<source>Export selected</source>
+				<target>Auswahl exportieren</target>
+			</trans-unit>
+			<trans-unit id="searchQuery.default.action.delete" resname="searchQuery.default.action.delete">
+				<source>Delete selected</source>
+				<target>Auswahl löschen</target>
+			</trans-unit>
+
 			<trans-unit id="searchQuery.widget.more" resname="searchQuery.widget.more">
 				<source><![CDATA[<strong>More</strong> search queries]]></source>
 				<target><![CDATA[<strong>Mehr</strong> Suchanfragen]]></target>

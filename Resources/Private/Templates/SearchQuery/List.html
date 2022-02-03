@@ -27,6 +27,7 @@
                             <th><f:translate id="LLL:EXT:slub_web_profile/Resources/Private/Language/locallang.xlf:searchQuery.default.table.th.results"/></th>
                             <th><f:translate id="LLL:EXT:slub_web_profile/Resources/Private/Language/locallang.xlf:searchQuery.default.table.th.date"/></th>
                             <th></th>
+                            <th></th>
                         </tr>
 
                         <f:for as="searchQueryItem" each="{searchQuery}">
@@ -40,8 +41,24 @@
                     </table>
 
                     <ul>
-                        <li><button id="js-search-query-select-all">alles auswählen</button></li>
-                        <li><button id="js-search-query-delete">auswahl löschen</button></li>
+                        <li>
+                            <button
+                                id="js-search-query-select-all"
+                                data-select="{f:translate(id: 'LLL:EXT:slub_web_profile/Resources/Private/Language/locallang.xlf:searchQuery.default.action.selectAll')}"
+                                data-deselect="{f:translate(id: 'LLL:EXT:slub_web_profile/Resources/Private/Language/locallang.xlf:searchQuery.default.action.deselectAll')}">
+                                <f:translate id="LLL:EXT:slub_web_profile/Resources/Private/Language/locallang.xlf:searchQuery.default.action.selectAll"/>
+                            </button>
+                        </li>
+                        <li>
+                            <button id="js-search-query-export">
+                                <f:translate id="LLL:EXT:slub_web_profile/Resources/Private/Language/locallang.xlf:searchQuery.default.action.export"/>
+                            </button>
+                        </li>
+                        <li>
+                            <button id="js-search-query-delete">
+                                <f:translate id="LLL:EXT:slub_web_profile/Resources/Private/Language/locallang.xlf:searchQuery.default.action.delete"/>
+                            </button>
+                        </li>
                     </ul>
                 </div>
             </f:else>

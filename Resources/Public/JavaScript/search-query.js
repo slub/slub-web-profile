@@ -29,8 +29,10 @@ if (addElement) {
 
 if (listElement) {
   let listDelete = await import('./Service/SearchQuery/List/delete.js');
+  let listExport = await import('./Service/SearchQuery/List/export.js');
   let listSelectAll = await import('./Service/SearchQuery/List/select-all.js');
 
   listDelete.listenDelete();
+  listExport.listenExport();
   listSelectAll.listenButton();
 }

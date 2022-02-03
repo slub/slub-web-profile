@@ -58,17 +58,30 @@
 				<source>Date</source>
 			</trans-unit>
 			<trans-unit id="searchQuery.default.type" resname="searchQuery.default.type">
-				<source><![CDATA[<strong>Type:</strong> %1$s]]></source>
+				<source>Type:</source>
 			</trans-unit>
 			<trans-unit id="searchQuery.default.fields" resname="searchQuery.default.fields">
-				<source><![CDATA[<strong>Fields:</strong> %1$s]]></source>
+				<source>Fields:</source>
 			</trans-unit>
 			<trans-unit id="searchQuery.default.description" resname="searchQuery.default.description">
-				<source><![CDATA[<strong>Description:</strong> %1$s]]></source>
+				<source>Description:</source>
 			</trans-unit>
 			<trans-unit id="searchQuery.default.description.empty" resname="searchQuery.default.description.empty">
 				<source>-</source>
 			</trans-unit>
+			<trans-unit id="searchQuery.default.action.selectAll" resname="searchQuery.default.action.selectAll">
+				<source>Select all</source>
+			</trans-unit>
+			<trans-unit id="searchQuery.default.action.deselectAll" resname="searchQuery.default.action.deselectAll">
+				<source>Deselect all</source>
+			</trans-unit>
+			<trans-unit id="searchQuery.default.action.export" resname="searchQuery.default.action.export">
+				<source>Export selected</source>
+			</trans-unit>
+			<trans-unit id="searchQuery.default.action.delete" resname="searchQuery.default.action.delete">
+				<source>Delete selected</source>
+			</trans-unit>
+
 			<trans-unit id="searchQuery.widget.more" resname="searchQuery.widget.more">
 				<source>More</source>
 			</trans-unit>

@@ -1,6 +1,7 @@
-import * as utilityAnimation from '../../../Utility/animation.js';
 import * as messageStatus from '../../Message/status.js';
 import * as searchQueryRequest from '../request.js';
+import * as selectAll from './select-all.js';
+import * as utilityAnimation from '../../../Utility/animation.js';
 
 /**
  * @type {string}
@@ -11,11 +12,6 @@ const buttonSelector = '#js-search-query-delete';
  * @type {string}
  */
 const itemSelector = '.js-search-query-list-item';
-
-/**
- * @type {string}
- */
-const itemCheckedSelector = '.js-search-query-list-item:checked';
 
 /**
  * @type {string}
@@ -55,7 +51,7 @@ const buttonElement = document.querySelector(buttonSelector);
 export const listenDelete = () => buttonElement.addEventListener('click', () => deleteSearchQuery());
 
 const deleteSearchQuery = async () => {
-  const deleteIds = selectedIds() ?? [];
+  const deleteIds = selectAll.selectedIds() ?? [];
   const searchQuery = {
     delete: deleteIds
   };
@@ -105,16 +101,3 @@ const removeItem = (itemId) => {
  * @returns {string}
  */
 const replaceItemId = (string, itemId) => string.replace('###itemId###', itemId.toString());
-
-/**
- * @returns {[]}
- */
-const selectedIds = () => {
-  // Has to be set here to react dynamically
-  const items = document.querySelectorAll(itemCheckedSelector);
-  let selectedIds = [];
-
-  items.forEach((item) => selectedIds.push(parseInt(item.value)));
-
-  return selectedIds;
-}
