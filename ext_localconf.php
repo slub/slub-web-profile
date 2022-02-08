@@ -72,6 +72,19 @@ defined('TYPO3_MODE') || die();
     \TYPO3\CMS\Extbase\Utility\ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
 );
 
+// Configure plugin - message list
+\TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
+    'Slub.SlubWebProfile',
+    'MessageList',
+    [
+        'Message' => 'list'
+    ],
+    [
+        'Message' => 'list'
+    ],
+    \TYPO3\CMS\Extbase\Utility\ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
+);
+
 // Register icon
 /** @var \TYPO3\CMS\Core\Imaging\IconRegistry $iconRegistry */
 $iconRegistry = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(
@@ -79,10 +92,11 @@ $iconRegistry = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(
 );
 
 foreach ([
+    'wizard-borrowinglist' => 'Wizard/borrowing-list',
     'wizard-dashboard' => 'Wizard/dashboard',
     'wizard-eventfilter' => 'Wizard/event-filter',
     'wizard-eventlist' => 'Wizard/event-list',
-    'wizard-borrowinglist' => 'Wizard/borrowing-list',
+    'wizard-messagelist' => 'Wizard/message-list',
     'wizard-userdetail' => 'Wizard/user-detail',
     'wizard-searchquerylist' => 'Wizard/search-query-list'
 ] as $identifier => $path) {

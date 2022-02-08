@@ -15,6 +15,13 @@ plugin.tx_slubwebprofile {
           1 = /en/events/user/###USER_ID###
         }
 
+        messageList {
+          # cat=SLUB Profile Service/76573002_Api/100; type=string; label=Path for message list (sys_language_uid = 0)
+          0 = /meldungen/###USER_CATEGORY###
+          # cat=SLUB Profile Service/76573002_Api/101; type=string; label=Path for message list (sys_language_uid = 1)
+          1 = /en/messages/###USER_CATEGORY###
+        }
+
         # cat=SLUB Profile Service/76573002_Api/110; type=string; label=Path for user account detail (contains: user account)
         userAccountDetail = /benutzer/###USER_ID###
         # cat=SLUB Profile Service/76573002_Api/120; type=string; label=Path for user dashboard detail (contains: user dashboard)

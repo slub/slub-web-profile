@@ -49,6 +49,13 @@
 				<source>Details of a logged in user.</source>
 			</trans-unit>
 
+			<trans-unit id="contentElement.messagelist.title" resname="contentElement.messagelist.title">
+				<source>Message list</source>
+			</trans-unit>
+			<trans-unit id="contentElement.messagelist.description" resname="contentElement.messagelist.description">
+				<source>List of messages depends on the user group.</source>
+			</trans-unit>
+
 			<trans-unit id="extensionConfiguration.apiDomain" resname="extensionConfiguration.api.domain">
 				<source>Domain: The domain has to begin with "https://" and no trailing slash.</source>
 			</trans-unit>

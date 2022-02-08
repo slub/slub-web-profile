@@ -23,10 +23,20 @@ use TYPO3\CMS\Extbase\Object\ObjectManager;
 
 class ApiConfiguration
 {
+    public const PLACEHOLDER = [
+        'userId' => '###USER_ID###',
+        'userCategory' => '###USER_CATEGORY###'
+    ];
+
     /**
      * @var string
      */
     protected $eventListUri;
+
+    /**
+     * @var string
+     */
+    protected $messageListUri;
 
     /**
      * @var string
@@ -53,25 +63,18 @@ class ApiConfiguration
      */
     protected $userSearchQueryUpdateUri;
 
-    /**
-     * @var ObjectManager
-     */
-    protected $objectManager;
-
     public function __construct()
     {
-        $this->objectManager = GeneralUtility::makeInstance(ObjectManager::class);
-
         /** @var ExtensionConfiguration $extensionConfiguration */
         $extensionConfiguration = GeneralUtility::makeInstance(ExtensionConfiguration::class);
 
         $languageUid = LanguageUtility::getUid() ?? 0;
         $domain = $extensionConfiguration->get(ConstantsUtility::EXTENSION_KEY, 'apiDomain');
-
         $settings = $this->getPluginSettings();
         $paths = $this->preparePaths($settings['api']['path']);
 
         $this->setEventListUri($domain . $paths['eventList'][$languageUid]);
+        $this->setMessageListUri($domain . $paths['messageList'][$languageUid]);
         $this->setUserAccountDetailUri($domain . $paths['userAccountDetail']);
         $this->setUserDashboardDetailUri($domain . $paths['userDashboardDetail']);
         $this->setUserDashboardUpdateUri($domain . $paths['userDashboardUpdate']);
@@ -93,6 +96,22 @@ class ApiConfiguration
     public function setEventListUri($eventListUri = ''): void
     {
         $this->eventListUri = $eventListUri;
+    }
+
+    /**
+     * @return string
+     */
+    public function getMessageListUri(): string
+    {
+        return $this->messageListUri;
+    }
+
+    /**
+     * @param string $messageListUri
+     */
+    public function setMessageListUri($messageListUri = ''): void
+    {
+        $this->messageListUri = $messageListUri;
     }
 
     /**
@@ -176,12 +195,33 @@ class ApiConfiguration
     }
 
     /**
+     * We need to have a valid user with data (not only the id) first, to get the
+     * his user category. With calling this function you update some specific uri
+     * who need more than just the user id.
+     *
+     * @param array $user
+     */
+    public function updatePaths(array $user): void
+    {
+        $this->setMessageListUri(
+            str_replace(
+                self::PLACEHOLDER['userCategory'],
+                $user['accountData']['X_category'],
+                $this->getMessageListUri()
+            )
+        );
+    }
+
+    /**
      * @return array
      */
     protected function getPluginSettings(): array
     {
+        /** @var ObjectManager $objectManager */
+        $objectManager = GeneralUtility::makeInstance(ObjectManager::class);
+
         /** @var ConfigurationManagerInterface $configurationManager */
-        $configurationManager = $this->objectManager->get(ConfigurationManagerInterface::class);
+        $configurationManager = $objectManager->get(ConfigurationManagerInterface::class);
 
         return $configurationManager->getConfiguration(
             ConfigurationManagerInterface::CONFIGURATION_TYPE_SETTINGS,
@@ -197,32 +237,18 @@ class ApiConfiguration
     protected function preparePaths(array $paths): array
     {
         $preparedPaths = [];
-        $userIdentifier = FrontendUserUtility::getIdentifier();
+        $userId = FrontendUserUtility::getIdentifier();
 
         foreach ($paths as $key => $path) {
             if (is_array($path)) {
                 foreach ($path as $pathItem) {
-                    $preparedPaths[$key][] = $this->replaceUserId($userIdentifier, $pathItem);
+                    $preparedPaths[$key][] = str_replace(self::PLACEHOLDER['userId'], $userId, $pathItem);
                 }
             } else {
-                $preparedPaths[$key] = $this->replaceUserId($userIdentifier, $path);
+                $preparedPaths[$key] = str_replace(self::PLACEHOLDER['userId'], $userId, $path);
             }
         }
 
         return $preparedPaths;
-    }
-
-    /**
-     * @param int $userId
-     * @param string $string
-     * @return string
-     */
-    protected function replaceUserId(int $userId, string $string): string
-    {
-        return str_replace(
-            ConstantsUtility::PLACEHOLDER['userId'],
-            $userId,
-            $string
-        );
     }
 }

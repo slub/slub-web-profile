@@ -44,8 +44,15 @@ mod {
         description = LLL:EXT:slub_web_profile/Resources/Private/Language/locallang_backend.xlf:contentElement.searchquerylist.description
         tt_content_defValues.CType = slubwebprofile_searchquerylist
       }
+
+      slubwebprofile_messagelist {
+        iconIdentifier = slubwebprofile-wizard-messagelist
+        title = LLL:EXT:slub_web_profile/Resources/Private/Language/locallang_backend.xlf:contentElement.messagelist.title
+        description = LLL:EXT:slub_web_profile/Resources/Private/Language/locallang_backend.xlf:contentElement.messagelist.description
+        tt_content_defValues.CType = slubwebprofile_messagelist
+      }
     }
 
-    show := addToList(slubwebprofile_dashboard, slubwebprofile_eventfilter, slubwebprofile_eventlist, slubwebprofile_borrowinglist, slubwebprofile_searchquerylist, slubwebprofile_userdetail)
+    show := addToList(slubwebprofile_dashboard, slubwebprofile_eventfilter, slubwebprofile_eventlist, slubwebprofile_borrowinglist, slubwebprofile_searchquerylist, slubwebprofile_userdetail, slubwebprofile_messagelist)
   }
 }

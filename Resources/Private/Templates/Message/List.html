@@ -1,0 +1,22 @@
+<html
+    xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+    data-namespace-typo3-fluid="true">
+<f:layout name="Default"/>
+<!-- Templates/Message/List.html -->
+
+<f:section name="Default">
+    <!--TYPO3SEARCH_end-->
+    <f:if condition="{messages -> f:count()} > 0">
+        <f:variable name="content" value="{messages.0.content}"/>
+
+        <div style="background:#e0f0f3;color:#078078;padding:1rem">
+            <p><strong>{messages.0.title}</strong></p>
+
+            <f:if condition="{content}">
+                <f:format.raw>{content}</f:format.raw>
+            </f:if>
+        </div>
+    </f:if>
+    <!--TYPO3SEARCH_begin-->
+</f:section>
+</html>

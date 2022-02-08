@@ -4,9 +4,7 @@ plugin.tx_slubwebprofile {
     throwPageNotFoundExceptionIfActionCantBeResolved = 1
   }
 
-  features {
-    skipDefaultArguments = 1
-  }
+  features.skipDefaultArguments = 1
 
   settings {
     storagePid = {$plugin.tx_slubwebprofile.settings.storagePid}
@@ -16,6 +14,11 @@ plugin.tx_slubwebprofile {
         eventList {
           0 = {$plugin.tx_slubwebprofile.settings.api.path.eventList.0}
           1 = {$plugin.tx_slubwebprofile.settings.api.path.eventList.1}
+        }
+
+        messageList {
+          0 = {$plugin.tx_slubwebprofile.settings.api.path.messageList.0}
+          1 = {$plugin.tx_slubwebprofile.settings.api.path.messageList.1}
         }
 
         userAccountDetail = {$plugin.tx_slubwebprofile.settings.api.path.userAccountDetail}

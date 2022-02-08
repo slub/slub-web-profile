@@ -7,10 +7,11 @@ TCEFORM {
     }
 
     categories.types {
+      slubwebprofile_borrowinglist.disabled = 1
       slubwebprofile_dashboard.disabled = 1
       slubwebprofile_eventfilter.disabled = 1
       slubwebprofile_eventlist.disabled = 1
-      slubwebprofile_borrowinglist.disabled = 1
+      slubwebprofile_messagelist.disabled = 1
       slubwebprofile_userdetail.disabled = 1
       slubwebprofile_searchquerylist.disabled = 1
     }
@@ -18,54 +19,61 @@ TCEFORM {
     header_link.types {
       slubwebprofile_dashboard.disabled = 1
       slubwebprofile_eventfilter.disabled = 1
+      slubwebprofile_messagelist.disabled = 1
     }
 
     subheader.types {
       slubwebprofile_dashboard.disabled = 1
       slubwebprofile_eventfilter.disabled = 1
+      slubwebprofile_messagelist.disabled = 1
     }
 
     layout.types {
+      slubwebprofile_borrowinglist.disabled = 1
       slubwebprofile_dashboard.disabled = 1
       slubwebprofile_eventfilter.disabled = 1
       slubwebprofile_eventlist.disabled = 1
-      slubwebprofile_borrowinglist.disabled = 1
+      slubwebprofile_messagelist.disabled = 1
       slubwebprofile_userdetail.disabled = 1
       slubwebprofile_searchquerylist.disabled = 1
     }
 
     frame_class.types {
+      slubwebprofile_borrowinglist.disabled = 1
       slubwebprofile_dashboard.disabled = 1
       slubwebprofile_eventfilter.disabled = 1
       slubwebprofile_eventlist.disabled = 1
-      slubwebprofile_borrowinglist.disabled = 1
+      slubwebprofile_messagelist.disabled = 1
       slubwebprofile_userdetail.disabled = 1
       slubwebprofile_searchquerylist.disabled = 1
     }
 
     space_before_class.types {
+      slubwebprofile_borrowinglist.disabled = 1
       slubwebprofile_dashboard.disabled = 1
       slubwebprofile_eventfilter.disabled = 1
       slubwebprofile_eventlist.disabled = 1
-      slubwebprofile_borrowinglist.disabled = 1
+      slubwebprofile_messagelist.disabled = 1
       slubwebprofile_userdetail.disabled = 1
       slubwebprofile_searchquerylist.disabled = 1
     }
 
     space_after_class.types {
+      slubwebprofile_borrowinglist.disabled = 1
       slubwebprofile_dashboard.disabled = 1
       slubwebprofile_eventfilter.disabled = 1
       slubwebprofile_eventlist.disabled = 1
-      slubwebprofile_borrowinglist.disabled = 1
+      slubwebprofile_messagelist.disabled = 1
       slubwebprofile_userdetail.disabled = 1
       slubwebprofile_searchquerylist.disabled = 1
     }
 
     linkToTop.types {
+      slubwebprofile_borrowinglist.disabled = 1
       slubwebprofile_dashboard.disabled = 1
       slubwebprofile_eventfilter.disabled = 1
       slubwebprofile_eventlist.disabled = 1
-      slubwebprofile_borrowinglist.disabled = 1
+      slubwebprofile_messagelist.disabled = 1
       slubwebprofile_userdetail.disabled = 1
       slubwebprofile_searchquerylist.disabled = 1
     }

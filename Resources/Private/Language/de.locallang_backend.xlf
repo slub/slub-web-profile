@@ -62,6 +62,15 @@
 				<target>Detailinformationen zu einem eingeloggten Benutzer.</target>
 			</trans-unit>
 
+			<trans-unit id="contentElement.messagelist.title" resname="contentElement.messagelist.title">
+				<source>Message list</source>
+				<target>Meldungsliste</target>
+			</trans-unit>
+			<trans-unit id="contentElement.messagelist.description" resname="contentElement.messagelist.description">
+				<source>List of messages depends on the user group.</source>
+				<target>Auflistung von Meldungen in Abhängigkeit der Benutzergruppe.</target>
+			</trans-unit>
+
 			<trans-unit id="extensionConfiguration.apiDomain" resname="extensionConfiguration.api.domain">
 				<source>Domain: The domain has to begin with "https://" and no trailing slash.</source>
 				<target>Domain: Die Domain muss mit "https://" anfangen und hat keinen Schrägstrich am Ende.</target>
