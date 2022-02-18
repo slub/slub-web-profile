@@ -24,10 +24,13 @@ $secondary-petrol-dark: darken($secondary-petrol, 7%); // A darken version of th
 $secondary-petrol-green: rgb(7, 128, 120); // The petrol color with a green tint
 $basegrey: rgb(51, 51, 51); // A very dark base grey (text color)
 $darkgrey: lighten($basegrey, 20%); // a dark grey (#666)
+$darkmidgrey: lighten($basegrey, 25%); // a dark mid grey (#737373)
 $midgrey: lighten($basegrey, 40%); // a mid grey variant (#999)
 $lightgrey: lighten($basegrey, 60%); // a light grey (#CCC)
+$lightbrightgrey: lighten($basegrey, 65%); // a light bright grey variant (#d9d9d9)
 $brightgrey: lighten($basegrey, 70%); // a light grey (#e6e6e6)
 $white: #fff;
 
 // Standard animation value
 $transition: all 0.3s ease-in-out;
+$transition-default: .25s linear 0s;
