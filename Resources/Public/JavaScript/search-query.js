@@ -28,10 +28,12 @@ if (addElement) {
 }
 
 if (listElement) {
+  let listAccordion = await import('./Service/SearchQuery/List/accordion.js');
   let listDelete = await import('./Service/SearchQuery/List/delete.js');
   let listExport = await import('./Service/SearchQuery/List/export.js');
   let listSelectAll = await import('./Service/SearchQuery/List/select-all.js');
 
+  listAccordion.listenAccordion();
   listDelete.listenDelete();
   listExport.listenExport();
   listSelectAll.listenButton();

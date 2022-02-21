@@ -16,7 +16,7 @@ const itemSelector = '.js-search-query-list-item';
 /**
  * @type {string}
  */
-const itemTitleSelector = '#js-search-query-list-item-###itemId###-title';
+const itemHeaderSelector = '#js-search-query-list-item-###itemId###-header';
 
 /**
  * @type {string}
@@ -91,7 +91,7 @@ const removeItems = (itemIds) => itemIds.forEach(async (id) => removeItem(id));
  * @param {number} itemId
  */
 const removeItem = (itemId) => {
-  utilityAnimation.removeItem(document.querySelector(replaceItemId(itemTitleSelector, itemId)));
+  utilityAnimation.removeItem(document.querySelector(replaceItemId(itemHeaderSelector, itemId)));
   utilityAnimation.removeItem(document.querySelector(replaceItemId(itemContentSelector, itemId)));
 }
 
