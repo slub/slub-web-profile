@@ -23,6 +23,9 @@ TCEFORM {
     subheader.types {
       slubwebprofile_dashboard.disabled = 1
       slubwebprofile_eventfilter.disabled = 1
+      slubwebprofile_eventlist.disabled = 1
+      slubwebprofile_borrowinglist.disabled = 1
+      slubwebprofile_searchquerylist.disabled = 1
     }
 
     layout.types {

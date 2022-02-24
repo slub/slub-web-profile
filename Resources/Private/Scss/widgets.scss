@@ -2,9 +2,43 @@
 
 // dashboard widgets inline styling for all
 .dashboard__widgets .widgets__item {
-  header>h3,
-  header>h4 {
-    margin-top: 0;
+  header {
+    margin: -3rem 0 2rem;
+
+    h3,
+    h4 {
+      font-family: 'VistaSansBold', Arial, Helvetica, sans-serif;
+      border: 1px solid $primary-red;
+      background-color: $white;
+      text-transform: uppercase;
+      color: $primary-red;
+      font-size: 1rem;
+      padding: 5px;
+      display: inline-block;
+      margin-top: 0;
+      outline: 1rem solid #fff;
+
+      a {
+        text-decoration: none;
+        background-color: $primary-red;
+        color: $white;
+        display: inline-block;
+        padding: 5px;
+        margin: -5px;
+
+        &:hover {
+          background-color: $white;
+          color: $primary-red;
+        }
+
+        &:before {
+          position: relative;
+          content: ">";
+          margin-right: 4px;
+          top: -1px;
+        }
+      }
+    }
   }
 
   .btn-close {
@@ -36,6 +70,26 @@
 
       &-day {
         font-size: 1.4rem;
+      }
+    }
+  }
+
+  // Footerlinks
+  .footerdata {
+    &__morelink {
+      text-decoration: none;
+      text-transform: uppercase;
+      font-family: 'VistaSansBook', Arial, Helvetica, sans-serif;
+      border-bottom: 1px solid;
+
+      strong {
+        font-family: 'VistaSansBold', Arial, Helvetica, sans-serif;
+      }
+
+      &:after {
+        content: "> ";
+        position: absolute;
+        margin-left: 5px;
       }
     }
   }
