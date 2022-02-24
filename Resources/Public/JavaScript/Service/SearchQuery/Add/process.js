@@ -45,7 +45,7 @@ export const listenSubmit = () => submitElement.addEventListener('click', () => 
 
 const addSearchQuery = async () => {
   const searchType = getSearchType();
-  const query = getQuery(searchType) ?? [];
+  const query = await getQuery(searchType) ?? [];
   const searchQuery = {
     type: searchType,
     query: query,

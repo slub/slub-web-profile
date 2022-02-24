@@ -1,0 +1,153 @@
+@import 'variables';
+
+.frame-type-slubwebprofile_messagelist {
+    margin: 1rem 0 7rem;
+    background-color: lighten($secondary-petrol-light, 3%);
+    border-bottom: 2px #bcd9de solid;
+    position: relative;
+
+    &:before,
+    &:after {
+        content: '';
+        background-color: lighten($secondary-petrol-light, 3%);
+        border-bottom: 2px #bcd9de solid;
+        width: 50%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+    }
+
+    &:before {
+        left: -50%;
+    }
+
+    &:after {
+        right: -50%;
+    }
+}
+
+.content {
+    .message-list {
+        position: relative;
+        color: $secondary-petrol-green;
+    }
+
+    .message-list--is-open {
+        .message-list__header {
+            &:after {
+                top: 1.8rem;
+                transform: rotate(315deg);
+
+                @media screen and (min-width: 1250px) {
+                    top: 2.25rem;
+                }
+            }
+        }
+
+        .message-list__content {
+            max-height: 100rem;
+        }
+    }
+
+    .message-list__icon {
+        transition: all $transition-default;
+        position: absolute;
+        left: 0;
+        top: 1.1rem;
+        width: 2rem;
+        height: 2rem;
+        fill: #05A09A;
+
+        @media screen and (min-width: 850px) {
+            left: -3rem;
+            top: -.9rem;
+            width: 6rem;
+            height: 6rem;
+        }
+
+        @media screen and (min-width: 1200px) {
+            left: -2.25rem;
+            top: -.1rem;
+            width: 4.5rem;
+            height: 4.5rem;
+        }
+
+        @media screen and (min-width: 1250px) {
+            left: -3.5rem;
+            top: -.9rem;
+            width: 7rem;
+            height: 7rem;
+        }
+    }
+
+    .message-list__header {
+        transition: all $transition-default;
+        position: relative;
+        font-family: 'VistaSans', Verdana, Arial, Helvetica, sans-serif;
+        font-weight: bold;
+        font-size: 1.125rem;
+        margin: 0;
+        padding: 1.25rem 2.5rem;
+        cursor: pointer;
+
+        @media screen and (min-width: 850px) {
+            padding-left: 3rem;
+        }
+
+        @media screen and (min-width: 1200px) {
+            padding-left: 2.5rem;
+        }
+
+        @media screen and (min-width: 1250px) {
+            padding: 1.75rem 2.5rem 1.75rem 3.5rem;
+        }
+
+        &:after {
+            transition: all $transition-default;
+            content: '';
+            display: block;
+            width: .7rem;
+            height: .7rem;
+            border-top: 3px $secondary-petrol-green solid;
+            border-right: 3px $secondary-petrol-green solid;
+            position: absolute;
+            top: 1.35rem;
+            right: .5rem;
+            transform: rotate(135deg);
+
+            @media screen and (min-width: 1250px) {
+                top: 1.85rem;
+            }
+        }
+
+        &:hover {
+            color: $primary-red-darker;
+
+            &:after {
+                border-color: $primary-red-darker;
+            }
+        }
+    }
+
+    .message-list__content {
+        transition: max-height $transition-default;
+        overflow: hidden;
+        max-height: 0;
+
+        @media screen and (min-width: 850px) {
+            padding-left: 3rem;
+        }
+
+        @media screen and (min-width: 1200px) {
+            padding-left: 2.5rem;
+        }
+
+        @media screen and (min-width: 1250px) {
+            padding-left: 3.5rem;
+        }
+
+        :first-child {
+            margin-top: 0;
+        }
+    }
+}
