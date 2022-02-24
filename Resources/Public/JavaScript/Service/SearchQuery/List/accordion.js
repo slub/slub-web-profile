@@ -37,6 +37,14 @@ const toggleItem = (item) => {
 
   header.classList.toggle(isOpenClass);
   content.classList.toggle(isOpenClass);
+
+  if (header.classList.contains(isOpenClass)) {
+    header.setAttribute('aria-expanded', 'true');
+    content.setAttribute('aria-hidden', 'false');
+  } else {
+    header.setAttribute('aria-expanded', 'false');
+    content.setAttribute('aria-hidden', 'true');
+  }
 }
 
 /**

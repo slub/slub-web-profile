@@ -2,7 +2,10 @@
       data-namespace-typo3-fluid="true">
 <f:comment>Partials/SearchQuery/Default.html</f:comment>
 
-<ul class="search-query-list__item search-query-list__item--header" id="js-search-query-list-item-{searchQueryItem.uid}-header">
+<ul
+    aria-expanded="false"
+    class="search-query-list__item search-query-list__item--header"
+    id="js-search-query-list-item-{searchQueryItem.uid}-header">
     <li>
         <div class="search-query-item__title js-search-query-item-title" data-id="{searchQueryItem.uid}" id="js-search-query-export-item-{searchQueryItem.uid}-title">{searchQueryItem.title}</div>
 
@@ -50,7 +53,10 @@
     </li>
 </ul>
 
-<div class="search-query-list__item search-query-list__item--content" id="js-search-query-list-item-{searchQueryItem.uid}-content">
+<div
+    aria-hidden="true"
+    class="search-query-list__item search-query-list__item--content"
+    id="js-search-query-list-item-{searchQueryItem.uid}-content">
     <ul id="js-search-query-export-item-{searchQueryItem.uid}-field">
         <f:for as="query" each="{searchQueryItem.queryPrepared}" key="key">
             <li>
