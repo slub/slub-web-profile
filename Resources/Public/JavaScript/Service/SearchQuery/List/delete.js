@@ -1,4 +1,4 @@
-import * as messageStatus from '../../Message/status.js';
+import * as apiMessageStatus from '../../ApiMessage/status.js';
 import * as searchQueryRequest from '../request.js';
 import * as selectAll from './select-all.js';
 import * as utilityAnimation from '../../../Utility/animation.js';
@@ -72,7 +72,7 @@ const handleResult = (data, selectedIds) => {
   const messageCode = parseInt(data.code);
   const itemLength = document.querySelectorAll(itemSelector).length;
 
-  messageStatus.initialize(messageCode).then();
+  apiMessageStatus.initialize(messageCode).then();
   messageCode === 200 && removeItems(selectedIds);
   buttonElement.disabled = false;
 

@@ -2,7 +2,7 @@ import * as utilityAnimation from '../../Utility/animation.js';
 import * as script from '../../Utility/script.js';
 import * as dashboardController from './controller.js';
 import * as dashboardRequest from './request.js';
-import * as messageStatus from '../Message/status.js';
+import * as apiMessageStatus from '../ApiMessage/status.js';
 
 /**
  * @type {string}
@@ -164,7 +164,7 @@ const getActiveWidgets = () => {
 
 const updateUserProfile = () => {
   dashboardRequest.updateWidgets(getPageUid(), getActiveWidgets())
-    .then(data => messageStatus.initialize(parseInt(data.code)))
+    .then(data => apiMessageStatus.initialize(parseInt(data.code)))
     .catch(error => console.error(error));
 }
 

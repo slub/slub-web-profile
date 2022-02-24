@@ -1,5 +1,5 @@
 import * as addInitialize from './initialize.js';
-import * as messageStatus from '../../Message/status.js';
+import * as apiMessageStatus from '../../ApiMessage/status.js';
 import * as searchQueryRequest from '../request.js';
 
 /**
@@ -45,7 +45,7 @@ export const listenSubmit = () => submitElement.addEventListener('click', () => 
 
 const addSearchQuery = async () => {
   const searchType = getSearchType();
-  const query = await getQuery(searchType) ?? [];
+  const query = getQuery(searchType) ?? [];
   const searchQuery = {
     type: searchType,
     query: query,
@@ -56,10 +56,10 @@ const addSearchQuery = async () => {
   addInitialize.hideAddResult();
 
   if (query.length === 0) {
-    await messageStatus.initialize(501);
+    await apiMessageStatus.initialize(501);
   } else {
     searchQueryRequest.addSearchQuery(searchQuery)
-      .then(data => messageStatus.initialize(parseInt(data.code)))
+      .then(data => apiMessageStatus.initialize(parseInt(data.code)))
       .catch(error => console.error(error));
   }
 }
