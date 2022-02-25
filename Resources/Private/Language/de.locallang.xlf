@@ -41,6 +41,10 @@
 				<source><![CDATA[<strong>More</strong> events]]></source>
 				<target><![CDATA[<strong>Mehr</strong> Veranstaltungen]]></target>
 			</trans-unit>
+			<trans-unit id="event.widget.today.label" resname="event.widget.today.label">
+				<source>Today!</source>
+				<target>Heute!</target>
+			</trans-unit>
 
 			<!--
 				Search query
@@ -118,6 +122,23 @@
 			<trans-unit id="searchQuery.widget.results" resname="searchQuery.widget.results">
 				<source>%1$s results</source>
 				<target>%1$s Ergebnisse</target>
+			</trans-unit>
+
+			<!--
+				Borrowing
+			-->
+
+			<trans-unit id="borrowing.default.empty" resname="borrowing.default.empty">
+				<source>You haven't borrowed anything yet.</source>
+				<target>Sie haben noch nix ausgeliehen.</target>
+			</trans-unit>
+			<trans-unit id="borrowing.widget.more" resname="borrowing.widget.more">
+				<source><![CDATA[<strong>More</strong> borrowing information]]></source>
+				<target><![CDATA[<strong>Mehr</strong> Ausleihinformationen]]></target>
+			</trans-unit>
+			<trans-unit id="borrowing.widget.overdue.label" resname="borrowing.widget.overdue.label">
+				<source>Overdue!</source>
+				<target>Überfällig!</target>
 			</trans-unit>
 
 			<!--

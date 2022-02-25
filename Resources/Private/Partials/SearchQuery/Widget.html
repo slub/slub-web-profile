@@ -5,32 +5,28 @@
 <f:if condition="{iterator.index} < {settings.limit}">
     <li>
         <f:comment>Date</f:comment>
-        <span class="searchquerywidget__date timedata__date">
-            <time class="timedata__date-month" datetime="{f:format.date(date:searchQueryItem.creationDate.format, format:'Y-m-d')}">
-                <f:format.date format="M">{searchQueryItem.creationDate.format}</f:format.date>
+        <div class="searchquerywidget__date timedata__date">
+            <time datetime="{f:format.date(date:searchQueryItem.creationDate.format, format:'Y-m-d')}">
+                <f:format.date format="d F Y">{searchQueryItem.creationDate.format}</f:format.date>
             </time>
-            <time class="timedata__date-day" datetime="{f:format.date(date:searchQueryItem.creationDate.format, format:'Y-m-d')}">
-                <f:format.date format="d">{searchQueryItem.creationDate.format}</f:format.date>
-            </time>
-        </span>
-
-        <div class="widgetlist__column--right">
-            <span class="searchquerywidget__time timedata__time">
-                <time datetime="{f:format.date(date:searchQueryItem.creationDate.format, format:'Y-m-d')}">
-                    <f:format.date format="{settings.timeFormat}">{searchQueryItem.creationDate.format}</f:format.date> <f:translate key="general.oClock"/>
-                </time>
-            </span>
-
-            <f:link.page
-                pageUid="{settings.searchResultPageUid}"
-                additionalParams="{
-                    tx_find_find: {
-                        q: searchQueryItem.queryPrepared
-                    }
-                }">
-                {searchQueryItem.title}
-            </f:link.page>
         </div>
+        <f:if condition="{settings.searchResultPageUid}">
+            <f:then>
+                <f:link.page
+                    pageUid="{settings.searchResultPageUid}"
+                    class="searchquerywidget__title widget__title"
+                    additionalParams="{
+                        tx_find_find: {
+                            q: searchQueryItem.queryPrepared
+                        }
+                    }">
+                    {searchQueryItem.title}
+                </f:link.page>
+            </f:then>
+            <f:else>
+                <div class="searchquerywidget__title widget__title">{searchQueryItem.title}</div>
+            </f:else>
+        </f:if>
         <div>
             <f:if condition="{searchQueryItem.numberOfResults} == 1">
                 <f:then>

@@ -88,11 +88,8 @@
             partial="Widget/CloseButton"
             arguments="{id: content.uid}" />
 
-        <f:if condition="{countSearchQuery} == 0">
+        <f:if condition="{countSearchQuery} != 0">
             <f:then>
-                <p><f:translate key="searchQuery.default.empty" /></p>
-            </f:then>
-            <f:else>
                 <div class="searchquerywidget">
                     <ul class="widgetlist">
                         <f:for as="searchQueryItem" each="{searchQuery}" iteration="iterator">
@@ -113,6 +110,14 @@
                             title: '{f:translate(key: \'searchQuery.widget.more\')}'
                         }"/>
                 </div>
+            </f:then>
+            <f:else>
+                <div class="searchquerywidget__noentry widget__noentry">
+                    <div class="widget__noentry-text">
+                       <p><f:translate key="searchQuery.default.empty" /></p>
+                    </div>
+                </div>
+                <span class="footerdata__morelink footerdata__morelink-deactive"><f:format.raw><f:translate key="event.widget.more"/></f:format.raw></span>
             </f:else>
         </f:if>
     </f:if>

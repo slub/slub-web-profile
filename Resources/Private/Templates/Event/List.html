@@ -35,25 +35,42 @@
     </f:if>
 
     <f:if condition="{countEvent} > 0 && {settings.layout} == 2">
-        <!--Widgets-View-->
-        <f:render
-            partial="Widget/CloseButton"
-            arguments="{id: content.uid}" />
-
-        <div class="eventwidget">
-            <ul class="widgetlist">
-                <f:for as="eventItem" each="{events}" iteration="iterator">
-                    <f:render partial="Event/Widget" arguments="{eventItem: eventItem, settings: settings, iterator: iterator}" />
-                </f:for>
-            </ul>
-
+        <f:then>
+            <!--Widgets-View-->
             <f:render
-                partial="Widget/Footer"
-                arguments="{
-                    pageUid: settings.listPageUid,
-                    title: '{f:translate(key: \'event.widget.more\')}'
-                }"/>
-        </div>
+                partial="Widget/CloseButton"
+                arguments="{id: content.uid}" />
+
+            <div class="eventwidget">
+                <ul class="widgetlist">
+                    <f:for as="eventItem" each="{events}" iteration="iterator">
+                        <f:render partial="Event/Widget" arguments="{eventItem: eventItem, settings: settings, iterator: iterator}" />
+                    </f:for>
+                </ul>
+
+                <f:render
+                    partial="Widget/Footer"
+                    arguments="{
+                        pageUid: settings.listPageUid,
+                        title: '{f:translate(key: \'event.widget.more\')}'
+                    }"/>
+            </div>
+        </f:then>
+        <f:else>
+            <div class="eventwidget__noentry widget__noentry">
+                <div class="widget__noentry-text">
+                    <f:if condition="{content.bodytext}">
+                        <f:then>
+                            <f:format.html>{content.bodytext}</f:format.html>
+                        </f:then>
+                        <f:else>
+                            <p><f:translate key="event.default.empty" /></p>
+                        </f:else>
+                    </f:if>    
+                </div>
+            </div>
+            <span class="footerdata__morelink footerdata__morelink-deactive"><f:format.raw><f:translate key="event.widget.more"/></f:format.raw></span>
+        </f:else>
     </f:if>
     <!--TYPO3SEARCH_begin-->
 </f:section>

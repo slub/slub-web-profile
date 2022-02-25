@@ -13,7 +13,7 @@
     margin-bottom: 1rem;
     background-color: $white;
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
-    font-family: 'VistaSansBook',Arial,Helvetica,sans-serif;
+    font-family: $VistaSansBook;
     padding: 1rem;
     flex: 100%;
 
@@ -30,7 +30,7 @@
   &__title a {
     text-decoration: none;
     font-size: 1em;
-    font-family: 'VistaSansBold',Arial,Helvetica,sans-serif;
+    font-family: $VistaSansBold;
   }
 
   // Category
@@ -39,7 +39,7 @@
 
     &__tag {
       margin: 0 3px 3px;
-      font-family: 'VistaSansBold',Arial,Helvetica,sans-serif;
+      font-family: $VistaSansBold;
       background-color: $primary-red;
       border: 1px solid $primary-red;
       text-transform: uppercase;
@@ -90,6 +90,8 @@
 
     a {
       text-decoration: none;
+      text-transform: uppercase;
+      font-family: $VistaSansBook;
     }
 
     &__unsubscribe {

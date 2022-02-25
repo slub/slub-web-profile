@@ -13,24 +13,32 @@ $tabletLandscapeViewportWidth: 1024px;
 $desktopViewportWidth: 1200px;
 
 // Colors
-$primary-red: rgb(204, 0, 0); // The SLUB red
-$primary-red-darker: darken($primary-red, 10%); // The softly darkened red
-$secondary-petrol: rgb(17, 102, 119); // The base petrol color
-$secondary-petrol-mid: lighten($secondary-petrol, 15%); // A lighten up version of the secondary color
-$secondary-petrol-midsoft: desaturate($secondary-petrol-mid, 40%); // A desaturated variant of the petrol
-$secondary-petrol-bright: desaturate(lighten($secondary-petrol, 40%), 15%); // A brightened up version of the secondary color
-$secondary-petrol-light: desaturate(lighten($secondary-petrol, 62%), 30%); // A very light color for borders and backgrounds
-$secondary-petrol-dark: darken($secondary-petrol, 7%); // A darken version of the petrol
-$secondary-petrol-green: rgb(7, 128, 120); // The petrol color with a green tint
-$basegrey: rgb(51, 51, 51); // A very dark base grey (text color)
-$darkgrey: lighten($basegrey, 20%); // a dark grey (#666)
-$darkmidgrey: lighten($basegrey, 25%); // a dark mid grey (#737373)
-$midgrey: lighten($basegrey, 40%); // a mid grey variant (#999)
-$lightgrey: lighten($basegrey, 60%); // a light grey (#CCC)
-$lightbrightgrey: lighten($basegrey, 65%); // a light bright grey variant (#d9d9d9)
-$brightgrey: lighten($basegrey, 70%); // a light grey (#e6e6e6)
+$primary-red: rgb(204, 0, 0); // The SLUB red – #c00
+$primary-red-darker: darken($primary-red, 10%); // The softly darkened red – #900
+$primary-red-light: #FF3333;
+$secondary-petrol: rgb(17, 102, 119); // The base petrol color – #167
+$secondary-petrol-mid: lighten($secondary-petrol, 15%); // A lighten up version of the secondary color – #1b9fba
+$secondary-petrol-midsoft: desaturate($secondary-petrol-mid, 40%); // A desaturated variant of the petrol – #45838f
+$secondary-petrol-bright: desaturate(lighten($secondary-petrol, 40%), 15%); // A brightened up version of the secondary color – #7cd
+$secondary-petrol-light: desaturate(lighten($secondary-petrol, 62%), 30%); // A very light color for borders and backgrounds – #d5ebef
+$secondary-petrol-dark: darken($secondary-petrol, 7%); // A darken version of the petrol – #0d4b58
+$secondary-petrol-green: rgb(7, 128, 120); // The petrol color with a green tint – #078078
+$secondary-petrol-soft: #eff7f9;
+$basegrey: rgb(51, 51, 51); // A very dark base grey (text color) – #333
+$darkgrey: lighten($basegrey, 20%); // a dark grey – #666
+$darkmidgrey: lighten($basegrey, 25%); // a dark mid grey – #737373
+$midgrey: lighten($basegrey, 40%); // a mid grey variant – #999
+$lightgrey: lighten($basegrey, 60%); // a light grey – #ccc
+$lightbrightgrey: lighten($basegrey, 65%); // a light bright grey variant – #d9d9d9
+$brightgrey: lighten($basegrey, 70%); // a light grey – #e6e6e6
 $white: #fff;
+$black: #000;
 
 // Standard animation value
 $transition: all 0.3s ease-in-out;
 $transition-default: .25s linear 0s;
+
+// Fonts
+$VistaSans: 'VistaSans', Verdana, Arial, Helvetica, sans-serif;
+$VistaSansBold: 'VistaSansBold', Arial, Helvetica, sans-serif;
+$VistaSansBook: 'VistaSansBook', Verdana, Arial, Helvetica, sans-serif

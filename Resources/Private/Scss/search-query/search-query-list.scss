@@ -1,7 +1,7 @@
 @import '../variables';
 
 .search-query-list {
-    font-family: 'VistaSansBook', Verdana, Arial, Helvetica, sans-serif;
+    font-family: $VistaSansBook;
     font-size: 1.25rem;
     overflow-x: auto;
 
@@ -54,7 +54,7 @@
     li {
         padding-bottom: .5rem;
         color: $lightgrey;
-        font-family: 'VistaSans', Verdana, Arial, Helvetica, sans-serif;
+        font-family: $VistaSans;
         font-size: .75rem;
         font-weight: bold;
         text-transform: uppercase;
