@@ -3,6 +3,9 @@
 	<file source-language="en" datatype="plaintext" original="messages" date="2012-11-01T14:46:01Z"  product-name="slub_web_profile">
 		<header/>
 		<body>
+			<trans-unit id="bodytext.nowidgetitem" resname="bodytext.nowidgetitem">
+				<source>No entries text</source>
+			</trans-unit>
 			<trans-unit id="tabs.configuration" resname="tabs.configuration">
 				<source>Configuration</source>
 			</trans-unit>

@@ -3,37 +3,41 @@
 <f:comment>Partials/Event/Widget.html</f:comment>
 
 <f:if condition="{iterator.index} < {settings.limit}">
-	<li>
+	<li {f:if(condition: '{f:format.date(date: \'now\', format: \'Y-m-d\')} > {f:format.date(date:eventItem.startDateTime.format, format:\'Y-m-d\')}', then: 'class="eventwidget__today"')}>
 		<f:comment>Date</f:comment>
-		<span class="eventwidget__date timedata__date">
-			<time class="timedata__date-month" datetime="{f:format.date(date:eventItem.startDateTime.format, format:'Y-m-d')}">
-				<f:format.date format="M">{eventItem.startDateTime.format}</f:format.date>
-			</time>
+		<div class="eventwidget__date timedata__date timedata__date-prio">
 			<time class="timedata__date-day" datetime="{f:format.date(date:eventItem.startDateTime.format, format:'Y-m-d')}">
 				<f:format.date format="d">{eventItem.startDateTime.format}</f:format.date>
 			</time>
-		</span>
 
-		<div class="widgetlist__column--right">
-			<span class="eventwidget__time timedata__time">
-				<time datetime="{f:format.date(date:eventItem.startDateTime.format, format:'Y-m-d')}">
-					<f:format.date format="{settings.timeFormat}">{eventItem.startDateTime.format}</f:format.date> <f:translate key="general.oClock"/>
+			<div class="widgetlist__column--right">
+				<time class="timedata__date-month" datetime="{f:format.date(date:eventItem.startDateTime.format, format:'Y-m-d')}">
+					<f:format.date format="F Y">{eventItem.startDateTime.format}</f:format.date>
 				</time>
-			</span>
+				<span class="eventwidget__time timedata__time">
+					<time datetime="{f:format.date(date:eventItem.startDateTime.format, format:'Y-m-d')}">
+						<f:format.date format="{settings.timeFormat}">{eventItem.startDateTime.format}</f:format.date> <f:translate key="general.oClock"/>
+					</time>
+				</span>
+			</div>
+			<f:comment>Today Label</f:comment>
+			<f:if condition="{f:format.date(date: 'now', format: 'Y-m-d')} > {f:format.date(date:eventItem.startDateTime.format, format:'Y-m-d')}">
+				<span class="eventwidget__today-label"><f:translate key="event.widget.today.label"/></span>
+			</f:if>
+		</div>
 
-			<f:comment>Header</f:comment>
-			<f:link.action
-				extensionName="SlubEvents"
-				pluginName="Eventlist"
-				controller="Event"
-				action="show"
-				pageUid="{settings.detailPageUid}"
-				arguments="{event: eventItem.uid}"
-				title="{eventItem.title}"
-				class="eventwidget__title widget__title">
-				{eventItem.title}
-			</f:link.action>
-		<div>
+		<f:comment>Header</f:comment>
+		<f:link.action
+			extensionName="SlubEvents"
+			pluginName="Eventlist"
+			controller="Event"
+			action="show"
+			pageUid="{settings.detailPageUid}"
+			arguments="{event: eventItem.uid}"
+			title="{eventItem.title}"
+			class="eventwidget__title widget__title">
+			{eventItem.title}
+		</f:link.action>
 	</li>
 </f:if>
 

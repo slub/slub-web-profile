@@ -34,6 +34,9 @@
 			<trans-unit id="event.widget.more" resname="event.widget.more">
 				<source>More</source>
 			</trans-unit>
+			<trans-unit id="event.widget.today.label" resname="event.widget.today.label">
+				<source>Today!</source>
+			</trans-unit>
 
 			<!--
 				Search query
@@ -90,6 +93,20 @@
 			</trans-unit>
 			<trans-unit id="searchQuery.widget.results" resname="searchQuery.widget.results">
 				<source>%1$s results</source>
+			</trans-unit>
+
+			<!--
+				Borrowing
+			-->
+
+			<trans-unit id="borrowing.default.empty" resname="borrowing.default.empty">
+				<source>You haven't borrowed anything yet.</source>
+			</trans-unit>
+			<trans-unit id="borrowing.widget.more" resname="borrowing.widget.more">
+				<source><![CDATA[<strong>More</strong> borrowing information]]></source>
+			</trans-unit>
+			<trans-unit id="borrowing.widget.overdue.label" resname="borrowing.widget.overdue.label">
+				<source>Overdue!</source>
 			</trans-unit>
 
 			<!--

@@ -2,36 +2,55 @@
     xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
     data-namespace-typo3-fluid="true">
 <f:layout name="Default"/>
-<!-- Templates/Event/List.html -->
+<!-- Templates/Borrowing/List.html -->
 
 <f:section name="Default">
     <!--TYPO3SEARCH_end-->
-	<f:if condition="{borrowing}">
-		<f:then>
-            <f:switch expression="{settings.layout}">
-                <f:case value="1">
-                    <!--Tiles-View-->
-                    Tiles View of 'Borrowing media list'
-                </f:case>
-                <f:case value="2">
-                    <!--Widgets-View-->
-                    Widget View of 'Borrowing media list'
+    <f:variable name="countBorrowing" value="{borrowings -> f:count()}"/>
 
-                    <f:render
-                        partial="Widget/CloseButton"
-                        arguments="{id: content.uid}" />
-                </f:case>
-                <f:defaultCase>
-                     <!--Borrowing-Item-View-->
-                    Borrowing media list
-                </f:defaultCase>
-            </f:switch>
-		</f:then>
-		<f:else>
-            <button type="button" class="btn-close" aria-label="Close"></button>
-			Templates/Borrowing/List.html
-		</f:else>
-	</f:if>
-	<!--TYPO3SEARCH_begin-->
+    <f:if condition="{countBorrowing} > 0 && {settings.layout} == 1">
+        <!--Default-View-->
+        // TODO Detail View of 'Borrowing media list'
+    </f:if>        
+        
+    <!--Widgets-View-->
+    <f:if condition="{countBorrowing} > 0 && {settings.layout} == 2">
+        <f:then>
+            <f:render
+                partial="Widget/CloseButton"
+                arguments="{id: content.uid}" />
+
+            <div class="borrowingwidget">
+                <ul class="widgetlist">
+                    <f:for as="borrowingItem" each="{borrowings}" iteration="iterator">
+                        <f:render partial="Borrowing/Widget" arguments="{borrowingItem: borrowingItem, settings: settings, iterator: iterator}" />
+                    </f:for>
+                </ul>
+
+                <f:render
+                    partial="Widget/Footer"
+                    arguments="{
+                        pageUid: settings.listPageUid,
+                        title: '{f:translate(key: \'borrowing.widget.more\')}'
+                    }"/>
+            </div>
+        </f:then>
+        <f:else>
+            <div class="borrowingwidget__noentry widget__noentry">
+                <div class="widget__noentry-text">
+                    <f:if condition="{content.bodytext}">
+                        <f:then>
+                            <f:format.html>{content.bodytext}</f:format.html>
+                        </f:then>
+                        <f:else>
+                            <p><f:translate key="borrowing.default.empty" /></p>
+                        </f:else>
+                    </f:if>    
+                </div>
+            </div>
+            <span class="footerdata__morelink footerdata__morelink-deactive"><f:format.raw><f:translate key="borrowing.widget.more"/></f:format.raw></span>
+        </f:else>
+    </f:if>
+    <!--TYPO3SEARCH_begin-->
 </f:section>
 </html>

@@ -1,0 +1,44 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+	  data-namespace-typo3-fluid="true">
+<f:comment>Partials/Borrowing/Widget.html</f:comment>
+
+<f:if condition="{iterator.index} < {settings.limit}">
+	<li {f:if(condition: '{f:format.date(date: \'now\', format: \'Y-m-d\')} > {f:format.date(date:borrowingItem.startDateTime.format, format:\'Y-m-d\')}', then: 'class="borrowingwidget__overdue"')}>
+		<f:comment>Date</f:comment>
+		<div class="borrowingwidget__date timedata__date timedata__date-prio">
+			<time class="timedata__date-day" datetime="{f:format.date(date:borrowingItem.startDateTime.format, format:'Y-m-d')}">
+				<f:format.date format="d">{borrowingItem.startDateTime.format}</f:format.date>
+			</time>
+
+			<div class="widgetlist__column--right">
+				<time class="timedata__date-month" datetime="{f:format.date(date:borrowingItem.startDateTime.format, format:'Y-m-d')}">
+					<f:format.date format="F Y">{borrowingItem.startDateTime.format}</f:format.date>
+				</time>
+				<span class="borrowingwidget__time timedata__time">
+					<time datetime="{f:format.date(date:borrowingItem.startDateTime.format, format:'Y-m-d')}">
+						<f:format.date format="{settings.timeFormat}">{borrowingItem.startDateTime.format}</f:format.date> <f:translate key="general.oClock"/>
+					</time>
+				</span>
+			</div>
+			<f:comment>Overdue Icon</f:comment>
+			<f:if condition="{f:format.date(date: 'now', format: 'Y-m-d')} > {f:format.date(date:borrowingItem.startDateTime.format, format:'Y-m-d')}">
+				<span class="borrowingwidget__overdue-icon"></span>
+			</f:if>
+		</div>
+
+		<f:comment>Header</f:comment>
+		<f:link.action
+			pageUid="{settings.detailPageUid}"
+			arguments="{borrowing: borrowingItem.uid}"
+			title="{borrowingItem.title}"
+			class="borrowingwidget__title widget__title">
+				<f:comment>Overdue Label</f:comment>
+				<f:if condition="{f:format.date(date: 'now', format: 'Y-m-d')} > {f:format.date(date:borrowingItem.startDateTime.format, format:'Y-m-d')}">
+					<span class="borrowingwidget__overdue-label"><f:translate key="borrowing.widget.overdue.label"/></span>
+				</f:if>
+				{borrowingItem.title}
+		</f:link.action>
+	</li>
+</f:if>
+
+</html>

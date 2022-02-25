@@ -24,6 +24,7 @@ defined('TYPO3_MODE') || die();
                     --div--;' . $ll['core'] . ':general,
                         --palette--;;general,
                         --palette--;;headers,
+                        bodytext;' . $ll['tca'] . ':bodytext.nowidgetitem,
                     --div--;' . $ll['tca'] . ':tabs.configuration,
                         pi_flexform,
                     --div--;' . $ll['frontend'] . ':tabs.appearance,
@@ -38,7 +39,13 @@ defined('TYPO3_MODE') || die();
                         categories,
                     --div--;' . $ll['core'] . ':notes,
                         rowDescription,
-                    --div--;' . $ll['core'] . ':extended',
+                    --div--;' . $ll['core'] . ':extended
+                ',
+                'columnsOverrides' => [
+                    'bodytext' => [
+                        'defaultExtras' => 'richtext:rte_transform[mode=ts_css]'
+                    ]
+                ]
             ]
         ],
         'columns' => [
