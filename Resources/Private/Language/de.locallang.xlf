@@ -16,6 +16,10 @@
 				<source>Personalise Dashboard</source>
 				<target>Dashboard personalisieren </target>
 			</trans-unit>
+			<trans-unit id="general.widget.closed" resname="general.widget.closed">
+				<source>Remove this field</source>
+				<target>Dieses Feld entfernen</target>
+			</trans-unit>
 
 			<!--
 				Event
@@ -110,7 +114,6 @@
 				<source>Delete selected</source>
 				<target>Auswahl löschen</target>
 			</trans-unit>
-
 			<trans-unit id="searchQuery.widget.more" resname="searchQuery.widget.more">
 				<source><![CDATA[<strong>More</strong> search queries]]></source>
 				<target><![CDATA[<strong>Mehr</strong> Suchanfragen]]></target>
@@ -139,6 +142,19 @@
 			<trans-unit id="borrowing.widget.overdue.label" resname="borrowing.widget.overdue.label">
 				<source>Overdue!</source>
 				<target>Überfällig!</target>
+			</trans-unit>
+
+			<!--
+				Bookmarks
+			-->
+
+			<trans-unit id="bookmarks.default.empty" resname="bookmarks.default.empty">
+				<source>Your bookmarks list is empty.</source>
+				<target>Ihre Merkliste ist leer.</target>
+			</trans-unit>
+			<trans-unit id="bookmarks.widget.more" resname="bookmarks.widget.more">
+				<source><![CDATA[<strong>More</strong> bookmarks]]></source>
+				<target><![CDATA[<strong>Mehr</strong> Merkbegriffe]]></target>
 			</trans-unit>
 
 			<!--

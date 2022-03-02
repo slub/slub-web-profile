@@ -3,7 +3,7 @@
 // dashboard widgets inline styling for all
 .dashboard__widgets .widgets__item {
   header {
-    margin: -3rem 0 2rem;
+    margin: -3rem 0 1rem;
 
     h3,
     h4 {
@@ -43,8 +43,10 @@
 
   .btn-close {
     position: absolute;
-    top: 1rem;
-    right: 1rem;
+    top: -1.2rem;
+    right: 1.5rem;
+    outline: .5rem solid $white;
+    z-index: 2;
   }
 
   .widgetlist {
@@ -168,8 +170,9 @@
 
 // Special design
 .dashboard__widgets .widgets__item {
-  // special widgetdesign for searchquery
-  .searchquerywidget__title {
+  // special widgetdesign for title
+  .searchquerywidget__title,
+  .bookmarkswidget__title {
     font-family: $VistaSansBold;
   }
 

@@ -37,6 +37,17 @@ const closeButtonSelector = '#js-widget-close-button-###widgetId###';
 /**
  * @type {string}
  */
+const configWidgetSelector = '#js-widgets-item-###widgetId###';
+
+/**
+ * @type {string}
+ */
+const widgetContentSelector = '#js-widget-content-###widgetId###';
+
+
+/**
+ * @type {string}
+ */
 const queryString = '?tx_slubwebprofile_ajax[tt_content]=###widgetId###';
 
 export const initialize = () => {
@@ -49,6 +60,8 @@ export const initialize = () => {
 
       loadWidget(widgetId, uri)
         .then(data => insertData(data, widgetId))
+        .then(() => addConfigBtn(widgetId))
+        .then(() => listenConfigBtn(widgetId))
         .then(() => listenCloseButton(widgetId))
         .catch(error => console.error(error));
     });
@@ -107,6 +120,66 @@ const insertWidgetContainer = (settings) => {
 /**
  * @param {number} widgetId
  */
+const addConfigBtn = (widgetId) => {
+  const id = replaceWidgetId(configWidgetSelector, widgetId);
+  const widgetHeader = document.querySelector(id).querySelector(' header');
+
+  let configBtn = document.createElement('button');
+  configBtn.classList.add('btn-config');
+  widgetHeader.appendChild(configBtn);
+}
+
+/**
+ * @param {number} widgetId
+ */
+const listenConfigBtn = (widgetId) => {
+  const id = replaceWidgetId(configWidgetSelector, widgetId);
+  const configBtn = document.querySelector(id).querySelector(' .btn-config');
+
+  configBtn.addEventListener('click', () => configModus(widgetId));
+}
+
+/**
+ * @param {number} widgetId
+ */
+export const configModus = (widgetId) => {
+  const openWidgetId = replaceWidgetId(widgetSelector, widgetId);
+  const configWidget = document.querySelector(openWidgetId);
+  configWidget.classList.add('widget-configmode');
+
+  const closeId = replaceWidgetId(closeButtonSelector, widgetId);
+  const closeButton = document.querySelector(closeId);
+  closeButton.classList.remove('d-none');
+
+  const contentId = replaceWidgetId(widgetContentSelector, widgetId);
+  const widgetContent = document.querySelector(contentId);
+  widgetContent.classList.add('widget-blurred');
+
+  const id = replaceWidgetId(configWidgetSelector, widgetId);
+  let configBtn = document.querySelector(id).querySelector(' .btn-config');
+  configBtn.addEventListener('click', () => closeConfigModus(widgetId));
+}
+
+/**
+ * @param {number} widgetId
+ */
+export const closeConfigModus = (widgetId) => {
+  const openWidgetId = replaceWidgetId(widgetSelector, widgetId);
+  const configWidget = document.querySelector(openWidgetId);
+  configWidget.classList.remove('widget-configmode');
+
+  const closeId = replaceWidgetId(closeButtonSelector, widgetId);
+  const closeButton = document.querySelector(closeId);
+  closeButton.classList.add('d-none');
+
+  const contentId = replaceWidgetId(widgetContentSelector, widgetId);
+  const widgetContent = document.querySelector(contentId);
+  widgetContent.classList.remove('widget-blurred');
+}
+
+/**
+ * @param {number} widgetId
+ */
 const listenCloseButton = (widgetId) => {
   const id = replaceWidgetId(closeButtonSelector, widgetId);
   const closeButton = document.querySelector(id);
@@ -138,6 +211,8 @@ export const addWidget = (settings) => {
   insertWidgetContainer(settings);
   loadWidget(widgetId, uri)
     .then(data => insertData(data, widgetId))
+    .then(() => addConfigBtn(widgetId))
+    .then(() => listenConfigBtn(widgetId))
     .then(() => listenCloseButton(widgetId))
     .catch(error => console.error(error));
   updateUserProfile();

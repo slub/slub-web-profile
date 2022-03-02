@@ -46,6 +46,19 @@ defined('TYPO3_MODE') || die();
     \TYPO3\CMS\Extbase\Utility\ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
 );
 
+// Configure plugin - bookmarks list
+\TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
+    'Slub.SlubWebProfile',
+    'BookmarksList',
+    [
+        'Bookmarks' => 'list'
+    ],
+    [
+        'Bookmarks' => 'list'
+    ],
+    \TYPO3\CMS\Extbase\Utility\ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
+);
+
 // Configure plugin - user detail
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
     'Slub.SlubWebProfile',
@@ -93,6 +106,7 @@ $iconRegistry = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(
 
 foreach ([
     'wizard-borrowinglist' => 'Wizard/borrowing-list',
+    'wizard-bookmarkslist' => 'Wizard/bookmarks-list',
     'wizard-dashboard' => 'Wizard/dashboard',
     'wizard-eventfilter' => 'Wizard/event-filter',
     'wizard-eventlist' => 'Wizard/event-list',

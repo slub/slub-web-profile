@@ -1,0 +1,25 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+	  data-namespace-typo3-fluid="true">
+<f:comment>Partials/Bookmarks/Widget.html</f:comment>
+
+<f:if condition="{iterator.index} < {settings.limit}">
+	<li {f:if(condition: '{f:format.date(date: \'now\', format: \'Y-m-d\')} > {f:format.date(date:bookmarksItem.startDateTime.format, format:\'Y-m-d\')}', then: 'class="bookmarkswidget__overdue"')}>
+		<f:comment>Date</f:comment>
+		<div class="bookmarkswidget__date timedata__date">
+			<time datetime="{f:format.date(date:bookmarksItem.startDateTime.format, format:'Y-m-d')}">
+				<f:format.date format="d F Y">{bookmarksItem.startDateTime.format}</f:format.date>
+			</time>
+		</div>
+
+		<f:comment>Header</f:comment>
+		<f:link.action
+			pageUid="{settings.detailPageUid}"
+			arguments="{bookmarks: bookmarksItem.uid}"
+			title="{bookmarksItem.title}"
+			class="bookmarkswidget__title widget__title">
+			{bookmarksItem.title}
+		</f:link.action>
+	</li>
+</f:if>
+
+</html>

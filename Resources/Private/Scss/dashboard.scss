@@ -53,16 +53,24 @@
     margin: 1rem .5rem;
     position: relative;
     padding: 2rem .5rem;
+    transition: all .5s;
 
     @media screen and (min-width: $tabletLandscapeViewportWidth) {
       padding: 2rem;
     }
 
-    //TODO
-    //border: 1px solid red;
-
-    &:hover {
+    &:hover,
+    &.widget-configmode {
       border: 1px solid $brightgrey;
+
+      .btn-config {
+        opacity: 1;
+      }
+    }
+
+    .btn-config {
+      opacity: 0;
+      transition: all .5s;
     }
   }
 

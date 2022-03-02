@@ -44,6 +44,15 @@
 				<target>Auflistung von ausgeliehenen Medien eines eingeloggten Benutzers.</target>
 			</trans-unit>
 
+			<trans-unit id="contentElement.bookmarkslist.title" resname="contentElement.bookmarkslist.title">
+				<source>Bookmarks</source>
+				<target>Merkliste</target>
+			</trans-unit>
+			<trans-unit id="contentElement.bookmarkslist.description" resname="contentElement.bookmarkslist.description">
+				<source>Bookmarks of a logged in user.</source>
+				<target>Merkliste eines eingeloggten Benutzers.</target>
+			</trans-unit>
+
 			<trans-unit id="contentElement.searchquerylist.title" resname="contentElement.searchquerylist.title">
 				<source>Search query list</source>
 				<target>Liste mit Suchanfragen</target>

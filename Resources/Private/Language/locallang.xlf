@@ -14,6 +14,9 @@
 			<trans-unit id="general.personalise" resname="general.personalise">
 				<source>Personalise Dashboard</source>
 			</trans-unit>
+			<trans-unit id="general.widget.closed" resname="general.widget.closed">
+				<source>Remove this field</source>
+			</trans-unit>
 
 			<!--
 				Event
@@ -84,7 +87,6 @@
 			<trans-unit id="searchQuery.default.action.delete" resname="searchQuery.default.action.delete">
 				<source>Delete selected</source>
 			</trans-unit>
-
 			<trans-unit id="searchQuery.widget.more" resname="searchQuery.widget.more">
 				<source>More</source>
 			</trans-unit>
@@ -107,6 +109,17 @@
 			</trans-unit>
 			<trans-unit id="borrowing.widget.overdue.label" resname="borrowing.widget.overdue.label">
 				<source>Overdue!</source>
+			</trans-unit>
+
+			<!--
+				Bookmarks
+			-->
+
+			<trans-unit id="bookmarks.default.empty" resname="bookmarks.default.empty">
+				<source>Your bookmarks list is empty.</source>
+			</trans-unit>
+			<trans-unit id="bookmarks.widget.more" resname="bookmarks.widget.more">
+				<source><![CDATA[<strong>More</strong> bookmarks]]></source>
 			</trans-unit>
 
 			<!--

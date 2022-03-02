@@ -1,6 +1,30 @@
 @import 'variables';
 
 // tiles styling for all
+.frame-type-slubwebprofile_eventlist,
+.frame-type-slubwebprofile_bookmarkslist,
+.frame-type-slubwebprofile_borrowinglist {
+  background-color: $secondary-petrol-light;
+  padding: 1rem 0 4rem;
+  position: relative;
+
+  &:before,
+  &:after {
+    content: '';
+    background-color: $secondary-petrol-light;
+    width: 50%;
+    left: -50%;
+    position: absolute;
+    height: 100%;
+    top: 0;
+  }
+
+  &:after {
+    right: -50%;
+    left: auto;
+  }
+}
+
 .tiles {
   display: flex;
   flex-wrap: wrap;
@@ -14,7 +38,7 @@
     background-color: $white;
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
     font-family: $VistaSansBook;
-    padding: 1rem;
+    padding: 0 1rem 1rem;
     flex: 100%;
 
     @media screen and (min-width: $tabletViewportWidth) {
@@ -35,7 +59,7 @@
 
   // Category
   .category {
-    margin: 0 -3px;
+    margin: 1rem -3px 0;
 
     &__tag {
       margin: 0 3px 3px;
@@ -66,8 +90,8 @@
   // Date and Time
   .timedata {
     display: grid;
-    font-size: 1.4rem;
-    margin: 0;
+    font-size: 1.2rem;
+    margin: 0 0 .5rem;
 
     /* Basic framework for specifications
     &__date {

@@ -35,6 +35,13 @@
 				<source>List of borrowing media of a logged in user.</source>
 			</trans-unit>
 
+			<trans-unit id="contentElement.bookmarkslist.title" resname="contentElement.bookmarkslist.title">
+				<source>Bookmarks</source>
+			</trans-unit>
+			<trans-unit id="contentElement.bookmarkslist.description" resname="contentElement.bookmarkslist.description">
+				<source>Bookmarks of a logged in user.</source>
+			</trans-unit>
+
 			<trans-unit id="contentElement.searchquerylist.title" resname="contentElement.searchquerylist.title">
 				<source>Search query list</source>
 			</trans-unit>

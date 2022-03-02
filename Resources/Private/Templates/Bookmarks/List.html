@@ -2,16 +2,16 @@
     xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
     data-namespace-typo3-fluid="true">
 <f:layout name="Default"/>
-<!-- Templates/Borrowing/List.html -->
+<!-- Templates/Bookmarks/List.html -->
 
 <f:section name="Default">
     <!--TYPO3SEARCH_end-->
-    <f:variable name="countBorrowing" value="{borrowings -> f:count()}"/>
+    <f:variable name="countBookmarks" value="{bookmarks -> f:count()}"/>
 
     <f:switch expression="{settings.layout}">
         <f:case value="1">
             <!--Default-View-->
-            <f:if condition="{countBorrowing} > 0">
+            <f:if condition="{countBookmarks} > 0">
                 <f:then>
                     <link
                         rel="stylesheet"
@@ -19,9 +19,9 @@
                         media="all"
                         href="/typo3conf/ext/slub_web_profile/Resources/Public/Css/tiles.css"/>
 
-                    <div class="borrowingtiles tiles">
-                        <f:for as="borrowingItem" each="{borrowings}" iteration="iterator">
-                            <f:render partial="Borrowing/Default" arguments="{borrowingItem: borrowingItem, settings: settings, iterator: iterator}" />
+                    <div class="bookmarkstiles tiles">
+                        <f:for as="bookmarksItem" each="{bookmarks}" iteration="iterator">
+                            <f:render partial="Bookmarks/Default" arguments="{bookmarksItem: bookmarksItem, settings: settings, iterator: iterator}" />
                         </f:for>
                     </div>
                 </f:then>
@@ -32,7 +32,7 @@
                                 <f:format.html>{content.bodytext}</f:format.html>
                             </f:then>
                             <f:else>
-                                <p><f:translate key="borrowing.default.empty" /></p>
+                                <p><f:translate key="bookmarks.default.empty" /></p>
                             </f:else>
                         </f:if>
                     </div>
@@ -41,16 +41,16 @@
         </f:case>
         <f:case value="2">
             <!--Widget-View-->
-            <f:if condition="{countBorrowing} > 0">
+            <f:if condition="{countBookmarks} > 0">
                 <f:then>
                     <f:render
                         partial="Widget/CloseButton"
                         arguments="{id: content.uid}" />
 
-                    <div id="js-widget-content-{content.uid}" class="borrowingwidget widget__content">
+                    <div id="js-widget-content-{content.uid}" class="bookmarkswidget widget__content">
                         <ul class="widgetlist">
-                            <f:for as="borrowingItem" each="{borrowings}" iteration="iterator">
-                                <f:render partial="Borrowing/Widget" arguments="{borrowingItem: borrowingItem, settings: settings, iterator: iterator}" />
+                            <f:for as="bookmarksItem" each="{bookmarks}" iteration="iterator">
+                                <f:render partial="Bookmarks/Widget" arguments="{bookmarksItem: bookmarksItem, settings: settings, iterator: iterator}" />
                             </f:for>
                         </ul>
 
@@ -58,24 +58,24 @@
                             partial="Widget/Footer"
                             arguments="{
                                 pageUid: settings.listPageUid,
-                                title: '{f:translate(key: \'borrowing.widget.more\')}'
+                                title: '{f:translate(key: \'bookmarks.widget.more\')}'
                             }"/>
                     </div>
                 </f:then>
                 <f:else>
-                    <div class="borrowingwidget__noentry widget__noentry">
+                    <div class="bookmarkswidget__noentry widget__noentry">
                         <div class="widget__noentry-text">
                             <f:if condition="{content.bodytext}">
                                 <f:then>
                                     <f:format.html>{content.bodytext}</f:format.html>
                                 </f:then>
                                 <f:else>
-                                    <p><f:translate key="borrowing.default.empty" /></p>
+                                    <p><f:translate key="bookmarks.default.empty" /></p>
                                 </f:else>
-                            </f:if>    
+                            </f:if>
                         </div>
                     </div>
-                    <span class="footerdata__morelink footerdata__morelink-deactive"><f:format.raw><f:translate key="borrowing.widget.more"/></f:format.raw></span>
+                    <span class="footerdata__morelink footerdata__morelink-deactive"><f:format.raw><f:translate key="bookmarks.widget.more"/></f:format.raw></span>
                 </f:else>
             </f:if>
         </f:case>
