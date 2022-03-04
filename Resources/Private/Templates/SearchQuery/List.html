@@ -84,12 +84,11 @@
         </f:case>
         <f:case value="2">
             <!--Widget-View-->
+            <f:render
+                partial="Widget/CloseButton"
+                arguments="{id: content.uid}" />
             <f:if condition="{countSearchQuery} > 0">
                 <f:then>
-                    <f:render
-                        partial="Widget/CloseButton"
-                        arguments="{id: content.uid}" />
-
                     <div id="js-widget-content-{content.uid}" class="searchquerywidget widget__content">
                         <ul class="widgetlist">
                             <f:for as="searchQueryItem" each="{searchQuery}" iteration="iterator">
@@ -102,7 +101,6 @@
                                     }" />
                             </f:for>
                         </ul>
-
                         <f:render
                             partial="Widget/Footer"
                             arguments="{

@@ -47,19 +47,17 @@
         </f:case>
         <f:case value="2">
             <!--Widget-View-->
+            <f:render
+                partial="Widget/CloseButton"
+                arguments="{id: content.uid}" />
             <f:if condition="{countEvent} > 0">
                 <f:then>
-                    <f:render
-                        partial="Widget/CloseButton"
-                        arguments="{id: content.uid}" />
-
                     <div id="js-widget-content-{content.uid}" class="eventwidget widget__content">
                         <ul class="widgetlist">
                             <f:for as="eventItem" each="{events}" iteration="iterator">
                                 <f:render partial="Event/Widget" arguments="{eventItem: eventItem, settings: settings, iterator: iterator}" />
                             </f:for>
                         </ul>
-
                         <f:render
                             partial="Widget/Footer"
                             arguments="{

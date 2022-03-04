@@ -41,19 +41,17 @@
         </f:case>
         <f:case value="2">
             <!--Widget-View-->
+            <f:render
+                partial="Widget/CloseButton"
+                arguments="{id: content.uid}" />
             <f:if condition="{countBorrowing} > 0">
                 <f:then>
-                    <f:render
-                        partial="Widget/CloseButton"
-                        arguments="{id: content.uid}" />
-
                     <div id="js-widget-content-{content.uid}" class="borrowingwidget widget__content">
                         <ul class="widgetlist">
                             <f:for as="borrowingItem" each="{borrowings}" iteration="iterator">
                                 <f:render partial="Borrowing/Widget" arguments="{borrowingItem: borrowingItem, settings: settings, iterator: iterator}" />
                             </f:for>
                         </ul>
-
                         <f:render
                             partial="Widget/Footer"
                             arguments="{

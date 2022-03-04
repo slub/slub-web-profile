@@ -38,7 +38,23 @@ class BookmarksController extends ActionController
             ],
             2 => [
                 'uid' => 3,
-                'title' => 'Title Merkbegriff',
+                'title' => 'Title Merklisteneintrag',
+                'startDateTime' => [
+                    'format' => '2022-12-15T00:00:00+00:00',
+                    'timestamp' => 1671062400
+                ]
+            ],
+            3 => [
+                'uid' => 4,
+                'title' => 'Merklisten-Eintrag',
+                'startDateTime' => [
+                    'format' => '2022-12-15T00:00:00+00:00',
+                    'timestamp' => 1671062400
+                ]
+            ],
+            4 => [
+                'uid' => 5,
+                'title' => 'Merkbegriff',
                 'startDateTime' => [
                     'format' => '2022-12-15T00:00:00+00:00',
                     'timestamp' => 1671062400

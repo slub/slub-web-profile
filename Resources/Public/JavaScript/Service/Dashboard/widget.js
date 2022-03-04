@@ -32,7 +32,7 @@ const widgetSelector = '#js-widgets-item-###widgetId###'
 /**
  * @type {string}
  */
-const closeButtonSelector = '#js-widget-close-button-###widgetId###';
+const closeButtonSelector = '#js-widget-btn-close-###widgetId###';
 
 /**
  * @type {string}
@@ -122,7 +122,7 @@ const insertWidgetContainer = (settings) => {
  */
 const addConfigBtn = (widgetId) => {
   const id = replaceWidgetId(configWidgetSelector, widgetId);
-  const widgetHeader = document.querySelector(id).querySelector(' header');
+  const widgetHeader = document.querySelector(id + ' header');
 
   let configBtn = document.createElement('button');
   configBtn.classList.add('btn-config');
@@ -134,47 +134,26 @@ const addConfigBtn = (widgetId) => {
  */
 const listenConfigBtn = (widgetId) => {
   const id = replaceWidgetId(configWidgetSelector, widgetId);
-  const configBtn = document.querySelector(id).querySelector(' .btn-config');
+  const configBtn = document.querySelector(id + ' .btn-config');
 
-  configBtn.addEventListener('click', () => configModus(widgetId));
+  configBtn.addEventListener('click', () => toggleConfigModus(widgetId));
 }
 
 /**
  * @param {number} widgetId
  */
-export const configModus = (widgetId) => {
+const toggleConfigModus = (widgetId) => {
   const openWidgetId = replaceWidgetId(widgetSelector, widgetId);
   const configWidget = document.querySelector(openWidgetId);
-  configWidget.classList.add('widget-configmode');
+  configWidget.classList.toggle('widget-configmode');
 
   const closeId = replaceWidgetId(closeButtonSelector, widgetId);
   const closeButton = document.querySelector(closeId);
-  closeButton.classList.remove('d-none');
+  closeButton.classList.toggle('d-none');
 
   const contentId = replaceWidgetId(widgetContentSelector, widgetId);
   const widgetContent = document.querySelector(contentId);
-  widgetContent.classList.add('widget-blurred');
-
-  const id = replaceWidgetId(configWidgetSelector, widgetId);
-  let configBtn = document.querySelector(id).querySelector(' .btn-config');
-  configBtn.addEventListener('click', () => closeConfigModus(widgetId));
-}
-
-/**
- * @param {number} widgetId
- */
-export const closeConfigModus = (widgetId) => {
-  const openWidgetId = replaceWidgetId(widgetSelector, widgetId);
-  const configWidget = document.querySelector(openWidgetId);
-  configWidget.classList.remove('widget-configmode');
-
-  const closeId = replaceWidgetId(closeButtonSelector, widgetId);
-  const closeButton = document.querySelector(closeId);
-  closeButton.classList.add('d-none');
-
-  const contentId = replaceWidgetId(widgetContentSelector, widgetId);
-  const widgetContent = document.querySelector(contentId);
-  widgetContent.classList.remove('widget-blurred');
+  widgetContent.classList.toggle('widget-blurred');
 }
 
 /**

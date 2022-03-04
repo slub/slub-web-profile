@@ -154,7 +154,7 @@
 			</trans-unit>
 			<trans-unit id="bookmarks.widget.more" resname="bookmarks.widget.more">
 				<source><![CDATA[<strong>More</strong> bookmarks]]></source>
-				<target><![CDATA[<strong>Mehr</strong> Merkbegriffe]]></target>
+				<target><![CDATA[<strong>Mehr</strong> Merklisten-Einträge]]></target>
 			</trans-unit>
 
 			<!--
