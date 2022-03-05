@@ -35,10 +35,17 @@
 				<source>List of borrowing media of a logged in user.</source>
 			</trans-unit>
 
-			<trans-unit id="contentElement.bookmarklist.title" resname="contentElement.bookmarklist.title">
-				<source>Bookmark search terms</source>
+			<trans-unit id="contentElement.bookmarkslist.title" resname="contentElement.bookmarkslist.title">
+				<source>Bookmarks</source>
 			</trans-unit>
-			<trans-unit id="contentElement.bookmarklist.description" resname="contentElement.bookmarklist.description">
+			<trans-unit id="contentElement.bookmarkslist.description" resname="contentElement.bookmarkslist.description">
+				<source>Bookmarks of a logged in user.</source>
+			</trans-unit>
+
+			<trans-unit id="contentElement.searchquerylist.title" resname="contentElement.searchquerylist.title">
+				<source>Search query list</source>
+			</trans-unit>
+			<trans-unit id="contentElement.searchquerylist.description" resname="contentElement.searchquerylist.description">
 				<source>Listing of the last search queries of a logged-in user.</source>
 			</trans-unit>
 
@@ -49,6 +56,13 @@
 				<source>Details of a logged in user.</source>
 			</trans-unit>
 
+			<trans-unit id="contentElement.messagelist.title" resname="contentElement.messagelist.title">
+				<source>Message list</source>
+			</trans-unit>
+			<trans-unit id="contentElement.messagelist.description" resname="contentElement.messagelist.description">
+				<source>List of messages depends on the user group.</source>
+			</trans-unit>
+
 			<trans-unit id="extensionConfiguration.apiDomain" resname="extensionConfiguration.api.domain">
 				<source>Domain: The domain has to begin with "https://" and no trailing slash.</source>
 			</trans-unit>
@@ -57,7 +71,13 @@
 				<source>SLUB Web Profile</source>
 			</trans-unit>
 			<trans-unit id="backendLayout.webProfile.description" resname="backendLayout.webProfile.description">
-				<source>One column and content left</source>
+				<source>Two columns (colpos 1,2) with large content column (colpos 0)</source>
+			</trans-unit>
+			<trans-unit id="backendLayout.column.leftcol" resname="backendLayout.column.leftcol">
+				<source>Left</source>
+			</trans-unit>
+			<trans-unit id="backendLayout.column.rightcol" resname="backendLayout.column.rightcol">
+				<source>Right (slide)</source>
 			</trans-unit>
 			<trans-unit id="backendLayout.column.content" resname="backendLayout.column.content">
 				<source>Content</source>

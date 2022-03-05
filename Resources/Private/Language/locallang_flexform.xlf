@@ -14,7 +14,7 @@
 				<source>Layout</source>
 			</trans-unit>
 			<trans-unit id="settings.layout.1" resname="settings.layout.1">
-				<source>Tiles</source>
+				<source>Default</source>
 			</trans-unit>
 			<trans-unit id="settings.layout.2" resname="settings.layout.2">
 				<source>Widget</source>
@@ -33,6 +33,9 @@
 			</trans-unit>
 			<trans-unit id="settings.detailPageUid" resname="settings.detailPageUid">
 				<source>Page with detail view</source>
+			</trans-unit>
+			<trans-unit id="settings.searchResultPageUid" resname="settings.searchResultPageUid">
+				<source>Page with search result view</source>
 			</trans-unit>
 		</body>
 	</file>

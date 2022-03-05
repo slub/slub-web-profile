@@ -14,17 +14,27 @@
             <div class="fullwidth-page" role="main">
                 <f:cObject typoscriptObjectPath="lib.menu.rootline"/>
                 <!--TYPO3SEARCH_begin-->
-                <f:if condition="{data.subtitle}">
-                    <f:then>
-                        <h2>{data.subtitle}</h2>
-                    </f:then>
-                    <f:else>
-                        <h2>{data.title}</h2>
-                    </f:else>
-                </f:if>
-                <f:if condition="{data.abstract}">
-                    <div class="intro-text">{data.abstract -> f:format.html()}</div>
-                </f:if>
+                <div class="row">
+                    <div class="{f:if(condition: rightCol, then: 'content__col content__col-left', else: 'content__col-head')}">
+                        <f:if condition="{data.subtitle}">
+                            <f:then>
+                                <h2>{data.subtitle}</h2>
+                            </f:then>
+                            <f:else>
+                                <h2>{data.title}</h2>
+                            </f:else>
+                        </f:if>
+                        <f:if condition="{data.abstract}">
+                            <div class="intro-text">{data.abstract -> f:format.html()}</div>
+                        </f:if>
+                        <f:format.raw>{leftCol}</f:format.raw>
+                    </div>
+                    <f:if condition="{rightCol}">
+                        <div class="content__col content__col-right">
+                            <f:format.raw>{rightCol}</f:format.raw>
+                        </div>
+                    </f:if>
+                </div>
                 <f:cObject typoscriptObjectPath="lib.dynamicContent" data="0"/>
                 <!-- TYPO3SEARCH_end -->
             </div>

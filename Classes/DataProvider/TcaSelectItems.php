@@ -11,22 +11,32 @@ declare(strict_types=1);
 
 namespace Slub\SlubWebProfile\DataProvider;
 
-use Slub\SlubWebProfile\Utility\ConstantsUtility;
-use TYPO3\CMS\Backend\Utility\BackendUtility;
+use Slub\SlubWebProfile\Service\WidgetService;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Extbase\Object\ObjectManager;
 
 class TcaSelectItems
 {
+    /**
+     * @var WidgetService
+     */
+    protected $widgetService;
+
+    public function __construct()
+    {
+        /** @var ObjectManager $objectManager */
+        $objectManager = GeneralUtility::makeInstance(ObjectManager::class);
+
+        $this->widgetService = $objectManager->get(WidgetService::class);
+    }
+
     /**
      * @param array $config
      */
     public function getDashboardCTypes(array &$config): void
     {
-        $allowedCTypes = $this->getAllowedCTypes(
-            $config,
-            ConstantsUtility::EXTENSION_NAME . '_dashboard',
-            'tt_content'
-        );
+        $pageUid = $this->getPageUid($config);
+        $allowedCTypes = $this->widgetService->getAllowedWidgets($pageUid);
 
         if (count($allowedCTypes) > 0) {
             /** @var array $item */
@@ -36,26 +46,6 @@ class TcaSelectItems
                 }
             }
         }
-    }
-
-    /**
-     * @param array $config
-     * @param string $contentElement
-     * @param string $column
-     * @return array
-     */
-    protected function getAllowedCTypes(
-        array $config,
-        string $contentElement,
-        string $column
-    ): array {
-        $pageUid = $this->getPageUid($config);
-        $pageTsConfig = BackendUtility::getPagesTSconfig($pageUid);
-
-        return GeneralUtility::trimExplode(
-            ',',
-            $pageTsConfig['TCEFORM.']['tt_content.']['CType.']['types.'][$contentElement . '.'][$column . '.']['allowed']
-        );
     }
 
     /**

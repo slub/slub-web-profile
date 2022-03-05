@@ -46,6 +46,19 @@ defined('TYPO3_MODE') || die();
     \TYPO3\CMS\Extbase\Utility\ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
 );
 
+// Configure plugin - bookmarks list
+\TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
+    'Slub.SlubWebProfile',
+    'BookmarksList',
+    [
+        'Bookmarks' => 'list'
+    ],
+    [
+        'Bookmarks' => 'list'
+    ],
+    \TYPO3\CMS\Extbase\Utility\ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
+);
+
 // Configure plugin - user detail
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
     'Slub.SlubWebProfile',
@@ -59,15 +72,28 @@ defined('TYPO3_MODE') || die();
     \TYPO3\CMS\Extbase\Utility\ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
 );
 
-// Configure plugin - bookmark list
+// Configure plugin - search query list
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
     'Slub.SlubWebProfile',
-    'BookmarkList',
+    'SearchQueryList',
     [
-        'Bookmark' => 'list'
+        'SearchQuery' => 'list'
     ],
     [
-        'Bookmark' => 'list'
+        'SearchQuery' => 'list'
+    ],
+    \TYPO3\CMS\Extbase\Utility\ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
+);
+
+// Configure plugin - message list
+\TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
+    'Slub.SlubWebProfile',
+    'MessageList',
+    [
+        'Message' => 'list'
+    ],
+    [
+        'Message' => 'list'
     ],
     \TYPO3\CMS\Extbase\Utility\ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
 );
@@ -79,12 +105,14 @@ $iconRegistry = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(
 );
 
 foreach ([
+    'wizard-borrowinglist' => 'Wizard/borrowing-list',
+    'wizard-bookmarkslist' => 'Wizard/bookmarks-list',
     'wizard-dashboard' => 'Wizard/dashboard',
     'wizard-eventfilter' => 'Wizard/event-filter',
     'wizard-eventlist' => 'Wizard/event-list',
-    'wizard-borrowinglist' => 'Wizard/borrowing-list',
+    'wizard-messagelist' => 'Wizard/message-list',
     'wizard-userdetail' => 'Wizard/user-detail',
-    'wizard-bookmarklist' => 'Wizard/bookmark-list'
+    'wizard-searchquerylist' => 'Wizard/search-query-list'
 ] as $identifier => $path) {
     $iconRegistry->registerIcon(
         'slubwebprofile-' . $identifier,

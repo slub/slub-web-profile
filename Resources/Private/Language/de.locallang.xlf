@@ -3,6 +3,11 @@
 	<file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2012-11-01T14:46:01Z"  product-name="slub_web_profile">
 		<header/>
 		<body>
+
+			<!--
+				General
+			-->
+
 			<trans-unit id="general.oClock" resname="general.oClock">
 				<source>o'clock</source>
 				<target>Uhr</target>
@@ -11,11 +16,14 @@
 				<source>Personalise Dashboard</source>
 				<target>Dashboard personalisieren </target>
 			</trans-unit>
-
-			<trans-unit id="eventItem.default.noEvents" resname="eventItem.default.noEvents">
-				<source>You have no subscribed events.</source>
-				<target>Sie haben keine gebuchten Veranstaltungen.</target>
+			<trans-unit id="general.widget.closed" resname="general.widget.closed">
+				<source>Remove this field</source>
+				<target>Dieses Feld entfernen</target>
 			</trans-unit>
+
+			<!--
+				Event
+			-->
 
 			<trans-unit id="event.filter.label" resname="event.filter.label">
 				<source>Filter by event type</source>
@@ -25,17 +33,137 @@
 				<source>All</source>
 				<target>Alle</target>
 			</trans-unit>
-			<trans-unit id="eventItem.teaser.more" resname="eventItem.teaser.more">
-				<source>More</source>
-				<target>Mehr</target>
+			<trans-unit id="event.default.empty" resname="event.default.empty">
+				<source>You have no subscribed events.</source>
+				<target>Sie haben keine gebuchten Veranstaltungen.</target>
 			</trans-unit>
-			<trans-unit id="event.teaser.noEvents" resname="event.teaser.noEvents">
-				<source>No subscribed events.</source>
-				<target>Keine gebuchten Veranstaltungen.</target>
-			</trans-unit>
-			<trans-unit id="eventItem.unsubscribe" resname="eventItem.unsubscribe">
+			<trans-unit id="event.default.unsubscribe" resname="event.default.unsubscribe">
 				<source>Unsubscribe from the event</source>
 				<target>Von Veranstaltung abmelden</target>
+			</trans-unit>
+			<trans-unit id="event.widget.more" resname="event.widget.more">
+				<source><![CDATA[<strong>More</strong> events]]></source>
+				<target><![CDATA[<strong>Mehr</strong> Veranstaltungen]]></target>
+			</trans-unit>
+			<trans-unit id="event.widget.today.label" resname="event.widget.today.label">
+				<source>Today!</source>
+				<target>Heute!</target>
+			</trans-unit>
+
+			<!--
+				Search query
+			-->
+
+			<trans-unit id="searchQuery.type.simple" resname="searchQuery.type.simple">
+				<source>Simple search</source>
+				<target>Einfache Suche</target>
+			</trans-unit>
+			<trans-unit id="searchQuery.type.extended" resname="searchQuery.type.extended">
+				<source>Advanced search</source>
+				<target>Erweiterte Suche</target>
+			</trans-unit>
+			<trans-unit id="searchQuery.default.table.th.title" resname="searchQuery.default.table.th.title">
+				<source>Title</source>
+				<target>Titel</target>
+			</trans-unit>
+			<trans-unit id="searchQuery.default.empty" resname="searchQuery.default.empty">
+				<source>You have no subscribed search queries.</source>
+				<target>Sie haben keine gespeicherten Suchanfragen.</target>
+			</trans-unit>
+			<trans-unit id="searchQuery.default.table.th.title" resname="searchQuery.default.table.th.title">
+				<source>Title</source>
+				<target>Titel</target>
+			</trans-unit>
+			<trans-unit id="searchQuery.default.table.th.results" resname="searchQuery.default.table.th.results">
+				<source>Hits</source>
+				<target>Treffer</target>
+			</trans-unit>
+			<trans-unit id="searchQuery.default.table.th.date" resname="searchQuery.default.table.th.date">
+				<source>Date</source>
+				<target>Datum</target>
+			</trans-unit>
+			<trans-unit id="searchQuery.default.type" resname="searchQuery.default.type">
+				<source>Type:</source>
+				<target>Typ:</target>
+			</trans-unit>
+			<trans-unit id="searchQuery.default.fields" resname="searchQuery.default.fields">
+				<source>Fields:</source>
+				<target>Felder:</target>
+			</trans-unit>
+			<trans-unit id="searchQuery.default.description" resname="searchQuery.default.description">
+				<source>Description:</source>
+				<target>Beschreibung:</target>
+			</trans-unit>
+			<trans-unit id="searchQuery.default.description.empty" resname="searchQuery.default.description.empty">
+				<source>-</source>
+				<target>-</target>
+			</trans-unit>
+			<trans-unit id="searchQuery.default.action.selectAll" resname="searchQuery.default.action.selectAll">
+				<source>Select all</source>
+				<target>Alles auswählen</target>
+			</trans-unit>
+			<trans-unit id="searchQuery.default.action.deselectAll" resname="searchQuery.default.action.deselectAll">
+				<source>Deselect all</source>
+				<target>Nichts auswählen</target>
+			</trans-unit>
+			<trans-unit id="searchQuery.default.action.export" resname="searchQuery.default.action.export">
+				<source>Export selected</source>
+				<target>Auswahl exportieren</target>
+			</trans-unit>
+			<trans-unit id="searchQuery.default.action.delete" resname="searchQuery.default.action.delete">
+				<source>Delete selected</source>
+				<target>Auswahl löschen</target>
+			</trans-unit>
+			<trans-unit id="searchQuery.widget.more" resname="searchQuery.widget.more">
+				<source><![CDATA[<strong>More</strong> search queries]]></source>
+				<target><![CDATA[<strong>Mehr</strong> Suchanfragen]]></target>
+			</trans-unit>
+			<trans-unit id="searchQuery.widget.result" resname="searchQuery.widget.result">
+				<source>%1$s result</source>
+				<target>%1$s Ergebnis</target>
+			</trans-unit>
+			<trans-unit id="searchQuery.widget.results" resname="searchQuery.widget.results">
+				<source>%1$s results</source>
+				<target>%1$s Ergebnisse</target>
+			</trans-unit>
+
+			<!--
+				Borrowing
+			-->
+
+			<trans-unit id="borrowing.default.empty" resname="borrowing.default.empty">
+				<source>You haven't borrowed anything yet.</source>
+				<target>Sie haben noch nix ausgeliehen.</target>
+			</trans-unit>
+			<trans-unit id="borrowing.widget.more" resname="borrowing.widget.more">
+				<source><![CDATA[<strong>More</strong> borrowing information]]></source>
+				<target><![CDATA[<strong>Mehr</strong> Ausleihinformationen]]></target>
+			</trans-unit>
+			<trans-unit id="borrowing.widget.overdue.label" resname="borrowing.widget.overdue.label">
+				<source>Overdue!</source>
+				<target>Überfällig!</target>
+			</trans-unit>
+
+			<!--
+				Bookmarks
+			-->
+
+			<trans-unit id="bookmarks.default.empty" resname="bookmarks.default.empty">
+				<source>Your bookmarks list is empty.</source>
+				<target>Ihre Merkliste ist leer.</target>
+			</trans-unit>
+			<trans-unit id="bookmarks.widget.more" resname="bookmarks.widget.more">
+				<source><![CDATA[<strong>More</strong> bookmarks]]></source>
+				<target><![CDATA[<strong>Mehr</strong> Merklisten-Einträge]]></target>
+			</trans-unit>
+
+			<!--
+				Userdetail
+			-->
+
+			<trans-unit id="userdetail.dropdown.label" resname="userdetail.dropdown.label">
+				<source>My profile</source>
+				<target>Mein Profil</target>
 			</trans-unit>
 		</body>
 	</file>

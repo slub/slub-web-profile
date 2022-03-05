@@ -43,16 +43,12 @@ class EventService
     }
 
     /**
-     * @param int $user
      * @return array|null
+     * @throws \JsonException
      */
-    public function getEvents(int $user): ?array
+    public function getEvents(): ?array
     {
-        if ($user === 0) {
-            return null;
-        }
-
-        $uri = $this->apiConfiguration->getEventListUri() . $user;
+        $uri = $this->apiConfiguration->getEventListUri();
 
         return $this->request->process($uri);
     }

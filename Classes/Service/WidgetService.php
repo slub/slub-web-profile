@@ -11,9 +11,13 @@ declare(strict_types=1);
 
 namespace Slub\SlubWebProfile\Service;
 
+use Slub\SlubWebProfile\Service\UserDashboardService as UserService;
+use Slub\SlubWebProfile\Utility\ConstantsUtility;
+use TYPO3\CMS\Backend\Utility\BackendUtility;
 use TYPO3\CMS\Core\Database\Connection;
 use TYPO3\CMS\Core\Database\ConnectionPool;
 use TYPO3\CMS\Core\Database\Query\QueryBuilder;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 class WidgetService
 {
@@ -23,11 +27,35 @@ class WidgetService
     protected $connectionPool;
 
     /**
+     * @var UserService
+     */
+    protected $userService;
+
+    /**
      * @param ConnectionPool $connectionPool
      */
     public function injectConnectionPool(ConnectionPool $connectionPool): void
     {
         $this->connectionPool = $connectionPool;
+    }
+
+    /**
+     * @param UserService $userService
+     */
+    public function injectUserService(UserService $userService): void
+    {
+        $this->userService = $userService;
+    }
+
+    /**
+     * @return array
+     * @throws \JsonException
+     */
+    public function getUserWidgets(): array
+    {
+        $widgets = $this->userService->getUserDashboard()['dashboardWidgets'] ?? [];
+
+        return explode(',', $widgets);
     }
 
     /**
@@ -55,6 +83,43 @@ class WidgetService
             ->orderBy('sorting', 'ASC')
             ->execute()
             ->fetchAll();
+    }
+
+    /**
+     * @param array $widgets
+     * @param array $validWidgets
+     * @return array
+     */
+    public function validateWidgets(array $widgets, array $validWidgets): array
+    {
+        $validatedWidgets = [];
+
+        foreach ($widgets as $widget) {
+            if (in_array($widget, $validWidgets, true)) {
+                $validatedWidgets[] = $widget;
+            }
+        }
+
+        return array_unique($validatedWidgets);
+    }
+
+    /**
+     * @param int $pageUid
+     * @param string $contentElement
+     * @param string $column
+     * @return array
+     */
+    public function getAllowedWidgets(
+        int $pageUid,
+        string $contentElement = ConstantsUtility::EXTENSION_NAME . '_dashboard',
+        string $column = 'tt_content'
+    ): array {
+        $pageTsConfig = BackendUtility::getPagesTSconfig($pageUid);
+
+        return GeneralUtility::trimExplode(
+            ',',
+            $pageTsConfig['TCEFORM.']['tt_content.']['CType.']['types.'][$contentElement . '.'][$column . '.']['allowed']
+        );
     }
 
     /**

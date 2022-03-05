@@ -46,6 +46,7 @@ class DashboardController extends ActionController
 
     public function showAction(): void
     {
+        /** @extensionScannerIgnoreLine */
         $content = $this->configurationManager->getContentObject()->data;
         $languageUid = LanguageUtility::getUid();
         $dashboardUid = $content['uid'];
@@ -58,8 +59,10 @@ class DashboardController extends ActionController
         }
 
         $this->view->assignMultiple([
+            'uri' => LanguageUtility::getSiteLanguage($pageUid)->getBase(),
+            'pageUid' => $pageUid,
             'widgets' => $this->widgetService->findByDashboard($dashboardUid),
-            'uri' => LanguageUtility::getSiteLanguage($pageUid)->getBase()
+            'userWidgets' => $this->widgetService->getUserWidgets()
         ]);
     }
 }

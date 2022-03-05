@@ -44,11 +44,20 @@
 				<target>Auflistung von ausgeliehenen Medien eines eingeloggten Benutzers.</target>
 			</trans-unit>
 
-			<trans-unit id="contentElement.bookmarklist.title" resname="contentElement.bookmarklist.title">
-				<source>Bookmark search terms</source>
-				<target>Lesezeichen Suchbegriffe</target>
+			<trans-unit id="contentElement.bookmarkslist.title" resname="contentElement.bookmarkslist.title">
+				<source>Bookmarks</source>
+				<target>Merkliste</target>
 			</trans-unit>
-			<trans-unit id="contentElement.bookmarklist.description" resname="contentElement.bookmarklist.description">
+			<trans-unit id="contentElement.bookmarkslist.description" resname="contentElement.bookmarkslist.description">
+				<source>Bookmarks of a logged in user.</source>
+				<target>Merkliste eines eingeloggten Benutzers.</target>
+			</trans-unit>
+
+			<trans-unit id="contentElement.searchquerylist.title" resname="contentElement.searchquerylist.title">
+				<source>Search query list</source>
+				<target>Liste mit Suchanfragen</target>
+			</trans-unit>
+			<trans-unit id="contentElement.searchquerylist.description" resname="contentElement.searchquerylist.description">
 				<source>Listing of the last search queries of a logged-in user.</source>
 				<target>Auflistung der letzten Suchanfragen eines eingeloggten Benutzers.</target>
 			</trans-unit>
@@ -62,6 +71,15 @@
 				<target>Detailinformationen zu einem eingeloggten Benutzer.</target>
 			</trans-unit>
 
+			<trans-unit id="contentElement.messagelist.title" resname="contentElement.messagelist.title">
+				<source>Message list</source>
+				<target>Meldungsliste</target>
+			</trans-unit>
+			<trans-unit id="contentElement.messagelist.description" resname="contentElement.messagelist.description">
+				<source>List of messages depends on the user group.</source>
+				<target>Auflistung von Meldungen in Abhängigkeit der Benutzergruppe.</target>
+			</trans-unit>
+
 			<trans-unit id="extensionConfiguration.apiDomain" resname="extensionConfiguration.api.domain">
 				<source>Domain: The domain has to begin with "https://" and no trailing slash.</source>
 				<target>Domain: Die Domain muss mit "https://" anfangen und hat keinen Schrägstrich am Ende.</target>
@@ -72,8 +90,16 @@
 				<target>SLUB Web Profil</target>
 			</trans-unit>
 			<trans-unit id="backendLayout.webProfile.description" resname="backendLayout.webProfile.description">
-				<source>One column and content left</source>
-				<target>Eine Spalte und links ausgerichtetem Inhalt</target>
+				<source>Two columns (colpos 1,2) with large content column (colpos 0)</source>
+				<target>Zwei Spalten (colpos 1,2) mit großer Contentspalte (colpos 0)</target>
+			</trans-unit>
+			<trans-unit id="backendLayout.column.leftcol" resname="backendLayout.column.leftcol">
+				<source>Left</source>
+				<target>Links</target>
+			</trans-unit>
+			<trans-unit id="backendLayout.column.rightcol" resname="backendLayout.column.rightcol">
+				<source>Right (slide)</source>
+				<target>Rechts (unterverbt)</target>
 			</trans-unit>
 			<trans-unit id="backendLayout.column.content" resname="backendLayout.column.content">
 				<source>Content</source>

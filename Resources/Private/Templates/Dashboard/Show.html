@@ -1,6 +1,9 @@
+{namespace slub=Slub\SlubWebProfile\ViewHelpers}
+
 <html
     data-namespace-typo3-fluid="true"
-    xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers">
+    xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+    xmlns:slub="http://typo3.org/ns/Slub/SlubWebProfile/ViewHelpers">
 <f:layout name="Default"/>
 
 <f:section name="Default">
@@ -40,35 +43,54 @@
         <div id="collapsePersonaliseMenu" class="dashboard__controller collapse show">
             <ul>
                 <f:for as="widget" each="{widgets}">
-                    <li>{widget.header} <!--{widget.CType}--></li>
+                    <f:variable name="disabled" value=""/>
+
+                    <f:if condition="{userWidgets -> f:count()} == 0 || {slub:php.inArray(string: widget.CType, array: userWidgets)}">
+                        <f:variable name="disabled" value=" controller__item--is-disabled"/>
+                    </f:if>
+
+                    <li
+                        class="js-dashboard-controller-item controller__item{disabled}"
+                        id="js-dashboard-controller-item-{widget.uid}"
+                        data-widget="{f:format.json(
+                            value: {
+                                id: widget.uid,
+                                type: widget.CType
+                            },
+                            forceObject: true
+                        )}">
+                        {widget.header}
+                    </li>
                 </f:for>
             </ul>
         </div>
 
         <f:comment>Dashboard Widgets</f:comment>
-        <div class="dashboard__widgets" id="js-dashboard-widgets">
-            <f:for as="widget" each="{widgets}">
+        <div
+            class="dashboard__widgets"
+            id="js-dashboard-widgets"
+            data-uri="{uri.path}"
+            data-page-uid="{pageUid}">
+            <template id="js-widget-template">
+                <f:render section="Widget" arguments="{id: '###id###'}"/>
+            </template>
 
-                <f:switch expression="{widget.CType}">
-                    <f:case value="slubwebprofile_eventlist">
-                        <f:variable name="alignment">transverse</f:variable>
-                    </f:case>
-                    <f:case value="slubwebprofile_servicelist">
-                        <f:variable name="alignment">upright</f:variable>
-                    </f:case>
-                    <f:defaultCase><f:variable name="alignment">default</f:variable></f:defaultCase>
-                </f:switch>
-                
-                <div
-                    class="js-widgets-item js-widgets-loading widgets__item widgets__item--{alignment}"
-                    data-widget="{widget.uid}"
-                    data-uri="{uri.path}"
-                    id="js-widgets-item-{widget.uid}">
-                    <svg class="widget__loading" viewbox="0 0 128 128">
-                        <use href="#svg-icon-loading"></use>
-                    </svg>
-                </div>
-            </f:for>
+            <f:if condition="{userWidgets -> f:count()} > 0">
+                <f:then>
+                    <f:for as="userWidget" each="{userWidgets}">
+                        <f:for as="widget" each="{widgets}">
+                            <f:if condition="{userWidget} == {widget.CType}">
+                                <f:render section="Widget" arguments="{id: widget.uid}"/>
+                            </f:if>
+                        </f:for>
+                    </f:for>
+                </f:then>
+                <f:else>
+                    <f:for as="widget" each="{widgets}">
+                        <f:render section="Widget" arguments="{id: widget.uid}"/>
+                    </f:for>
+                </f:else>
+            </f:if>
         </div>
 
         <svg aria-hidden="true" focusable="false" style="display:none;" xmlns="http://www.w3.org/2000/svg">
@@ -77,5 +99,16 @@
             </symbol>
         </svg>
     </f:if>
+</f:section>
+
+<f:section name="Widget">
+    <div
+        class="js-widgets-item js-widgets-loading widgets__item"
+        data-widget-id="{id}"
+        id="js-widgets-item-{id}">
+        <svg class="widget__loading" viewbox="0 0 128 128">
+            <use href="#svg-icon-loading"></use>
+        </svg>
+    </div>
 </f:section>
 </html>

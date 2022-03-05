@@ -1,5 +1,30 @@
 page.10 {
+  # Template
   templateRootPaths.25 = EXT:slub_web_profile/Resources/Private/Templates/BackendLayout/
   partialRootPaths.25 = EXT:slub_web_profile/Resources/Private/Partials/BackendLayout/
   layoutRootPaths.25 = EXT:slub_web_profile/Resources/Private/Layouts/BackendLayout/
+
+  # Variables
+  variables {
+    leftCol = CONTENT
+    leftCol {
+      table = tt_content
+      select {
+        orderBy = sorting
+        where = (colPos=1)
+        languageField = sys_language_uid
+      }
+    }
+
+    rightCol = CONTENT
+    rightCol {
+      table = tt_content
+      slide = -1
+      select {
+        orderBy = sorting
+        where = (colPos=2)
+        languageField = sys_language_uid
+      }
+    }
+  }
 }

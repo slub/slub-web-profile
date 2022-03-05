@@ -23,7 +23,7 @@ composer require slub/slub-web-profile
 News uses [semantic versioning][2], which means, that
 * **bugfix updates** (e.g. 1.0.0 => 1.0.1) just includes small bugfixes or security relevant stuff without breaking changes,
 * **minor updates** (e.g. 1.0.0 => 1.1.0) includes new features and smaller tasks without breaking changes,
-* **major updates** (e.g. 1.0.0 => 2.0.0) breaking changes wich can be refactorings, features or bugfixes.
+* **major updates** (e.g. 1.0.0 => 2.0.0) breaking changes which can be refactorings, features or bugfixes.
 
 ### 2.2 Api
 
@@ -35,9 +35,17 @@ The general domain to call the "profile service" can be set in the field "Domain
 
 Setup / Constant | Comment
 ---------------- | -------
-plugin.tx_slubwebprofile.settings.api.path.eventList   | "language array" to collect paths to call the event list. The numbers (sys_language_uid) have to fit with your configured languages.
-plugin.tx_slubwebprofile.settings.api.path.eventList.0 | Path for the sys_language_uid "0" (as example german), begins and ends with a slash, will be extended with userId
-plugin.tx_slubwebprofile.settings.api.path.eventList.1 | Path for the sys_language_uid "1" (as example english), begins and ends with a slash, will be extended with userId
+plugin.tx_slubwebprofile.settings.api.path.eventList             | "language array" to collect paths to call the event list. The numbers (sys_language_uid) have to fit with your configured languages.
+plugin.tx_slubwebprofile.settings.api.path.eventList.0           | Path for the sys_language_uid "0" (as example german), begins and ends with a slash, will be extended with user id
+plugin.tx_slubwebprofile.settings.api.path.eventList.1           | Path for the sys_language_uid "1" (as example english), begins and ends with a slash, will be extended with user id
+plugin.tx_slubwebprofile.settings.api.path.messageList           | "language array" to collect paths to call the message list. The numbers (sys_language_uid) have to fit with your configured languages.
+plugin.tx_slubwebprofile.settings.api.path.messageList.0         | Path for the sys_language_uid "0" (as example german), begins and ends with a slash, will be extended with user category
+plugin.tx_slubwebprofile.settings.api.path.messageList.1         | Path for the sys_language_uid "1" (as example english), begins and ends with a slash, will be extended with user category
+plugin.tx_slubwebprofile.settings.api.path.userAccountDetail     | Get a single user (contains: account) data
+plugin.tx_slubwebprofile.settings.api.path.userDashboardDetail   | Get a single user (contains: dashboard) data
+plugin.tx_slubwebprofile.settings.api.path.userDashboardUpdate   | Update a single user (contains: dashboard) data
+plugin.tx_slubwebprofile.settings.api.path.userSearchQueryDetail | Get a single user (contains: search query) data
+plugin.tx_slubwebprofile.settings.api.path.userSearchQueryUpdate | Update a single user (contains: search query) data
 
 [1]: https://getcomposer.org/
 [2]: https://semver.org/

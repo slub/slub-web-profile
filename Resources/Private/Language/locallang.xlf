@@ -3,16 +3,24 @@
 	<file source-language="en" datatype="plaintext" original="messages" date="2012-11-01T14:46:01Z"  product-name="slub_web_profile">
 		<header/>
 		<body>
+
+			<!--
+				General
+			-->
+
 			<trans-unit id="general.oClock" resname="general.oClock">
 				<source>o'clock</source>
 			</trans-unit>
 			<trans-unit id="general.personalise" resname="general.personalise">
 				<source>Personalise Dashboard</source>
 			</trans-unit>
-			
-			<trans-unit id="eventItem.default.noEvents" resname="eventItem.default.noEvents">
-				<source>You have no subscribed events.</source>
+			<trans-unit id="general.widget.closed" resname="general.widget.closed">
+				<source>Remove this field</source>
 			</trans-unit>
+
+			<!--
+				Event
+			-->
 
 			<trans-unit id="event.filter.label" resname="event.filter.label">
 				<source>Filter by event type</source>
@@ -20,14 +28,106 @@
 			<trans-unit id="event.filter.reset" resname="event.filter.reset">
 				<source>All</source>
 			</trans-unit>
-			<trans-unit id="eventItem.teaser.more" resname="eventItem.teaser.more">
+			<trans-unit id="event.default.empty" resname="event.default.empty">
+				<source>You have no subscribed events.</source>
+			</trans-unit>
+			<trans-unit id="event.default.unsubscribe" resname="event.default.unsubscribe">
+				<source>Unsubscribe from the event</source>
+			</trans-unit>
+			<trans-unit id="event.widget.more" resname="event.widget.more">
 				<source>More</source>
 			</trans-unit>
-			<trans-unit id="event.teaser.noEvents" resname="event.teaser.noEvents">
-				<source>No subscribed events.</source>
+			<trans-unit id="event.widget.today.label" resname="event.widget.today.label">
+				<source>Today!</source>
 			</trans-unit>
-			<trans-unit id="eventItem.unsubscribe" resname="eventItem.unsubscribe">
-				<source>Unsubscribe from the event</source>
+
+			<!--
+				Search query
+			-->
+
+			<trans-unit id="searchQuery.type.simple" resname="searchQuery.type.simple">
+				<source>Simple search</source>
+			</trans-unit>
+			<trans-unit id="searchQuery.type.extended" resname="searchQuery.type.extended">
+				<source>Advanced search</source>
+			</trans-unit>
+			<trans-unit id="searchQuery.default.empty" resname="searchQuery.default.empty">
+				<source>You have no subscribed search queries.</source>
+			</trans-unit>
+			<trans-unit id="searchQuery.default.table.th.title" resname="searchQuery.default.table.th.title">
+				<source>Title</source>
+			</trans-unit>
+			<trans-unit id="searchQuery.default.table.th.results" resname="searchQuery.default.table.th.results">
+				<source>Hits</source>
+			</trans-unit>
+			<trans-unit id="searchQuery.default.table.th.date" resname="searchQuery.default.table.th.date">
+				<source>Date</source>
+			</trans-unit>
+			<trans-unit id="searchQuery.default.type" resname="searchQuery.default.type">
+				<source>Type:</source>
+			</trans-unit>
+			<trans-unit id="searchQuery.default.fields" resname="searchQuery.default.fields">
+				<source>Fields:</source>
+			</trans-unit>
+			<trans-unit id="searchQuery.default.description" resname="searchQuery.default.description">
+				<source>Description:</source>
+			</trans-unit>
+			<trans-unit id="searchQuery.default.description.empty" resname="searchQuery.default.description.empty">
+				<source>-</source>
+			</trans-unit>
+			<trans-unit id="searchQuery.default.action.selectAll" resname="searchQuery.default.action.selectAll">
+				<source>Select all</source>
+			</trans-unit>
+			<trans-unit id="searchQuery.default.action.deselectAll" resname="searchQuery.default.action.deselectAll">
+				<source>Deselect all</source>
+			</trans-unit>
+			<trans-unit id="searchQuery.default.action.export" resname="searchQuery.default.action.export">
+				<source>Export selected</source>
+			</trans-unit>
+			<trans-unit id="searchQuery.default.action.delete" resname="searchQuery.default.action.delete">
+				<source>Delete selected</source>
+			</trans-unit>
+			<trans-unit id="searchQuery.widget.more" resname="searchQuery.widget.more">
+				<source>More</source>
+			</trans-unit>
+			<trans-unit id="searchQuery.widget.result" resname="searchQuery.widget.result">
+				<source>%1$s result</source>
+			</trans-unit>
+			<trans-unit id="searchQuery.widget.results" resname="searchQuery.widget.results">
+				<source>%1$s results</source>
+			</trans-unit>
+
+			<!--
+				Borrowing
+			-->
+
+			<trans-unit id="borrowing.default.empty" resname="borrowing.default.empty">
+				<source>You haven't borrowed anything yet.</source>
+			</trans-unit>
+			<trans-unit id="borrowing.widget.more" resname="borrowing.widget.more">
+				<source><![CDATA[<strong>More</strong> borrowing information]]></source>
+			</trans-unit>
+			<trans-unit id="borrowing.widget.overdue.label" resname="borrowing.widget.overdue.label">
+				<source>Overdue!</source>
+			</trans-unit>
+
+			<!--
+				Bookmarks
+			-->
+
+			<trans-unit id="bookmarks.default.empty" resname="bookmarks.default.empty">
+				<source>Your bookmarks list is empty.</source>
+			</trans-unit>
+			<trans-unit id="bookmarks.widget.more" resname="bookmarks.widget.more">
+				<source><![CDATA[<strong>More</strong> bookmarks]]></source>
+			</trans-unit>
+
+			<!--
+				Userdetail
+			-->
+
+			<trans-unit id="userdetail.dropdown.label" resname="userdetail.dropdown.label">
+				<source>My profile</source>
 			</trans-unit>
 		</body>
 	</file>
