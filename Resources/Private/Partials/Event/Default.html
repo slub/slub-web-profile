@@ -28,12 +28,12 @@
 	<p class="timedata">
 		<span class="eventtiles__date timedata__date">
 			<time datetime="{f:format.date(date:eventItem.startDateTime.format, format:'Y-m-d')}">
-				<f:format.date format="{settings.dateFormat}">{eventItem.startDateTime.format}</f:format.date>
+				<f:format.date format="d.m.Y">{eventItem.startDateTime.format}</f:format.date>
 			</time>
 		</span>
 		<span class="eventtiles__time timedata__time">
 			<time datetime="{f:format.date(date:eventItem.startDateTime.format, format:'Y-m-d')}">
-				<f:format.date format="{settings.timeFormat}">{eventItem.startDateTime.format}</f:format.date>
+				<f:format.date format="H:i">{eventItem.startDateTime.format}</f:format.date>
 			</time>
 		</span>
 	</p>

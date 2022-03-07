@@ -16,7 +16,7 @@
 				</time>
 				<span class="borrowingwidget__time timedata__time">
 					<time datetime="{f:format.date(date:borrowingItem.startDateTime.format, format:'Y-m-d')}">
-						<f:format.date format="{settings.timeFormat}">{borrowingItem.startDateTime.format}</f:format.date> <f:translate key="general.oClock"/>
+						<f:format.date format="H:i">{borrowingItem.startDateTime.format}</f:format.date> <f:translate key="general.oClock"/>
 					</time>
 				</span>
 			</div>

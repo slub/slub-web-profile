@@ -16,7 +16,7 @@
 				</time>
 				<span class="eventwidget__time timedata__time">
 					<time datetime="{f:format.date(date:eventItem.startDateTime.format, format:'Y-m-d')}">
-						<f:format.date format="{settings.timeFormat}">{eventItem.startDateTime.format}</f:format.date> <f:translate key="general.oClock"/>
+						<f:format.date format="H:i">{eventItem.startDateTime.format}</f:format.date> <f:translate key="general.oClock"/>
 					</time>
 				</span>
 			</div>

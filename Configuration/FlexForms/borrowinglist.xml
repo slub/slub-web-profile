@@ -29,28 +29,6 @@
                             </config>
                         </TCEforms>
                     </settings.layout>
-                    <settings.dateFormat>
-                        <TCEforms>
-                            <label>LLL:EXT:slub_web_profile/Resources/Private/Language/locallang_flexform.xlf:settings.dateFormat</label>
-                            <config>
-                                <type>input</type>
-                                <size>10</size>
-                                <eval>required,trim</eval>
-                                <default>Y-m-d</default>
-                            </config>
-                        </TCEforms>
-                    </settings.dateFormat>
-                    <settings.timeFormat>
-                        <TCEforms>
-                            <label>LLL:EXT:slub_web_profile/Resources/Private/Language/locallang_flexform.xlf:settings.timeFormat</label>
-                            <config>
-                                <type>input</type>
-                                <size>10</size>
-                                <eval>trim</eval>
-                                <default>H:i</default>
-                            </config>
-                        </TCEforms>
-                    </settings.timeFormat>
                     <settings.limit>
                         <TCEforms>
                             <label>LLL:EXT:slub_web_profile/Resources/Private/Language/locallang_flexform.xlf:settings.limit</label>

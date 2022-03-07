@@ -24,14 +24,6 @@
 				<source>Widget</source>
 				<target>Widget</target>
 			</trans-unit>
-			<trans-unit id="settings.dateFormat" resname="settings.dateFormat">
-				<source>Date format</source>
-				<target>Datumformat</target>
-			</trans-unit>
-			<trans-unit id="settings.timeFormat" resname="settings.timeFormat">
-				<source>Time format</source>
-				<target>Zeitformat</target>
-			</trans-unit>
 			<trans-unit id="settings.limit" resname="settings.limit">
 				<source>Limit</source>
 				<target>Limit</target>
