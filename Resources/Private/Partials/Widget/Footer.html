@@ -1,6 +1,8 @@
 <html data-namespace-typo3-fluid="true">
-<div class="footerdata">
-    <a class="footerdata__morelink" href="{f:uri.typolink(parameter: pageUid)}">
-        <f:format.raw>{title}</f:format.raw>
-    </a>
-</div>
+<f:if condition="{pageUid}">
+    <div class="footerdata">
+        <a class="footerdata__morelink" href="{f:uri.typolink(parameter: pageUid)}">
+            <f:format.raw>{title}</f:format.raw>
+        </a>
+    </div>
+</f:if>
