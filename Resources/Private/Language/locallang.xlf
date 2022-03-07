@@ -112,14 +112,14 @@
 			</trans-unit>
 
 			<!--
-				Bookmarks
+				Bookmark
 			-->
 
-			<trans-unit id="bookmarks.default.empty" resname="bookmarks.default.empty">
-				<source>Your bookmarks list is empty.</source>
+			<trans-unit id="bookmark.default.empty" resname="bookmark.default.empty">
+				<source>Your bookmark list is empty.</source>
 			</trans-unit>
-			<trans-unit id="bookmarks.widget.more" resname="bookmarks.widget.more">
-				<source><![CDATA[<strong>More</strong> bookmarks]]></source>
+			<trans-unit id="bookmark.widget.more" resname="bookmark.widget.more">
+				<source><![CDATA[<strong>More</strong> bookmark]]></source>
 			</trans-unit>
 
 			<!--

@@ -13,16 +13,16 @@ namespace Slub\SlubWebProfile\Controller;
 
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
-class BookmarksController extends ActionController
+class BookmarkController extends ActionController
 {
     public function listAction(): void
     {
         /** @extensionScannerIgnoreLine */
         $content = $this->configurationManager->getContentObject()->data;
-        $bookmarks = [
+        $bookmark = [
             0 => [
                 'uid' => 1,
-                'title' => 'Title of Item from Bookmarks',
+                'title' => 'Title of Item from Bookmark',
                 'startDateTime' => [
                     'format' => '2021-12-03T14:00:00+00:00',
                     'timestamp' => 1638536400
@@ -63,7 +63,7 @@ class BookmarksController extends ActionController
         ];
 
         $this->view->assignMultiple([
-            'bookmarks' => $bookmarks,
+            'bookmark' => $bookmark,
             'content' => $content
         ]);
     }

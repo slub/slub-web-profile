@@ -74,7 +74,7 @@
         background-color: $secondary-petrol-soft;
       }
     }
-    
+
     &__column--right {
       display: flex;
       flex-direction: column;
@@ -152,7 +152,7 @@
     height: calc(100% - 5rem);
     margin-bottom: 1.7rem;
     border-left: 1px solid $lightgrey;
-    
+
     &-text {
       font-family: $VistaSansBook;
       margin-left: -1px;
@@ -172,7 +172,7 @@
 .dashboard__widgets .widgets__item {
   // special widgetdesign for title
   .searchquerywidget__title,
-  .bookmarkswidget__title {
+  .bookmarkwidget__title {
     font-family: $VistaSansBold;
   }
 
