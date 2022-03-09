@@ -30,6 +30,9 @@ class UserController extends ActionController
         $this->userService = $userService;
     }
 
+    /**
+     * @throws \JsonException
+     */
     public function detailAction(): void
     {
         /** @extensionScannerIgnoreLine */

@@ -27,7 +27,7 @@ const wording = {
 const elementId = 'api-message-status';
 
 /**
- * @type {{"200": string, "500": string}}
+ * @type {{"200": string[], "500": string[], "501": string[]}}
  */
 const statusCssClass = {
   200: [elementId, `${elementId}--successful`],
@@ -82,4 +82,4 @@ const addMessage = (id, statusCode) => {
  * @param {number} milliseconds
  * @returns {Promise<unknown>}
  */
-const wait = async (milliseconds) => new Promise((resolve) => setTimeout(resolve, milliseconds));
+const wait = (milliseconds) => new Promise((resolve) => setTimeout(resolve, milliseconds));

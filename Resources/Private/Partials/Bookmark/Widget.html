@@ -3,18 +3,24 @@
 <f:comment>Partials/Bookmark/Widget.html</f:comment>
 
 <f:if condition="{iterator.index} < {settings.limit}">
-	<li {f:if(condition: '{f:format.date(date: \'now\', format: \'Y-m-d\')} > {f:format.date(date:bookmarkItem.startDateTime.format, format:\'Y-m-d\')}', then: 'class="bookmarkwidget__overdue"')}>
+	<li {f:if(condition: '{f:format.date(date: \'now\', format: \'Y-m-d\')} > {f:format.date(date:bookmarkItem.crdate, format:\'Y-m-d\')}', then: 'class="bookmarkwidget__overdue"')}>
 		<f:comment>Date</f:comment>
 		<div class="bookmarkwidget__date timedata__date">
-			<time datetime="{f:format.date(date:bookmarkItem.startDateTime.format, format:'Y-m-d')}">
-				<f:format.date format="d F Y">{bookmarkItem.startDateTime.format}</f:format.date>
+			<time datetime="{f:format.date(date:bookmarkItem.crdate, format:'Y-m-d')}">
+				<f:format.date format="d F Y">{bookmarkItem.crdate}</f:format.date>
 			</time>
 		</div>
 
 		<f:comment>Header</f:comment>
 		<f:link.action
 			pageUid="{settings.detailPageUid}"
-			arguments="{bookmark: bookmarkItem.uid}"
+            action="detail"
+            controller="Search"
+            extensionName="find"
+            pluginName="find"
+            arguments="{
+                id: bookmarkItem.recordid
+            }"
 			title="{bookmarkItem.title}"
 			class="bookmarkwidget__title widget__title">
 			{bookmarkItem.title}

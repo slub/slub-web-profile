@@ -11,59 +11,35 @@ declare(strict_types=1);
 
 namespace Slub\SlubWebProfile\Controller;
 
+use Slub\SlubWebProfile\Service\BookmarkService;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
 class BookmarkController extends ActionController
 {
+    /**
+     * @var BookmarkService
+     */
+    protected $bookmarkService;
+
+    /**
+     * @param BookmarkService $bookmarkService
+     */
+    public function injectBookmarkService(BookmarkService $bookmarkService): void
+    {
+        $this->bookmarkService = $bookmarkService;
+    }
+
+    /**
+     * @throws \JsonException
+     */
     public function listAction(): void
     {
         /** @extensionScannerIgnoreLine */
         $content = $this->configurationManager->getContentObject()->data;
-        $bookmark = [
-            0 => [
-                'uid' => 1,
-                'title' => 'Title of Item from Bookmark',
-                'startDateTime' => [
-                    'format' => '2021-12-03T14:00:00+00:00',
-                    'timestamp' => 1638536400
-                ]
-            ],
-            1 => [
-                'uid' => 2,
-                'title' => 'Das ist ein ganz langer Beispieltitel für ein Merklisteneintrag',
-                'startDateTime' => [
-                    'format' => '2022-12-18T14:00:00+00:00',
-                    'timestamp' => 1671372000
-                ]
-            ],
-            2 => [
-                'uid' => 3,
-                'title' => 'Title Merklisteneintrag',
-                'startDateTime' => [
-                    'format' => '2022-12-15T00:00:00+00:00',
-                    'timestamp' => 1671062400
-                ]
-            ],
-            3 => [
-                'uid' => 4,
-                'title' => 'Merklisten-Eintrag',
-                'startDateTime' => [
-                    'format' => '2022-12-15T00:00:00+00:00',
-                    'timestamp' => 1671062400
-                ]
-            ],
-            4 => [
-                'uid' => 5,
-                'title' => 'Merkbegriff',
-                'startDateTime' => [
-                    'format' => '2022-12-15T00:00:00+00:00',
-                    'timestamp' => 1671062400
-                ]
-            ],
-        ];
+        $bookmarks = $this->bookmarkService->getBookmarks();
 
         $this->view->assignMultiple([
-            'bookmark' => $bookmark,
+            'bookmarks' => $bookmarks,
             'content' => $content
         ]);
     }

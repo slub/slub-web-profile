@@ -14,6 +14,7 @@ namespace Slub\SlubWebProfile\Controller;
 use Slub\SlubWebProfile\Service\DashboardService;
 use Slub\SlubWebProfile\Service\WidgetService;
 use Slub\SlubWebProfile\Utility\LanguageUtility;
+use TYPO3\CMS\Core\Context\Exception\AspectNotFoundException;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
 class DashboardController extends ActionController
@@ -44,6 +45,10 @@ class DashboardController extends ActionController
         $this->widgetService = $widgetService;
     }
 
+    /**
+     * @throws AspectNotFoundException
+     * @throws \JsonException
+     */
     public function showAction(): void
     {
         /** @extensionScannerIgnoreLine */

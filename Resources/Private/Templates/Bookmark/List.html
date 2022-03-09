@@ -6,78 +6,44 @@
 
 <f:section name="Default">
     <!--TYPO3SEARCH_end-->
-    <f:variable name="countBookmark" value="{bookmark -> f:count()}"/>
+    <f:variable name="countBookmarks" value="{bookmarks -> f:count()}"/>
 
-    <f:switch expression="{settings.layout}">
-        <f:case value="1">
-            <!--Default-View-->
-            <f:if condition="{countBookmark} > 0">
-                <f:then>
-                    <link
-                        rel="stylesheet"
-                        type="text/css"
-                        media="all"
-                        href="/typo3conf/ext/slub_web_profile/Resources/Public/Css/tiles.css"/>
-
-                    <div class="bookmarktiles tiles">
-                        <f:for as="bookmarkItem" each="{bookmark}" iteration="iterator">
-                            <f:render partial="Bookmark/Default" arguments="{bookmarkItem: bookmarkItem, settings: settings, iterator: iterator}" />
-                        </f:for>
-                    </div>
-                </f:then>
-                <f:else>
-                    <div class="list__no-found">
-                        <f:if condition="{content.bodytext}">
-                            <f:then>
-                                <f:format.html>{content.bodytext}</f:format.html>
-                            </f:then>
-                            <f:else>
-                                <p><f:translate key="bookmark.default.empty" /></p>
-                            </f:else>
-                        </f:if>
-                    </div>
-                </f:else>
-            </f:if>
-        </f:case>
-        <f:case value="2">
-            <!--Widget-View-->
-            <f:render
-                partial="Widget/CloseButton"
-                arguments="{id: content.uid}" />
-            <f:if condition="{countBookmark} > 0">
-                <f:then>
-                    <div id="js-widget-content-{content.uid}" class="bookmarkwidget widget__content">
-                        <ul class="widgetlist">
-                            <f:for as="bookmarkItem" each="{bookmark}" iteration="iterator">
-                                <f:render partial="Bookmark/Widget" arguments="{bookmarkItem: bookmarkItem, settings: settings, iterator: iterator}" />
-                            </f:for>
-                        </ul>
-                        <f:render
-                            partial="Widget/Footer"
-                            arguments="{
-                                pageUid: settings.listPageUid,
-                                title: '{f:translate(key: \'bookmark.widget.more\')}'
-                            }"/>
-                    </div>
-                </f:then>
-                <f:else>
-                    <div class="bookmarkwidget__noentry widget__noentry">
-                        <div class="widget__noentry-text">
-                            <f:if condition="{content.bodytext}">
-                                <f:then>
-                                    <f:format.html>{content.bodytext}</f:format.html>
-                                </f:then>
-                                <f:else>
-                                    <p><f:translate key="bookmark.default.empty" /></p>
-                                </f:else>
-                            </f:if>
-                        </div>
-                    </div>
-                    <span class="footerdata__morelink footerdata__morelink-deactive"><f:format.raw><f:translate key="bookmark.widget.more"/></f:format.raw></span>
-                </f:else>
-            </f:if>
-        </f:case>
-    </f:switch>
+    <!--Widget-View-->
+    <f:render
+        partial="Widget/CloseButton"
+        arguments="{id: content.uid}" />
+    <f:if condition="{countBookmarks} > 0">
+        <f:then>
+            <div id="js-widget-content-{content.uid}" class="bookmarkwidget widget__content">
+                <ul class="widgetlist">
+                    <f:for as="bookmarkItem" each="{bookmarks}" iteration="iterator">
+                        <f:render partial="Bookmark/Widget" arguments="{bookmarkItem: bookmarkItem, settings: settings, iterator: iterator}" />
+                    </f:for>
+                </ul>
+                <f:render
+                    partial="Widget/Footer"
+                    arguments="{
+                        pageUid: settings.listPageUid,
+                        title: '{f:translate(key: \'bookmark.widget.more\')}'
+                    }"/>
+            </div>
+        </f:then>
+        <f:else>
+            <div class="bookmarkwidget__noentry widget__noentry">
+                <div class="widget__noentry-text">
+                    <f:if condition="{content.bodytext}">
+                        <f:then>
+                            <f:format.html>{content.bodytext}</f:format.html>
+                        </f:then>
+                        <f:else>
+                            <p><f:translate key="bookmark.default.empty" /></p>
+                        </f:else>
+                    </f:if>
+                </div>
+            </div>
+            <span class="footerdata__morelink footerdata__morelink-deactive"><f:format.raw><f:translate key="bookmark.widget.more"/></f:format.raw></span>
+        </f:else>
+    </f:if>
     <!--TYPO3SEARCH_begin-->
 </f:section>
 </html>

@@ -17,12 +17,6 @@ TCEFORM {
       slubwebprofile_searchquerylist.disabled = 1
     }
 
-    header_link.types {
-      slubwebprofile_dashboard.disabled = 1
-      slubwebprofile_eventfilter.disabled = 1
-      slubwebprofile_messagelist.disabled = 1
-    }
-
     subheader.types {
       slubwebprofile_dashboard.disabled = 1
       slubwebprofile_eventfilter.disabled = 1

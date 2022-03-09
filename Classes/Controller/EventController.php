@@ -13,6 +13,7 @@ namespace Slub\SlubWebProfile\Controller;
 
 use Slub\SlubWebProfile\Service\EventService;
 use Slub\SlubWebProfile\Utility\LanguageUtility;
+use TYPO3\CMS\Core\Context\Exception\AspectNotFoundException;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
 class EventController extends ActionController
@@ -30,6 +31,10 @@ class EventController extends ActionController
         $this->eventService = $eventService;
     }
 
+    /**
+     * @throws AspectNotFoundException
+     * @throws \JsonException
+     */
     public function listAction(): void
     {
         /** @extensionScannerIgnoreLine */

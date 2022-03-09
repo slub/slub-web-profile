@@ -14,6 +14,8 @@ namespace Slub\SlubWebProfile\Domain\Model\Dto;
 use Slub\SlubWebProfile\Utility\ConstantsUtility;
 use Slub\SlubWebProfile\Utility\FrontendUserUtility;
 use Slub\SlubWebProfile\Utility\LanguageUtility;
+use TYPO3\CMS\Core\Configuration\Exception\ExtensionConfigurationExtensionNotConfiguredException;
+use TYPO3\CMS\Core\Configuration\Exception\ExtensionConfigurationPathDoesNotExistException;
 use TYPO3\CMS\Core\Configuration\ExtensionConfiguration;
 use TYPO3\CMS\Core\Context\Exception\AspectNotFoundException;
 use TYPO3\CMS\Core\Exception;
@@ -27,6 +29,11 @@ class ApiConfiguration
         'userId' => '###USER_ID###',
         'userCategory' => '###USER_CATEGORY###'
     ];
+
+    /**
+     * @var string
+     */
+    protected $bookmarkListUri;
 
     /**
      * @var string
@@ -63,6 +70,12 @@ class ApiConfiguration
      */
     protected $userSearchQueryUpdateUri;
 
+    /**
+     * @throws Exception
+     * @throws AspectNotFoundException
+     * @throws ExtensionConfigurationPathDoesNotExistException
+     * @throws ExtensionConfigurationExtensionNotConfiguredException
+     */
     public function __construct()
     {
         /** @var ExtensionConfiguration $extensionConfiguration */
@@ -73,6 +86,7 @@ class ApiConfiguration
         $settings = $this->getPluginSettings();
         $paths = $this->preparePaths($settings['api']['path']);
 
+        $this->setBookmarkListUri($domain . $paths['bookmarkList']);
         $this->setEventListUri($domain . $paths['eventList'][$languageUid]);
         $this->setMessageListUri($domain . $paths['messageList'][$languageUid]);
         $this->setUserAccountDetailUri($domain . $paths['userAccountDetail']);
@@ -80,6 +94,22 @@ class ApiConfiguration
         $this->setUserDashboardUpdateUri($domain . $paths['userDashboardUpdate']);
         $this->setUserSearchQueryDetailUri($domain . $paths['userSearchQueryDetail']);
         $this->setUserSearchQueryUpdateUri($domain . $paths['userSearchQueryUpdate']);
+    }
+
+    /**
+     * @return string
+     */
+    public function getBookmarkListUri(): string
+    {
+        return $this->bookmarkListUri;
+    }
+
+    /**
+     * @param string $bookmarkListUri
+     */
+    public function setBookmarkListUri(string $bookmarkListUri = ''): void
+    {
+        $this->bookmarkListUri = $bookmarkListUri;
     }
 
     /**
@@ -93,7 +123,7 @@ class ApiConfiguration
     /**
      * @param string $eventListUri
      */
-    public function setEventListUri($eventListUri = ''): void
+    public function setEventListUri(string $eventListUri = ''): void
     {
         $this->eventListUri = $eventListUri;
     }
@@ -109,7 +139,7 @@ class ApiConfiguration
     /**
      * @param string $messageListUri
      */
-    public function setMessageListUri($messageListUri = ''): void
+    public function setMessageListUri(string $messageListUri = ''): void
     {
         $this->messageListUri = $messageListUri;
     }
@@ -125,7 +155,7 @@ class ApiConfiguration
     /**
      * @param string $userAccountDetailUri
      */
-    public function setUserAccountDetailUri($userAccountDetailUri = ''): void
+    public function setUserAccountDetailUri(string $userAccountDetailUri = ''): void
     {
         $this->userAccountDetailUri = $userAccountDetailUri;
     }
@@ -141,7 +171,7 @@ class ApiConfiguration
     /**
      * @param string $userDashboardDetailUri
      */
-    public function setUserDashboardDetailUri($userDashboardDetailUri = ''): void
+    public function setUserDashboardDetailUri(string $userDashboardDetailUri = ''): void
     {
         $this->userDashboardDetailUri = $userDashboardDetailUri;
     }
@@ -157,7 +187,7 @@ class ApiConfiguration
     /**
      * @param string $userDashboardUpdateUri
      */
-    public function setUserDashboardUpdateUri($userDashboardUpdateUri = ''): void
+    public function setUserDashboardUpdateUri(string $userDashboardUpdateUri = ''): void
     {
         $this->userDashboardUpdateUri = $userDashboardUpdateUri;
     }
@@ -173,7 +203,7 @@ class ApiConfiguration
     /**
      * @param string $userSearchQueryDetailUri
      */
-    public function setUserSearchQueryDetailUri($userSearchQueryDetailUri = ''): void
+    public function setUserSearchQueryDetailUri(string $userSearchQueryDetailUri = ''): void
     {
         $this->userSearchQueryDetailUri = $userSearchQueryDetailUri;
     }
@@ -189,7 +219,7 @@ class ApiConfiguration
     /**
      * @param string $userSearchQueryUpdateUri
      */
-    public function setUserSearchQueryUpdateUri($userSearchQueryUpdateUri = ''): void
+    public function setUserSearchQueryUpdateUri(string $userSearchQueryUpdateUri = ''): void
     {
         $this->userSearchQueryUpdateUri = $userSearchQueryUpdateUri;
     }
@@ -237,7 +267,7 @@ class ApiConfiguration
     protected function preparePaths(array $paths): array
     {
         $preparedPaths = [];
-        $userId = FrontendUserUtility::getIdentifier();
+        $userId = (string)FrontendUserUtility::getIdentifier();
 
         foreach ($paths as $key => $path) {
             if (is_array($path)) {

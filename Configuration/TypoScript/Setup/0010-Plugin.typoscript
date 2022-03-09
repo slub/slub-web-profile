@@ -11,6 +11,8 @@ plugin.tx_slubwebprofile {
 
     api {
       path {
+        bookmarkList = {$plugin.tx_slubwebprofile.settings.api.path.bookmarkList}
+
         eventList {
           0 = {$plugin.tx_slubwebprofile.settings.api.path.eventList.0}
           1 = {$plugin.tx_slubwebprofile.settings.api.path.eventList.1}

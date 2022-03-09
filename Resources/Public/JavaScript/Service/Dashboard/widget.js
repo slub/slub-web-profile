@@ -238,9 +238,3 @@ const getWidgetUri = () => document.querySelector(widgetsContainerSelector).data
  * @returns {number}
  */
 const getPageUid = () => parseInt(document.querySelector(widgetsContainerSelector).dataset.pageUid);
-
-/**
- * @param {number} milliseconds
- * @returns {Promise<unknown>}
- */
-const wait = async (milliseconds) => new Promise((resolve) => setTimeout(resolve, milliseconds));

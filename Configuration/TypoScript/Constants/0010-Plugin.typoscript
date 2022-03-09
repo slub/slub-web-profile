@@ -8,6 +8,9 @@ plugin.tx_slubwebprofile {
 
     api {
       path {
+        # cat=SLUB Profile Service/76573002_Api/110; type=string; label=Path for bookmark list
+        bookmarkList = /merkliste/###USER_ID###
+
         eventList {
           # cat=SLUB Profile Service/76573002_Api/100; type=string; label=Path for event list (sys_language_uid = 0)
           0 = /veranstaltungen/benutzer/###USER_ID###
