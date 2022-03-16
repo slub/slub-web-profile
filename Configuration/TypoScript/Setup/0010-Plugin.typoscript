@@ -32,5 +32,3 @@ plugin.tx_slubwebprofile {
     }
   }
 }
-
-module.tx_slubwebprofile.settings < plugin.tx_slubwebprofile.settings

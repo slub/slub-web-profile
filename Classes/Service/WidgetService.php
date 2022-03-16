@@ -12,11 +12,14 @@ declare(strict_types=1);
 namespace Slub\SlubWebProfile\Service;
 
 use Slub\SlubWebProfile\Service\UserDashboardService as UserService;
+use Slub\SlubWebProfile\Utility\BackendUserUtility;
 use Slub\SlubWebProfile\Utility\ConstantsUtility;
 use TYPO3\CMS\Backend\Utility\BackendUtility;
+use TYPO3\CMS\Core\Context\Exception\AspectNotFoundException;
 use TYPO3\CMS\Core\Database\Connection;
 use TYPO3\CMS\Core\Database\ConnectionPool;
 use TYPO3\CMS\Core\Database\Query\QueryBuilder;
+use TYPO3\CMS\Core\Exception;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 class WidgetService
@@ -32,19 +35,25 @@ class WidgetService
     protected $userService;
 
     /**
+     * @throws AspectNotFoundException
+     * @throws Exception
+     */
+    public function __construct()
+    {
+        // UserService implements a connection to the user api. This can provoke problems because the function
+        // "getAllowedWidgets" is used in frontend and backend. Well, instance the object only when no backend
+        // user is available means' frontend only. Do not use the inject method!
+        if (BackendUserUtility::getIdentifier() === 0) {
+            $this->userService = GeneralUtility::makeInstance(UserService::class);
+        }
+    }
+
+    /**
      * @param ConnectionPool $connectionPool
      */
     public function injectConnectionPool(ConnectionPool $connectionPool): void
     {
         $this->connectionPool = $connectionPool;
-    }
-
-    /**
-     * @param UserService $userService
-     */
-    public function injectUserService(UserService $userService): void
-    {
-        $this->userService = $userService;
     }
 
     /**
