@@ -24,7 +24,7 @@ defined('TYPO3_MODE') || die();
                     --div--;' . $ll['core'] . ':general,
                         --palette--;;general,
                         --palette--;;headers,
-                        bodytext;' . $ll['tca'] . ':bodytext.nowidgetitem,
+                        bodytext;' . $ll['tca'] . ':bodytext.noWidgetItem,
                     --div--;' . $ll['tca'] . ':tabs.configuration,
                         pi_flexform,
                     --div--;' . $ll['frontend'] . ':tabs.appearance,

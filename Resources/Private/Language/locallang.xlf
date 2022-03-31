@@ -112,6 +112,17 @@
 			</trans-unit>
 
 			<!--
+				Booked
+			-->
+
+			<trans-unit id="booked.default.empty" resname="booked.default.empty">
+				<source>Your booked list is empty.</source>
+			</trans-unit>
+			<trans-unit id="booked.widget.more" resname="booked.widget.more">
+				<source><![CDATA[<strong>More</strong> booked]]></source>
+			</trans-unit>
+
+			<!--
 				Bookmark
 			-->
 

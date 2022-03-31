@@ -44,6 +44,15 @@
 				<target>Auflistung von ausgeliehenen Medien eines eingeloggten Benutzers.</target>
 			</trans-unit>
 
+			<trans-unit id="contentElement.bookedlist.title" resname="contentElement.bookedlist.title">
+				<source>Booked</source>
+				<target>Raumbuchungen</target>
+			</trans-unit>
+			<trans-unit id="contentElement.bookedlist.description" resname="contentElement.bookedlist.description">
+				<source>Booked rooms of a logged in user.</source>
+				<target>Raumbuchungen eines eingeloggten Benutzers.</target>
+			</trans-unit>
+
 			<trans-unit id="contentElement.bookmarklist.title" resname="contentElement.bookmarklist.title">
 				<source>Bookmark</source>
 				<target>Merkliste</target>

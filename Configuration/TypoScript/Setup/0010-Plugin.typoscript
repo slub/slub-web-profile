@@ -11,6 +11,7 @@ plugin.tx_slubwebprofile {
 
     api {
       path {
+        bookedList = {$plugin.tx_slubwebprofile.settings.api.path.bookedList}
         bookmarkList = {$plugin.tx_slubwebprofile.settings.api.path.bookmarkList}
 
         eventList {

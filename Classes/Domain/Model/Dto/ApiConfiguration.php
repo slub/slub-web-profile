@@ -33,6 +33,11 @@ class ApiConfiguration
     /**
      * @var string
      */
+    protected $bookedListUri;
+
+    /**
+     * @var string
+     */
     protected $bookmarkListUri;
 
     /**
@@ -86,6 +91,7 @@ class ApiConfiguration
         $settings = $this->getPluginSettings();
         $paths = $this->preparePaths($settings['api']['path']);
 
+        $this->setBookedListUri($domain . $paths['bookedList']);
         $this->setBookmarkListUri($domain . $paths['bookmarkList']);
         $this->setEventListUri($domain . $paths['eventList'][$languageUid]);
         $this->setMessageListUri($domain . $paths['messageList'][$languageUid]);
@@ -94,6 +100,22 @@ class ApiConfiguration
         $this->setUserDashboardUpdateUri($domain . $paths['userDashboardUpdate']);
         $this->setUserSearchQueryDetailUri($domain . $paths['userSearchQueryDetail']);
         $this->setUserSearchQueryUpdateUri($domain . $paths['userSearchQueryUpdate']);
+    }
+
+    /**
+     * @return string
+     */
+    public function getBookedListUri(): string
+    {
+        return $this->bookedListUri;
+    }
+
+    /**
+     * @param string $bookedListUri
+     */
+    public function setBookedListUri(string $bookedListUri = ''): void
+    {
+        $this->bookedListUri = $bookedListUri;
     }
 
     /**

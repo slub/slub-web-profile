@@ -2,11 +2,12 @@ TCEFORM {
   tt_content {
     CType.types {
       slubwebprofile_dashboard {
-        tt_content.allowed = slubwebprofile_eventlist, slubwebprofile_borrowinglist, slubwebprofile_bookmarklist, slubwebprofile_searchquerylist
+        tt_content.allowed = slubwebprofile_eventlist, slubwebprofile_borrowinglist, slubwebprofile_bookedlist, slubwebprofile_bookmarklist, slubwebprofile_searchquerylist
       }
     }
 
     categories.types {
+      slubwebprofile_bookedlist.disabled = 1
       slubwebprofile_borrowinglist.disabled = 1
       slubwebprofile_bookmarklist.disabled = 1
       slubwebprofile_dashboard.disabled = 1
@@ -23,11 +24,13 @@ TCEFORM {
       slubwebprofile_messagelist.disabled = 1
       slubwebprofile_eventlist.disabled = 1
       slubwebprofile_borrowinglist.disabled = 1
+      slubwebprofile_bookedlist.disabled = 1
       slubwebprofile_bookmarklist.disabled = 1
       slubwebprofile_searchquerylist.disabled = 1
     }
 
     layout.types {
+      slubwebprofile_bookedlist.disabled = 1
       slubwebprofile_borrowinglist.disabled = 1
       slubwebprofile_bookmarklist.disabled = 1
       slubwebprofile_dashboard.disabled = 1
@@ -39,6 +42,7 @@ TCEFORM {
     }
 
     frame_class.types {
+      slubwebprofile_bookedlist.disabled = 1
       slubwebprofile_borrowinglist.disabled = 1
       slubwebprofile_bookmarklist.disabled = 1
       slubwebprofile_dashboard.disabled = 1
@@ -50,6 +54,7 @@ TCEFORM {
     }
 
     space_before_class.types {
+      slubwebprofile_bookedlist.disabled = 1
       slubwebprofile_borrowinglist.disabled = 1
       slubwebprofile_bookmarklist.disabled = 1
       slubwebprofile_dashboard.disabled = 1
@@ -61,6 +66,7 @@ TCEFORM {
     }
 
     space_after_class.types {
+      slubwebprofile_bookedlist.disabled = 1
       slubwebprofile_borrowinglist.disabled = 1
       slubwebprofile_bookmarklist.disabled = 1
       slubwebprofile_dashboard.disabled = 1
@@ -72,6 +78,7 @@ TCEFORM {
     }
 
     linkToTop.types {
+      slubwebprofile_bookedlist.disabled = 1
       slubwebprofile_borrowinglist.disabled = 1
       slubwebprofile_bookmarklist.disabled = 1
       slubwebprofile_dashboard.disabled = 1

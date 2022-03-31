@@ -33,6 +33,19 @@ defined('TYPO3_MODE') || die();
     \TYPO3\CMS\Extbase\Utility\ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
 );
 
+// Configure plugin - booked list
+\TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
+    'Slub.SlubWebProfile',
+    'BookedList',
+    [
+        'Booked' => 'list'
+    ],
+    [
+        'Booked' => 'list'
+    ],
+    \TYPO3\CMS\Extbase\Utility\ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
+);
+
 // Configure plugin - borrowing list
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
     'Slub.SlubWebProfile',
@@ -105,6 +118,7 @@ $iconRegistry = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(
 );
 
 foreach ([
+    'wizard-bookedlist' => 'Wizard/booked-list',
     'wizard-borrowinglist' => 'Wizard/borrowing-list',
     'wizard-bookmarklist' => 'Wizard/bookmark-list',
     'wizard-dashboard' => 'Wizard/dashboard',
