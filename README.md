@@ -35,6 +35,7 @@ The general domain to call the "profile service" can be set in the field "Domain
 
 | Setup / Constant                                                 | Comment                                                                                                                                |
 |------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------|
+| plugin.tx_slubwebprofile.settings.api.path.bookedList            | Path to get the booked list.                                                                                                           |
 | plugin.tx_slubwebprofile.settings.api.path.bookmarkList          | Path to get the bookmark list.                                                                                                         |
 | plugin.tx_slubwebprofile.settings.api.path.eventList             | "language array" to collect paths to call the event list. The numbers (sys_language_uid) have to fit with your configured languages.   |
 | plugin.tx_slubwebprofile.settings.api.path.eventList.0           | Path for the sys_language_uid "0" (as example german), begins and ends with a slash, will be extended with user id                     |
