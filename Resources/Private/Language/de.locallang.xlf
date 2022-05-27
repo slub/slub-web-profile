@@ -14,7 +14,15 @@
 			</trans-unit>
 			<trans-unit id="general.personalise" resname="general.personalise">
 				<source>Personalise Dashboard</source>
-				<target>Dashboard personalisieren </target>
+				<target>Dashboard personalisieren</target>
+			</trans-unit>
+			<trans-unit id="general.personalise.close" resname="general.personalise.close">
+				<source>End personalisation</source>
+				<target>Personalisierung beenden</target>
+			</trans-unit>
+			<trans-unit id="general.personalise.helptext" resname="general.personalise.helptext">
+				<source><![CDATA[Simply move the desired field to the preferred location. More <a href="" title="tips and info on the dashboard">tips and info</a> on the dashboard.]]></source>
+				<target><![CDATA[Verschieben Sie einfach das gewünschte Feld an die bevorzugte Stelle. Weitere <a href="" title="Tipps und Infos zum Dashboard">Tipps und Infos</a> zum Dashboard.]]></target>
 			</trans-unit>
 			<trans-unit id="general.widget.closed" resname="general.widget.closed">
 				<source>Remove this field</source>
