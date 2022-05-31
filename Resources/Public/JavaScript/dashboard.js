@@ -4,3 +4,4 @@ import * as personalise from './Service/Dashboard/personalise.js';
 
 widget.initialize();
 controller.initialize();
+personalise.initialize();

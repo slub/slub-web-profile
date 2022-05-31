@@ -20,6 +20,7 @@
   border: 1px solid $secondary-petrol-green;
   border-radius: 100%;
   display: inline-flex;
+  cursor: pointer;
   justify-content: center;
 
   &:hover {
@@ -33,7 +34,7 @@
     font-family: $VistaSansBold;
     font-size: 11px;
     margin-top: 3.5em;
-    width: 5rem;
+    width: 60px;
     position: absolute;
   }
 }

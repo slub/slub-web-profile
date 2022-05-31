@@ -3,7 +3,8 @@
 
 // Personalise Dashboard
 .dashboard__personalise {
-  font-family: $VistaSansBold;
+  font-family: $VistaSansBook;
+  font-weight: 600;
   margin-bottom: 3rem;
 
   &:before {
@@ -22,6 +23,7 @@
     padding-left: 1rem;
     padding-right: 1rem;
     align-items: center;
+    letter-spacing: 0.8px;
     text-transform: uppercase;
     color: $secondary-petrol-green;
     background-color: $white;
@@ -32,19 +34,11 @@
     }
   }
 
-  .icn-dashboard:before {
-    content: url('../Icons/Content/dashboard-icon.png');
+  svg {
     margin-right: .5rem;
-    height: 36px;
-    display: block;
   }
 
   &.personalise--is-open {
-    &:before {
-      margin: 0;
-      border: 0;
-    }
-
     .link-personalise {
       display: none;
     }
@@ -60,6 +54,7 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
+  margin-top: 2.5rem;
   padding: 3.5rem 0 1.5rem;
 
   &:before,
@@ -92,6 +87,7 @@
     text-transform: uppercase;
     color: $secondary-petrol-green;
     margin: 0 1.5rem 1.5rem 0;
+    letter-spacing: 0.8px;
   }
 
   .dashboard__controller-close {
@@ -101,18 +97,14 @@
     align-items: center;
     margin: 0 0 1.5rem auto;
     cursor: pointer;
-
-    &:after {
-      content: '';
-      background: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23078078'%3e%3cpath d='M.293.293a1 1 0 011.414 0L8 6.586 14.293.293a1 1 0 111.414 1.414L9.414 8l6.293 6.293a1 1 0 01-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 01-1.414-1.414L6.586 8 .293 1.707a1 1 0 010-1.414z'/%3e%3c/svg%3e") no-repeat;
-      width: 19px;
-      height: 19px;
-      display: inline-block;
-      margin-left: .7rem;
-    }
+    margin-right: 1rem;
 
     &:hover {
       color: $primary-red-darker;
+    }
+
+    svg {
+      margin-left: .7rem;
     }
   }
 
@@ -126,11 +118,12 @@
   li {
     list-style: none;
     cursor: pointer;
+    text-transform: uppercase;
     margin-right: 1.4rem;
     background-color: $secondary-petrol-green;
     transition: all 0.5s;
     color: $white;
-    padding: .2rem 2.2rem .2rem 0.625rem;
+    padding: .2rem 2.5rem .2rem 0.8rem;
     margin-bottom: 1.2rem;
 
     &:before {
@@ -140,12 +133,12 @@
     &:after {
       content: '';
       background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36"><g transform="matrix(2.5,0,0,2.5,0,0)"><g><circle cx="7" cy="7" r="6.5" style="fill:none;stroke:%23fff;stroke-linecap: round;stroke-linejoin:round"></circle><g><line x1="7" y1="4" x2="7" y2="10" style="fill:none;stroke: %23fff;stroke-linecap:round;stroke-linejoin:round"></line><line x1="4" y1="7" x2="10" y2="7" style="fill:none;stroke:%23fff;stroke-linecap:round;stroke-linejoin:round"></line></g></g></g></svg>');
-      width: 23px;
+      width: 20px;
       display: inline-block;
       position: absolute;
-      height: 23px;
-      margin-left: 5px;
-      margin-top: 2px;
+      height: 20px;
+      margin-left: 10px;
+      margin-top: 3px;
     }
 
     &.controller__item--is-disabled {
@@ -164,7 +157,10 @@
 
   &-helptext {
     font-size: 14px;
-    font-family: $VistaSansBook;
+
+    a:not(:hover) {
+      color: $black;
+    }
   }
 }
 
@@ -176,12 +172,12 @@
   grid-row-gap: 0.5rem;
   margin: 0 -1rem;
 
-  @media screen and (min-width: $phoneLandscapeViewportWidth) {
+  @media screen and (min-width: $tabletViewportWidth) {
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(2, 1fr);
   }
 
-  @media screen and (min-width: $tabletLandscapeViewportWidth) {
+  @media screen and (min-width: $desktopViewportWidth) {
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
     margin: 0 -2.5rem;
@@ -195,7 +191,7 @@
     padding: 2rem .5rem;
     transition: all .5s;
 
-    @media screen and (min-width: $tabletLandscapeViewportWidth) {
+    @media screen and (min-width: $desktopViewportWidth) {
       padding: 2rem;
     }
 
