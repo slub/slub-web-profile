@@ -39,31 +39,25 @@ const headerElement = document.querySelector(headerSelector);
 const closeElement = document.querySelector(closeSelector);
 
 /**
- * @type {string}
+ * @type {Element}
  */
 const controllerElement = document.querySelector(controllerSelector);
 
-
 export const initialize = () => {
-  
-  const listenHeader = () => headerElement.addEventListener('click', () => toggleItem());
-  const listenClose = () => closeElement.addEventListener('click', () => toggleItem());
+  headerElement.addEventListener('click', () => toggleItem());
+  closeElement.addEventListener('click', () => toggleItem());
+}
 
+const toggleItem = () => {
+  containerElement.classList.toggle(isOpenClass);
 
-  const toggleItem = () => {
-    containerElement.classList.toggle(isOpenClass);
-
-    if (containerElement.classList.contains(isOpenClass)) {
-      headerElement.setAttribute('aria-expanded', 'true');
-      closeElement.setAttribute('aria-hidden', 'false');
-      controllerElement.setAttribute('aria-hidden', 'false');
-    } else {
-      headerElement.setAttribute('aria-expanded', 'false');
-      closeElement.setAttribute('aria-hidden', 'true');
-      controllerElement.setAttribute('aria-hidden', 'true');
-    }
-  }  
-
-  listenHeader();
-  listenClose();
+  if (containerElement.classList.contains(isOpenClass)) {
+    headerElement.setAttribute('aria-expanded', 'true');
+    closeElement.setAttribute('aria-hidden', 'false');
+    controllerElement.setAttribute('aria-hidden', 'false');
+  } else {
+    headerElement.setAttribute('aria-expanded', 'false');
+    closeElement.setAttribute('aria-hidden', 'true');
+    controllerElement.setAttribute('aria-hidden', 'true');
+  }
 }
