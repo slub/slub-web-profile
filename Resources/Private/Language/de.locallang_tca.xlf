@@ -18,8 +18,8 @@
 			</trans-unit>
 
 			<trans-unit id="tt_content.widgets">
-				<source>Widgets</source>
-				<target>Widgets</target>
+				<source>Widgets xxx</source>
+				<target>Widgets xxx</target>
 			</trans-unit>
 			<trans-unit id="tt_content.pages">
 				<source>Selected pages</source>
