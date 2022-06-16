@@ -49,13 +49,15 @@
                     </button>
                     <ul class="dropdown__menu" aria-labelledby="dropdownMenu" role="listbox" aria-activedescendant="default">
                         <f:for as="page" each="{pages}">
-                            <li class="dropdown__item">
-                                <a class="dropdown__link" href="{page.link}">{page.title}
-                                    <f:if condition="{page.data.subtitle}">
-                                        <span>{page.data.subtitle}</span>
-                                    </f:if>
-                                </a>
-                            </li>
+                            <f:if condition="{page.current} == 0">
+                                <li class="dropdown__item">
+                                    <a class="dropdown__link" href="{page.link}">{page.data.title}
+                                        <f:if condition="{page.data.tx_slubwebprofile_navigationSubtitle}">
+                                            <span>{page.data.tx_slubwebprofile_navigationSubtitle}</span>
+                                        </f:if>
+                                    </a>
+                                </li>
+                            </f:if>
                         </f:for>
                     </ul>
                 </div>      

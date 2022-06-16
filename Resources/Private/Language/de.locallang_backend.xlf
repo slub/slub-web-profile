@@ -8,6 +8,15 @@
 				<target>Web Profil</target>
 			</trans-unit>
 
+			<trans-unit id="pages.tx_slubwebprofile_profilmenu" resname="pages.tx_slubwebprofile_profilmenu">
+				<source>Profil Menu</source>
+				<target>Profil Menu</target>
+			</trans-unit>
+			<trans-unit id="pages.tx_slubwebprofile_navigationSubtitle" resname="pages.tx_slubwebprofile_navigationSubtitle">
+				<source>Navigation Subtitle</source>
+				<target>Navigation Untertitel</target>
+			</trans-unit>
+
 			<trans-unit id="contentElement.dashboard.title" resname="contentElement.dashboard.title">
 				<source>Dashboard</source>
 				<target>Pinnwand</target>
@@ -102,6 +111,14 @@
 				<source>Two columns (colpos 1,2) with large content column (colpos 0)</source>
 				<target>Zwei Spalten (colpos 1,2) mit großer Contentspalte (colpos 0)</target>
 			</trans-unit>
+			<trans-unit id="backendLayout.accountLayout.title" resname="backendLayout.accountLayout.title">
+				<source>SLUB Account Layout</source>
+				<target>SLUB Konto-Layout</target>
+			</trans-unit>
+			<trans-unit id="backendLayout.accountLayout.description" resname="backendLayout.accountLayout.description">
+				<source>Two columns each for header (colpos 1,2) and content area (colpos 0,3)</source>
+				<target>Je zwei Spalten für Header (colpos 1,2) und Contentbereich (colpos 0,3)</target>
+			</trans-unit>		
 			<trans-unit id="backendLayout.column.leftcol" resname="backendLayout.column.leftcol">
 				<source>Left</source>
 				<target>Links</target>
@@ -117,6 +134,10 @@
 			<trans-unit id="backendLayout.column.inlineElements" resname="backendLayout.column.inlineElements">
 				<source>Additional content</source>
 				<target>Zusätzlicher Inhalt</target>
+			</trans-unit>
+			<trans-unit id="backendLayout.column.sidebar" resname="backendLayout.column.sidebar">
+				<source>Sidebar</source>
+				<target>Sidebar</target>
 			</trans-unit>
 		</body>
 	</file>

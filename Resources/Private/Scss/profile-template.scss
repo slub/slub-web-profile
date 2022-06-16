@@ -14,8 +14,8 @@
       padding-left: 15px;
     }
     &__col-left {
-      flex: 0 0 70%;
-      max-width: 70%;
+      flex: 0 0 57%;
+      max-width: 57%;
     }
     &__col-right {
       flex: 0 0 30%;
@@ -30,5 +30,6 @@
     flex-wrap: wrap;
     margin-right: -15px;
     margin-left: -15px;
+    justify-content: space-between;
   }
 }

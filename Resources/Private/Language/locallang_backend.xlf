@@ -7,6 +7,13 @@
 				<source>Web profile </source>
 			</trans-unit>
 
+			<trans-unit id="pages.tx_slubwebprofile_profilmenu" resname="pages.tx_slubwebprofile_profilmenu">
+				<source>Profil Menu</source>
+			</trans-unit>
+			<trans-unit id="pages.tx_slubwebprofile_navigationSubtitle" resname="pages.tx_slubwebprofile_navigationSubtitle">
+				<source>Navigation Subtitle</source>
+			</trans-unit>
+			
 			<trans-unit id="contentElement.dashboard.title" resname="contentElement.dashboard.title">
 				<source>Dashboard</source>
 			</trans-unit>
@@ -80,6 +87,12 @@
 			<trans-unit id="backendLayout.webProfile.description" resname="backendLayout.webProfile.description">
 				<source>Two columns (colpos 1,2) with large content column (colpos 0)</source>
 			</trans-unit>
+			<trans-unit id="backendLayout.accountLayout.title" resname="backendLayout.accountLayout.title">
+				<source>SLUB Account Layout</source>
+			</trans-unit>
+			<trans-unit id="backendLayout.accountLayout.description" resname="backendLayout.accountLayout.description">
+				<source>Two columns each for header (colpos 1,2) and content area (colpos 0,3)</source>
+			</trans-unit>		
 			<trans-unit id="backendLayout.column.leftcol" resname="backendLayout.column.leftcol">
 				<source>Left</source>
 			</trans-unit>
@@ -91,6 +104,9 @@
 			</trans-unit>
 			<trans-unit id="backendLayout.column.inlineElements" resname="backendLayout.column.inlineElements">
 				<source>Additional content</source>
+			</trans-unit>
+			<trans-unit id="backendLayout.column.sidebar" resname="backendLayout.column.sidebar">
+				<source>Sidebar</source>
 			</trans-unit>
 		</body>
 	</file>

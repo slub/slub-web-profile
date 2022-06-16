@@ -123,6 +123,9 @@
     text-transform: uppercase;
     display: block;
     padding: .7rem 1.3rem;
+    font-family: $VistaSansBook;
+    font-weight: 600;
+    line-height: 1.3;
 
     &:hover {
       color: $white;
@@ -132,7 +135,8 @@
     span {
       display: block;
       font-size: 11px;
-      font-family: "VistaSans",Verdana,Arial,Helvetica,sans-serif;
+      font-family: $VistaSans;
+      font-weight: 400;
       text-transform: initial;
       color: $lightgrey;
     }
