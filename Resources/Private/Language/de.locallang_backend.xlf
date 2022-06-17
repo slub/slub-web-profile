@@ -98,6 +98,15 @@
 				<target>Auflistung von Meldungen in Abhängigkeit der Benutzergruppe.</target>
 			</trans-unit>
 
+			<trans-unit id="contentElement.sidebarmenu.title" resname="contentElement.sidebarmenu.title">
+				<source>Sidebar menu</source>
+				<target>Seitenmenü</target>
+			</trans-unit>
+			<trans-unit id="contentElement.sidebarmenu.description" resname="contentElement.sidebarmenu.description">
+				<source>Sticky menu of suselected pages.</source>
+				<target>Sticky Menü der ausgewählten Seiten.</target>
+			</trans-unit>
+
 			<trans-unit id="extensionConfiguration.apiDomain" resname="extensionConfiguration.api.domain">
 				<source>Domain: The domain has to begin with "https://" and no trailing slash.</source>
 				<target>Domain: Die Domain muss mit "https://" anfangen und hat keinen Schrägstrich am Ende.</target>

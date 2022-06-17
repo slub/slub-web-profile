@@ -77,6 +77,13 @@
 				<source>List of messages depends on the user group.</source>
 			</trans-unit>
 
+			<trans-unit id="contentElement.sidebarmenu.title" resname="contentElement.sidebarmenu.title">
+				<source>Sidebar menu</source>
+			</trans-unit>
+			<trans-unit id="contentElement.sidebarmenu.description" resname="contentElement.sidebarmenu.description">
+				<source>Sticky menu of suselected pages.</source>
+			</trans-unit>
+
 			<trans-unit id="extensionConfiguration.apiDomain" resname="extensionConfiguration.api.domain">
 				<source>Domain: The domain has to begin with "https://" and no trailing slash.</source>
 			</trans-unit>

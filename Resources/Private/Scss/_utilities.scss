@@ -126,6 +126,7 @@
     font-family: $VistaSansBook;
     font-weight: 600;
     line-height: 1.3;
+    letter-spacing: 1px;
 
     &:hover {
       color: $white;
@@ -139,6 +140,7 @@
       font-weight: 400;
       text-transform: initial;
       color: $lightgrey;
+      letter-spacing: initial;
     }
   }
 }

@@ -111,6 +111,19 @@ defined('TYPO3_MODE') || die();
     \TYPO3\CMS\Extbase\Utility\ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
 );
 
+// Configure plugin - sidebar menu
+\TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
+    'Slub.SlubWebProfile',
+    'SidebarMenu',
+    [
+        'Sidebar' => 'detail'
+    ],
+    [
+        'Sidebar' => 'detail'
+    ],
+    \TYPO3\CMS\Extbase\Utility\ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
+);
+
 // Register icon
 /** @var \TYPO3\CMS\Core\Imaging\IconRegistry $iconRegistry */
 $iconRegistry = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(
@@ -126,7 +139,8 @@ foreach ([
     'wizard-eventlist' => 'Wizard/event-list',
     'wizard-messagelist' => 'Wizard/message-list',
     'wizard-userdetail' => 'Wizard/user-detail',
-    'wizard-searchquerylist' => 'Wizard/search-query-list'
+    'wizard-searchquerylist' => 'Wizard/search-query-list',
+    'wizard-sidebarmenu' => 'Wizard/sidebar-menu'
 ] as $identifier => $path) {
     $iconRegistry->registerIcon(
         'slubwebprofile-' . $identifier,
