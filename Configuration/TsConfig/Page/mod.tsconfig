@@ -72,8 +72,15 @@ mod {
         description = LLL:EXT:slub_web_profile/Resources/Private/Language/locallang_backend.xlf:contentElement.sidebarmenu.description
         tt_content_defValues.CType = slubwebprofile_sidebarmenu
       }
+
+      slubwebprofile_accountform {
+        iconIdentifier = slubwebprofile-wizard-accountform
+        title = LLL:EXT:slub_web_profile/Resources/Private/Language/locallang_backend.xlf:contentElement.accountform.title
+        description = LLL:EXT:slub_web_profile/Resources/Private/Language/locallang_backend.xlf:contentElement.accountform.description
+        tt_content_defValues.CType = slubwebprofile_accountform
+      }
     }
 
-    show := addToList(slubwebprofile_dashboard, slubwebprofile_eventfilter, slubwebprofile_eventlist, slubwebprofile_borrowinglist, slubwebprofile_bookedlist, slubwebprofile_bookmarklist, slubwebprofile_searchquerylist, slubwebprofile_userdetail, slubwebprofile_messagelist, slubwebprofile_sidebarmenu)
+    show := addToList(slubwebprofile_dashboard, slubwebprofile_eventfilter, slubwebprofile_eventlist, slubwebprofile_borrowinglist, slubwebprofile_bookedlist, slubwebprofile_bookmarklist, slubwebprofile_searchquerylist, slubwebprofile_userdetail, slubwebprofile_messagelist, slubwebprofile_sidebarmenu, slubwebprofile_accountform)
   }
 }

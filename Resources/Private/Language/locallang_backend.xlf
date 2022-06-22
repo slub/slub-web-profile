@@ -84,6 +84,13 @@
 				<source>Sticky menu of suselected pages.</source>
 			</trans-unit>
 
+			<trans-unit id="contentElement.accountform.title" resname="contentElement.accountform.title">
+				<source>Account form</source>
+			</trans-unit>
+			<trans-unit id="contentElement.accountform.description" resname="contentElement.accountform.description">
+				<source>Account form for profile settings.</source>
+			</trans-unit>
+
 			<trans-unit id="extensionConfiguration.apiDomain" resname="extensionConfiguration.api.domain">
 				<source>Domain: The domain has to begin with "https://" and no trailing slash.</source>
 			</trans-unit>

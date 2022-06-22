@@ -107,6 +107,15 @@
 				<target>Sticky Menü der ausgewählten Seiten.</target>
 			</trans-unit>
 
+			<trans-unit id="contentElement.accountform.title" resname="contentElement.accountform.title">
+				<source>Account form</source>
+				<target>Konto-Formular</target>
+			</trans-unit>
+			<trans-unit id="contentElement.accountform.description" resname="contentElement.accountform.description">
+				<source>Account form for profile settings.</source>
+				<target>Konto-Formular für Profileinstellungen.</target>
+			</trans-unit>
+
 			<trans-unit id="extensionConfiguration.apiDomain" resname="extensionConfiguration.api.domain">
 				<source>Domain: The domain has to begin with "https://" and no trailing slash.</source>
 				<target>Domain: Die Domain muss mit "https://" anfangen und hat keinen Schrägstrich am Ende.</target>

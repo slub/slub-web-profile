@@ -17,6 +17,7 @@ TCEFORM {
       slubwebprofile_userdetail.disabled = 1
       slubwebprofile_searchquerylist.disabled = 1
       slubwebprofile_sidebarmenu.disabled = 1
+      slubwebprofile_accountform.disabled = 1
     }
 
     header_link.types {
@@ -33,6 +34,7 @@ TCEFORM {
       slubwebprofile_bookmarklist.disabled = 1
       slubwebprofile_searchquerylist.disabled = 1
       slubwebprofile_sidebarmenu.disabled = 1
+      slubwebprofile_accountform.disabled = 1
     }
 
     layout.types {
@@ -46,6 +48,7 @@ TCEFORM {
       slubwebprofile_userdetail.disabled = 1
       slubwebprofile_searchquerylist.disabled = 1
       slubwebprofile_sidebarmenu.disabled = 1
+      slubwebprofile_accountform.disabled = 1
     }
 
     frame_class.types {
@@ -59,6 +62,7 @@ TCEFORM {
       slubwebprofile_userdetail.disabled = 1
       slubwebprofile_searchquerylist.disabled = 1
       slubwebprofile_sidebarmenu.disabled = 1
+      slubwebprofile_accountform.disabled = 1
     }
 
     space_before_class.types {
@@ -72,6 +76,7 @@ TCEFORM {
       slubwebprofile_userdetail.disabled = 1
       slubwebprofile_searchquerylist.disabled = 1
       slubwebprofile_sidebarmenu.disabled = 1
+      slubwebprofile_accountform.disabled = 1
     }
 
     space_after_class.types {
@@ -85,6 +90,7 @@ TCEFORM {
       slubwebprofile_userdetail.disabled = 1
       slubwebprofile_searchquerylist.disabled = 1
       slubwebprofile_sidebarmenu.disabled = 1
+      slubwebprofile_accountform.disabled = 1
     }
 
     linkToTop.types {
@@ -98,6 +104,7 @@ TCEFORM {
       slubwebprofile_userdetail.disabled = 1
       slubwebprofile_searchquerylist.disabled = 1
       slubwebprofile_sidebarmenu.disabled = 1
+      slubwebprofile_accountform.disabled = 1
     }
   }
 }

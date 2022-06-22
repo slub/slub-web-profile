@@ -1,0 +1,47 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:layout name="Default" />
+<!-- Templates/AccountForm/Profile.html -->
+
+<f:section name="Default">
+    <!--TYPO3SEARCH_end-->
+    <link rel="stylesheet"
+          type="text/css"
+          media="all"
+          href="/typo3conf/ext/slub_web_profile/Resources/Public/Css/accountform.css"/>
+
+    <f:form enctype="multipart/form-data" class="form-mb">
+        <div class="form-row">
+            <label for="Title" class="form-label">{f:translate(key: 'accountform.profile.title')}</label>
+            <input class="form-control" type="text" id="Title" disabled readonly>
+        </div>
+        <div class="form-row">
+            <label for="givenNames" class="form-label">{f:translate(key: 'accountform.profile.givenNames')}</label>
+            <input class="form-control" type="text" id="givenNames" value="{user.accountData.X_name.givenname}" disabled readonly>
+        </div>
+        <div class="form-row">
+            <label for="Surname" class="form-label">{f:translate(key: 'accountform.profile.surname')}</label>
+            <input class="form-control" type="text" id="Surname" value="{user.accountData.X_name.surname}" disabled readonly>
+        </div>
+        <div class="form-row">
+            <label for="EmailAddress" class="form-label">{f:translate(key: 'accountform.profile.emailAddress')}</label>
+            <input type="email" class="form-control" id="EmailAddress" name="account[EmailAddress]" value="{user.accountData.email}" required="required">
+        </div>
+        <div class="form-row">
+            <label for="Status" class="form-label">{f:translate(key: 'accountform.profile.status')}</label>
+            <input class="form-control" type="text" id="Status" value="{user.accountData.X_category_desc}" disabled readonly>
+        </div>
+        <div class="form-row">
+            <label for="Institute" class="form-label">{f:translate(key: 'accountform.profile.institute')}</label>
+            <input class="form-control" type="text" id="Institute" disabled readonly>
+        </div>
+        <div class="form-row">
+            <label for="Location" class="form-label">{f:translate(key: 'accountform.profile.location')}</label>
+            <input class="form-control" type="text" id="Location" disabled readonly>
+        </div>
+        <div class="form-row form-text"><f:format.raw>{f:translate(key: 'accountform.profile.additionalNote')}</f:format.raw></div>
+        <button type="submit" class="btn btn-action btn-action-lg">{f:translate(key: 'accountform.profile.actionBtn')}</button>
+    </f:form>
+    <!--TYPO3SEARCH_begin-->
+</f:section>
+
+</html>

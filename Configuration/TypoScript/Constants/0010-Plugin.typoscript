@@ -30,6 +30,8 @@ plugin.tx_slubwebprofile {
 
         # cat=SLUB Profile Service/76573002_Api/110; type=string; label=Path for user account detail (contains: user account)
         userAccountDetail = /benutzer/###USER_ID###
+        # cat=SLUB Profile Service/76573002_Api/120; type=string; label=Path for user account update (contains: user account)
+        userAccountUpdate = /benutzer/aktualisieren/###USER_ID###
         # cat=SLUB Profile Service/76573002_Api/120; type=string; label=Path for user dashboard detail (contains: user dashboard)
         userDashboardDetail = /benutzer/dashboard/###USER_ID###
         # cat=SLUB Profile Service/76573002_Api/120; type=string; label=Path for user dashboard update (contains: user dashboard)

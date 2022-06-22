@@ -34,6 +34,17 @@ $brightgrey: lighten($basegrey, 70%); // a light grey – #e6e6e6
 $white: #fff;
 $black: #000;
 
+// Form Colors
+$input-color: $basegrey;
+$input-bg: #e0f0f3;
+$input-border-color: #bcd1d1;
+$input-focus-bg: $white;
+$input-focus-border-color: #226966;
+$input-focus-box-shadow: #05a09a;
+$input-disabled-bg: #e9ecef;
+$input-disabled-border-color: #ced4da;
+$form-select-bg: #f0f8f9;
+
 // Standard animation value
 $transition: all 0.3s ease-in-out;
 $transition-default: .25s linear 0s;

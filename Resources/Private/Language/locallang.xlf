@@ -146,6 +146,73 @@
 			<trans-unit id="userdetail.dropdown.label" resname="userdetail.dropdown.label">
 				<source>My profile</source>
 			</trans-unit>
+
+			<!--
+				Accountform
+			-->
+
+			<trans-unit id="accountform.profile.title" resname="accountform.profile.title">
+				<source>Title</source>
+			</trans-unit>
+			<trans-unit id="accountform.profile.givenNames" resname="accountform.profile.givenNames">
+				<source>First name/s</source>
+			</trans-unit>
+			<trans-unit id="accountform.profile.surname" resname="accountform.profile.surname">
+				<source>Surname</source>
+			</trans-unit>
+			<trans-unit id="accountform.profile.emailAddress" resname="accountform.profile.emailAddress">
+				<source>E-mail address</source>
+			</trans-unit>
+			<trans-unit id="accountform.profile.status" resname="accountform.profile.status">
+				<source>Status</source>
+			</trans-unit>
+			<trans-unit id="accountform.profile.institute" resname="accountform.profile.institute">
+				<source>Institute/ Facility</source>
+			</trans-unit>
+			<trans-unit id="accountform.profile.location" resname="accountform.profile.location">
+				<source>Location</source>
+			</trans-unit>
+			<trans-unit id="accountform.profile.additionalNote" resname="accountform.profile.additionalNote">
+				<source><![CDATA[<b>Additional note to the form.</b> Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.]]></source>
+			</trans-unit>
+			<trans-unit id="accountform.profile.actionBtn" resname="accountform.profile.actionBtn">
+				<source>Update personal data</source>
+			</trans-unit>
+
+			<trans-unit id="accountform.address.address1" resname="accountform.address.address1">
+				<source>Street/ house number</source>
+			</trans-unit>
+			<trans-unit id="accountform.address.postcode" resname="accountform.address.postcode">
+				<source>Postcode</source>
+			</trans-unit>
+			<trans-unit id="accountform.address.city" resname="accountform.address.city">
+				<source>Place/ City</source>
+			</trans-unit>
+			<trans-unit id="accountform.address.country" resname="accountform.address.country">
+				<source>Country</source>
+			</trans-unit>
+			<trans-unit id="accountform.address.country.germany" resname="accountform.address.country.germany">
+				<source>Germany</source>
+			</trans-unit>
+			<trans-unit id="accountform.address.country.switzerland" resname="accountform.address.switzerland">
+				<source>Switzerland</source>
+			</trans-unit>
+			<trans-unit id="accountform.address.country.austria" resname="accountform.address.country.austria">
+				<source>Austria</source>
+			</trans-unit>
+			<trans-unit id="accountform.address.country.other" resname="accountform.address.country.other">
+				<source>Other</source>
+			</trans-unit>
+			<trans-unit id="accountform.address.actionBtn" resname="accountform.address.actionBtn">
+				<source>Update contact data</source>
+			</trans-unit>
+
+			<trans-unit id="accountform.social.phonenumber" resname="accountform.social.phonenumber">
+				<source>Phone number</source>
+			</trans-unit>
+			<trans-unit id="accountform.social.actionBtn" resname="accountform.social.actionBtn">
+				<source>Update profiles</source>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>

@@ -186,6 +186,93 @@
 				<source>My profile</source>
 				<target>Mein Profil</target>
 			</trans-unit>
+
+			<!--
+				Accountform
+			-->
+
+			<trans-unit id="accountform.profile.title" resname="accountform.profile.title">
+				<source>Title</source>
+				<target>Titel</target>
+			</trans-unit>
+			<trans-unit id="accountform.profile.givenNames" resname="accountform.profile.givenNames">
+				<source>First name/s</source>
+				<target>Vorname/n</target>
+			</trans-unit>
+			<trans-unit id="accountform.profile.surname" resname="accountform.profile.surname">
+				<source>Surname</source>
+				<target>Nachname</target>
+			</trans-unit>
+			<trans-unit id="accountform.profile.emailAddress" resname="accountform.profile.emailAddress">
+				<source>E-mail address</source>
+				<target>E-Mail-Adresse</target>
+			</trans-unit>
+			<trans-unit id="accountform.profile.status" resname="accountform.profile.status">
+				<source>Status</source>
+				<target>Status</target>
+			</trans-unit>
+			<trans-unit id="accountform.profile.institute" resname="accountform.profile.institute">
+				<source>Institute/ Facility</source>
+				<target>Institut/ Einrichtung</target>
+			</trans-unit>
+			<trans-unit id="accountform.profile.location" resname="accountform.profile.location">
+				<source>Location</source>
+				<target>Standort</target>
+			</trans-unit>
+			<trans-unit id="accountform.profile.additionalNote" resname="accountform.profile.additionalNote">
+				<source><![CDATA[<b>Additional note to the form.</b> Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.]]></source>
+				<target><![CDATA[<b>Zusätzlicher Hinweistext zum Formular.</b> Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.]]></target>
+			</trans-unit>
+			<trans-unit id="accountform.profile.actionBtn" resname="accountform.profile.actionBtn">
+				<source>Update personal data</source>
+				<target>Persönliche Daten aktualisieren</target>
+			</trans-unit>
+
+			<trans-unit id="accountform.address.address1" resname="accountform.address.address1">
+				<source>Street/ house number</source>
+				<target>Straße/ Hausnummer</target>
+			</trans-unit>
+			<trans-unit id="accountform.address.postcode" resname="accountform.address.postcode">
+				<source>Postcode</source>
+				<target>PLZ</target>
+			</trans-unit>
+			<trans-unit id="accountform.address.city" resname="accountform.address.city">
+				<source>Place/ City</source>
+				<target>Ort/ Stadt</target>
+			</trans-unit>
+			<trans-unit id="accountform.address.country" resname="accountform.address.country">
+				<source>Country</source>
+				<target>Land</target>
+			</trans-unit>
+			<trans-unit id="accountform.address.country.germany" resname="accountform.address.country.germany">
+				<source>Germany</source>
+				<target>Deutschland</target>
+			</trans-unit>
+			<trans-unit id="accountform.address.country.switzerland" resname="accountform.address.switzerland">
+				<source>Switzerland</source>
+				<target>Schweiz</target>
+			</trans-unit>
+			<trans-unit id="accountform.address.country.austria" resname="accountform.address.country.austria">
+				<source>Austria</source>
+				<target>Österreich</target>
+			</trans-unit>
+			<trans-unit id="accountform.address.country.other" resname="accountform.address.country.other">
+				<source>Other</source>
+				<target>Anderes</target>
+			</trans-unit>
+			<trans-unit id="accountform.address.actionBtn" resname="accountform.address.actionBtn">
+				<source>Update contact data</source>
+				<target>Kontakt aktualisieren</target>
+			</trans-unit>
+
+			<trans-unit id="accountform.social.phonenumber" resname="accountform.social.phonenumber">
+				<source>Phone number</source>
+				<target>Telefonnummer</target>
+			</trans-unit>
+			<trans-unit id="accountform.social.actionBtn" resname="accountform.social.actionBtn">
+				<source>Update profiles</source>
+				<target>Profile aktualisieren</target>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>

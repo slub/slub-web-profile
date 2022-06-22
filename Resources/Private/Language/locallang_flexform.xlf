@@ -31,6 +31,18 @@
 			<trans-unit id="settings.searchResultPageUid" resname="settings.searchResultPageUid">
 				<source>Page with search result view</source>
 			</trans-unit>
+			<trans-unit id="settings.formtyp" resname="settings.formtyp">
+				<source>Formtyp</source>
+			</trans-unit>
+			<trans-unit id="settings.formtyp.1" resname="settings.formtyp.1">
+				<source>Profile</source>
+			</trans-unit>
+			<trans-unit id="settings.formtyp.2" resname="settings.formtyp.2">
+				<source>Address</source>
+			</trans-unit>
+			<trans-unit id="settings.formtyp.3" resname="settings.formtyp.3">
+				<source>Social</source>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>

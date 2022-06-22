@@ -52,6 +52,29 @@
   border: 0 none;
 }
 
+.btn-action {
+  transition: all $transition-default;
+  border: 0 none;
+  font-size: .8rem;
+  font-family: $VistaSans;
+  white-space: nowrap;
+  text-transform: uppercase;
+  color: $white;
+  background: $secondary-petrol-green;
+  padding: .35rem 1rem;
+  border-top: 2px $secondary-petrol-green solid;
+  border-bottom: 2px $secondary-petrol-dark solid;
+
+  &-lg {
+    padding: .95rem 1.125rem;
+  }
+
+  &:hover {
+    background: $primary-red-darker;
+    border-top-color: $primary-red-darker;
+  }
+}
+
 .d-none {
   display: none;
 }

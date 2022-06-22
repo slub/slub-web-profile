@@ -58,6 +58,11 @@ class ApiConfiguration
     /**
      * @var string
      */
+    protected $userAccountUpdateUri;
+
+    /**
+     * @var string
+     */
     protected $userDashboardDetailUri;
 
     /**
@@ -96,6 +101,7 @@ class ApiConfiguration
         $this->setEventListUri($domain . $paths['eventList'][$languageUid]);
         $this->setMessageListUri($domain . $paths['messageList'][$languageUid]);
         $this->setUserAccountDetailUri($domain . $paths['userAccountDetail']);
+        $this->setUserAccountUpdateUri($domain . $paths['userAccountUpdate']);
         $this->setUserDashboardDetailUri($domain . $paths['userDashboardDetail']);
         $this->setUserDashboardUpdateUri($domain . $paths['userDashboardUpdate']);
         $this->setUserSearchQueryDetailUri($domain . $paths['userSearchQueryDetail']);
@@ -180,6 +186,22 @@ class ApiConfiguration
     public function setUserAccountDetailUri(string $userAccountDetailUri = ''): void
     {
         $this->userAccountDetailUri = $userAccountDetailUri;
+    }
+
+    /**
+     * @return string
+     */
+    public function getUserAccountUpdateUri(): string
+    {
+        return $this->userAccountUpdateUri;
+    }
+
+    /**
+     * @param string $userAccountUpdateUri
+     */
+    public function setUserAccountUpdateUri(string $userAccountUpdateUri = ''): void
+    {
+        $this->userAccountUpdateUri = $userAccountUpdateUri;
     }
 
     /**

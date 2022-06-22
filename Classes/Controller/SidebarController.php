@@ -25,8 +25,6 @@ class SidebarController extends ActionController
         $content = $this->configurationManager->getContentObject();
         $pages = MenuUtility::getList($content)['menu'];
 
-        $this->view->assignMultiple([
-            'pages' => $pages
-        ]);
+        $this->view->assign('pages', $pages);
     }
 }

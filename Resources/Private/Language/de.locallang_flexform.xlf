@@ -40,6 +40,22 @@
 				<source>Page with search result view</source>
 				<target>Seite mit Suchergebnisansicht</target>
 			</trans-unit>
+			<trans-unit id="settings.formtyp" resname="settings.formtyp">
+				<source>Formtyp</source>
+				<target>Formulartyp</target>
+			</trans-unit>
+			<trans-unit id="settings.formtyp.1" resname="settings.formtyp.1">
+				<source>Profile</source>
+				<target>Profil</target>
+			</trans-unit>
+			<trans-unit id="settings.formtyp.2" resname="settings.formtyp.2">
+				<source>Address</source>
+				<target>Adresse</target>
+			</trans-unit>
+			<trans-unit id="settings.formtyp.3" resname="settings.formtyp.3">
+				<source>Social</source>
+				<target>Social</target>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>
