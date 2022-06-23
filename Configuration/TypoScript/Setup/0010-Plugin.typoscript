@@ -24,7 +24,11 @@ plugin.tx_slubwebprofile {
           1 = {$plugin.tx_slubwebprofile.settings.api.path.messageList.1}
         }
 
-        userAccountDetail = {$plugin.tx_slubwebprofile.settings.api.path.userAccountDetail}
+        userAccountDetail {
+          0 = {$plugin.tx_slubwebprofile.settings.api.path.userAccountDetail.0}
+          1 = {$plugin.tx_slubwebprofile.settings.api.path.userAccountDetail.1}
+        }
+
         userAccountUpdate = {$plugin.tx_slubwebprofile.settings.api.path.userAccountUpdate}
         userDashboardDetail = {$plugin.tx_slubwebprofile.settings.api.path.userDashboardDetail}
         userDashboardUpdate = {$plugin.tx_slubwebprofile.settings.api.path.userDashboardUpdate}

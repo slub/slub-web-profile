@@ -113,6 +113,7 @@
     display: flex;
     flex-wrap: wrap;
     margin-bottom: 0;
+    width: 100%;
   }
 
   li {
@@ -174,12 +175,10 @@
 
   @media screen and (min-width: $tabletViewportWidth) {
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, 1fr);
   }
 
   @media screen and (min-width: $desktopViewportWidth) {
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(3, 1fr);
     margin: 0 -2.5rem;
   }
 

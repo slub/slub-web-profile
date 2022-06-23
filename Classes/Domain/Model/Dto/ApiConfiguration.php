@@ -100,7 +100,7 @@ class ApiConfiguration
         $this->setBookmarkListUri($domain . $paths['bookmarkList']);
         $this->setEventListUri($domain . $paths['eventList'][$languageUid]);
         $this->setMessageListUri($domain . $paths['messageList'][$languageUid]);
-        $this->setUserAccountDetailUri($domain . $paths['userAccountDetail']);
+        $this->setUserAccountDetailUri($domain . $paths['userAccountDetail'][$languageUid]);
         $this->setUserAccountUpdateUri($domain . $paths['userAccountUpdate']);
         $this->setUserDashboardDetailUri($domain . $paths['userDashboardDetail']);
         $this->setUserDashboardUpdateUri($domain . $paths['userDashboardUpdate']);
@@ -280,7 +280,7 @@ class ApiConfiguration
         $this->setMessageListUri(
             str_replace(
                 self::PLACEHOLDER['userCategory'],
-                $user['accountData']['X_category'],
+                $user['account']['X_category'],
                 $this->getMessageListUri()
             )
         );

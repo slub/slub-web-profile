@@ -24,14 +24,6 @@ class AccountFormController extends ActionController
     protected $userService;
 
     /**
-     * @param UserService $userService
-     */
-    public function injectUserService(UserService $userService): void
-    {
-        $this->userService = $userService;
-    }
-
-    /**
      * @var array
      */
     private $formTypes = [
@@ -39,6 +31,14 @@ class AccountFormController extends ActionController
         2 => 'address',
         3 => 'social'
     ];
+
+    /**
+     * @param UserService $userService
+     */
+    public function injectUserService(UserService $userService): void
+    {
+        $this->userService = $userService;
+    }
 
     public function indexAction(): void
     {

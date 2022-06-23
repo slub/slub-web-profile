@@ -16,19 +16,19 @@
         </div>
         <div class="form-row">
             <label for="givenNames" class="form-label">{f:translate(key: 'accountform.profile.givenNames')}</label>
-            <input class="form-control" type="text" id="givenNames" value="{user.accountData.X_name.givenname}" disabled readonly>
+            <input class="form-control" type="text" id="givenNames" value="{user.account.X_name.givenname}" disabled readonly>
         </div>
         <div class="form-row">
             <label for="Surname" class="form-label">{f:translate(key: 'accountform.profile.surname')}</label>
-            <input class="form-control" type="text" id="Surname" value="{user.accountData.X_name.surname}" disabled readonly>
+            <input class="form-control" type="text" id="Surname" value="{user.account.X_name.surname}" disabled readonly>
         </div>
         <div class="form-row">
             <label for="EmailAddress" class="form-label">{f:translate(key: 'accountform.profile.emailAddress')}</label>
-            <input type="email" class="form-control" id="EmailAddress" name="account[EmailAddress]" value="{user.accountData.email}" required="required">
+            <input type="email" class="form-control" id="EmailAddress" name="account[EmailAddress]" value="{user.account.email}" required="required">
         </div>
         <div class="form-row">
             <label for="Status" class="form-label">{f:translate(key: 'accountform.profile.status')}</label>
-            <input class="form-control" type="text" id="Status" value="{user.accountData.X_category_desc}" disabled readonly>
+            <input class="form-control" type="text" id="Status" value="{user.user.X_category_desc}" disabled readonly>
         </div>
         <div class="form-row">
             <label for="Institute" class="form-label">{f:translate(key: 'accountform.profile.institute')}</label>

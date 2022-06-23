@@ -9,10 +9,10 @@
           media="all"
           href="/typo3conf/ext/slub_web_profile/Resources/Public/Css/accountform.css" />
 
-    <f:form enctype="multipart/form-data" class="form-mb">
+    <f:form enctype="multipart/form-data">
         <div class="form-row">
             <label for="Phone" class="form-label">{f:translate(key: 'accountform.social.phonenumber')}</label>
-            <input class="form-control" type="text" id="Phone" name="account[Phone]" value="{user.accountData.phonenumber}">
+            <input class="form-control" type="text" id="Phone" name="account[Phone]" value="{user.account.phonenumber}">
         </div>
         <button type="submit" class="btn btn-action btn-action-lg">{f:translate(key: 'accountform.social.actionBtn')}</button>
     </f:form>
