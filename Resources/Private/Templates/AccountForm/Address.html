@@ -1,4 +1,4 @@
-<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="{formIdentifier}-true">
 <f:layout name="Default" />
 <!-- Templates/AccountForm/Address.html -->
 
@@ -6,23 +6,24 @@
     <!--TYPO3SEARCH_end-->
     <link rel="stylesheet" type="text/css" media="all"
         href="/typo3conf/ext/slub_web_profile/Resources/Public/Css/accountform.css" />
+    <f:variable name="formIdentifier">form-address</f:variable>
 
     <f:form enctype="multipart/form-data" class="form-mb">
         <div class="form-row">
-            <label for="PostalAddress1" class="form-label">{f:translate(key: 'accountform.address.address1')}</label>
-            <input class="form-control" type="text" id="PostalAddress1" name="account[PostalAddress1]" value="{user.account.X_post_address.street_1}">
+            <label for="{formIdentifier}-street" class="form-label">{f:translate(key: 'accountform.address.address1')}</label>
+            <input class="form-control" type="text" id="{formIdentifier}-street" name="account[PostalAddress1]" value="{user.account.X_post_address.street_1}">
         </div>
         <div class="form-row">
-            <label for="PostalPostCode" class="form-label">{f:translate(key: 'accountform.address.postcode')}</label>
-            <input class="form-control" type="text" id="PostalPostCode" name="account[PostalPostCode]" value="{user.account.X_post_address.plz}">
+            <label for="{formIdentifier}-postcode" class="form-label">{f:translate(key: 'accountform.address.postcode')}</label>
+            <input class="form-control" type="text" id="{formIdentifier}-postcode" name="account[PostalPostCode]" value="{user.account.X_post_address.plz}">
         </div>
         <div class="form-row">
-            <label for="PostalCity" class="form-label">{f:translate(key: 'accountform.address.city')}</label>
-            <input class="form-control" type="text" id="PostalCity" name="account[PostalCity]" value="{user.account.X_post_address.ort}">
+            <label for="{formIdentifier}-city" class="form-label">{f:translate(key: 'accountform.address.city')}</label>
+            <input class="form-control" type="text" id="{formIdentifier}-city" name="account[PostalCity]" value="{user.account.X_post_address.ort}">
         </div>
         <div class="form-row">
-            <label for="PostalCountry" class="form-label">{f:translate(key: 'accountform.address.country')}</label>
-            <select class="form-select" id="PostalCountry" name="account[PostalCountry]">
+            <label for="{formIdentifier}-country" class="form-label">{f:translate(key: 'accountform.address.country')}</label>
+            <select class="form-select" id="{formIdentifier}-country" name="account[PostalCountry]">
                 <option selected value="{user.account.X_post_address.country}">{user.account.X_post_address.country}</option>
                 <option value="{f:translate(key: 'accountform.address.country.germany')}">{f:translate(key: 'accountform.address.country.germany')}</option>
                 <option value="{f:translate(key: 'accountform.address.country.switzerland')}">{f:translate(key: 'accountform.address.country.switzerland')}</option>
