@@ -8,23 +8,23 @@
                 </TCEforms>
                 <type>array</type>
                 <el>
-                    <settings.formtyp>
+                    <settings.formType>
                         <TCEforms>
-                            <label>LLL:EXT:slub_web_profile/Resources/Private/Language/locallang_flexform.xlf:settings.formtyp</label>
+                            <label>LLL:EXT:slub_web_profile/Resources/Private/Language/locallang_flexform.xlf:settings.formType</label>
                             <config>
                                 <type>select</type>
                                 <renderType>selectSingle</renderType>
                                 <items type="array">
                                     <numIndex index="0" type="array">
-                                        <numIndex index="0">LLL:EXT:slub_web_profile/Resources/Private/Language/locallang_flexform.xlf:settings.formtyp.1</numIndex>
+                                        <numIndex index="0">LLL:EXT:slub_web_profile/Resources/Private/Language/locallang_flexform.xlf:settings.formType.1</numIndex>
                                         <numIndex index="1">1</numIndex>
                                     </numIndex>
                                     <numIndex index="1" type="array">
-                                        <numIndex index="0">LLL:EXT:slub_web_profile/Resources/Private/Language/locallang_flexform.xlf:settings.formtyp.2</numIndex>
+                                        <numIndex index="0">LLL:EXT:slub_web_profile/Resources/Private/Language/locallang_flexform.xlf:settings.formType.2</numIndex>
                                         <numIndex index="1">2</numIndex>
                                     </numIndex>
                                     <numIndex index="2" type="array">
-                                        <numIndex index="0">LLL:EXT:slub_web_profile/Resources/Private/Language/locallang_flexform.xlf:settings.formtyp.3</numIndex>
+                                        <numIndex index="0">LLL:EXT:slub_web_profile/Resources/Private/Language/locallang_flexform.xlf:settings.formType.3</numIndex>
                                         <numIndex index="1">3</numIndex>
                                     </numIndex>
                                 </items>
@@ -33,7 +33,7 @@
                                 <size>1</size>
                             </config>
                         </TCEforms>
-                    </settings.formtyp>
+                    </settings.formType>
                 </el>
             </ROOT>
         </sDEF>

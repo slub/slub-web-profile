@@ -42,8 +42,8 @@ class AccountFormController extends ActionController
 
     public function indexAction(): void
     {
-        // flexform formtyp - call to action controller
-        $formType = (int)$this->settings['formtyp'];
+        // flexform formType - call to action controller
+        $formType = (int)$this->settings['formType'];
         $this->forward($this->formTypes[$formType]);
     }
 
