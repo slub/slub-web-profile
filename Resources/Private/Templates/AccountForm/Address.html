@@ -4,35 +4,83 @@
 
 <f:section name="Default">
     <!--TYPO3SEARCH_end-->
-    <link rel="stylesheet" type="text/css" media="all"
-        href="/typo3conf/ext/slub_web_profile/Resources/Public/Css/accountform.css" />
-    <f:variable name="formIdentifier">form-address</f:variable>
+    <link rel="stylesheet" 
+          type="text/css" 
+          media="all"
+          href="/typo3conf/ext/slub_web_profile/Resources/Public/Css/accountform.css" />
+    <f:variable name="formIdentifier">form-{action}</f:variable>
 
-    <f:form enctype="multipart/form-data" class="form-mb">
-        <div class="form-row">
-            <label for="{formIdentifier}-street" class="form-label">{f:translate(key: 'accountform.address.address1')}</label>
-            <input class="form-control" type="text" id="{formIdentifier}-street" name="account[PostalAddress1]" value="{user.account.X_post_address.street_1}">
-        </div>
-        <div class="form-row">
-            <label for="{formIdentifier}-postcode" class="form-label">{f:translate(key: 'accountform.address.postcode')}</label>
-            <input class="form-control" type="text" id="{formIdentifier}-postcode" name="account[PostalPostCode]" value="{user.account.X_post_address.plz}">
-        </div>
-        <div class="form-row">
-            <label for="{formIdentifier}-city" class="form-label">{f:translate(key: 'accountform.address.city')}</label>
-            <input class="form-control" type="text" id="{formIdentifier}-city" name="account[PostalCity]" value="{user.account.X_post_address.ort}">
-        </div>
-        <div class="form-row">
-            <label for="{formIdentifier}-country" class="form-label">{f:translate(key: 'accountform.address.country')}</label>
-            <select class="form-select" id="{formIdentifier}-country" name="account[PostalCountry]">
-                <option selected value="{user.account.X_post_address.country}">{user.account.X_post_address.country}</option>
-                <option value="{f:translate(key: 'accountform.address.country.germany')}">{f:translate(key: 'accountform.address.country.germany')}</option>
-                <option value="{f:translate(key: 'accountform.address.country.switzerland')}">{f:translate(key: 'accountform.address.country.switzerland')}</option>
-                <option value="{f:translate(key: 'accountform.address.country.austria')}">{f:translate(key: 'accountform.address.country.austria')}</option>
-                <option value="{f:translate(key: 'accountform.address.country.other')}">{f:translate(key: 'accountform.address.country.other')}</option>
-            </select>
-        </div>
-        <button type="submit" class="btn btn-action btn-action-lg">{f:translate(key: 'accountform.address.actionBtn')}</button>
-    </f:form>
+    <div id="account{formIdentifier}" class="accountform">
+        <f:render partial="AccountForm/Status" arguments="{status: status, currentAction: currentAction, action: action}" />
+
+        <f:form enctype="multipart/form-data" class="form-mb" section="account{formIdentifier}">
+            <input type="hidden" name="account[action]" value="{action}">
+            <h4 class="form-headline">{f:translate(key: 'accountform.address.headline.postal-address')}</h4>
+            <div class="form-row">
+                <label for="{formIdentifier}-street" class="form-label">{f:translate(key: 'accountform.address.address')}<span class="label-required">*</span></label>
+                <input class="form-control" type="text" id="{formIdentifier}-street" name="account[PostalAddress1]" value="{user.account.X_post_address.street_1}">
+            </div>
+            <div class="form-row">
+                <label for="{formIdentifier}-addition" class="form-label">{f:translate(key: 'accountform.address.addition')}<span class="label-required">*</span></label>
+                <input class="form-control" type="text" id="{formIdentifier}-addition" name="account[PostalAddress2]" value="{user.account.X_post_address.street_2}">
+            </div>
+            <div class="form-row">
+                <label for="{formIdentifier}-postcode" class="form-label">{f:translate(key: 'accountform.address.postcode')}<span class="label-required">*</span></label>
+                <input class="form-control" type="text" id="{formIdentifier}-postcode" name="account[PostalPostCode]" value="{user.account.X_post_address.plz}">
+            </div>
+            <div class="form-row">
+                <label for="{formIdentifier}-city" class="form-label">{f:translate(key: 'accountform.address.city')}<span class="label-required">*</span></label>
+                <input class="form-control" type="text" id="{formIdentifier}-city" name="account[PostalCity]" value="{user.account.X_post_address.ort}">
+            </div>
+            <div class="form-row">
+                <label for="{formIdentifier}-country" class="form-label">{f:translate(key: 'accountform.address.country')}<span class="label-required">*</span></label>
+                <select class="form-select" id="{formIdentifier}-country" name="account[PostalCountry]">
+                    <option selected value="{user.account.X_post_address.country}">{user.account.X_post_address.country}</option>
+                    <option value="{f:translate(key: 'accountform.address.country.germany')}">{f:translate(key: 'accountform.address.country.germany')}</option>
+                    <option value="{f:translate(key: 'accountform.address.country.switzerland')}">{f:translate(key: 'accountform.address.country.switzerland')}</option>
+                    <option value="{f:translate(key: 'accountform.address.country.austria')}">{f:translate(key: 'accountform.address.country.austria')}</option>
+                    <option value="{f:translate(key: 'accountform.address.country.other')}">{f:translate(key: 'accountform.address.country.other')}</option>
+                </select>
+            </div>
+            <div class="form-row">
+                <label for="{formIdentifier}-phone" class="form-label">{f:translate(key: 'accountform.address.phone')}<span class="label-required">*</span></label>
+                <input class="form-control" type="text" id="{formIdentifier}-phone" name="account[Phone]" value="{user.account.phone}">
+            </div>
+            <h4 class="form-headline">{f:translate(key: 'accountform.address.headline.secondary-flat')}</h4>
+            <div class="form-row">
+                <label for="{formIdentifier}-street" class="form-label">{f:translate(key: 'accountform.address.address')}<span class="label-required">*</span></label>
+                <input class="form-control" type="text" id="{formIdentifier}-street" name="account[ResAddress1]" value="{user.account.X_residental_address.street_1}">
+            </div>
+            <div class="form-row">
+                <label for="{formIdentifier}-addition" class="form-label">{f:translate(key: 'accountform.address.addition')}<span class="label-required">*</span></label>
+                <input class="form-control" type="text" id="{formIdentifier}-addition" name="account[ResAddress2]" value="{user.account.X_residental_address.street_2}">
+            </div>
+            <div class="form-row">
+                <label for="{formIdentifier}-postcode" class="form-label">{f:translate(key: 'accountform.address.postcode')}<span class="label-required">*</span></label>
+                <input class="form-control" type="text" id="{formIdentifier}-postcode" name="account[ResAddressPostCode]" value="{user.account.X_residental_address.plz}">
+            </div>
+            <div class="form-row">
+                <label for="{formIdentifier}-city" class="form-label">{f:translate(key: 'accountform.address.city')}<span class="label-required">*</span></label>
+                <input class="form-control" type="text" id="{formIdentifier}-city" name="account[ResAddressCity]" value="{user.account.X_residental_address.ort}">
+            </div>
+            <div class="form-row">
+                <label for="{formIdentifier}-country" class="form-label">{f:translate(key: 'accountform.address.country')}<span class="label-required">*</span></label>
+                <select class="form-select" id="{formIdentifier}-country" name="account[ResAddressCountry]">
+                    <option selected value="{user.account.X_residental_address.country}">{user.account.X_residental_address.country}</option>
+                    <option value="{f:translate(key: 'accountform.address.country.germany')}">{f:translate(key: 'accountform.address.country.germany')}</option>
+                    <option value="{f:translate(key: 'accountform.address.country.switzerland')}">{f:translate(key: 'accountform.address.country.switzerland')}</option>
+                    <option value="{f:translate(key: 'accountform.address.country.austria')}">{f:translate(key: 'accountform.address.country.austria')}</option>
+                    <option value="{f:translate(key: 'accountform.address.country.other')}">{f:translate(key: 'accountform.address.country.other')}</option>
+                </select>
+            </div>
+            <h4 class="form-headline">{f:translate(key: 'accountform.address.headline.guarantor')}</h4>
+            <div class="form-row">
+                <label for="{formIdentifier}-guarantor" class="form-label">{f:translate(key: 'accountform.address.guarantor-name')}</label>
+                <input class="form-control" type="text" id="{formIdentifier}-guarantor" name="account[Guarantor]" value="{user.account.X_alternative_address.name}" disabled readonly>
+            </div>
+            <button type="submit" class="btn btn-action btn-action-lg">{f:translate(key: 'accountform.address.actionBtn')}</button>
+        </f:form>
+    </div>
     <!--TYPO3SEARCH_begin-->
 </f:section>
 

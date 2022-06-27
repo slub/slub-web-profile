@@ -53,7 +53,8 @@ class AccountFormController extends ActionController
     public function profileAction(): void
     {
         $status = $this->updateUser();
-        $this->assignUserData($status);
+        $action = $this->formTypes[1];
+        $this->assignUserData($status, $action);
     }
 
     /**
@@ -62,7 +63,8 @@ class AccountFormController extends ActionController
     public function addressAction(): void
     {
         $status = $this->updateUser();
-        $this->assignUserData($status);
+        $action = $this->formTypes[2];
+        $this->assignUserData($status, $action);
     }
 
     /**
@@ -71,7 +73,8 @@ class AccountFormController extends ActionController
     public function socialAction(): void
     {
         $status = $this->updateUser();
-        $this->assignUserData($status);
+        $action = $this->formTypes[3];
+        $this->assignUserData($status, $action);
     }
 
     /**
@@ -88,14 +91,17 @@ class AccountFormController extends ActionController
 
     /**
      * @param array $status
+     * @param string $action
      */
-    protected function assignUserData(array $status): void
+    protected function assignUserData(array $status, string $action): void
     {
         $user = $this->userService->getUserAccount();
 
         $this->view->assignMultiple([
             'user' => $user,
-            'status' => $status
+            'status' => $status,
+            'action' => $action,
+            'currentAction' => $_POST['account']['action']
         ]);
     }
 }

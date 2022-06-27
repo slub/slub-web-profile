@@ -1,0 +1,14 @@
+// Message status
+.api-message-status {
+  &--successful {
+    border-color: green;
+    color: green;
+    background: lightgreen;
+  }
+
+  &--error {
+    border-color: red;
+    color: red;
+    background: lightcoral;
+  }
+}

@@ -151,9 +151,10 @@
 				Accountform
 			-->
 
-			<trans-unit id="accountform.profile.title" resname="accountform.profile.title">
-				<source>Title</source>
+			<trans-unit id="accountform.address.status.success" resname="accountform.address.status.success">
+				<source>The changes were succesfully saved.</source>
 			</trans-unit>
+
 			<trans-unit id="accountform.profile.givenNames" resname="accountform.profile.givenNames">
 				<source>First name/s</source>
 			</trans-unit>
@@ -166,11 +167,8 @@
 			<trans-unit id="accountform.profile.status" resname="accountform.profile.status">
 				<source>Status</source>
 			</trans-unit>
-			<trans-unit id="accountform.profile.institute" resname="accountform.profile.institute">
-				<source>Institute/ Facility</source>
-			</trans-unit>
-			<trans-unit id="accountform.profile.location" resname="accountform.profile.location">
-				<source>Location</source>
+			<trans-unit id="accountform.profile.hsid" resname="accountform.profile.hsid">
+				<source>University ID (HSID)</source>
 			</trans-unit>
 			<trans-unit id="accountform.profile.additionalNote" resname="accountform.profile.additionalNote">
 				<source><![CDATA[<b>Additional note to the form.</b> Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.]]></source>
@@ -179,8 +177,14 @@
 				<source>Update personal data</source>
 			</trans-unit>
 
-			<trans-unit id="accountform.address.address1" resname="accountform.address.address1">
+			<trans-unit id="accountform.address.headline.postal-address" resname="accountform.address.headline.postal-address">
+				<source>Postal address</source>
+			</trans-unit>
+			<trans-unit id="accountform.address.address" resname="accountform.address.address">
 				<source>Street/ house number</source>
+			</trans-unit>
+			<trans-unit id="accountform.address.addition" resname="accountform.address.addition">
+				<source>Addition</source>
 			</trans-unit>
 			<trans-unit id="accountform.address.postcode" resname="accountform.address.postcode">
 				<source>Postcode</source>
@@ -203,8 +207,20 @@
 			<trans-unit id="accountform.address.country.other" resname="accountform.address.country.other">
 				<source>Other</source>
 			</trans-unit>
+			<trans-unit id="accountform.address.phone" resname="accountform.address.phone">
+				<source>Telephone number</source>
+			</trans-unit>
+			<trans-unit id="accountform.address.headline.secondary-flat" resname="accountform.address.headline.secondary-flat">
+				<source>Secondary flat</source>
+			</trans-unit>
+			<trans-unit id="accountform.address.headline.guarantor" resname="accountform.address.headline.guarantor">
+				<source>Guarantor</source>
+			</trans-unit>
+			<trans-unit id="accountform.address.guarantor-name" resname="accountform.address.guarantor-name">
+				<source>Name</source>
+			</trans-unit>
 			<trans-unit id="accountform.address.actionBtn" resname="accountform.address.actionBtn">
-				<source>Update contact data</source>
+				<source>Update contact details</source>
 			</trans-unit>
 
 			<trans-unit id="accountform.social.phonenumber" resname="accountform.social.phonenumber">

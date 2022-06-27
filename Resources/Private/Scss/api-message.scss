@@ -1,21 +1,10 @@
+@import 'message-status';
+
 .api-message-status {
   position: fixed;
   top: 0;
   right: 0;
   z-index: 300;
-  border: 2px grey solid;
-  background: lightgrey;
+  border: 2px solid;
   padding: 1rem;
-
-  &--successful {
-    border-color: green;
-    color: green;
-    background: lightgreen;
-  }
-
-  &--error {
-    border-color: red;
-    color: red;
-    background: lightcoral;
-  }
 }
