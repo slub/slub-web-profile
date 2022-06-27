@@ -29,7 +29,10 @@ class AccountFormController extends ActionController
     private $formTypes = [
         1 => 'profile',
         2 => 'address',
-        3 => 'social'
+        3 => 'social',
+        4 => 'password',
+        5 => 'userpin',
+        6 => 'lock'
     ];
 
     /**
@@ -74,6 +77,36 @@ class AccountFormController extends ActionController
     {
         $status = $this->updateUser();
         $action = $this->formTypes[3];
+        $this->assignUserData($status, $action);
+    }
+
+    /**
+     * @throws \JsonException
+     */
+    public function passwordAction(): void
+    {
+        $status = $this->updateUser();
+        $action = $this->formTypes[4];
+        $this->assignUserData($status, $action);
+    }
+
+    /**
+     * @throws \JsonException
+     */
+    public function userPINAction(): void
+    {
+        $status = $this->updateUser();
+        $action = $this->formTypes[5];
+        $this->assignUserData($status, $action);
+    }
+
+    /**
+     * @throws \JsonException
+     */
+    public function lockAction(): void
+    {
+        $status = $this->updateUser();
+        $action = $this->formTypes[6];
         $this->assignUserData($status, $action);
     }
 

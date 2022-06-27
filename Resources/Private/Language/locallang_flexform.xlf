@@ -43,6 +43,15 @@
 			<trans-unit id="settings.formType.3" resname="settings.formType.3">
 				<source>Social</source>
 			</trans-unit>
+			<trans-unit id="settings.formType.4" resname="settings.formType.4">
+				<source>Change password</source>
+			</trans-unit>
+			<trans-unit id="settings.formType.5" resname="settings.formType.5">
+				<source>Change user PIN</source>
+			</trans-unit>
+			<trans-unit id="settings.formType.6" resname="settings.formType.6">
+				<source>Lock account</source>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>

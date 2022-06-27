@@ -56,6 +56,18 @@
 				<source>Social</source>
 				<target>Social</target>
 			</trans-unit>
+			<trans-unit id="settings.formType.4" resname="settings.formType.4">
+				<source>Change password</source>
+				<target>Kennnwort ändern</target>
+			</trans-unit>
+			<trans-unit id="settings.formType.5" resname="settings.formType.5">
+				<source>Change user PIN</source>
+				<target>Benutzer-PIN ändern</target>
+			</trans-unit>
+			<trans-unit id="settings.formType.6" resname="settings.formType.6">
+				<source>Lock account</source>
+				<target>Konto sperren</target>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>

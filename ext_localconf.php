@@ -129,10 +129,10 @@ defined('TYPO3_MODE') || die();
     'Slub.SlubWebProfile',
     'AccountForm',
     [
-        'AccountForm' => 'index,profile,address,social'
+        'AccountForm' => 'index,profile,address,social,password,userPIN,lock'
     ],
     [
-        'AccountForm' => 'index,profile,address,social'
+        'AccountForm' => 'index,profile,address,social,password,userPIN,lock'
     ],
     \TYPO3\CMS\Extbase\Utility\ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
 );
