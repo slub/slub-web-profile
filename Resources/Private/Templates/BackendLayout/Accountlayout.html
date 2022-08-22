@@ -1,0 +1,54 @@
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xmlns:f="http://typo3.org/ns/TYPO3/Fluid/ViewHelpers">
+
+<f:layout name="Page"/>
+
+<f:section name="Content">
+    <link
+        rel="stylesheet"
+        type="text/css"
+        media="all"
+        href="/typo3conf/ext/slub_web_profile/Resources/Public/Css/profile-template.css"/>
+
+    <div id="content" class="content">
+        <div class="centring">
+            <div class="fullwidth-page" role="main">
+                <f:cObject typoscriptObjectPath="lib.menu.rootline"/>
+                <!-- TYPO3SEARCH_begin -->
+                <div class="row">
+                    <div class="{f:if(condition: rightCol, then: 'content__col content__col-left', else: 'content__col-head')}">
+                        <f:if condition="{data.subtitle}">
+                            <f:then>
+                                <h2>{data.subtitle}</h2>
+                            </f:then>
+                            <f:else>
+                                <h2>{data.title}</h2>
+                            </f:else>
+                        </f:if>
+                        <f:if condition="{data.abstract}">
+                            <div class="intro-text">{data.abstract -> f:format.html()}</div>
+                        </f:if>
+                        <f:format.raw>{leftCol}</f:format.raw>
+                    </div>
+                    <f:if condition="{rightCol}">
+                        <div class="content__col content__col-right">
+                            <f:format.raw>{rightCol}</f:format.raw>
+                        </div>
+                    </f:if>
+                </div>
+                 <div class="row">
+                    <div class="{f:if(condition: rightCol, then: 'content__col content__col-left', else: 'content__col-head')}">
+                        <f:cObject typoscriptObjectPath="lib.dynamicContent" data="0"/>
+                    </div>
+                    <f:if condition="{rightCol}">
+                        <div class="content__col content__col-right">
+                            <f:cObject typoscriptObjectPath="lib.dynamicContent" data="3"/>
+                        </div>
+                    </f:if>
+                </div>
+                <!-- TYPO3SEARCH_end -->
+            </div>
+        </div>
+    </div>
+</f:section>
+
+</html>
