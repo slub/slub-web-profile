@@ -2,41 +2,240 @@
 
 // dashboard widgets inline styling for all
 .dashboard__widgets .widgets__item {
-  header>h3,
-  header>h4 {
-    margin-top: 0;
+  header {
+    margin: -3rem 0 1rem;
+
+    h3,
+    h4 {
+      font-family: $VistaSansBold;
+      border: 1px solid $primary-red;
+      background-color: $white;
+      text-transform: uppercase;
+      color: $primary-red;
+      font-size: 1rem;
+      padding: 5px;
+      display: inline-block;
+      margin-top: 0;
+      outline: 1rem solid $white;
+
+      a {
+        text-decoration: none;
+        background-color: $primary-red;
+        color: $white;
+        display: inline-block;
+        padding: 5px;
+        margin: -5px;
+
+        &:hover {
+          background-color: $white;
+          color: $primary-red;
+        }
+
+        &:before {
+          position: relative;
+          content: ">";
+          margin-right: 4px;
+          top: -1px;
+        }
+      }
+    }
   }
 
   .btn-close {
     position: absolute;
-    top: 1rem;
-    right: 1rem;
+    top: -1.2rem;
+    right: 1.5rem;
   }
 
   .widgetlist {
     margin-top: 0;
     padding-left: 0;
+    margin-left: -.4rem;
+    margin-right: -.4rem;
+
+    @media screen and (min-width: $tabletLandscapeViewportWidth) {
+      margin-left: -1.3rem;
+      margin-right: -1.3rem;
+    }
 
     li {
-      display: flex;
+      display: block;
       margin-bottom: 1rem;
+      padding: 0.5rem .4rem;
+      transition: background-color 0.5s ease;
+
+      @media screen and (min-width: $tabletLandscapeViewportWidth) {
+        padding: 0.5rem 1.3rem;
+      }
+
+      &:hover {
+        background-color: $secondary-petrol-soft;
+      }
     }
-    
+
     &__column--right {
       display: flex;
       flex-direction: column;
     }
   }
 
+  .widget {
+    &__title {
+      font-family: $VistaSansBook;
+      text-decoration: none;
+      line-height: 20px;
+      color: $black;
+    }
+  }
+
   .timedata {
     &__date {
+      color: $darkgrey;
+      font-size: 0.875rem;
+      line-height: 0.938rem;
+    }
+    &__date-prio {
       display: flex;
-      flex-direction: column;
-      min-width: 15%;
+      flex-direction: row;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+    &__date-day {
+      font-size: 3rem;
+      line-height: 1;
+      margin-right: .3rem;
+      color: $secondary-petrol-green
+    }
+    &__date-month {
+      font-family: $VistaSansBold;
+    }
+  }
 
-      &-day {
-        font-size: 1.4rem;
+  // Footerlinks
+  .footerdata {
+    &__morelink {
+      text-decoration: none;
+      text-transform: uppercase;
+      font-family: $VistaSansBook;
+      border-bottom: 1px solid;
+
+      strong {
+        font-family: $VistaSansBold;
       }
+
+      &:after {
+        content: "> ";
+        position: absolute;
+        margin-left: 5px;
+      }
+
+      &-deactive {
+        color: $secondary-petrol-green;
+        opacity: 0.3;
+      }
+    }
+  }
+}
+
+
+// No Widget items
+.dashboard__widgets .widgets__item {
+  .frame {
+    height: 100%;
+  }
+  .widget__noentry {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: calc(100% - 5rem);
+    margin-bottom: 1.7rem;
+    border-left: 1px solid $lightgrey;
+
+    &-text {
+      font-family: $VistaSansBook;
+      margin-left: -1px;
+      background-color: $white;
+
+      &:before {
+        content: url('../Icons/Content/widget-noentry-icon.png');
+        margin-bottom: -1rem;
+        margin-top: 1rem;
+        display: block;
+      }
+    }
+  }
+}
+
+// Special design
+.dashboard__widgets .widgets__item {
+  // special widgetdesign for title
+  .searchquerywidget__title,
+  .bookedwidget__title,
+  .bookmarkwidget__title {
+    font-family: $VistaSansBold;
+  }
+
+  // special widgetdesign for events
+  .eventwidget__today {
+    .widgetlist__column--right {
+      color: $secondary-petrol-green;
+    }
+
+    &-label {
+      transform: matrix(0.94, 0.34, -0.34, 0.94, 0, 0);
+      margin-left: 13rem;
+      position: absolute;
+      color: $secondary-petrol-green;
+
+      &:after {
+        content:'';
+        border-left: 1px solid $secondary-petrol-green;
+        width: 9px;
+        height: 23px;
+        transform: matrix(0.94, 0.34, -0.34, 0.94, 0, 0);
+        margin-left: -1.5rem;
+        top: 1.3rem;
+        position: relative;
+      }
+    }
+
+    .widget__title {
+      font-family: $VistaSansBold;
+      color: $secondary-petrol-green;
+    }
+  }
+
+  // special widgetdesign for borrowing
+  .borrowingwidget__overdue {
+    .timedata__date-day,
+    .widgetlist__column--right {
+      color: $primary-red-light;
+    }
+
+    &-icon {
+      transform: matrix(0.94, 0.34, -0.34, 0.94, 0, 0);
+      margin-left: 13rem;
+      position: absolute;
+
+      &:before {
+        content: url('../Icons/Content/widget-overdue-icon.png');
+      }
+
+      &:after {
+        content: '';
+        border-left: 1px solid $primary-red-light;
+        width: 9px;
+        height: 23px;
+        transform: matrix(0.94, 0.34, -0.34, 0.94, 0, 0);
+        margin-left: -1.1rem;
+        top: 1.3rem;
+        position: relative;
+      }
+    }
+
+    .widget__title {
+      font-family: $VistaSansBold;
+      color: $primary-red-light;
     }
   }
 }

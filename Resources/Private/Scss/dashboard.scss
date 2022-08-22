@@ -1,90 +1,211 @@
 @import 'variables';
 @import 'keyframes';
 
-// Dashboard general
-.frame-type-slubwebprofile_dashboard {
-  background-color: $brightgrey;
-  padding: 1rem 0 4rem;
-  position: relative;
+// Personalise Dashboard
+.dashboard__personalise {
+  font-family: $VistaSansBook;
+  font-weight: 600;
+  margin-bottom: 3rem;
 
-  &:before,
-  &:after {
+  &:before {
     content: '';
-    background-color: $brightgrey;
-    width: 50%;
-    left: -50%;
-    position: absolute;
-    height: 100%;
-    top: 0;
+    border-top: 1px solid $lightgrey;
+    display: block;
+    margin-top: 3rem;
+    margin-bottom: -2.7rem;
   }
 
-  &:after {
-    right: -50%;
-    left: auto;
-  }
-}
+  .link-personalise {
+    display: flex;
+    width: max-content;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    align-items: center;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    color: $secondary-petrol-green;
+    background-color: $white;
+    cursor: pointer;
 
-// Personalise Dashboard 
-.dashboard__header {
-  .btn-personalise {
-    background-color: $lightgrey;
-    border-color: $lightgrey;
+    &:hover {
+      color: $primary-red-darker;
+    }
+  }
+
+  svg {
+    margin-right: .5rem;
+  }
+
+  &.personalise--is-open {
+    .link-personalise {
+      display: none;
+    }
   }
 }
 
 // Widget menu selection
 .dashboard__controller {
+  background-color: lighten($secondary-petrol-light, 3%);
+  border-bottom: 2px #acc solid;
+  position: relative;
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 2.5rem;
+  padding: 3.5rem 0 1.5rem;
+
+  &:before,
+  &:after {
+    content: '';
+    background-color: lighten($secondary-petrol-light, 3%);
+    border-bottom: 2px #acc solid;
+    width: 50%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+  }
+
+  &:before {
+    left: -50%;
+  }
+
+  &:after {
+    right: -50%;
+  }
+
+  &[aria-hidden='true'] {
+    transition: max-height 0.25s linear 0s;
+    display: none;
+  }
+
+  .dashboard__controller-headline {
+    display: inline-flex;
+    align-items: center;
+    text-transform: uppercase;
+    color: $secondary-petrol-green;
+    margin: 0 1.5rem 1.5rem 0;
+    letter-spacing: 0.8px;
+  }
+
+  .dashboard__controller-close {
+    font-size: 12px;
+    color: $secondary-petrol-green;
+    display: flex;
+    align-items: center;
+    margin: 0 0 1.5rem auto;
+    cursor: pointer;
+    margin-right: 1rem;
+
+    &:hover {
+      color: $primary-red-darker;
+    }
+
+    svg {
+      margin-left: .7rem;
+    }
+  }
+
+  ul {
+    padding-left: 0;
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 0;
+    width: 100%;
+  }
+
   li {
     list-style: none;
+    cursor: pointer;
+    text-transform: uppercase;
+    margin-right: 1.4rem;
+    background-color: $secondary-petrol-green;
+    transition: all 0.5s;
+    color: $white;
+    padding: .2rem 2.5rem .2rem 0.8rem;
+    margin-bottom: 1.2rem;
 
     &:before {
+      content: "> "
+    }
+
+    &:after {
       content: '';
-      width: 2rem;
-      height: 2rem;
-      background-color: $white;
-      border-radius: 50%;
-      display: block;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36"><g transform="matrix(2.5,0,0,2.5,0,0)"><g><circle cx="7" cy="7" r="6.5" style="fill:none;stroke:%23fff;stroke-linecap: round;stroke-linejoin:round"></circle><g><line x1="7" y1="4" x2="7" y2="10" style="fill:none;stroke: %23fff;stroke-linecap:round;stroke-linejoin:round"></line><line x1="4" y1="7" x2="10" y2="7" style="fill:none;stroke:%23fff;stroke-linecap:round;stroke-linejoin:round"></line></g></g></g></svg>');
+      width: 20px;
+      display: inline-block;
+      position: absolute;
+      height: 20px;
+      margin-left: 10px;
+      margin-top: 3px;
+    }
+
+    &.controller__item--is-disabled {
+      opacity: .5;
+
+      &:after {
+        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36"><g transform="matrix(2.5,0,0,2.5,0,0)"><g><circle cx="7" cy="7" r="6.5" style="fill:none;stroke:%23fff;stroke-linecap: round;stroke-linejoin:round"></circle><line x1="4" y1="7" x2="10" y2="7" style="fill:none;stroke:%23fff;stroke-linecap:round;stroke-linejoin:round"></line></g></g></svg>');
+      }
+    }
+
+    &:hover {
+      background-color: $secondary-petrol-dark;
+      opacity: 1;
+    }
+  }
+
+  &-helptext {
+    font-size: 14px;
+
+    a:not(:hover) {
+      color: $black;
     }
   }
 }
 
+
 // Dashboard Widgets
 .dashboard__widgets {
   display: grid;
-  grid-column-gap: 0px;
-  grid-row-gap: 0px;
-  margin: -.5rem;
+  grid-column-gap: 0.5rem;
+  grid-row-gap: 0.5rem;
+  margin: 0 -1rem;
 
-  @media screen and (min-width: $phoneLandscapeViewportWidth) {
-    grid-template-columns: repeat(2,1fr);
-    grid-template-rows: repeat(2,1fr);
+  @media screen and (min-width: $tabletViewportWidth) {
+    grid-template-columns: repeat(2, 1fr);
   }
 
-  @media screen and (min-width: $tabletLandscapeViewportWidth) {
-    grid-template-columns: repeat(3,1fr);
-    grid-template-rows: repeat(3,1fr);
+  @media screen and (min-width: $desktopViewportWidth) {
+    grid-template-columns: repeat(3, 1fr);
+    margin: 0 -2.5rem;
   }
 
   .widgets__item {
-    display: flex;
-    border: 1px solid $brightgrey;
+    border: 1px solid $white;
     background-color: $white;
-    padding: 1rem;
     margin: 1rem .5rem;
     position: relative;
+    padding: 2rem .5rem;
+    transition: all .5s;
 
-    @media screen and (min-width: $phoneLandscapeViewportWidth) {
-      &--upright,
-      &--transverse {
-        grid-column-start: span 2;
+    @media screen and (min-width: $desktopViewportWidth) {
+      padding: 2rem;
+    }
+
+    &:hover,
+    &.widget-configmode {
+      border: 1px solid $brightgrey;
+
+      .btn-config {
+        opacity: 1;
       }
     }
 
-    @media screen and (min-width: $tabletLandscapeViewportWidth) {
-      &--upright {
-        grid-row-start: span 2;
-        grid-column-start: span 1;
-      }
+    .btn-config {
+      opacity: 0;
+      transition: all .5s;
     }
   }
 

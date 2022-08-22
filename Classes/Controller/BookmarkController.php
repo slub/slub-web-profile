@@ -11,11 +11,36 @@ declare(strict_types=1);
 
 namespace Slub\SlubWebProfile\Controller;
 
+use Slub\SlubWebProfile\Service\BookmarkService;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
 class BookmarkController extends ActionController
 {
+    /**
+     * @var BookmarkService
+     */
+    protected $bookmarkService;
+
+    /**
+     * @param BookmarkService $bookmarkService
+     */
+    public function injectBookmarkService(BookmarkService $bookmarkService): void
+    {
+        $this->bookmarkService = $bookmarkService;
+    }
+
+    /**
+     * @throws \JsonException
+     */
     public function listAction(): void
     {
+        /** @extensionScannerIgnoreLine */
+        $content = $this->configurationManager->getContentObject()->data;
+        $bookmarks = $this->bookmarkService->getBookmarks();
+
+        $this->view->assignMultiple([
+            'bookmarks' => $bookmarks,
+            'content' => $content
+        ]);
     }
 }

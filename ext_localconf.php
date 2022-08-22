@@ -33,6 +33,19 @@ defined('TYPO3_MODE') || die();
     \TYPO3\CMS\Extbase\Utility\ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
 );
 
+// Configure plugin - booked list
+\TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
+    'Slub.SlubWebProfile',
+    'BookedList',
+    [
+        'Booked' => 'list'
+    ],
+    [
+        'Booked' => 'list'
+    ],
+    \TYPO3\CMS\Extbase\Utility\ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
+);
+
 // Configure plugin - borrowing list
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
     'Slub.SlubWebProfile',
@@ -42,19 +55,6 @@ defined('TYPO3_MODE') || die();
     ],
     [
         'Borrowing' => 'list'
-    ],
-    \TYPO3\CMS\Extbase\Utility\ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
-);
-
-// Configure plugin - user detail
-\TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
-    'Slub.SlubWebProfile',
-    'UserDetail',
-    [
-        'User' => 'detail'
-    ],
-    [
-        'User' => 'detail'
     ],
     \TYPO3\CMS\Extbase\Utility\ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
 );
@@ -72,6 +72,71 @@ defined('TYPO3_MODE') || die();
     \TYPO3\CMS\Extbase\Utility\ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
 );
 
+// Configure plugin - user detail
+\TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
+    'Slub.SlubWebProfile',
+    'UserDetail',
+    [
+        'User' => 'detail'
+    ],
+    [
+        'User' => 'detail'
+    ],
+    \TYPO3\CMS\Extbase\Utility\ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
+);
+
+// Configure plugin - search query list
+\TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
+    'Slub.SlubWebProfile',
+    'SearchQueryList',
+    [
+        'SearchQuery' => 'list'
+    ],
+    [
+        'SearchQuery' => 'list'
+    ],
+    \TYPO3\CMS\Extbase\Utility\ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
+);
+
+// Configure plugin - message list
+\TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
+    'Slub.SlubWebProfile',
+    'MessageList',
+    [
+        'Message' => 'list'
+    ],
+    [
+        'Message' => 'list'
+    ],
+    \TYPO3\CMS\Extbase\Utility\ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
+);
+
+// Configure plugin - sidebar menu
+\TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
+    'Slub.SlubWebProfile',
+    'SidebarMenu',
+    [
+        'Sidebar' => 'detail'
+    ],
+    [
+        'Sidebar' => 'detail'
+    ],
+    \TYPO3\CMS\Extbase\Utility\ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
+);
+
+// Configure plugin - account form
+\TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
+    'Slub.SlubWebProfile',
+    'AccountForm',
+    [
+        'AccountForm' => 'index,profile,address,social,password,userPIN,lock'
+    ],
+    [
+        'AccountForm' => 'index,profile,address,social,password,userPIN,lock'
+    ],
+    \TYPO3\CMS\Extbase\Utility\ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
+);
+
 // Register icon
 /** @var \TYPO3\CMS\Core\Imaging\IconRegistry $iconRegistry */
 $iconRegistry = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(
@@ -79,12 +144,17 @@ $iconRegistry = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(
 );
 
 foreach ([
+    'wizard-bookedlist' => 'Wizard/booked-list',
+    'wizard-borrowinglist' => 'Wizard/borrowing-list',
+    'wizard-bookmarklist' => 'Wizard/bookmark-list',
     'wizard-dashboard' => 'Wizard/dashboard',
     'wizard-eventfilter' => 'Wizard/event-filter',
     'wizard-eventlist' => 'Wizard/event-list',
-    'wizard-borrowinglist' => 'Wizard/borrowing-list',
+    'wizard-messagelist' => 'Wizard/message-list',
     'wizard-userdetail' => 'Wizard/user-detail',
-    'wizard-bookmarklist' => 'Wizard/bookmark-list'
+    'wizard-searchquerylist' => 'Wizard/search-query-list',
+    'wizard-sidebarmenu' => 'Wizard/sidebar-menu',
+    'wizard-accountform' => 'Wizard/account-form'
 ] as $identifier => $path) {
     $iconRegistry->registerIcon(
         'slubwebprofile-' . $identifier,

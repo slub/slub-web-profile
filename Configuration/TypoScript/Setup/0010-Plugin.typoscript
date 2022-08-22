@@ -4,21 +4,36 @@ plugin.tx_slubwebprofile {
     throwPageNotFoundExceptionIfActionCantBeResolved = 1
   }
 
-  features {
-    skipDefaultArguments = 1
-  }
+  features.skipDefaultArguments = 1
 
   settings {
     storagePid = {$plugin.tx_slubwebprofile.settings.storagePid}
 
     api {
       path {
+        bookedList = {$plugin.tx_slubwebprofile.settings.api.path.bookedList}
+        bookmarkList = {$plugin.tx_slubwebprofile.settings.api.path.bookmarkList}
+
         eventList {
           0 = {$plugin.tx_slubwebprofile.settings.api.path.eventList.0}
           1 = {$plugin.tx_slubwebprofile.settings.api.path.eventList.1}
         }
 
-        userDetail = {$plugin.tx_slubwebprofile.settings.api.path.userDetail}
+        messageList {
+          0 = {$plugin.tx_slubwebprofile.settings.api.path.messageList.0}
+          1 = {$plugin.tx_slubwebprofile.settings.api.path.messageList.1}
+        }
+
+        userAccountDetail {
+          0 = {$plugin.tx_slubwebprofile.settings.api.path.userAccountDetail.0}
+          1 = {$plugin.tx_slubwebprofile.settings.api.path.userAccountDetail.1}
+        }
+
+        userAccountUpdate = {$plugin.tx_slubwebprofile.settings.api.path.userAccountUpdate}
+        userDashboardDetail = {$plugin.tx_slubwebprofile.settings.api.path.userDashboardDetail}
+        userDashboardUpdate = {$plugin.tx_slubwebprofile.settings.api.path.userDashboardUpdate}
+        userSearchQueryDetail = {$plugin.tx_slubwebprofile.settings.api.path.userSearchQueryDetail}
+        userSearchQueryUpdate = {$plugin.tx_slubwebprofile.settings.api.path.userSearchQueryUpdate}
       }
     }
   }

@@ -7,3 +7,9 @@ CREATE TABLE tt_content (
     tt_content int(11) DEFAULT '0' NOT NULL
 );
 
+#
+# Modifying table 'pages'
+#
+CREATE TABLE pages (
+    tx_slubwebprofile_navigationSubtitle varchar(255) DEFAULT '' NOT NULL
+);

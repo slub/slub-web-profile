@@ -31,11 +31,11 @@ mod {
         tt_content_defValues.CType = slubwebprofile_borrowinglist
       }
 
-      slubwebprofile_userdetail {
-        iconIdentifier = slubwebprofile-wizard-userdetail
-        title = LLL:EXT:slub_web_profile/Resources/Private/Language/locallang_backend.xlf:contentElement.userdetail.title
-        description = LLL:EXT:slub_web_profile/Resources/Private/Language/locallang_backend.xlf:contentElement.userdetail.description
-        tt_content_defValues.CType = slubwebprofile_userdetail
+      slubwebprofile_bookedlist {
+        iconIdentifier = slubwebprofile-wizard-bookedlist
+        title = LLL:EXT:slub_web_profile/Resources/Private/Language/locallang_backend.xlf:contentElement.bookedlist.title
+        description = LLL:EXT:slub_web_profile/Resources/Private/Language/locallang_backend.xlf:contentElement.bookedlist.description
+        tt_content_defValues.CType = slubwebprofile_bookedlist
       }
 
       slubwebprofile_bookmarklist {
@@ -44,8 +44,43 @@ mod {
         description = LLL:EXT:slub_web_profile/Resources/Private/Language/locallang_backend.xlf:contentElement.bookmarklist.description
         tt_content_defValues.CType = slubwebprofile_bookmarklist
       }
+
+      slubwebprofile_userdetail {
+        iconIdentifier = slubwebprofile-wizard-userdetail
+        title = LLL:EXT:slub_web_profile/Resources/Private/Language/locallang_backend.xlf:contentElement.userdetail.title
+        description = LLL:EXT:slub_web_profile/Resources/Private/Language/locallang_backend.xlf:contentElement.userdetail.description
+        tt_content_defValues.CType = slubwebprofile_userdetail
+      }
+
+      slubwebprofile_searchquerylist {
+        iconIdentifier = slubwebprofile-wizard-searchquerylist
+        title = LLL:EXT:slub_web_profile/Resources/Private/Language/locallang_backend.xlf:contentElement.searchquerylist.title
+        description = LLL:EXT:slub_web_profile/Resources/Private/Language/locallang_backend.xlf:contentElement.searchquerylist.description
+        tt_content_defValues.CType = slubwebprofile_searchquerylist
+      }
+
+      slubwebprofile_messagelist {
+        iconIdentifier = slubwebprofile-wizard-messagelist
+        title = LLL:EXT:slub_web_profile/Resources/Private/Language/locallang_backend.xlf:contentElement.messagelist.title
+        description = LLL:EXT:slub_web_profile/Resources/Private/Language/locallang_backend.xlf:contentElement.messagelist.description
+        tt_content_defValues.CType = slubwebprofile_messagelist
+      }
+
+      slubwebprofile_sidebarmenu {
+        iconIdentifier = slubwebprofile-wizard-sidebarmenu
+        title = LLL:EXT:slub_web_profile/Resources/Private/Language/locallang_backend.xlf:contentElement.sidebarmenu.title
+        description = LLL:EXT:slub_web_profile/Resources/Private/Language/locallang_backend.xlf:contentElement.sidebarmenu.description
+        tt_content_defValues.CType = slubwebprofile_sidebarmenu
+      }
+
+      slubwebprofile_accountform {
+        iconIdentifier = slubwebprofile-wizard-accountform
+        title = LLL:EXT:slub_web_profile/Resources/Private/Language/locallang_backend.xlf:contentElement.accountform.title
+        description = LLL:EXT:slub_web_profile/Resources/Private/Language/locallang_backend.xlf:contentElement.accountform.description
+        tt_content_defValues.CType = slubwebprofile_accountform
+      }
     }
 
-    show := addToList(slubwebprofile_dashboard, slubwebprofile_eventfilter, slubwebprofile_eventlist, slubwebprofile_borrowinglist, slubwebprofile_bookmarklist, slubwebprofile_userdetail)
+    show := addToList(slubwebprofile_dashboard, slubwebprofile_eventfilter, slubwebprofile_eventlist, slubwebprofile_borrowinglist, slubwebprofile_bookedlist, slubwebprofile_bookmarklist, slubwebprofile_searchquerylist, slubwebprofile_userdetail, slubwebprofile_messagelist, slubwebprofile_sidebarmenu, slubwebprofile_accountform)
   }
 }

@@ -1,4 +1,35 @@
+@import 'variables'; 
+
 // general
-.content__dashboard {
-  overflow: hidden;
+.content {
+  &__dashboard {
+    overflow: hidden;
+  }
+  
+  @media screen and (min-width: $desktopViewportWidth) {
+    &__col {
+      position: relative;
+      width: 100%;
+      padding-right: 15px;
+      padding-left: 15px;
+    }
+    &__col-left {
+      flex: 0 0 59%;
+      max-width: 59%;
+    }
+    &__col-right {
+      flex: 0 0 30%;
+      max-width: 30%;
+    }
+  }
+}
+
+@media screen and (min-width: $desktopViewportWidth) {
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+    justify-content: space-between;
+  }
 }

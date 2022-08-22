@@ -7,6 +7,13 @@
 				<source>Web profile </source>
 			</trans-unit>
 
+			<trans-unit id="pages.tx_slubwebprofile_profilmenu" resname="pages.tx_slubwebprofile_profilmenu">
+				<source>Profil Menu</source>
+			</trans-unit>
+			<trans-unit id="pages.tx_slubwebprofile_navigationSubtitle" resname="pages.tx_slubwebprofile_navigationSubtitle">
+				<source>Navigation Subtitle</source>
+			</trans-unit>
+			
 			<trans-unit id="contentElement.dashboard.title" resname="contentElement.dashboard.title">
 				<source>Dashboard</source>
 			</trans-unit>
@@ -35,10 +42,24 @@
 				<source>List of borrowing media of a logged in user.</source>
 			</trans-unit>
 
+			<trans-unit id="contentElement.bookedlist.title" resname="contentElement.bookedlist.title">
+				<source>Booked</source>
+			</trans-unit>
+			<trans-unit id="contentElement.bookedlist.description" resname="contentElement.bookedlist.description">
+				<source>Booked rooms of a logged in user.</source>
+			</trans-unit>
+
 			<trans-unit id="contentElement.bookmarklist.title" resname="contentElement.bookmarklist.title">
-				<source>Bookmark search terms</source>
+				<source>Bookmark</source>
 			</trans-unit>
 			<trans-unit id="contentElement.bookmarklist.description" resname="contentElement.bookmarklist.description">
+				<source>Bookmark of a logged in user.</source>
+			</trans-unit>
+
+			<trans-unit id="contentElement.searchquerylist.title" resname="contentElement.searchquerylist.title">
+				<source>Search query list</source>
+			</trans-unit>
+			<trans-unit id="contentElement.searchquerylist.description" resname="contentElement.searchquerylist.description">
 				<source>Listing of the last search queries of a logged-in user.</source>
 			</trans-unit>
 
@@ -49,6 +70,27 @@
 				<source>Details of a logged in user.</source>
 			</trans-unit>
 
+			<trans-unit id="contentElement.messagelist.title" resname="contentElement.messagelist.title">
+				<source>Message list</source>
+			</trans-unit>
+			<trans-unit id="contentElement.messagelist.description" resname="contentElement.messagelist.description">
+				<source>List of messages depends on the user group.</source>
+			</trans-unit>
+
+			<trans-unit id="contentElement.sidebarmenu.title" resname="contentElement.sidebarmenu.title">
+				<source>Sidebar menu</source>
+			</trans-unit>
+			<trans-unit id="contentElement.sidebarmenu.description" resname="contentElement.sidebarmenu.description">
+				<source>Sticky menu of suselected pages.</source>
+			</trans-unit>
+
+			<trans-unit id="contentElement.accountform.title" resname="contentElement.accountform.title">
+				<source>Account form</source>
+			</trans-unit>
+			<trans-unit id="contentElement.accountform.description" resname="contentElement.accountform.description">
+				<source>Account form for profile settings.</source>
+			</trans-unit>
+
 			<trans-unit id="extensionConfiguration.apiDomain" resname="extensionConfiguration.api.domain">
 				<source>Domain: The domain has to begin with "https://" and no trailing slash.</source>
 			</trans-unit>
@@ -57,13 +99,28 @@
 				<source>SLUB Web Profile</source>
 			</trans-unit>
 			<trans-unit id="backendLayout.webProfile.description" resname="backendLayout.webProfile.description">
-				<source>One column and content left</source>
+				<source>Two columns (colpos 1,2) with large content column (colpos 0)</source>
+			</trans-unit>
+			<trans-unit id="backendLayout.accountLayout.title" resname="backendLayout.accountLayout.title">
+				<source>SLUB Account Layout</source>
+			</trans-unit>
+			<trans-unit id="backendLayout.accountLayout.description" resname="backendLayout.accountLayout.description">
+				<source>Two columns each for header (colpos 1,2) and content area (colpos 0,3)</source>
+			</trans-unit>		
+			<trans-unit id="backendLayout.column.leftcol" resname="backendLayout.column.leftcol">
+				<source>Left</source>
+			</trans-unit>
+			<trans-unit id="backendLayout.column.rightcol" resname="backendLayout.column.rightcol">
+				<source>Right (slide)</source>
 			</trans-unit>
 			<trans-unit id="backendLayout.column.content" resname="backendLayout.column.content">
 				<source>Content</source>
 			</trans-unit>
 			<trans-unit id="backendLayout.column.inlineElements" resname="backendLayout.column.inlineElements">
 				<source>Additional content</source>
+			</trans-unit>
+			<trans-unit id="backendLayout.column.sidebar" resname="backendLayout.column.sidebar">
+				<source>Sidebar</source>
 			</trans-unit>
 		</body>
 	</file>

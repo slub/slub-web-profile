@@ -11,8 +11,7 @@ declare(strict_types=1);
 
 namespace Slub\SlubWebProfile\Controller;
 
-use Slub\SlubWebProfile\Service\UserService;
-use Slub\SlubWebProfile\Utility\FrontendUserUtility;
+use Slub\SlubWebProfile\Service\UserAccountService as UserService;
 use Slub\SlubWebProfile\Utility\MenuUtility;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
@@ -31,19 +30,23 @@ class UserController extends ActionController
         $this->userService = $userService;
     }
 
+    /**
+     * @throws \JsonException
+     */
     public function detailAction(): void
     {
-        $user = $this->userService->getUserDetail(
-            FrontendUserUtility::getIdentifier()
-        );
-
-        $pages = MenuUtility::getList(
-            $this->configurationManager->getContentObject()
-        )['menu'];
+        /** @extensionScannerIgnoreLine */
+        $content = $this->configurationManager->getContentObject();
+        $user = $this->userService->getUserAccount();
+        $pages = MenuUtility::getList($content)['menu'];
+        $profilName = $this->configurationManager->getContentObject()->data['subheader'];
+        $profilLink = $this->configurationManager->getContentObject()->data['header_link'];
 
         $this->view->assignMultiple([
             'user' => $user,
-            'pages' => $pages
+            'pages' => $pages,
+            'profilName' => $profilName,
+            'profilLink' => $profilLink
         ]);
     }
 }

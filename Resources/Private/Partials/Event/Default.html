@@ -1,0 +1,56 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+	  xmlns:n="http://typo3.org/ns/GeorgRinger/News/ViewHelpers"
+	  data-namespace-typo3-fluid="true">
+<f:comment>Partials/Event/Tiles.html</f:comment>
+
+<div class="js-eventtiles-item eventtiles__item tiles__item">
+	<f:if condition="{eventItem.rootCategories}">
+		<div class="category">
+			<f:for as="category" each="{eventItem.rootCategories}" iteration="categoryIteration"><span data-filter-id="{category.uid}" class="category__tag">{category.title}</span></f:for>
+		</div>
+	</f:if>
+
+	<f:comment>Header</f:comment>
+	<h4 class="eventtiles__title tiles__title">
+		<f:link.action
+			extensionName="SlubEvents"
+			pluginName="Eventlist"
+			controller="Event"
+			action="show"
+			pageUid="{settings.detailPageUid}"
+			arguments="{event: eventItem.uid}"
+			title="{eventItem.title}">
+			{eventItem.title}
+		</f:link.action>
+	</h4>
+
+	<f:comment>Date</f:comment>
+	<p class="timedata">
+		<span class="eventtiles__date timedata__date">
+			<time datetime="{f:format.date(date:eventItem.startDateTime.format, format:'Y-m-d')}">
+				<f:format.date format="d.m.Y">{eventItem.startDateTime.format}</f:format.date>
+			</time>
+		</span>
+		<span class="eventtiles__time timedata__time">
+			<time datetime="{f:format.date(date:eventItem.startDateTime.format, format:'Y-m-d')}">
+				<f:format.date format="H:i">{eventItem.startDateTime.format}</f:format.date>
+			</time>
+		</span>
+	</p>
+
+	<f:if condition="{eventItem.location}">
+		<span class="eventtiles__location">
+			{eventItem.location.name}
+		</span>
+	</f:if>
+
+	<f:if condition="{event.default.unsubscribeUrl}">
+		<div class="footerdata">
+			<a href="{event.default.unsubscribeUrl}" class="footerdata__unsubscribe" >
+				<f:translate key="event.default.unsubscribe"/>
+			</a>
+		</div>
+	</f:if>
+</div>
+
+</html>

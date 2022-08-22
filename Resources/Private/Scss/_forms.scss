@@ -1,0 +1,91 @@
+@import 'variables'; 
+
+// Form styling
+.form-mb {
+  margin-bottom: 6.25rem;
+}
+
+.form-row {
+  margin-bottom: 2rem;
+
+  &+.form-headline {
+    margin-top: 3.5rem;
+  }
+}
+
+.form-cols {
+  display: flex;
+  align-items: center;
+
+  .btn {
+    margin-right: 1rem;
+  }
+}
+
+.form-label {
+  margin-bottom: 6px;
+  font-size: 0.75rem;
+  font-family: $VistaSansBold;
+  text-transform: uppercase;
+  margin-left: .75rem;
+
+  .label-required {
+    margin-left: 3px;
+  }
+}
+
+.form-control,
+.form-select {  
+  display: block;
+  width: 100%;
+  padding: .75rem;
+  font-family: $VistaSans;
+  font-size: 1rem;
+  color: $input-color;
+  border: 1px solid $input-border-color;
+  appearance: none; // Fix appearance for date inputs in Safari
+  transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+
+  &:focus {
+    background-color: $input-focus-bg;
+    border-color: $input-focus-border-color;
+    outline: 0;
+    box-shadow: 0 0 0 .25rem rgba($input-focus-box-shadow, .25);
+  }
+
+  &:disabled,
+  &[readonly] {
+    background-color: $input-disabled-bg;
+    border-color: $input-disabled-border-color;
+    opacity: 1;
+  }
+}
+
+.form-control {
+  background-color: $input-bg;
+}
+
+.form-select {
+  background-color: $form-select-bg;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 18.9' style='enable-background:new 0 0 14 18.9;' %3E%3Cstyle type='text/css'%3E .st0%7Bfill:none;stroke:%23226966;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;%7D%0A%3C/style%3E%3Cpath class='st0' d='M1,11.9l6,6l6-6'/%3E%3Cpath class='st0' d='M13,7L7,1L1,7'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right .75rem center;
+  background-size: 16px 12px;
+}
+
+h4.form-headline {
+  font-family: $VistaSansBook;
+  text-transform: uppercase;
+  color: $secondary-petrol-green;
+  font-size: 1em;
+  font-weight: 600;;
+  margin-top: 0;
+}
+
+.form-text {
+  margin-top: .25rem;
+  font-size: 0.875rem;
+  font-family: $VistaSans;
+  line-height: 1.25rem;
+  color: $darkgrey;
+}

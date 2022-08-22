@@ -12,8 +12,8 @@ declare(strict_types=1);
 namespace Slub\SlubWebProfile\Controller;
 
 use Slub\SlubWebProfile\Service\EventService;
-use Slub\SlubWebProfile\Utility\FrontendUserUtility;
 use Slub\SlubWebProfile\Utility\LanguageUtility;
+use TYPO3\CMS\Core\Context\Exception\AspectNotFoundException;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
 class EventController extends ActionController
@@ -31,19 +31,21 @@ class EventController extends ActionController
         $this->eventService = $eventService;
     }
 
+    /**
+     * @throws AspectNotFoundException
+     * @throws \JsonException
+     */
     public function listAction(): void
     {
-        $events = $this->eventService->getEvents(
-            FrontendUserUtility::getIdentifier()
-        );
-
-        $language = LanguageUtility::getSiteLanguage(
-            $this->configurationManager->getContentObject()->data['pid']
-        );
+        /** @extensionScannerIgnoreLine */
+        $content = $this->configurationManager->getContentObject()->data;
+        $events = $this->eventService->getEvents();
+        $language = LanguageUtility::getSiteLanguage($content['pid']);
 
         $this->view->assignMultiple([
             'events' => $events,
-            'language' => $language
+            'language' => $language,
+            'content' => $content
         ]);
     }
 }

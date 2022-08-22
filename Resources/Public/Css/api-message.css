@@ -1,0 +1,1 @@
+.api-message-status--successful{border-color:green;color:green;background:#90ee90}.api-message-status--error{border-color:red;color:red;background:#f08080}.api-message-status{position:fixed;top:0;right:0;z-index:300;border:2px solid;padding:1rem}

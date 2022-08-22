@@ -1,0 +1,12 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:comment>Partials/AccountForm/Status.html</f:comment>
+
+<f:if condition="{currentAction} == {action}">
+    <f:if condition="{status.code} == 200">
+        <div class="form-message-status api-message-status--successful">
+            {f:translate(key: 'accountform.address.status.success')}
+        </div>
+    </f:if>
+</f:if>
+
+</html>

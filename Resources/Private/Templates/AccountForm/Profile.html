@@ -1,0 +1,47 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="{formIdentifier}-true">
+<f:layout name="Default" />
+<!-- Templates/AccountForm/Profile.html -->
+
+<f:section name="Default">
+    <!--TYPO3SEARCH_end-->
+    <link rel="stylesheet"
+          type="text/css"
+          media="all"
+          href="/typo3conf/ext/slub_web_profile/Resources/Public/Css/accountform.css"/>
+    <f:variable name="formIdentifier">form-{action}</f:variable>
+    
+    <div id="account{formIdentifier}" class="accountform">
+        <f:render partial="AccountForm/Status" arguments="{status: status, currentAction: currentAction, action: action}" />
+
+        <f:form enctype="multipart/form-data" class="form-mb" section="account{formIdentifier}">
+            <input type="hidden" name="account[action]" value="{action}">
+            <div class="form-row form-text">
+                <f:format.raw>{f:translate(key: 'accountform.profile.additionalNote')}</f:format.raw>
+            </div>
+            <div class="form-row">
+                <label for="{formIdentifier}-name" class="form-label">{f:translate(key: 'accountform.profile.givenNames')}</label>
+                <input class="form-control" type="text" id="{formIdentifier}-name" value="{user.account.X_name.givenname}" disabled readonly>
+            </div>
+            <div class="form-row">
+                <label for="{formIdentifier}-surname" class="form-label">{f:translate(key: 'accountform.profile.surname')}</label>
+                <input class="form-control" type="text" id="{formIdentifier}-surname" value="{user.account.X_name.surname}" disabled readonly>
+            </div>
+            <div class="form-row">
+                <label for="{formIdentifier}-email" class="form-label">{f:translate(key: 'accountform.profile.emailAddress')}<span class="label-required">*</span></label>
+                <input type="email" class="form-control" id="{formIdentifier}-email" name="account[EmailAddress]" value="{user.account.email}" required="required">
+            </div>
+            <div class="form-row">
+                <label for="{formIdentifier}-status" class="form-label">{f:translate(key: 'accountform.profile.status')}</label>
+                <input class="form-control" type="text" id="{formIdentifier}-status" value="{user.user.X_category_desc}" disabled readonly>
+            </div>
+            <div class="form-row">
+                <label for="{formIdentifier}-hsid" class="form-label">{f:translate(key: 'accountform.profile.hsid')}</label>
+                <input class="form-control" type="text" id="{formIdentifier}-hsid" value="{user.account.libid}" disabled readonly>
+            </div>
+            <button type="submit" class="btn btn-action btn-action-lg">{f:translate(key: 'accountform.profile.actionBtn')}</button>
+        </f:form>
+    </div>
+    <!--TYPO3SEARCH_begin-->
+</f:section>
+
+</html>

@@ -1,0 +1,39 @@
+@import '../variables';
+@import '../utilities';
+
+.search-query-action {
+  margin: 2.225rem 0 0;
+  padding: 0;
+  list-style-type: none;
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+
+  li {
+    margin: .625rem 0 0 1.25rem;
+    padding: 0;
+    line-height: 100%;
+    display: flex;
+    justify-content: center;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
+
+
+.search-query-action__link {
+  transition: all $transition-default;
+  border: none;
+  font-size: .8rem;
+  cursor: pointer;
+  white-space: nowrap;
+  background: none;
+  color: $midgrey;
+  text-decoration: underline;
+
+  &:hover {
+    color: $primary-red-darker;
+  }
+}

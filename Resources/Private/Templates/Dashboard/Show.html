@@ -1,6 +1,9 @@
+{namespace slub=Slub\SlubWebProfile\ViewHelpers}
+
 <html
     data-namespace-typo3-fluid="true"
-    xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers">
+    xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+    xmlns:slub="http://typo3.org/ns/Slub/SlubWebProfile/ViewHelpers">
 <f:layout name="Default"/>
 
 <f:section name="Default">
@@ -22,53 +25,78 @@
             src="/typo3conf/ext/slub_web_profile/Resources/Public/JavaScript/dashboard.js"></script>
 
         <f:comment>Personalise Dashboard</f:comment>
-        <div class="dashboard__header">
-            <a tabindex="0" class="btn btn-personalise" role="button" title="Personalise popover"
-               href="#collapsePersonaliseMenu"
-               aria-expanded="false"
-               aria-controls="collapsePersonaliseMenu"
-               data-bs-toggle="collapse"
-               data-bs-target="#collapsePersonaliseMenu"
-               data-bs-trigger="focus"
-               data-bs-content="Personalise Dashboard">
-                <span class="icn-plus" aria-label="Open">+</span>
-                <f:translate key="general.personalise"/>
-            </a>
-        </div>
+        <div id="js-personalise" class="dashboard__personalise">
+            <p id="js-personalise-header" class="dashboard__personalise-link link-personalise" 
+               aria-expanded="false">
+                <?xml version="1.0" encoding="UTF-8"?><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 35.93 35.93" width="35px"><defs><style>.cls-1{fill:none;fill-rule:evenodd;stroke:currentColor;stroke-miterlimit:10;}</style></defs><path class="cls-1" d="M4.84,19.28V4.88m11.31,14.4H4.84M16.15,4.88v14.4M4.84,4.88h11.31"/><path class="cls-1" d="M31.58,4.88V13.11M20.27,4.88h11.31m-11.31,8.23V4.88m11.31,8.23h-11.31"/><path class="cls-1" d="M20.27,31.62v-14.4m11.31,14.4h-11.31m11.31-14.4v14.4m-11.31-14.4h11.31"/><path class="cls-1" d="M4.84,23.39h11.31M4.84,31.62v-8.23m11.31,8.23H4.84m11.31-8.23v8.23"/><path class="cls-1" d="M.5,35.43V.5M35.37,35.43H.5M35.43,.56l-.06,34.87M.5,.5l34.93,.06"/></svg>
+                <span class="icn-dashboard"></span><f:translate key="general.personalise"/>
+            </p>
+        
+            <f:comment>Widget menu selection</f:comment>
+            <div id="js-personalise-controller" class="dashboard__controller" aria-hidden="true">
+               
+                <p class="dashboard__controller-headline">
+                    <?xml version="1.0" encoding="UTF-8"?><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 35.93 35.93" width="35px"><defs><style>.cls-1{fill:none;fill-rule:evenodd;stroke:currentColor;stroke-miterlimit:10;}</style></defs><path class="cls-1" d="M4.84,19.28V4.88m11.31,14.4H4.84M16.15,4.88v14.4M4.84,4.88h11.31"/><path class="cls-1" d="M31.58,4.88V13.11M20.27,4.88h11.31m-11.31,8.23V4.88m11.31,8.23h-11.31"/><path class="cls-1" d="M20.27,31.62v-14.4m11.31,14.4h-11.31m11.31-14.4v14.4m-11.31-14.4h11.31"/><path class="cls-1" d="M4.84,23.39h11.31M4.84,31.62v-8.23m11.31,8.23H4.84m11.31-8.23v8.23"/><path class="cls-1" d="M.5,35.43V.5M35.37,35.43H.5M35.43,.56l-.06,34.87M.5,.5l34.93,.06"/></svg>
+                    <span class="icn-dashboard"></span><f:translate key="general.personalise"/>
+                </p>
+                <p id="js-personalise-close" class="dashboard__controller-close" aria-hidden="false">
+                    <f:translate key="general.personalise.close"/>
+                    <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' width="16px" fill='currentColor'><path d='M.293.293a1 1 0 011.414 0L8 6.586 14.293.293a1 1 0 111.414 1.414L9.414 8l6.293 6.293a1 1 0 01-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 01-1.414-1.414L6.586 8 .293 1.707a1 1 0 010-1.414z'/></svg>
+                </p>
+                <ul>
+                    <f:for as="widget" each="{widgets}">
+                        <f:variable name="disabled" value=""/>
 
-        <f:comment>Widget menu selection</f:comment>
-        <div id="collapsePersonaliseMenu" class="dashboard__controller collapse show">
-            <ul>
-                <f:for as="widget" each="{widgets}">
-                    <li>{widget.header} <!--{widget.CType}--></li>
-                </f:for>
-            </ul>
+                        <f:if condition="{userWidgets -> f:count()} == 0 || {slub:php.inArray(string: widget.CType, array: userWidgets)}">
+                            <f:variable name="disabled" value=" controller__item--is-disabled"/>
+                        </f:if>
+
+                        <li
+                            class="js-dashboard-controller-item controller__item{disabled}"
+                            id="js-dashboard-controller-item-{widget.uid}"
+                            data-widget="{f:format.json(
+                                value: {
+                                    id: widget.uid,
+                                    type: widget.CType
+                                },
+                                forceObject: true
+                            )}">
+                            {widget.header}
+                        </li>
+                    </f:for>
+                </ul>
+                <p class="dashboard__controller-helptext">
+                    <f:format.raw><f:translate key="general.personalise.helptext"/></f:format.raw>
+                </p>
+            </div>
         </div>
 
         <f:comment>Dashboard Widgets</f:comment>
-        <div class="dashboard__widgets" id="js-dashboard-widgets">
-            <f:for as="widget" each="{widgets}">
+        <div
+            class="dashboard__widgets"
+            id="js-dashboard-widgets"
+            data-uri="{uri.path}"
+            data-page-uid="{pageUid}">
+            <template id="js-widget-template">
+                <f:render section="Widget" arguments="{id: '###id###'}"/>
+            </template>
 
-                <f:switch expression="{widget.CType}">
-                    <f:case value="slubwebprofile_eventlist">
-                        <f:variable name="alignment">transverse</f:variable>
-                    </f:case>
-                    <f:case value="slubwebprofile_servicelist">
-                        <f:variable name="alignment">upright</f:variable>
-                    </f:case>
-                    <f:defaultCase><f:variable name="alignment">default</f:variable></f:defaultCase>
-                </f:switch>
-                
-                <div
-                    class="js-widgets-item js-widgets-loading widgets__item widgets__item--{alignment}"
-                    data-widget="{widget.uid}"
-                    data-uri="{uri.path}"
-                    id="js-widgets-item-{widget.uid}">
-                    <svg class="widget__loading" viewbox="0 0 128 128">
-                        <use href="#svg-icon-loading"></use>
-                    </svg>
-                </div>
-            </f:for>
+            <f:if condition="{userWidgets -> f:count()} > 0">
+                <f:then>
+                    <f:for as="userWidget" each="{userWidgets}">
+                        <f:for as="widget" each="{widgets}">
+                            <f:if condition="{userWidget} == {widget.CType}">
+                                <f:render section="Widget" arguments="{id: widget.uid}"/>
+                            </f:if>
+                        </f:for>
+                    </f:for>
+                </f:then>
+                <f:else>
+                    <f:for as="widget" each="{widgets}">
+                        <f:render section="Widget" arguments="{id: widget.uid}"/>
+                    </f:for>
+                </f:else>
+            </f:if>
         </div>
 
         <svg aria-hidden="true" focusable="false" style="display:none;" xmlns="http://www.w3.org/2000/svg">
@@ -77,5 +105,16 @@
             </symbol>
         </svg>
     </f:if>
+</f:section>
+
+<f:section name="Widget">
+    <div
+        class="js-widgets-item js-widgets-loading widgets__item"
+        data-widget-id="{id}"
+        id="js-widgets-item-{id}">
+        <svg class="widget__loading" viewbox="0 0 128 128">
+            <use href="#svg-icon-loading"></use>
+        </svg>
+    </div>
 </f:section>
 </html>

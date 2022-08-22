@@ -3,16 +3,30 @@
 	<file source-language="en" datatype="plaintext" original="messages" date="2012-11-01T14:46:01Z"  product-name="slub_web_profile">
 		<header/>
 		<body>
+
+			<!--
+				General
+			-->
+
 			<trans-unit id="general.oClock" resname="general.oClock">
 				<source>o'clock</source>
 			</trans-unit>
 			<trans-unit id="general.personalise" resname="general.personalise">
 				<source>Personalise Dashboard</source>
 			</trans-unit>
-			
-			<trans-unit id="eventItem.default.noEvents" resname="eventItem.default.noEvents">
-				<source>You have no subscribed events.</source>
+			<trans-unit id="general.personalise.close" resname="general.personalise.close">
+				<source>End personalisation</source>
 			</trans-unit>
+			<trans-unit id="general.personalise.helptext" resname="general.personalise.helptext">
+				<source><![CDATA[Simply move the desired field to the preferred location. More <a href="" title="tips and info on the dashboard">tips and info</a> on the dashboard.]]></source>
+			</trans-unit>
+			<trans-unit id="general.widget.closed" resname="general.widget.closed">
+				<source>Remove this field</source>
+			</trans-unit>
+
+			<!--
+				Event
+			-->
 
 			<trans-unit id="event.filter.label" resname="event.filter.label">
 				<source>Filter by event type</source>
@@ -20,14 +34,260 @@
 			<trans-unit id="event.filter.reset" resname="event.filter.reset">
 				<source>All</source>
 			</trans-unit>
-			<trans-unit id="eventItem.teaser.more" resname="eventItem.teaser.more">
+			<trans-unit id="event.default.empty" resname="event.default.empty">
+				<source>You have no subscribed events.</source>
+			</trans-unit>
+			<trans-unit id="event.default.unsubscribe" resname="event.default.unsubscribe">
+				<source>Unsubscribe from the event</source>
+			</trans-unit>
+			<trans-unit id="event.widget.more" resname="event.widget.more">
 				<source>More</source>
 			</trans-unit>
-			<trans-unit id="event.teaser.noEvents" resname="event.teaser.noEvents">
-				<source>No subscribed events.</source>
+			<trans-unit id="event.widget.today.label" resname="event.widget.today.label">
+				<source>Today!</source>
 			</trans-unit>
-			<trans-unit id="eventItem.unsubscribe" resname="eventItem.unsubscribe">
-				<source>Unsubscribe from the event</source>
+
+			<!--
+				Search query
+			-->
+
+			<trans-unit id="searchQuery.type.simple" resname="searchQuery.type.simple">
+				<source>Simple search</source>
+			</trans-unit>
+			<trans-unit id="searchQuery.type.extended" resname="searchQuery.type.extended">
+				<source>Advanced search</source>
+			</trans-unit>
+			<trans-unit id="searchQuery.default.empty" resname="searchQuery.default.empty">
+				<source>You have no subscribed search queries.</source>
+			</trans-unit>
+			<trans-unit id="searchQuery.default.table.th.title" resname="searchQuery.default.table.th.title">
+				<source>Title</source>
+			</trans-unit>
+			<trans-unit id="searchQuery.default.table.th.results" resname="searchQuery.default.table.th.results">
+				<source>Hits</source>
+			</trans-unit>
+			<trans-unit id="searchQuery.default.table.th.date" resname="searchQuery.default.table.th.date">
+				<source>Date</source>
+			</trans-unit>
+			<trans-unit id="searchQuery.default.type" resname="searchQuery.default.type">
+				<source>Type:</source>
+			</trans-unit>
+			<trans-unit id="searchQuery.default.fields" resname="searchQuery.default.fields">
+				<source>Fields:</source>
+			</trans-unit>
+			<trans-unit id="searchQuery.default.description" resname="searchQuery.default.description">
+				<source>Description:</source>
+			</trans-unit>
+			<trans-unit id="searchQuery.default.description.empty" resname="searchQuery.default.description.empty">
+				<source>-</source>
+			</trans-unit>
+			<trans-unit id="searchQuery.default.action.selectAll" resname="searchQuery.default.action.selectAll">
+				<source>Select all</source>
+			</trans-unit>
+			<trans-unit id="searchQuery.default.action.deselectAll" resname="searchQuery.default.action.deselectAll">
+				<source>Deselect all</source>
+			</trans-unit>
+			<trans-unit id="searchQuery.default.action.export" resname="searchQuery.default.action.export">
+				<source>Export selected</source>
+			</trans-unit>
+			<trans-unit id="searchQuery.default.action.delete" resname="searchQuery.default.action.delete">
+				<source>Delete selected</source>
+			</trans-unit>
+			<trans-unit id="searchQuery.widget.more" resname="searchQuery.widget.more">
+				<source>More</source>
+			</trans-unit>
+			<trans-unit id="searchQuery.widget.result" resname="searchQuery.widget.result">
+				<source>%1$s result</source>
+			</trans-unit>
+			<trans-unit id="searchQuery.widget.results" resname="searchQuery.widget.results">
+				<source>%1$s results</source>
+			</trans-unit>
+
+			<!--
+				Borrowing
+			-->
+
+			<trans-unit id="borrowing.default.empty" resname="borrowing.default.empty">
+				<source>You haven't borrowed anything yet.</source>
+			</trans-unit>
+			<trans-unit id="borrowing.widget.more" resname="borrowing.widget.more">
+				<source><![CDATA[<strong>More</strong> borrowing information]]></source>
+			</trans-unit>
+			<trans-unit id="borrowing.widget.overdue.label" resname="borrowing.widget.overdue.label">
+				<source>Overdue!</source>
+			</trans-unit>
+
+			<!--
+				Booked
+			-->
+
+			<trans-unit id="booked.default.empty" resname="booked.default.empty">
+				<source>Your booked list is empty.</source>
+			</trans-unit>
+			<trans-unit id="booked.widget.more" resname="booked.widget.more">
+				<source><![CDATA[<strong>More</strong> booked]]></source>
+			</trans-unit>
+
+			<!--
+				Bookmark
+			-->
+
+			<trans-unit id="bookmark.default.empty" resname="bookmark.default.empty">
+				<source>Your bookmark list is empty.</source>
+			</trans-unit>
+			<trans-unit id="bookmark.widget.more" resname="bookmark.widget.more">
+				<source><![CDATA[<strong>More</strong> bookmark]]></source>
+			</trans-unit>
+
+			<!--
+				Userdetail
+			-->
+
+			<trans-unit id="userdetail.dropdown.label" resname="userdetail.dropdown.label">
+				<source>My profile</source>
+			</trans-unit>
+
+			<!--
+				Accountform
+			-->
+
+			<trans-unit id="accountform.address.status.success" resname="accountform.address.status.success">
+				<source>The changes were succesfully saved.</source>
+			</trans-unit>
+
+			<trans-unit id="accountform.profile.givenNames" resname="accountform.profile.givenNames">
+				<source>First name/s</source>
+			</trans-unit>
+			<trans-unit id="accountform.profile.surname" resname="accountform.profile.surname">
+				<source>Surname</source>
+			</trans-unit>
+			<trans-unit id="accountform.profile.emailAddress" resname="accountform.profile.emailAddress">
+				<source>E-mail address</source>
+			</trans-unit>
+			<trans-unit id="accountform.profile.status" resname="accountform.profile.status">
+				<source>Status</source>
+			</trans-unit>
+			<trans-unit id="accountform.profile.hsid" resname="accountform.profile.hsid">
+				<source>University ID (HSID)</source>
+			</trans-unit>
+			<trans-unit id="accountform.profile.additionalNote" resname="accountform.profile.additionalNote">
+				<source><![CDATA[<b>Additional note to the form.</b> Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.]]></source>
+			</trans-unit>
+			<trans-unit id="accountform.profile.actionBtn" resname="accountform.profile.actionBtn">
+				<source>Update personal data</source>
+			</trans-unit>
+
+			<trans-unit id="accountform.address.headline.postal-address" resname="accountform.address.headline.postal-address">
+				<source>Postal address</source>
+			</trans-unit>
+			<trans-unit id="accountform.address.address" resname="accountform.address.address">
+				<source>Street/ house number</source>
+			</trans-unit>
+			<trans-unit id="accountform.address.addition" resname="accountform.address.addition">
+				<source>Addition</source>
+			</trans-unit>
+			<trans-unit id="accountform.address.postcode" resname="accountform.address.postcode">
+				<source>Postcode</source>
+			</trans-unit>
+			<trans-unit id="accountform.address.city" resname="accountform.address.city">
+				<source>Place/ City</source>
+			</trans-unit>
+			<trans-unit id="accountform.address.country" resname="accountform.address.country">
+				<source>Country</source>
+			</trans-unit>
+			<trans-unit id="accountform.address.country.germany" resname="accountform.address.country.germany">
+				<source>Germany</source>
+			</trans-unit>
+			<trans-unit id="accountform.address.country.switzerland" resname="accountform.address.switzerland">
+				<source>Switzerland</source>
+			</trans-unit>
+			<trans-unit id="accountform.address.country.austria" resname="accountform.address.country.austria">
+				<source>Austria</source>
+			</trans-unit>
+			<trans-unit id="accountform.address.country.other" resname="accountform.address.country.other">
+				<source>Other</source>
+			</trans-unit>
+			<trans-unit id="accountform.address.phone" resname="accountform.address.phone">
+				<source>Telephone number</source>
+			</trans-unit>
+			<trans-unit id="accountform.address.headline.secondary-flat" resname="accountform.address.headline.secondary-flat">
+				<source>Secondary flat</source>
+			</trans-unit>
+			<trans-unit id="accountform.address.headline.guarantor" resname="accountform.address.headline.guarantor">
+				<source>Guarantor</source>
+			</trans-unit>
+			<trans-unit id="accountform.address.guarantor-name" resname="accountform.address.guarantor-name">
+				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="accountform.address.actionBtn" resname="accountform.address.actionBtn">
+				<source>Update contact details</source>
+			</trans-unit>
+
+			<trans-unit id="accountform.social.phonenumber" resname="accountform.social.phonenumber">
+				<source>Phone number</source>
+			</trans-unit>
+			<trans-unit id="accountform.social.actionBtn" resname="accountform.social.actionBtn">
+				<source>Update profiles</source>
+			</trans-unit>
+
+			<trans-unit id="accountform.password.additionalNote" resname="accountform.password.additionalNote">
+				<source><![CDATA[<b>Update your password:</b><br>The default password is your date of birth (enter in the format DDMMYYY e.g. 03061977). To change your personal password, enter a new password identically in the two fields below.]]></source>
+			</trans-unit>
+			<trans-unit id="accountform.password.username" resname="accountform.password.username">
+				<source>Username</source>
+			</trans-unit>
+			<trans-unit id="accountform.password.password" resname="accountform.password.password">
+				<source>Password</source>
+			</trans-unit>
+			<trans-unit id="accountform.password.new-password" resname="accountform.password.new-password">
+				<source>New password</source>
+			</trans-unit>
+			<trans-unit id="accountform.password.passwordHelp" resname="accountform.password.passwordHelp">
+				<source>Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.</source>
+			</trans-unit>
+			<trans-unit id="accountform.password.confirm-new-password" resname="accountform.password.confirm-new-password">
+				<source>Confirm new password</source>
+			</trans-unit>
+			<trans-unit id="accountform.password.actionBtn" resname="accountform.password.actionBtn">
+				<source>Update password</source>
+			</trans-unit>
+
+			<trans-unit id="accountform.userPIN.additionalNote" resname="accountform.userPIN.additionalNote">
+				<source><![CDATA[<b>Update your PIN:</b><br>Do not give the PIN to other persons, as you will be liable for all transactions made with this PIN at the you are liable for all transactions made with this PIN at the automatic lending machines.]]></source>
+			</trans-unit>
+			<trans-unit id="accountform.userPIN.username" resname="accountform.userPIN.username">
+				<source>Username</source>
+			</trans-unit>
+			<trans-unit id="accountform.userPIN.password" resname="accountform.userPIN.password">
+				<source>Password</source>
+			</trans-unit>
+			<trans-unit id="accountform.userPIN.new-password" resname="accountform.userPIN.new-password">
+				<source>New PIN</source>
+			</trans-unit>
+			<trans-unit id="accountform.userPIN.passwordHelp" resname="accountform.userPIN.passwordHelp">
+				<source>Your PIN must consist of exactly 4 digits!</source>
+			</trans-unit>
+			<trans-unit id="accountform.userPIN.confirm-new-password" resname="accountform.userPIN.confirm-new-password">
+				<source>Enter new PIN again</source>
+			</trans-unit>
+			<trans-unit id="accountform.userPIN.actionBtn" resname="accountform.userPIN.actionBtn">
+				<source>Update PIN</source>
+			</trans-unit>
+			<trans-unit id="accountform.userPIN.additionalNote2" resname="accountform.userPIN.additionalNote2">
+				<source>Please close this window after the transaction!</source>
+			</trans-unit>
+
+			<trans-unit id="accountform.lock.additionalNote" resname="accountform.lock.additionalNote">
+				<source><![CDATA[<b>If you block your account now, it can only be unblocked by library staff!</b><br>To unblock your account, please report to one of our service counters with a personal document s. <a href="https://www.slub-dresden.de/en/visit/opening-hours-and-slub-libraries" title="Location overview">Location overview</a>]]></source>
+			</trans-unit>
+			<trans-unit id="accountform.lock.username" resname="accountform.lock.username">
+				<source>Username</source>
+			</trans-unit>
+			<trans-unit id="accountform.lock.password" resname="accountform.lock.password">
+				<source>Password</source>
+			</trans-unit>
+			<trans-unit id="accountform.lock.actionBtn" resname="accountform.lock.actionBtn">
+				<source>Accept</source>
 			</trans-unit>
 		</body>
 	</file>

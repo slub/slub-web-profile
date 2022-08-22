@@ -17,5 +17,38 @@ class BorrowingController extends ActionController
 {
     public function listAction(): void
     {
+        /** @extensionScannerIgnoreLine */
+        $content = $this->configurationManager->getContentObject()->data;
+        $borrowings = [
+            0 => [
+                'uid' => 1,
+                'title' => 'Freigemeinnützige Krankenhausträger im System staatlicher Krankenhaus- finanzierung',
+                'startDateTime' => [
+                    'format' => '2021-12-03T14:00:00+00:00',
+                    'timestamp' => 1638536400
+                ]
+            ],
+            1 => [
+                'uid' => 2,
+                'title' => 'Praxishandbuch Krankenhausfinanzierung : Krankenhausfinanzierungsgesetz… Behrends, Behrend - XC 5403 B421(2)',
+                'startDateTime' => [
+                    'format' => '2022-12-18T14:00:00+00:00',
+                    'timestamp' => 1671372000
+                ]
+            ],
+            2 => [
+                'uid' => 3,
+                'title' => 'Der Einfluss von IoT-, Big-Data- und Mobile-Health-Lösungen auf die Wertschöpfung in Krankenhäusern: Gap-Analyse',
+                'startDateTime' => [
+                    'format' => '2022-12-15T00:00:00+00:00',
+                    'timestamp' => 1671062400
+                ]
+            ],
+        ];
+
+        $this->view->assignMultiple([
+            'borrowings' => $borrowings,
+            'content' => $content
+        ]);
     }
 }

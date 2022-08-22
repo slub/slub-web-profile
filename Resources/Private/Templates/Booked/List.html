@@ -1,0 +1,49 @@
+<html
+    xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+    data-namespace-typo3-fluid="true">
+<f:layout name="Default"/>
+<!-- Templates/Bookmark/List.html -->
+
+<f:section name="Default">
+    <!--TYPO3SEARCH_end-->
+    <f:variable name="countBooked" value="{booked -> f:count()}"/>
+
+    <!--Widget-View-->
+    <f:render
+        partial="Widget/CloseButton"
+        arguments="{id: content.uid}" />
+    <f:if condition="{countBooked} > 0">
+        <f:then>
+            <div id="js-widget-content-{content.uid}" class="bookedwidget widget__content">
+                <ul class="widgetlist">
+                    <f:for as="bookedItem" each="{booked}" iteration="iterator">
+                        <f:render partial="Booked/Widget" arguments="{bookedItem: bookedItem, settings: settings, iterator: iterator}" />
+                    </f:for>
+                </ul>
+                <f:render
+                    partial="Widget/Footer"
+                    arguments="{
+                        pageUid: settings.listPageUid,
+                        title: '{f:translate(key: \'booked.widget.more\')}'
+                    }"/>
+            </div>
+        </f:then>
+        <f:else>
+            <div class="bookedwidget__noentry widget__noentry">
+                <div class="widget__noentry-text">
+                    <f:if condition="{content.bodytext}">
+                        <f:then>
+                            <f:format.html>{content.bodytext}</f:format.html>
+                        </f:then>
+                        <f:else>
+                            <p><f:translate key="booked.default.empty" /></p>
+                        </f:else>
+                    </f:if>
+                </div>
+            </div>
+            <span class="footerdata__morelink footerdata__morelink-deactive"><f:format.raw><f:translate key="booked.widget.more"/></f:format.raw></span>
+        </f:else>
+    </f:if>
+    <!--TYPO3SEARCH_begin-->
+</f:section>
+</html>

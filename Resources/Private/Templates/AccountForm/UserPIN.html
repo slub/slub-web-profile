@@ -1,0 +1,51 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="{formIdentifier}-true">
+<f:layout name="Default" />
+<!-- Templates/AccountForm/UserPIN.html -->
+
+<f:section name="Default">
+    <!--TYPO3SEARCH_end-->
+    <link rel="stylesheet" 
+          type="text/css" 
+          media="all"
+          href="/typo3conf/ext/slub_web_profile/Resources/Public/Css/accountform.css" />
+    <f:variable name="formIdentifier">form-{action}</f:variable>
+    
+    <div id="account{formIdentifier}" class="accountform">
+        <f:render partial="AccountForm/Status" arguments="{status: status, currentAction: currentAction, action: action}" />
+
+        <f:form enctype="multipart/form-data" class="form-mb" section="account{formIdentifier}">
+            <input type="hidden" name="account[action]" value="{action}">
+            <div class="form-row form-text">
+                <f:format.raw>{f:translate(key: 'accountform.userPIN.additionalNote')}</f:format.raw>
+            </div>
+            <div class="form-row">
+                <label for="{formIdentifier}-username" class="form-label">{f:translate(key: 'accountform.userPIN.username')}</label>
+                <input class="form-control" type="text" id="{formIdentifier}-username" value="{user.account.name}" disabled readonly>
+            </div>
+            <div class="form-row">
+                <label for="{formIdentifier}-password" class="form-label">{f:translate(key: 'accountform.userPIN.password')}<span class="label-required">*</span></label>
+                <input class="form-control" type="password" id="{formIdentifier}-password" required="required">
+            </div>
+            <div class="form-row">
+                <label for="{formIdentifier}-new-password" class="form-label">{f:translate(key: 'accountform.userPIN.new-password')}<span class="label-required">*</span></label>
+                <input class="form-control" type="password" id="{formIdentifier}-new-password" required="required" aria-describedby="{formIdentifier}-passwordHelp">
+                <div class="form-text" id="{formIdentifier}-passwordHelp">
+                    {f:translate(key: 'accountform.userPIN.passwordHelp')}
+                </div>
+            </div>
+            <div class="form-row">
+                <label for="{formIdentifier}-confirm-new-password" class="form-label">{f:translate(key: 'accountform.userPIN.confirm-new-password')}<span class="label-required">*</span></label>
+                <input class="form-control" type="password" id="{formIdentifier}-confirm-new-password" required="required">
+            </div>
+            <div class="form-cols">
+                <button type="submit" class="btn btn-action btn-action-lg">{f:translate(key: 'accountform.userPIN.actionBtn')}</button>
+                <div class="form-text">
+                    {f:translate(key: 'accountform.userPIN.additionalNote2')}
+                </div>
+            </div>
+        </f:form>
+    </div>
+    <!--TYPO3SEARCH_begin-->
+</f:section>
+
+</html>
