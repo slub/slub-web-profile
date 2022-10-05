@@ -27,16 +27,17 @@
                 <input class="form-control" type="password" id="{formIdentifier}-password" required="required">
             </div>
             <div class="form-row">
-                <label for="{formIdentifier}-new-password" class="form-label">{f:translate(key: 'accountform.userPIN.new-password')}<span class="label-required">*</span></label>
-                <input class="form-control" type="password" id="{formIdentifier}-new-password" required="required" aria-describedby="{formIdentifier}-passwordHelp">
-                <div class="form-text" id="{formIdentifier}-passwordHelp">
-                    {f:translate(key: 'accountform.userPIN.passwordHelp')}
+                <label for="{formIdentifier}-new-pin" class="form-label">{f:translate(key: 'accountform.userPIN.new-pin')}<span class="label-required">*</span></label>
+                <input class="form-control" type="password" id="{formIdentifier}-new-pin" onkeyup="confirmPinMatch();" required="required" minlength="4" maxlength="4" aria-describedby="{formIdentifier}-passwordHelp">
+                <div class="form-text" id="{formIdentifier}-pinHelp">
+                    {f:translate(key: 'accountform.userPIN.pinHelp')}
                 </div>
             </div>
             <div class="form-row">
-                <label for="{formIdentifier}-confirm-new-password" class="form-label">{f:translate(key: 'accountform.userPIN.confirm-new-password')}<span class="label-required">*</span></label>
-                <input class="form-control" type="password" id="{formIdentifier}-confirm-new-password" required="required">
+                <label for="{formIdentifier}-confirm-new-pin" class="form-label">{f:translate(key: 'accountform.userPIN.confirm-new-pin')}<span class="label-required">*</span></label>
+                <input class="form-control" type="password" id="{formIdentifier}-confirm-new-pin" onkeyup="confirmPinMatch();" minlength="4" maxlength="4" required="required">
             </div>
+            <script type="text/javascript" src="/typo3conf/ext/slub_web_profile/Resources/Public/JavaScript/Account/account-userpin.js"></script>
             <div class="form-cols">
                 <button type="submit" class="btn btn-action btn-action-lg">{f:translate(key: 'accountform.userPIN.actionBtn')}</button>
                 <div class="form-text">

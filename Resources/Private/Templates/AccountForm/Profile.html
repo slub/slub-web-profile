@@ -28,7 +28,11 @@
             </div>
             <div class="form-row">
                 <label for="{formIdentifier}-email" class="form-label">{f:translate(key: 'accountform.profile.emailAddress')}<span class="label-required">*</span></label>
-                <input type="email" class="form-control" id="{formIdentifier}-email" name="account[EmailAddress]" value="{user.account.email}" required="required">
+                <input type="email" class="form-control" id="{formIdentifier}-email" onkeyup="confirmEmailMatch();" name="account[EmailAddress]" value="{user.account.email}" required="required">
+            </div>
+            <div id="{formIdentifier}-changeEmail" class="form-row hidden">
+                <label for="{formIdentifier}-confirm-email" class="form-label">{f:translate(key: 'accountform.profile.confirm-emailAddress')}<span class="label-required">*</span></label>
+                <input type="email" class="form-control" id="{formIdentifier}-confirm-email" onkeyup="confirmEmailMatch();">
             </div>
             <div class="form-row">
                 <label for="{formIdentifier}-status" class="form-label">{f:translate(key: 'accountform.profile.status')}</label>
@@ -38,6 +42,7 @@
                 <label for="{formIdentifier}-hsid" class="form-label">{f:translate(key: 'accountform.profile.hsid')}</label>
                 <input class="form-control" type="text" id="{formIdentifier}-hsid" value="{user.account.libid}" disabled readonly>
             </div>
+            <script type="text/javascript" src="/typo3conf/ext/slub_web_profile/Resources/Public/JavaScript/Account/account-profile.js"></script>
             <button type="submit" class="btn btn-action btn-action-lg">{f:translate(key: 'accountform.profile.actionBtn')}</button>
         </f:form>
     </div>

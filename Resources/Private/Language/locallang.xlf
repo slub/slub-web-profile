@@ -154,6 +154,9 @@
 			<trans-unit id="accountform.address.status.success" resname="accountform.address.status.success">
 				<source>The changes were succesfully saved.</source>
 			</trans-unit>
+			<trans-unit id="accountform.address.status.error.invalidMail" resname="accountform.address.status.error.invalidMail">
+				<source>The e-mail address is invalid.</source>
+			</trans-unit>
 
 			<trans-unit id="accountform.profile.givenNames" resname="accountform.profile.givenNames">
 				<source>First name/s</source>
@@ -163,6 +166,9 @@
 			</trans-unit>
 			<trans-unit id="accountform.profile.emailAddress" resname="accountform.profile.emailAddress">
 				<source>E-mail address</source>
+			</trans-unit>
+			<trans-unit id="accountform.profile.confirm-emailAddress" resname="accountform.profile.confirm-emailAddress">
+				<source>Confirm e-mail address</source>
 			</trans-unit>
 			<trans-unit id="accountform.profile.status" resname="accountform.profile.status">
 				<source>Status</source>
@@ -206,9 +212,6 @@
 			</trans-unit>
 			<trans-unit id="accountform.address.country.other" resname="accountform.address.country.other">
 				<source>Other</source>
-			</trans-unit>
-			<trans-unit id="accountform.address.phone" resname="accountform.address.phone">
-				<source>Telephone number</source>
 			</trans-unit>
 			<trans-unit id="accountform.address.headline.secondary-flat" resname="accountform.address.headline.secondary-flat">
 				<source>Secondary flat</source>
@@ -261,13 +264,13 @@
 			<trans-unit id="accountform.userPIN.password" resname="accountform.userPIN.password">
 				<source>Password</source>
 			</trans-unit>
-			<trans-unit id="accountform.userPIN.new-password" resname="accountform.userPIN.new-password">
+			<trans-unit id="accountform.userPIN.new-pin" resname="accountform.userPIN.new-pin">
 				<source>New PIN</source>
 			</trans-unit>
-			<trans-unit id="accountform.userPIN.passwordHelp" resname="accountform.userPIN.passwordHelp">
+			<trans-unit id="accountform.userPIN.pinHelp" resname="accountform.userPIN.pinHelp">
 				<source>Your PIN must consist of exactly 4 digits!</source>
 			</trans-unit>
-			<trans-unit id="accountform.userPIN.confirm-new-password" resname="accountform.userPIN.confirm-new-password">
+			<trans-unit id="accountform.userPIN.confirm-new-pin" resname="accountform.userPIN.confirm-new-pin">
 				<source>Enter new PIN again</source>
 			</trans-unit>
 			<trans-unit id="accountform.userPIN.actionBtn" resname="accountform.userPIN.actionBtn">
