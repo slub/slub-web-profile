@@ -2,11 +2,18 @@
 <f:comment>Partials/AccountForm/Status.html</f:comment>
 
 <f:if condition="{currentAction} == {action}">
-    <f:if condition="{status.code} == 200">
-        <div class="form-message-status api-message-status--successful">
-            {f:translate(key: 'accountform.address.status.success')}
-        </div>
-    </f:if>
+    <f:switch expression="{status.code}">
+        <f:case value="200">
+            <div class="form-message-status api-message-status--successful">
+                {f:translate(key: 'accountform.address.status.success')}
+            </div>
+        </f:case>
+        <f:case value="400">
+            <div class="form-message-status api-message-status--error">
+                {f:translate(key: 'accountform.address.status.error.invalidMail')}
+            </div>
+        </f:case>
+    </f:switch>
 </f:if>
 
 </html>
