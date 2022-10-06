@@ -37,6 +37,8 @@ The general domain to call the "profile service" can be set in the field "Domain
 |------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------|
 | plugin.tx_slubwebprofile.settings.api.path.bookedList            | Path to get the booked list.                                                                                                           |
 | plugin.tx_slubwebprofile.settings.api.path.bookmarkList          | Path to get the bookmark list.                                                                                                         |
+| plugin.tx_slubwebprofile.settings.api.path.reserveCurrent        | Path for currently reserved media                                                                                                      |
+| plugin.tx_slubwebprofile.settings.api.path.reserveHistory        | Path for reserved, past media                                                                                                          |
 | plugin.tx_slubwebprofile.settings.api.path.eventList             | "language array" to collect paths to call the event list. The numbers (sys_language_uid) have to fit with your configured languages.   |
 | plugin.tx_slubwebprofile.settings.api.path.eventList.0           | Path for the sys_language_uid "0" (as example german), begins and ends with a slash, will be extended with user id                     |
 | plugin.tx_slubwebprofile.settings.api.path.eventList.1           | Path for the sys_language_uid "1" (as example english), begins and ends with a slash, will be extended with user id                    |
@@ -44,7 +46,7 @@ The general domain to call the "profile service" can be set in the field "Domain
 | plugin.tx_slubwebprofile.settings.api.path.messageList.0         | Path for the sys_language_uid "0" (as example german), begins and ends with a slash, will be extended with user category               |
 | plugin.tx_slubwebprofile.settings.api.path.messageList.1         | Path for the sys_language_uid "1" (as example english), begins and ends with a slash, will be extended with user category              |
 | plugin.tx_slubwebprofile.settings.api.path.userAccountDetail     | Path to get a single user (contains: account) data                                                                                     |
-| plugin.tx_slubwebprofile.settings.api.path.userAccountUpdate     | Path to update a single user (contains: account) data                                                                                     |
+| plugin.tx_slubwebprofile.settings.api.path.userAccountUpdate     | Path to update a single user (contains: account) data                                                                                  |
 | plugin.tx_slubwebprofile.settings.api.path.userDashboardDetail   | Path to get a single user (contains: dashboard) data                                                                                   |
 | plugin.tx_slubwebprofile.settings.api.path.userDashboardUpdate   | Path to update a single user (contains: dashboard) data                                                                                |
 | plugin.tx_slubwebprofile.settings.api.path.userSearchQueryDetail | Path to get a single user (contains: search query) data                                                                                |

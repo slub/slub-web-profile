@@ -22,7 +22,7 @@ class BorrowingController extends ActionController
         $borrowings = [
             0 => [
                 'uid' => 1,
-                'title' => 'Freigemeinnützige Krankenhausträger im System staatlicher Krankenhaus- finanzierung',
+                'title' => 'Freigemeinnützige Krankenhausträger im System staatlicher Krankenhausfinanzierung',
                 'startDateTime' => [
                     'format' => '2021-12-03T14:00:00+00:00',
                     'timestamp' => 1638536400

@@ -1,0 +1,65 @@
+@import 'variables';
+
+// table styling
+.tableview {
+  border-bottom: 1px solid $lightbrightgrey;
+
+  thead th {
+    color: $lightgrey;
+    font-family: $VistaSans;
+    font-size: .75rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    border: 0 none;
+  }
+
+  &-action {
+    list-style-type: none;
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+  
+    li {
+      margin: .625rem 0 0 1.25rem;
+      padding: 0;
+      line-height: 100%;
+      display: flex;
+      justify-content: center;
+    }
+  }
+
+  .tableview-item {
+    font-family: $VistaSans;
+    border-top: 1px solid $lightbrightgrey;
+
+    td, th {
+      color: $darkgrey;
+      border: 0 none;
+    }
+
+    &__marker {
+      appearance: none;
+      border: 2px solid $lightbrightgrey;
+      width: 1.25rem;
+      height: 1.25rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      &:before {
+        transition: background $transition-default;
+        content: '';
+        width: .75rem;
+        height: .75rem;
+        background: transparent;
+      }
+
+      &:checked {
+        &:before {
+          background: $secondary-petrol-green;
+        }
+      }
+    }
+  }
+}

@@ -61,8 +61,7 @@
   text-transform: uppercase;
   color: $white;
   background: $secondary-petrol-green;
-  padding: .35rem 1rem;
-  border-top: 2px $secondary-petrol-green solid;
+  padding: .475rem 1rem .35rem;
   border-bottom: 2px $secondary-petrol-dark solid;
 
   &-lg {
@@ -73,6 +72,16 @@
     background: $primary-red-darker;
     border-top-color: $primary-red-darker;
   }
+}
+
+.btn:disabled {
+  padding-top: .413rem;
+  color: $darkmidgrey;
+  pointer-events: none;
+  background-color: transparent;
+  border: 1px solid $darkmidgrey;
+  border-bottom-width: 2px;
+  opacity: 0.5;
 }
 
 .d-none {

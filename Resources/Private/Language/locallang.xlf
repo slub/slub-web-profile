@@ -118,6 +118,53 @@
 			</trans-unit>
 
 			<!--
+				Reserve
+			-->
+
+			<trans-unit id="reserveCurrent.empty" resname="reserveCurrent.empty">
+				<source>There are currently no reserved media ready for collection.</source>
+			</trans-unit>
+			<trans-unit id="reserveHistory.empty" resname="reserveHistory.empty">
+				<source>No history of reserved media available.</source>
+			</trans-unit>
+			<trans-unit id="reserve.widget.more" resname="reserve.widget.more">
+				<source><![CDATA[<strong>More</strong> reserved media]]></source>
+			</trans-unit>
+			<trans-unit id="reserve.widget.position.label" resname="reserve.widget.position.label">
+				<source>Reservation No.:</source>
+			</trans-unit>
+			<trans-unit id="reserve.label.barcode" resname="reserve.label.barcode">
+				<source>Barcode</source>
+			</trans-unit>
+			<trans-unit id="reserve.label.title" resname="reserve.label.title">
+				<source>Title</source>
+			</trans-unit>
+			<trans-unit id="reserve.label.title-volume" resname="reserve.label.title-volume">
+				<source>Title / volume / issue number</source>
+			</trans-unit>			
+			<trans-unit id="reserve.label.additional-information" resname="reserve.label.additional-information">
+				<source>Additional information</source>
+			</trans-unit>
+			<trans-unit id="reserve.label.author" resname="reserve.label.author">
+				<source>Author</source>
+			</trans-unit>
+			<trans-unit id="reserve.label.hold-position" resname="reserve.label.hold-position">
+				<source>Hold position</source>
+			</trans-unit>			
+			<trans-unit id="reserve.label.reservation-date" resname="reserve.label.reservation-date">
+				<source>Date of reservation</source>
+			</trans-unit>
+			<trans-unit id="reserve.label.remove-reservation" resname="reserve.label.remove-reservation">
+				<source>Remove reservation</source>
+			</trans-unit>
+			<trans-unit id="reserve.btnsubmit.reset" resname="reserve.btnsubmit.reset">
+				<source>Reset</source>
+			</trans-unit>
+			<trans-unit id="reserve.btnsubmit.remove" resname="reserve.btnsubmit.remove">
+				<source>Remove</source>
+			</trans-unit>
+
+			<!--
 				Booked
 			-->
 

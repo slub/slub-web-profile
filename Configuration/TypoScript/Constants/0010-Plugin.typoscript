@@ -8,42 +8,47 @@ plugin.tx_slubwebprofile {
 
     api {
       path {
-        # cat=SLUB Profile Service/76573002_Api/110; type=string; label=Path for booked list
+        # cat=SLUB Profile Service/76573002_Api/100; type=string; label=Path for booked list
         bookedList = /raumbuchungen/###USER_ID###
 
-        # cat=SLUB Profile Service/76573002_Api/110; type=string; label=Path for bookmark list
+        # cat=SLUB Profile Service/76573002_Api/102; type=string; label=Path for bookmark list
         bookmarkList = /merkliste/###USER_ID###
 
+        # cat=SLUB Profile Service/76573002_Api/104; type=string; label=Path for currently reserved media
+        reserveCurrent = /benutzer/vormerkungen/###USER_ID###
+        # cat=SLUB Profile Service/76573002_Api/105; type=string; label=Path for reserved, past media
+        reserveHistory = /benutzer/vormerkhistorie/###USER_ID###
+
         eventList {
-          # cat=SLUB Profile Service/76573002_Api/100; type=string; label=Path for event list (sys_language_uid = 0)
+          # cat=SLUB Profile Service/76573002_Api/110; type=string; label=Path for event list (sys_language_uid = 0)
           0 = /veranstaltungen/benutzer/###USER_ID###
-          # cat=SLUB Profile Service/76573002_Api/101; type=string; label=Path for event list (sys_language_uid = 1)
+          # cat=SLUB Profile Service/76573002_Api/111; type=string; label=Path for event list (sys_language_uid = 1)
           1 = /en/events/user/###USER_ID###
         }
 
         messageList {
-          # cat=SLUB Profile Service/76573002_Api/100; type=string; label=Path for message list (sys_language_uid = 0)
+          # cat=SLUB Profile Service/76573002_Api/113; type=string; label=Path for message list (sys_language_uid = 0)
           0 = /meldungen/###USER_CATEGORY###
-          # cat=SLUB Profile Service/76573002_Api/101; type=string; label=Path for message list (sys_language_uid = 1)
+          # cat=SLUB Profile Service/76573002_Api/114; type=string; label=Path for message list (sys_language_uid = 1)
           1 = /en/messages/###USER_CATEGORY###
         }
 
         userAccountDetail {
-          # cat=SLUB Profile Service/76573002_Api/110; type=string; label=Path for user account detail (contains: user account; sys_language_uid = 0)
+          # cat=SLUB Profile Service/76573002_Api/116; type=string; label=Path for user account detail (contains user account / sys_language_uid = 0)
           0 = /benutzer/###USER_ID###
-          # cat=SLUB Profile Service/76573002_Api/110; type=string; label=Path for user account detail (contains: user account; sys_language_uid = 1)
+          # cat=SLUB Profile Service/76573002_Api/117; type=string; label=Path for user account detail (contains user account / sys_language_uid = 1)
           1 = /en/user/###USER_ID###
         }
 
-        # cat=SLUB Profile Service/76573002_Api/120; type=string; label=Path for user account update (contains: user account)
+        # cat=SLUB Profile Service/76573002_Api/120; type=string; label=Path for user account update (contains user account)
         userAccountUpdate = /benutzer/aktualisieren/###USER_ID###
-        # cat=SLUB Profile Service/76573002_Api/120; type=string; label=Path for user dashboard detail (contains: user dashboard)
+        # cat=SLUB Profile Service/76573002_Api/121; type=string; label=Path for user dashboard detail (contains user dashboard)
         userDashboardDetail = /benutzer/dashboard/###USER_ID###
-        # cat=SLUB Profile Service/76573002_Api/120; type=string; label=Path for user dashboard update (contains: user dashboard)
+        # cat=SLUB Profile Service/76573002_Api/122; type=string; label=Path for user dashboard update (contains user dashboard)
         userDashboardUpdate = /benutzer/dashboard/aktualisieren/###USER_ID###
-        # cat=SLUB Profile Service/76573002_Api/120; type=string; label=Path for user search query detail (contains: user search query)
+        # cat=SLUB Profile Service/76573002_Api/123; type=string; label=Path for user search query detail (contains user search query)
         userSearchQueryDetail = /benutzer/suchanfrage/###USER_ID###
-        # cat=SLUB Profile Service/76573002_Api/120; type=string; label=Path for user search query update (contains: user search query)
+        # cat=SLUB Profile Service/76573002_Api/124; type=string; label=Path for user search query update (contains user search query)
         userSearchQueryUpdate = /benutzer/suchanfrage/aktualisieren/###USER_ID###
       }
     }

@@ -53,8 +53,17 @@
 				<target>Auflistung von ausgeliehenen Medien eines eingeloggten Benutzers.</target>
 			</trans-unit>
 
+			<trans-unit id="contentElement.reservelist.title" resname="contentElement.reservelist.title">
+				<source>Reserved media</source>
+				<target>Vorgemerkte Medien</target>
+			</trans-unit>
+			<trans-unit id="contentElement.reservelist.description" resname="contentElement.reservelist.description">
+				<source>Fetch reserved media of a logged-in user.</source>
+				<target>Vorgemerkte Medien eines eingeloggten Benutzers holen.</target>
+			</trans-unit>
+
 			<trans-unit id="contentElement.bookedlist.title" resname="contentElement.bookedlist.title">
-				<source>Booked</source>
+				<source>Room bookings</source>
 				<target>Raumbuchungen</target>
 			</trans-unit>
 			<trans-unit id="contentElement.bookedlist.description" resname="contentElement.bookedlist.description">

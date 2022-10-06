@@ -59,6 +59,19 @@ defined('TYPO3_MODE') || die();
     \TYPO3\CMS\Extbase\Utility\ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
 );
 
+// Configure plugin - reserve list
+\TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
+    'Slub.SlubWebProfile',
+    'ReserveList',
+    [
+        'Reserve' => 'list'
+    ],
+    [
+        'Reserve' => 'list'
+    ],
+    \TYPO3\CMS\Extbase\Utility\ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
+);
+
 // Configure plugin - bookmark list
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
     'Slub.SlubWebProfile',
@@ -146,6 +159,7 @@ $iconRegistry = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(
 foreach ([
     'wizard-bookedlist' => 'Wizard/booked-list',
     'wizard-borrowinglist' => 'Wizard/borrowing-list',
+    'wizard-reservelist' => 'Wizard/reserve-list',
     'wizard-bookmarklist' => 'Wizard/bookmark-list',
     'wizard-dashboard' => 'Wizard/dashboard',
     'wizard-eventfilter' => 'Wizard/event-filter',

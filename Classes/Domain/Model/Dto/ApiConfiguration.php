@@ -43,6 +43,16 @@ class ApiConfiguration
     /**
      * @var string
      */
+    protected $reserveCurrentUri;
+
+    /**
+     * @var string
+     */
+    protected $reserveHistoryUri;
+
+    /**
+     * @var string
+     */
     protected $eventListUri;
 
     /**
@@ -98,6 +108,8 @@ class ApiConfiguration
 
         $this->setBookedListUri($domain . $paths['bookedList']);
         $this->setBookmarkListUri($domain . $paths['bookmarkList']);
+        $this->setReserveCurrentUri($domain . $paths['reserveCurrent'][$languageUid]);
+        $this->setReserveHistoryUri($domain . $paths['reserveHistory'][$languageUid]);
         $this->setEventListUri($domain . $paths['eventList'][$languageUid]);
         $this->setMessageListUri($domain . $paths['messageList'][$languageUid]);
         $this->setUserAccountDetailUri($domain . $paths['userAccountDetail'][$languageUid]);
@@ -138,6 +150,38 @@ class ApiConfiguration
     public function setBookmarkListUri(string $bookmarkListUri = ''): void
     {
         $this->bookmarkListUri = $bookmarkListUri;
+    }
+
+    /**
+     * @return string
+     */
+    public function getReserveCurrentUri(): string
+    {
+        return $this->reserveCurrentUri;
+    }
+
+    /**
+     * @param string $reserveCurrentUri
+     */
+    public function setReserveCurrentUri(string $reserveCurrentUri = ''): void
+    {
+        $this->reserveCurrentUri = $reserveCurrentUri;
+    }
+
+    /**
+     * @return string
+     */
+    public function getReserveHistoryUri(): string
+    {
+        return $this->reserveHistoryUri;
+    }
+
+    /**
+     * @param string $reserveHistoryUri
+     */
+    public function setReserveHistoryUri(string $reserveHistoryUri = ''): void
+    {
+        $this->reserveHistoryUri = $reserveHistoryUri;
     }
 
     /**

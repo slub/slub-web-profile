@@ -42,8 +42,15 @@
 				<source>List of borrowing media of a logged in user.</source>
 			</trans-unit>
 
+			<trans-unit id="contentElement.reservelist.title" resname="contentElement.reservelist.title">
+				<source>Reserved media</source>
+			</trans-unit>
+			<trans-unit id="contentElement.reservelist.description" resname="contentElement.reservelist.description">
+				<source>Fetch reserved media of a logged-in user.</source>
+			</trans-unit>
+
 			<trans-unit id="contentElement.bookedlist.title" resname="contentElement.bookedlist.title">
-				<source>Booked</source>
+				<source>Room bookings</source>
 			</trans-unit>
 			<trans-unit id="contentElement.bookedlist.description" resname="contentElement.bookedlist.description">
 				<source>Booked rooms of a logged in user.</source>
