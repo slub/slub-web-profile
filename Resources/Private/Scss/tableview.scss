@@ -28,6 +28,15 @@
     }
   }
 
+  tbody tr:nth-child(2n+1) {
+    background-color: $secondary-petrol-soft;
+  }
+
+  tr {
+    display: flex;
+    flex-direction: column;
+  }
+
   .tableview-item {
     font-family: $VistaSans;
     border-top: 1px solid $lightbrightgrey;
@@ -61,5 +70,11 @@
         }
       }
     }
+  }
+}
+
+@media screen and (min-width: $tabletViewportWidth) {
+  .tableview tr {
+    display: table-row;
   }
 }

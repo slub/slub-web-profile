@@ -53,6 +53,16 @@ class ApiConfiguration
     /**
      * @var string
      */
+    protected $loanCurrentUri;
+
+    /**
+     * @var string
+     */
+    protected $loanHistoryUri;
+
+    /**
+     * @var string
+     */
     protected $eventListUri;
 
     /**
@@ -110,6 +120,8 @@ class ApiConfiguration
         $this->setBookmarkListUri($domain . $paths['bookmarkList']);
         $this->setReserveCurrentUri($domain . $paths['reserveCurrent'][$languageUid]);
         $this->setReserveHistoryUri($domain . $paths['reserveHistory'][$languageUid]);
+        $this->setLoanCurrentUri($domain . $paths['loanCurrent'][$languageUid]);
+        $this->setLoanHistoryUri($domain . $paths['loanHistory'][$languageUid]);
         $this->setEventListUri($domain . $paths['eventList'][$languageUid]);
         $this->setMessageListUri($domain . $paths['messageList'][$languageUid]);
         $this->setUserAccountDetailUri($domain . $paths['userAccountDetail'][$languageUid]);
@@ -182,6 +194,38 @@ class ApiConfiguration
     public function setReserveHistoryUri(string $reserveHistoryUri = ''): void
     {
         $this->reserveHistoryUri = $reserveHistoryUri;
+    }
+
+    /**
+     * @return string
+     */
+    public function getLoanCurrentUri(): string
+    {
+        return $this->loanCurrentUri;
+    }
+
+    /**
+     * @param string $loanCurrentUri
+     */
+    public function setLoanCurrentUri(string $loanCurrentUri = ''): void
+    {
+        $this->loanCurrentUri = $loanCurrentUri;
+    }
+
+    /**
+     * @return string
+     */
+    public function getLoanHistoryUri(): string
+    {
+        return $this->loanHistoryUri;
+    }
+
+    /**
+     * @param string $loanHistoryUri
+     */
+    public function setLoanHistoryUri(string $loanHistoryUri = ''): void
+    {
+        $this->loanHistoryUri = $loanHistoryUri;
     }
 
     /**

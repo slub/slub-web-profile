@@ -49,6 +49,13 @@
 				<source>Fetch reserved media of a logged-in user.</source>
 			</trans-unit>
 
+			<trans-unit id="contentElement.loanlist.title" resname="contentElement.loanlist.title">
+				<source>Loaned media</source>
+			</trans-unit>
+			<trans-unit id="contentElement.loanlist.description" resname="contentElement.loanlist.description">
+				<source>Loaned media of a logged-in user.</source>
+			</trans-unit>
+
 			<trans-unit id="contentElement.bookedlist.title" resname="contentElement.bookedlist.title">
 				<source>Room bookings</source>
 			</trans-unit>

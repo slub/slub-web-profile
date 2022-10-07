@@ -72,6 +72,19 @@ defined('TYPO3_MODE') || die();
     \TYPO3\CMS\Extbase\Utility\ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
 );
 
+// Configure plugin - loan list
+\TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
+    'Slub.SlubWebProfile',
+    'LoanList',
+    [
+        'Loan' => 'list'
+    ],
+    [
+        'Loan' => 'list'
+    ],
+    \TYPO3\CMS\Extbase\Utility\ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
+);
+
 // Configure plugin - bookmark list
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
     'Slub.SlubWebProfile',
@@ -160,6 +173,7 @@ foreach ([
     'wizard-bookedlist' => 'Wizard/booked-list',
     'wizard-borrowinglist' => 'Wizard/borrowing-list',
     'wizard-reservelist' => 'Wizard/reserve-list',
+    'wizard-loanlist' => 'Wizard/loan-list',
     'wizard-bookmarklist' => 'Wizard/bookmark-list',
     'wizard-dashboard' => 'Wizard/dashboard',
     'wizard-eventfilter' => 'Wizard/event-filter',

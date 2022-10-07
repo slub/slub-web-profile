@@ -19,6 +19,11 @@ plugin.tx_slubwebprofile {
         # cat=SLUB Profile Service/76573002_Api/105; type=string; label=Path for reserved, past media
         reserveHistory = /benutzer/vormerkhistorie/###USER_ID###
 
+        # cat=SLUB Profile Service/76573002_Api/107; type=string; label=Path for media ready for collection
+        loanCurrent = /benutzer/ausleihen/###USER_ID###
+        # cat=SLUB Profile Service/76573002_Api/108; type=string; label=Path for loaned, past media
+        loanHistory = /benutzer/ausleihhistorie/###USER_ID###
+
         eventList {
           # cat=SLUB Profile Service/76573002_Api/110; type=string; label=Path for event list (sys_language_uid = 0)
           0 = /veranstaltungen/benutzer/###USER_ID###

@@ -165,6 +165,62 @@
 			</trans-unit>
 
 			<!--
+				Loan
+			-->
+
+			<trans-unit id="loanCurrent.empty" resname="loanCurrent.empty">
+				<source>There are currently no media available for collection.</source>
+			</trans-unit>
+			<trans-unit id="loanHistory.empty" resname="loanHistory.empty">
+				<source>No history of loaned media available.</source>
+			</trans-unit>
+			<trans-unit id="loan.widget.more" resname="loan.widget.more">
+				<source><![CDATA[<strong>More</strong> loaned media]]></source>
+			</trans-unit>
+			<trans-unit id="loan.widget.available.label" resname="loan.widget.available.label">
+				<source>Available since:</source>
+			</trans-unit>
+			<trans-unit id="loan.label.barcode" resname="loan.label.barcode">
+				<source>Barcode</source>
+			</trans-unit>
+			<trans-unit id="loan.label.title" resname="loan.label.title">
+				<source>Title</source>
+			</trans-unit>
+			<trans-unit id="loan.label.title-volume" resname="loan.label.title-volume">
+				<source>Title / volume / issue number</source>
+			</trans-unit>			
+			<trans-unit id="loan.label.additional-information" resname="loan.label.additional-information">
+				<source>Additional information</source>
+			</trans-unit>
+			<trans-unit id="loan.label.author" resname="loan.label.author">
+				<source>Author</source>
+			</trans-unit>
+			<trans-unit id="loan.label.date-loan" resname="loan.label.date-loan">
+				<source>Date of loan</source>
+			</trans-unit>
+			<trans-unit id="loan.label.date-due" resname="loan.label.date-due">
+				<source>Due date</source>
+			</trans-unit>			
+			<trans-unit id="loan.label.date-return" resname="loan.label.date-return">
+				<source>Date of return</source>
+			</trans-unit>
+			<trans-unit id="loan.label.renewal" resname="loan.label.renewal">
+				<source>Number of renewals (max. 5)</source>
+			</trans-unit>
+			<trans-unit id="loan.label.renew" resname="loan.label.renew">
+				<source>Renew (from today)</source>
+			</trans-unit>
+			<trans-unit id="loan.btnsubmit.reset" resname="loan.btnsubmit.reset">
+				<source>Reset</source>
+			</trans-unit>
+			<trans-unit id="loan.btnsubmit.mark" resname="loan.btnsubmit.mark">
+				<source>Mark all</source>
+			</trans-unit>
+			<trans-unit id="loan.btnsubmit.renew" resname="loan.btnsubmit.renew">
+				<source>Renew</source>
+			</trans-unit>
+
+			<!--
 				Booked
 			-->
 

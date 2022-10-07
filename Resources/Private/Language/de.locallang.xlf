@@ -214,6 +214,79 @@
 			</trans-unit>
 
 			<!--
+				Loan
+			-->
+
+			<trans-unit id="loanCurrent.empty" resname="loanCurrent.empty">
+				<source>There are currently no media available for collection.</source>
+				<target>Aktuell sind keine abholbereite Medien verfügbar.</target>
+			</trans-unit>
+			<trans-unit id="loanHistory.empty" resname="loanHistory.empty">
+				<source>No history of loaned media available.</source>
+				<target>Keine Historie ausgeliehener Medien vorhanden.</target>
+			</trans-unit>
+			<trans-unit id="loan.widget.more" resname="loan.widget.more">
+				<source><![CDATA[<strong>More</strong> loaned media]]></source>
+				<target><![CDATA[<strong>Mehr</strong> ausgeliehene Medien]]></target>
+			</trans-unit>
+			<trans-unit id="loan.widget.available.label" resname="loan.widget.available.label">
+				<source>Available since:</source>
+				<target>Verfügbar seit:</target>
+			</trans-unit>
+			<trans-unit id="loan.label.barcode" resname="loan.label.barcode">
+				<source>Barcode</source>
+				<target>Barcode</target>
+			</trans-unit>
+			<trans-unit id="loan.label.title" resname="loan.label.title">
+				<source>Title</source>
+				<target>Titel</target>
+			</trans-unit>
+			<trans-unit id="loan.label.title-volume" resname="loan.label.title-volume">
+				<source>Title / volume / issue number</source>
+				<target>Titel / Bandangabe</target>
+			</trans-unit>			
+			<trans-unit id="loan.label.additional-information" resname="loan.label.additional-information">
+				<source>Additional information</source>
+				<target>Zusätzliche Informationen</target>
+			</trans-unit>
+			<trans-unit id="loan.label.author" resname="loan.label.author">
+				<source>Author</source>
+				<target>Verfasser</target>
+			</trans-unit>
+			<trans-unit id="loan.label.date-loan" resname="loan.label.date-loan">
+				<source>Date of loan</source>
+				<target>Datum der Ausleihe</target>
+			</trans-unit>
+			<trans-unit id="loan.label.date-due" resname="loan.label.date-due">
+				<source>Due date</source>
+				<target>Fälligkeitsdatum</target>
+			</trans-unit>			
+			<trans-unit id="loan.label.date-return" resname="loan.label.date-return">
+				<source>Date of return</source>
+				<target>Datum der Rückgabe</target>
+			</trans-unit>
+			<trans-unit id="loan.label.renewal" resname="loan.label.renewal">
+				<source>Number of renewals (max. 5)</source>
+				<target>Anzahl Verlängerungen (max. 5)</target>
+			</trans-unit>
+			<trans-unit id="loan.label.renew" resname="loan.label.renew">
+				<source>Renew (from today)</source>
+				<target>Verlängern (ab heute)</target>
+			</trans-unit>
+			<trans-unit id="loan.btnsubmit.reset" resname="loan.btnsubmit.reset">
+				<source>Reset</source>
+				<target>Zurücksetzen</target>
+			</trans-unit>
+			<trans-unit id="loan.btnsubmit.mark" resname="loan.btnsubmit.mark">
+				<source>Mark all</source>
+				<target>Alle markieren</target>
+			</trans-unit>
+			<trans-unit id="loan.btnsubmit.renew" resname="loan.btnsubmit.renew">
+				<source>Renew</source>
+				<target>Verlängern</target>
+			</trans-unit>
+
+			<!--
 				Booked
 			-->
 

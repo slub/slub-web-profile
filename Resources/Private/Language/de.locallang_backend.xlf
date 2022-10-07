@@ -62,6 +62,15 @@
 				<target>Vorgemerkte Medien eines eingeloggten Benutzers holen.</target>
 			</trans-unit>
 
+			<trans-unit id="contentElement.loanlist.title" resname="contentElement.loanlist.title">
+				<source>Loaned media</source>
+				<target>Ausgeliehene Medien</target>
+			</trans-unit>
+			<trans-unit id="contentElement.loanlist.description" resname="contentElement.loanlist.description">
+				<source>Loaned media of a logged-in user.</source>
+				<target>Ausgeliehene Medien eines eingeloggten Benutzers holen.</target>
+			</trans-unit>
+
 			<trans-unit id="contentElement.bookedlist.title" resname="contentElement.bookedlist.title">
 				<source>Room bookings</source>
 				<target>Raumbuchungen</target>

@@ -2,7 +2,7 @@ TCEFORM {
   tt_content {
     CType.types {
       slubwebprofile_dashboard {
-        tt_content.allowed = slubwebprofile_eventlist, slubwebprofile_borrowinglist, slubwebprofile_reservelist, slubwebprofile_bookedlist, slubwebprofile_bookmarklist, slubwebprofile_searchquerylist
+        tt_content.allowed = slubwebprofile_eventlist, slubwebprofile_borrowinglist, slubwebprofile_reservelist, slubwebprofile_loanlist, slubwebprofile_bookedlist, slubwebprofile_bookmarklist, slubwebprofile_searchquerylist
       }
     }
 
@@ -10,6 +10,7 @@ TCEFORM {
       slubwebprofile_bookedlist.disabled = 1
       slubwebprofile_borrowinglist.disabled = 1
       slubwebprofile_reservelist.disabled = 1
+      slubwebprofile_loanlist.disabled = 1
       slubwebprofile_bookmarklist.disabled = 1
       slubwebprofile_dashboard.disabled = 1
       slubwebprofile_eventfilter.disabled = 1
@@ -32,6 +33,7 @@ TCEFORM {
       slubwebprofile_eventlist.disabled = 1
       slubwebprofile_borrowinglist.disabled = 1
       slubwebprofile_reservelist.disabled = 1
+      slubwebprofile_loanlist.disabled = 1
       slubwebprofile_bookedlist.disabled = 1
       slubwebprofile_bookmarklist.disabled = 1
       slubwebprofile_searchquerylist.disabled = 1
@@ -43,6 +45,7 @@ TCEFORM {
       slubwebprofile_bookedlist.disabled = 1
       slubwebprofile_borrowinglist.disabled = 1
       slubwebprofile_reservelist.disabled = 1
+      slubwebprofile_loanlist.disabled = 1
       slubwebprofile_bookmarklist.disabled = 1
       slubwebprofile_dashboard.disabled = 1
       slubwebprofile_eventfilter.disabled = 1
@@ -58,6 +61,7 @@ TCEFORM {
       slubwebprofile_bookedlist.disabled = 1
       slubwebprofile_borrowinglist.disabled = 1
       slubwebprofile_reservelist.disabled = 1
+      slubwebprofile_loanlist.disabled = 1
       slubwebprofile_bookmarklist.disabled = 1
       slubwebprofile_dashboard.disabled = 1
       slubwebprofile_eventfilter.disabled = 1
@@ -73,6 +77,7 @@ TCEFORM {
       slubwebprofile_bookedlist.disabled = 1
       slubwebprofile_borrowinglist.disabled = 1
       slubwebprofile_reservelist.disabled = 1
+      slubwebprofile_loanlist.disabled = 1
       slubwebprofile_bookmarklist.disabled = 1
       slubwebprofile_dashboard.disabled = 1
       slubwebprofile_eventfilter.disabled = 1
@@ -88,6 +93,7 @@ TCEFORM {
       slubwebprofile_bookedlist.disabled = 1
       slubwebprofile_borrowinglist.disabled = 1
       slubwebprofile_reservelist.disabled = 1
+      slubwebprofile_loanlist.disabled = 1
       slubwebprofile_bookmarklist.disabled = 1
       slubwebprofile_dashboard.disabled = 1
       slubwebprofile_eventfilter.disabled = 1
@@ -103,6 +109,7 @@ TCEFORM {
       slubwebprofile_bookedlist.disabled = 1
       slubwebprofile_borrowinglist.disabled = 1
       slubwebprofile_reservelist.disabled = 1
+      slubwebprofile_loanlist.disabled = 1
       slubwebprofile_bookmarklist.disabled = 1
       slubwebprofile_dashboard.disabled = 1
       slubwebprofile_eventfilter.disabled = 1
