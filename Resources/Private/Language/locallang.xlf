@@ -41,7 +41,7 @@
 				<source>Unsubscribe from the event</source>
 			</trans-unit>
 			<trans-unit id="event.widget.more" resname="event.widget.more">
-				<source>More</source>
+				<source><![CDATA[<strong>All</strong> my events]]></source>
 			</trans-unit>
 			<trans-unit id="event.widget.today.label" resname="event.widget.today.label">
 				<source>Today!</source>
@@ -94,7 +94,7 @@
 				<source>Delete selected</source>
 			</trans-unit>
 			<trans-unit id="searchQuery.widget.more" resname="searchQuery.widget.more">
-				<source>More</source>
+				<source><![CDATA[<strong>All</strong> searches]]></source>
 			</trans-unit>
 			<trans-unit id="searchQuery.widget.result" resname="searchQuery.widget.result">
 				<source>%1$s result</source>
@@ -121,14 +121,14 @@
 				Reserve
 			-->
 
-			<trans-unit id="reserveCurrent.empty" resname="reserveCurrent.empty">
-				<source>There are currently no reserved media ready for collection.</source>
+			<trans-unit id="reserveCurrent.default.empty" resname="reserveCurrent.default.empty">
+				<source>No loaned media.</source>
 			</trans-unit>
-			<trans-unit id="reserveHistory.empty" resname="reserveHistory.empty">
+			<trans-unit id="reserveHistory.default.empty" resname="reserveHistory.default.empty">
 				<source>No history of reserved media available.</source>
 			</trans-unit>
 			<trans-unit id="reserve.widget.more" resname="reserve.widget.more">
-				<source><![CDATA[<strong>More</strong> reserved media]]></source>
+				<source><![CDATA[<strong>All</strong> orders]]></source>
 			</trans-unit>
 			<trans-unit id="reserve.widget.position.label" resname="reserve.widget.position.label">
 				<source>Reservation No.:</source>
@@ -160,6 +160,9 @@
 			<trans-unit id="reserve.btnsubmit.reset" resname="reserve.btnsubmit.reset">
 				<source>Reset</source>
 			</trans-unit>
+			<trans-unit id="reserve.btnsubmit.mark" resname="reserve.btnsubmit.mark">
+				<source>Mark all</source>
+			</trans-unit>
 			<trans-unit id="reserve.btnsubmit.remove" resname="reserve.btnsubmit.remove">
 				<source>Remove</source>
 			</trans-unit>
@@ -168,17 +171,14 @@
 				Loan
 			-->
 
-			<trans-unit id="loanCurrent.empty" resname="loanCurrent.empty">
-				<source>There are currently no media available for collection.</source>
+			<trans-unit id="loanCurrent.default.empty" resname="loanCurrent.default.empty">
+				<source>No loaned media.</source>
 			</trans-unit>
-			<trans-unit id="loanHistory.empty" resname="loanHistory.empty">
+			<trans-unit id="loanHistory.default.empty" resname="loanHistory.default.empty">
 				<source>No history of loaned media available.</source>
 			</trans-unit>
 			<trans-unit id="loan.widget.more" resname="loan.widget.more">
-				<source><![CDATA[<strong>More</strong> loaned media]]></source>
-			</trans-unit>
-			<trans-unit id="loan.widget.available.label" resname="loan.widget.available.label">
-				<source>Available since:</source>
+				<source><![CDATA[<strong>All</strong> loaned media]]></source>
 			</trans-unit>
 			<trans-unit id="loan.label.barcode" resname="loan.label.barcode">
 				<source>Barcode</source>
@@ -228,7 +228,7 @@
 				<source>Your booked list is empty.</source>
 			</trans-unit>
 			<trans-unit id="booked.widget.more" resname="booked.widget.more">
-				<source><![CDATA[<strong>More</strong> booked]]></source>
+				<source><![CDATA[<strong>All</strong> my room bookings]]></source>
 			</trans-unit>
 
 			<!--
@@ -239,7 +239,7 @@
 				<source>Your bookmark list is empty.</source>
 			</trans-unit>
 			<trans-unit id="bookmark.widget.more" resname="bookmark.widget.more">
-				<source><![CDATA[<strong>More</strong> bookmark]]></source>
+				<source><![CDATA[<strong>Show</strong> all entries]]></source>
 			</trans-unit>
 
 			<!--

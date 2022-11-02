@@ -1,0 +1,26 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+	  xmlns:n="http://typo3.org/ns/GeorgRinger/News/ViewHelpers"
+	  data-namespace-typo3-fluid="true">
+<f:comment>Partials/Reserve/History.html</f:comment>
+
+<tr class="reservetable__item tableview-item">
+	<th scope="row">{iterator.cycle}</th>
+	<td>
+		<f:link.typolink parameter="/bc/{reserveItem.barcode}" title="{reserveItem.title}">
+			{reserveItem.barcode}
+		</f:link.typolink>
+	</td>
+	<td>{reserveItem.title}</td>
+	<td>
+		<f:for each="{reserveItem.author}" as="author" iteration="authorIteration">
+			<f:if condition="{authorIteration.index} > 0}">,<br /></f:if>{author}
+		</f:for>
+	</td>
+	<td>
+		<time datetime="{f:format.date(date:reserveItem.issue_date, format:'Y-m-d')}">
+			<f:format.date format="d F Y">{reserveItem.issue_date}</f:format.date>
+		</time>
+	</td>
+</tr>
+
+</html>

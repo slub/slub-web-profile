@@ -19,9 +19,6 @@
 			<trans-unit id="settings.layout.2" resname="settings.layout.2">
 				<source>Widget</source>
 			</trans-unit>
-			<trans-unit id="settings.layout.3" resname="settings.layout.3">
-				<source>List</source>
-			</trans-unit>
 			<trans-unit id="settings.limit" resname="settings.limit">
 				<source>Limit</source>
 			</trans-unit>

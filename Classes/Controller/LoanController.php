@@ -11,88 +11,68 @@ declare(strict_types=1);
 
 namespace Slub\SlubWebProfile\Controller;
 
-use Slub\SlubWebProfile\Service\loanService;
+use Slub\SlubWebProfile\Service\LoanService;
+use Slub\SlubWebProfile\Service\PaginatorService;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
-class loanController extends ActionController
+class LoanController extends ActionController
 {
     /**
-     * @var loanService
+     * @var LoanService
      */
     protected $loanService;
 
     /**
-     * @param loanService $loanService
+     * @var PaginatorService
      */
-    public function injectloanService(loanService $loanService): void
+    protected $paginatorService;
+
+    /**
+     * @param LoanService $loanService
+     */
+    public function injectLoanService(LoanService $loanService): void
     {
         $this->loanService = $loanService;
     }
 
     /**
-     * @throws \JsonException
+     * @param PaginatorService $paginatorService
      */
-    public function listAction(): void
+    public function injectPaginatorService(PaginatorService $paginatorService): void
     {
-        /** @extensionScannerIgnoreLine */
-        $loanCurrent = [
-            0 => [
-                'uid' => 1,
-                'title' => 'Kiehnle-Kochbuch',
-                'date-available' => '2022-05-01T12:55:00+00:00',
-                'date-loan' => '2022-05-03T12:55:00+00:00',
-                'date-due' => '2022-06-10T10:21:00+00:00',
-                'date-return' => '',
-                'renewals' => '3',
-                'barcode' => '30688558',
-                'author' => 'Kiehnle, Hermine'
-            ],
-            1 => [
-                'uid' => 2,
-                'title' => 'Technik und Zubehör Makerspace SLUB Dresden',
-                'date-available' => '2022-06-28T10:21:00+00:00',
-                'date-loan' => '',
-                'date-due' => '',
-                'date-return' => '',
-                'renewals' => '1',
-                'barcode' => '34157322',
-                'author' => ''
-            ]
-        ];
+        $this->paginatorService = $paginatorService;
+    }
 
-        $loanHistory = [
-            0 => [
-                'uid' => 1,
-                'title' => 'Die Ernährungs-Docs - Gesunde Haut',
-                'date-loan' => '2022-04-25T07:14:30+00:00',
-                'date-return' => '2022-05-23T08:17:48+00:00',
-                'barcode' => '33499286',
-                'author' => 'Riedl, Matthias'
-            ],
-            1 => [
-                'uid' => 2,
-                'title' => 'Neuron-glia interactions mediated by P2 receptor activation',
-                'date-loan' => '2022-04-13T11:26:05+00:00',
-                'date-return' => '2022-07-28T08:18:30+00:00',
-                'barcode' => '31918375',
-                'author' => 'Pedreira de Oliveira, João Filipe'
-            ]
-        ];
+    public function currentAction(): void
+    {
+        $loanCurrent = $this->loanService->getLoanCurrent();
+        $this->view->assign('loanCurrent', $loanCurrent);
+    }
+
+    public function historyAction(): void
+    {
+        $page = $this->getPage();
+
+        $loanHistoryData = $this->loanService->getLoanHistory($page);
+        $paginator = $this->paginatorService->getPaginator($loanHistoryData['paginator']);
 
         $this->view->assignMultiple([
-            'loanCurrent' => $loanCurrent,
-            'loanHistory' => $loanHistory
+            'paginator' => $paginator,
+            'loanHistory' => $loanHistoryData['loanHistory']
         ]);
-       
-        // TODO: Integrate API 
-        /* 
-        $loanCurrent = $this->loanService->getloanCurrent();
-        $loanHistory = $this->loanService->getloanHistory();
+    }
 
-        $this->view->assignMultiple([
-            'loanCurrent' => $loanCurrent,
-            'loanHistory' => $loanHistory
-        ]);
-        */
+    /**
+     * @return int
+     */
+    private function getPage(): int
+    {
+        $page = (int)$this->request->getArguments()['currentPage'];
+
+        if ($page === 0) {
+            $page = 1;
+        }
+
+        return $page;
     }
 }

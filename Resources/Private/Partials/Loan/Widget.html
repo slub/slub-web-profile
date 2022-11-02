@@ -3,25 +3,40 @@
 <f:comment>Partials/Loan/Widget.html</f:comment>
 
 <f:if condition="{iterator.index} < {settings.limit}">
-	<li>
-		<f:comment>Header</f:comment>
-		<f:link.action
-			pageUid="{settings.detailPageUid}"
-			arguments="{loan: loanItem.uid}"
-			title="{loanItem.title}"
-			class="loanwidget__title widget__title">
-				{loanItem.title}
-		</f:link.action>
+	<li {f:if(condition: '{f:format.date(date: \'now\', format: \'Y-m-d\')} > {f:format.date(date:loanItem.X_date_due, format:\'Y-m-d\')}', then: 'class="loanwidget__overdue"')}>
+		<f:comment>Due date</f:comment>
+		<div class="loanwidget__date timedata__date timedata__date-prio">
+			<time class="timedata__date-day" datetime="{f:format.date(date:loanItem.X_date_due, format:'Y-m-d')}">
+				<f:format.date format="d">{loanItem.X_date_due}</f:format.date>
+			</time>
 
-		<f:comment>Availability date</f:comment>
-		<f:if condition="{loanItem.date-available}">
-			<div class="loanwidget__date timedata__date">
-				<f:translate key="loan.widget.available.label" />
-				<time datetime="{f:format.date(date:loanItem.date-available, format:'Y-m-d')}">
-					<f:format.date format="d F Y">{loanItem.date-available}</f:format.date>
+			<div class="widgetlist__column--right">
+				<time class="timedata__date-month" datetime="{f:format.date(date:loanItem.X_date_due, format:'Y-m-d')}">
+					<f:format.date format="F Y">{loanItem.X_date_due}</f:format.date>
 				</time>
+				<span class="loanwidget__time timedata__time">
+					<time datetime="{f:format.date(date:loanItem.X_date_due, format:'Y-m-d')}">
+						<f:format.date format="H:i">{loanItem.X_date_due}</f:format.date> <f:translate key="general.oClock"/>
+					</time>
+				</span>
 			</div>
-		</f:if>
+			<f:comment>Overdue Icon</f:comment>
+			<f:if condition="{f:format.date(date: 'now', format: 'Y-m-d')} > {f:format.date(date:loanItem.X_date_due, format:'Y-m-d')}">
+				<span class="loanwidget__overdue-icon"></span>
+			</f:if>
+		</div>
+
+		<f:comment>Title</f:comment>
+		<f:link.typolink
+			parameter="/bc/{loanItem.X_barcode}"
+			title="{loanItem.about}"
+			class="loanwidget__title widget__title">
+				<f:comment>Overdue Label</f:comment>
+				<f:if condition="{f:format.date(date: 'now', format: 'Y-m-d')} > {f:format.date(date:loanItem.startDateTime.format, format:'Y-m-d')}">
+					<span class="loanwidget__overdue-label"><f:translate key="loan.widget.overdue.label"/></span>
+				</f:if>
+				{loanItem.about}
+		</f:link.typolink>
 	</li>
 </f:if>
 

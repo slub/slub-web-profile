@@ -15,14 +15,14 @@ plugin.tx_slubwebprofile {
         bookmarkList = /merkliste/###USER_ID###
 
         # cat=SLUB Profile Service/76573002_Api/104; type=string; label=Path for currently reserved media
-        reserveCurrent = /benutzer/vormerkungen/###USER_ID###
+        reserveCurrent = /benutzer/vormerkung/aktuell/###USER_ID###
         # cat=SLUB Profile Service/76573002_Api/105; type=string; label=Path for reserved, past media
-        reserveHistory = /benutzer/vormerkhistorie/###USER_ID###
+        reserveHistory = /benutzer/vormerkung/historie/###USER_ID###/page/###PAGE_CURRENT###
 
         # cat=SLUB Profile Service/76573002_Api/107; type=string; label=Path for media ready for collection
-        loanCurrent = /benutzer/ausleihen/###USER_ID###
+        loanCurrent = /benutzer/ausleihe/aktuell/###USER_ID###
         # cat=SLUB Profile Service/76573002_Api/108; type=string; label=Path for loaned, past media
-        loanHistory = /benutzer/ausleihhistorie/###USER_ID###
+        loanHistory = /benutzer/ausleihe/historie/###USER_ID###/page/###PAGE_CURRENT###
 
         eventList {
           # cat=SLUB Profile Service/76573002_Api/110; type=string; label=Path for event list (sys_language_uid = 0)

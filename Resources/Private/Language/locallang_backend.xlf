@@ -42,18 +42,32 @@
 				<source>List of borrowing media of a logged in user.</source>
 			</trans-unit>
 
-			<trans-unit id="contentElement.reservelist.title" resname="contentElement.reservelist.title">
+			<trans-unit id="contentElement.reservecurrent.title" resname="contentElement.reservecurrent.title">
 				<source>Reserved media</source>
 			</trans-unit>
-			<trans-unit id="contentElement.reservelist.description" resname="contentElement.reservelist.description">
+			<trans-unit id="contentElement.reservecurrent.description" resname="contentElement.reservecurrent.description">
 				<source>Fetch reserved media of a logged-in user.</source>
 			</trans-unit>
 
-			<trans-unit id="contentElement.loanlist.title" resname="contentElement.loanlist.title">
+			<trans-unit id="contentElement.reservehistory.title" resname="contentElement.reservehistory.title">
+				<source>History: Reservations</source>
+			</trans-unit>
+			<trans-unit id="contentElement.reservehistory.description" resname="contentElement.reservehistory.description">
+				<source>History of reserved media</source>
+			</trans-unit>
+			
+			<trans-unit id="contentElement.loancurrent.title" resname="contentElement.loancurrent.title">
 				<source>Loaned media</source>
 			</trans-unit>
-			<trans-unit id="contentElement.loanlist.description" resname="contentElement.loanlist.description">
+			<trans-unit id="contentElement.loancurrent.description" resname="contentElement.loancurrent.description">
 				<source>Loaned media of a logged-in user.</source>
+			</trans-unit>
+			
+			<trans-unit id="contentElement.loanhistory.title" resname="contentElement.loanhistory.title">
+				<source>History: Loans</source>
+			</trans-unit>
+			<trans-unit id="contentElement.loanhistory.description" resname="contentElement.loanhistory.description">
+				<source>History of loaned media</source>
 			</trans-unit>
 
 			<trans-unit id="contentElement.bookedlist.title" resname="contentElement.bookedlist.title">

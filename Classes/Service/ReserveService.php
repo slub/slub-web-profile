@@ -49,18 +49,20 @@ class ReserveService
     public function getReserveCurrent(): ?array
     {
         $uri = $this->apiConfiguration->getReserveCurrentUri();
-
         return $this->request->process($uri)['reserveCurrent'];
     }
 
     /**
+     * @param int $page
      * @return array|null
      * @throws \JsonException
      */
-    public function getReserveHistory(): ?array
+    public function getReserveHistory(int $page): ?array
     {
-        $uri = $this->apiConfiguration->getReserveHistoryUri();
+        // Update the path for the api call for pagination
+        $this->apiConfiguration->updateReservePaginatedPaths($page);
 
-        return $this->request->process($uri)['reserveHistory'];
+        $uri = $this->apiConfiguration->getReserveHistoryUri();
+        return $this->request->process($uri);
     }
 }

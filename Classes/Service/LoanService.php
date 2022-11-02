@@ -49,18 +49,20 @@ class LoanService
     public function getLoanCurrent(): ?array
     {
         $uri = $this->apiConfiguration->getLoanCurrentUri();
-
         return $this->request->process($uri)['loanCurrent'];
     }
 
     /**
+     * @param int $page
      * @return array|null
      * @throws \JsonException
      */
-    public function getLoanHistory(): ?array
+    public function getLoanHistory(int $page): ?array
     {
-        $uri = $this->apiConfiguration->getLoanHistoryUri();
+        // Update the path for the api call for pagination
+        $this->apiConfiguration->updateLoanPaginatedPaths($page);
 
-        return $this->request->process($uri)['loanHistory'];
+        $uri = $this->apiConfiguration->getLoanHistoryUri();
+        return $this->request->process($uri);
     }
 }

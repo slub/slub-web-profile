@@ -1,0 +1,55 @@
+<html
+    xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+    data-namespace-typo3-fluid="true">
+<f:layout name="Default"/>
+<!-- Templates/Loan/List.html -->
+
+<f:section name="Default">
+    <!--TYPO3SEARCH_end-->
+    <f:variable name="countLoanHistory" value="{loanHistory -> f:count()}" />
+
+    <!--Default-View-->
+    <f:if condition="{countLoanHistory} > 0">
+        <f:then>
+            <link
+                rel="stylesheet"
+                type="text/css"
+                media="all"
+                href="/typo3conf/ext/slub_web_profile/Resources/Public/Css/tableview.css"/>
+            <table class="loandetail table tableview">
+                <thead>
+                    <tr>
+                        <th scope="col"></th>
+                        <th scope="col"><f:translate key="loan.label.barcode" /></th>
+                        <th scope="col"><f:translate key="loan.label.title" /><br /> <f:translate key="loan.label.additional-information" /></th>
+                        <th scope="col"><f:translate key="loan.label.author" /></th>
+                        <th scope="col"><f:translate key="loan.label.date-loan" /></th>
+                        <th scope="col"><f:translate key="loan.label.date-return" /></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <f:for as="loanItem" each="{loanHistory}" iteration="iterator">
+                        <f:render partial="Loan/History" arguments="{loanItem: loanItem, settings: settings, iterator: iterator}" />
+                    </f:for>
+                </tbody>
+            </table>
+            <f:if condition="{paginator.pages} > 1">
+                <f:render partial="Pagination/Paginator" arguments="{pagination: paginator, currentPage: paginator.currentPage, pages: paginator.allPageNumbers}" />
+            </f:if>
+        </f:then>
+        <f:else>
+            <div class="list__no-found">
+                <f:if condition="{content.bodytext}">
+                    <f:then>
+                        <f:format.html>{content.bodytext}</f:format.html>
+                    </f:then>
+                    <f:else>
+                        <p><f:translate key="loanHistory.default.empty" /></p>
+                    </f:else>
+                </f:if>
+            </div>
+        </f:else>
+    </f:if>
+    <!--TYPO3SEARCH_begin-->
+</f:section>
+</html>

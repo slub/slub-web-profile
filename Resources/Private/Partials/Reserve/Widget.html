@@ -6,24 +6,23 @@
 	<li>
 		<f:comment>Date</f:comment>
 		<div class="reservewidget__date timedata__date">
-			<time datetime="{f:format.date(date:reserveItem.crdate, format:'Y-m-d')}">
-				<f:format.date format="d F Y">{reserveItem.crdate}</f:format.date>
+			<time datetime="{f:format.date(date:reserveItem.X_date_reserved, format:'Y-m-d')}">
+				<f:format.date format="d F Y">{reserveItem.X_date_reserved}</f:format.date>
 			</time>
 		</div>
 
 		<f:comment>Header</f:comment>
-		<f:link.action
-			pageUid="{settings.detailPageUid}"
-			arguments="{reserve: reserveItem.uid}"
-			title="{reserveItem.title}"
+		<f:link.typolink
+			parameter="/bc/{reserveItem.label}"
+			title="{reserveItem.about}"
 			class="reservewidget__title widget__title">
-				{reserveItem.title}
-		</f:link.action>
+				{reserveItem.about}
+		</f:link.typolink>
 
 		<f:comment>Position in the prebooking list</f:comment>
-		<f:if condition="{reserveItem.position}">
+		<f:if condition="{reserveItem.X_queue_number}">
 			<div>
-				<f:translate key="reserve.widget.position.label" /> {reserveItem.position}
+				<f:translate key="reserve.widget.position.label" /> {reserveItem.X_queue_number}
 			</div>
 		</f:if>
 	</li>

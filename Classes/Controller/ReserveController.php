@@ -11,6 +11,7 @@ declare(strict_types=1);
 
 namespace Slub\SlubWebProfile\Controller;
 
+use Slub\SlubWebProfile\Service\PaginatorService;
 use Slub\SlubWebProfile\Service\ReserveService;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
@@ -22,6 +23,11 @@ class ReserveController extends ActionController
     protected $reserveService;
 
     /**
+     * @var PaginatorService
+     */
+    protected $paginatorService;
+
+    /**
      * @param ReserveService $reserveService
      */
     public function injectReserveService(ReserveService $reserveService): void
@@ -30,60 +36,43 @@ class ReserveController extends ActionController
     }
 
     /**
-     * @throws \JsonException
+     * @param PaginatorService $paginatorService
      */
-    public function listAction(): void
+    public function injectPaginatorService(PaginatorService $paginatorService): void
     {
-        /** @extensionScannerIgnoreLine */
-        $reserves = [
-            0 => [
-                'uid' => 1,
-                'title' => 'Hundertfünfzig Jahre Künstlerverein Malkasten',
-                'crdate' => '2022-09-07T14:00:00+00:00',
-                'position' => 3,
-                'barcode' => '34750495',
-                'author' => 'Lohmann, Julia [Red.]'
-            ],
-            1 => [
-                'uid' => 2,
-                'title' => 'Technik und Zubehör Makerspace SLUB Dresden',
-                'crdate' => '2022-05-18T14:00:00+00:00',
-                'position' => 1,
-                'barcode' => '0',
-                'author' => ''
-            ],
-            2 => [
-                'uid' => 3,
-                'title' => 'Entwicklungsberatung unter dem Aspekt der Lebensspanne',
-                'crdate' => '2022-04-04T00:00:00+00:00',
-                'position' => 12,
-                'barcode' => '10140863',
-                'author' => 'Aschenbach, Günter'
-            ],
-            3 => [
-                'uid' => 4,
-                'title' => '"City-Logistik"',
-                'crdate' => '2022-08-25T00:00:00+00:00',
-                'position' => '',
-                'barcode' => '33127523',
-                'author' => 'Wolpert, Stefan'
-            ]
-        ];
+        $this->paginatorService = $paginatorService;
+    }
 
-        $this->view->assignMultiple([
-            'reserveCurrent' => $reserves,
-            'reserveHistory' => $reserves
-        ]);
-       
-        // TODO: Integrate API 
-        /* 
+    public function currentAction(): void
+    {
         $reserveCurrent = $this->reserveService->getReserveCurrent();
-        $reserveHistory = $this->reserveService->getReserveHistory();
+        $this->view->assign('reserveCurrent', $reserveCurrent);
+    }
+
+    public function historyAction(): void
+    {
+        $page = $this->getPage();
+
+        $reserveHistoryData = $this->reserveService->getReserveHistory($page);
+        $paginator = $this->paginatorService->getPaginator($reserveHistoryData['paginator']);
 
         $this->view->assignMultiple([
-            'reserveCurrent' => $reserveCurrent,
-            'reserveHistory' => $reserveHistory
+            'paginator' => $paginator,
+            'reserveHistory' => $reserveHistoryData['reserveHistory']
         ]);
-        */
+    }
+
+    /**
+     * @return int
+     */
+    private function getPage(): int
+    {
+        $page = (int)$this->request->getArguments()['currentPage'];
+
+        if ($page === 0) {
+            $page = 1;
+        }
+
+        return $page;
     }
 }

@@ -172,8 +172,7 @@
   .searchquerywidget__title,
   .bookedwidget__title,
   .bookmarkwidget__title,
-  .reservewidget__title,
-  .loanwidget__title {
+  .reservewidget__title {
     font-family: $VistaSansBold;
   }
 
@@ -207,8 +206,9 @@
     }
   }
 
-  // special widgetdesign for borrowing
-  .borrowingwidget__overdue {
+  // special widgetdesign for dateformat
+  .borrowingwidget__overdue,
+  .loanwidget__overdue {
     .timedata__date-day,
     .widgetlist__column--right {
       color: $primary-red-light;

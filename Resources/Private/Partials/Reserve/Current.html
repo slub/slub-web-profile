@@ -1,0 +1,23 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+	  xmlns:n="http://typo3.org/ns/GeorgRinger/News/ViewHelpers"
+	  data-namespace-typo3-fluid="true">
+<f:comment>Partials/Reserve/Current.html</f:comment>
+
+<tr class="reservetable__item tableview-item">
+	<th scope="row">{iterator.cycle}</th>
+	<td>
+		<f:link.typolink parameter="/bc/{reserveItem.label}" title="{reserveItem.about}">
+			{reserveItem.label}
+		</f:link.typolink>
+	</td>
+	<td>{reserveItem.about}</td>
+	<td>
+		<f:for each="{reserveItem.X_author}" as="author" iteration="authorIteration">
+			<f:if condition="{authorIteration.index} > 0}">,<br /></f:if>{author}
+		</f:for>
+	</td>
+	<td>{reserveItem.X_queue_number}</td>
+	<td><input class="js-reserve-current-item tableview-item__marker" type="checkbox" name="reserveItem[deleteReservation][{reserveItem.label}]" value="{iterator.cycle}"></td>
+</tr>
+
+</html>

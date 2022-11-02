@@ -1,0 +1,54 @@
+<html
+    xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+    data-namespace-typo3-fluid="true">
+<f:layout name="Default"/>
+<!-- Templates/Reserve/List.html -->
+
+<f:section name="Default">
+    <!--TYPO3SEARCH_end-->
+    <f:variable name="countReserveHistory" value="{reserveHistory -> f:count()}" />
+
+    <!--Default-View-->
+    <f:if condition="{countReserveHistory} > 0">
+        <f:then>
+            <link
+                rel="stylesheet"
+                type="text/css"
+                media="all"
+                href="/typo3conf/ext/slub_web_profile/Resources/Public/Css/tableview.css"/>
+            <table class="reservehistory table tableview">
+                <thead>
+                    <tr>
+                        <th scope="col"></th>
+                        <th scope="col"><f:translate key="reserve.label.barcode" /></th>
+                        <th scope="col"><f:translate key="reserve.label.title" /><br /> <f:translate key="reserve.label.additional-information" /></th>
+                        <th scope="col"><f:translate key="reserve.label.author" /></th>
+                        <th scope="col"><f:translate key="reserve.label.reservation-date" /></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <f:for as="reserveItem" each="{reserveHistory}" iteration="iterator">
+                        <f:render partial="Reserve/History" arguments="{reserveItem: reserveItem, settings: settings, iterator: iterator}" />
+                    </f:for>
+                </tbody>
+            </table>
+            <f:if condition="{paginator.pages} > 1">
+                <f:render partial="Pagination/Paginator" arguments="{pagination: paginator, currentPage: paginator.currentPage, pages: paginator.allPageNumbers}" />
+            </f:if>
+        </f:then>
+        <f:else>
+            <div class="list__no-found">
+                <f:if condition="{content.bodytext}">
+                    <f:then>
+                        <f:format.html>{content.bodytext}</f:format.html>
+                    </f:then>
+                    <f:else>
+                        <p><f:translate key="reserveHistory.default.empty" /></p>
+                    </f:else>
+                </f:if>
+            </div>
+        </f:else>
+    </f:if>
+    <!--TYPO3SEARCH_begin-->
+</f:section>
+</html>

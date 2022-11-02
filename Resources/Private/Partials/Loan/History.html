@@ -1,0 +1,37 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+	  xmlns:n="http://typo3.org/ns/GeorgRinger/News/ViewHelpers"
+	  data-namespace-typo3-fluid="true">
+<f:comment>Partials/Loan/History.html</f:comment>
+
+<tr class="loantable__item tableview-item">
+	<th scope="row">{iterator.cycle}</th>
+	<td>
+		<f:link.typolink parameter="/bc/{loanItem.barcode}" title="{loanItem.title}">
+			{loanItem.barcode}
+		</f:link.typolink>
+	</td>
+	<td>{loanItem.title}</td>
+	<td>
+		<f:for each="{loanItem.author}" as="author" iteration="authorIteration">
+			<f:if condition="{authorIteration.index} > 0}">,<br /></f:if>{author}
+		</f:for>
+	</td>
+	<td>
+		<f:if condition="{loanItem.issue_date}">
+			<time datetime="{f:format.date(date:loanItem.date-loan, format:'Y-m-d')}">
+				<f:format.date format="d F Y">{loanItem.issue_date}</f:format.date><br />
+				<f:format.date format="H:i">{loanItem.issue_date}</f:format.date> <f:translate key="general.oClock"/>
+			</time>
+		</f:if>
+	</td>
+	<td>
+		<f:if condition="{loanItem.return_date}">
+			<time datetime="{f:format.date(date:loanItem.date-return, format:'Y-m-d')}">
+				<f:format.date format="d F Y">{loanItem.return_date}</f:format.date><br />
+				<f:format.date format="H:i">{loanItem.return_date}</f:format.date> <f:translate key="general.oClock"/>
+			</time>
+		</f:if>
+	</td>
+</tr>
+
+</html>

@@ -1,0 +1,28 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+	  xmlns:n="http://typo3.org/ns/GeorgRinger/News/ViewHelpers"
+	  data-namespace-typo3-fluid="true">
+<f:comment>Partials/Loan/Current.html</f:comment>
+
+<tr class="loantable__item tableview-item">
+	<th scope="row">{iterator.cycle}</th>
+	<td>
+		<f:link.typolink parameter="/bc/{loanItem.X_barcode}" title="{loanItem.about}">
+			{loanItem.X_barcode}
+		</f:link.typolink>
+	</td>
+	<td>{loanItem.about}</td>
+	<td>
+		<f:for each="{loanItem.X_author}" as="author" iteration="authorIteration">
+			<f:if condition="{authorIteration.index} > 0}">,<br /></f:if>{author}
+		</f:for>
+	</td>
+	<td>
+		<time datetime="{f:format.date(date:loanItem.date-due, format:'Y-m-d')}">
+			<f:format.date format="d F Y">{loanItem.X_date_due}</f:format.date>
+		</time>
+	</td>
+	<td>{loanItem.renewals}</td>
+	<td><input class="js-loan-current-item tableview-item__marker" type="checkbox" name="loanItem[renewLoan][{loanItem.barcode}]" value="{iterator.cycle}"></td>
+</tr>
+
+</html>

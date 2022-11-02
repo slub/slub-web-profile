@@ -12,29 +12,48 @@
     <f:switch expression="{settings.layout}">
         <f:case value="1">
             <!--Default-View-->
-            <f:if condition="{countReserveHistory} > 0">
+            <f:if condition="{countReserveCurrent} > 0">
                 <f:then>
                     <link
                         rel="stylesheet"
                         type="text/css"
                         media="all"
                         href="/typo3conf/ext/slub_web_profile/Resources/Public/Css/tableview.css"/>
-                    <table class="reservedetail table tableview">
+                    <script
+                        type="module"
+                        src="/typo3conf/ext/slub_web_profile/Resources/Public/JavaScript/reserve-current.js"></script>
+                    <table id="js-reserve-current-action" class="reservecurrent table tableview">
                         <thead>
                             <tr>
                                 <th scope="col"></th>
                                 <th scope="col"><f:translate key="reserve.label.barcode" /></th>
-                                <th scope="col"><f:translate key="reserve.label.title" /><br /> <f:translate key="reserve.label.additional-information" /></th>
+                                <th scope="col"><f:translate key="reserve.label.title-volume" /></th>
                                 <th scope="col"><f:translate key="reserve.label.author" /></th>
-                                <th scope="col"><f:translate key="reserve.label.reservation-date" /></th>
+                                <th scope="col"><f:translate key="reserve.label.hold-position" /></th>
+                                <th scope="col"><f:translate key="reserve.label.remove-reservation" /></th>
                             </tr>
                         </thead>
                         <tbody>
-                            <f:for as="reserveItem" each="{reserveHistory}" iteration="iterator">
-                                <f:render partial="Reserve/Default" arguments="{reserveItem: reserveItem, settings: settings, iterator: iterator}" />
+                            <f:for as="reserveItem" each="{reserveCurrent}" iteration="iterator">
+                                <f:render partial="Reserve/Current" arguments="{reserveItem: reserveItem, settings: settings, iterator: iterator}" />
                             </f:for>
                         </tbody>
                     </table>
+                    <f:comment>// TODO tableview action</f:comment>
+                    <ul class="tableview-action">
+                        <li>
+                            <button id="js-reserve-current-select-all" class="btn btn-action" type="button"
+                            data-select="{f:translate(id: 'reserve.btnsubmit.mark')}"
+                            data-deselect="{f:translate(id: 'reserve.btnsubmit.reset')}">
+                                <f:translate key="reserve.btnsubmit.mark" />
+                            </button>
+                        </li>
+                        <li>
+                            <button id="js-reserve-current-remove" class="btn btn-disabled" type="button" disabled>
+                                <f:translate key="reserve.btnsubmit.remove" />
+                            </button>
+                        </li>
+                    </ul>
                 </f:then>
                 <f:else>
                     <div class="list__no-found">
@@ -43,7 +62,7 @@
                                 <f:format.html>{content.bodytext}</f:format.html>
                             </f:then>
                             <f:else>
-                                <p><f:translate key="reserveHistory.empty" /></p>
+                                <p><f:translate key="reserveCurrent.default.empty" /></p>
                             </f:else>
                         </f:if>
                     </div>
@@ -79,61 +98,12 @@
                                     <f:format.html>{content.bodytext}</f:format.html>
                                 </f:then>
                                 <f:else>
-                                    <p><f:translate key="reserveCurrent.empty" /></p>
+                                    <p><f:translate key="reserveCurrent.default.empty" /></p>
                                 </f:else>
                             </f:if>    
                         </div>
                     </div>
                     <span class="footerdata__morelink footerdata__morelink-deactive"><f:format.raw><f:translate key="reserve.widget.more"/></f:format.raw></span>
-                </f:else>
-            </f:if>
-        </f:case>
-        <f:case value="3">
-            <!--List-View-->
-            <f:if condition="{countReserveCurrent} > 0">
-                <f:then>
-                    <link
-                        rel="stylesheet"
-                        type="text/css"
-                        media="all"
-                        href="/typo3conf/ext/slub_web_profile/Resources/Public/Css/tableview.css"/>
-                    <table class="reservelist table tableview">
-                        <thead>
-                            <tr>
-                                <th scope="col"></th>
-                                <th scope="col"><f:translate key="reserve.label.barcode" /></th>
-                                <th scope="col"><f:translate key="reserve.label.title-volume" /></th>
-                                <th scope="col"><f:translate key="reserve.label.author" /></th>
-                                <th scope="col"><f:translate key="reserve.label.hold-position" /></th>
-                                <th scope="col"><f:translate key="reserve.label.remove-reservation" /></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <f:for as="reserveItem" each="{reserveCurrent}" iteration="iterator">
-                                <f:render partial="Reserve/List" arguments="{reserveItem: reserveItem, settings: settings, iterator: iterator}" />
-                            </f:for>
-                        </tbody>
-                    </table>
-                    <ul class="tableview-action">
-                        <li>
-                            <button class="btn btn-action" id="btnReset" type="button"><f:translate key="reserve.btnsubmit.reset" /></button>
-                        </li>
-                        <li>
-                            <button class="btn btn-disabled" id="btnRemove" type="button" disabled><f:translate key="reserve.btnsubmit.remove" /></button>
-                        </li>
-                    </ul>
-                </f:then>
-                <f:else>
-                    <div class="list__no-found">
-                        <f:if condition="{content.bodytext}">
-                            <f:then>
-                                <f:format.html>{content.bodytext}</f:format.html>
-                            </f:then>
-                            <f:else>
-                                <p><f:translate key="reserveCurrent.empty" /></p>
-                            </f:else>
-                        </f:if>
-                    </div>
                 </f:else>
             </f:if>
         </f:case>

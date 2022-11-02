@@ -31,18 +31,32 @@ mod {
         tt_content_defValues.CType = slubwebprofile_borrowinglist
       }
 
-      slubwebprofile_reservelist {
-        iconIdentifier = slubwebprofile-wizard-reservelist
-        title = LLL:EXT:slub_web_profile/Resources/Private/Language/locallang_backend.xlf:contentElement.reservelist.title
-        description = LLL:EXT:slub_web_profile/Resources/Private/Language/locallang_backend.xlf:contentElement.reservelist.description
-        tt_content_defValues.CType = slubwebprofile_reservelist
+      slubwebprofile_reservecurrent {
+        iconIdentifier = slubwebprofile-wizard-reservecurrent
+        title = LLL:EXT:slub_web_profile/Resources/Private/Language/locallang_backend.xlf:contentElement.reservecurrent.title
+        description = LLL:EXT:slub_web_profile/Resources/Private/Language/locallang_backend.xlf:contentElement.reservecurrent.description
+        tt_content_defValues.CType = slubwebprofile_reservecurrent
       }
 
-      slubwebprofile_loanlist {
-        iconIdentifier = slubwebprofile-wizard-loanlist
-        title = LLL:EXT:slub_web_profile/Resources/Private/Language/locallang_backend.xlf:contentElement.loanlist.title
-        description = LLL:EXT:slub_web_profile/Resources/Private/Language/locallang_backend.xlf:contentElement.loanlist.description
-        tt_content_defValues.CType = slubwebprofile_loanlist
+      slubwebprofile_reservehistory {
+        iconIdentifier = slubwebprofile-wizard-reservehistory
+        title = LLL:EXT:slub_web_profile/Resources/Private/Language/locallang_backend.xlf:contentElement.reservehistory.title
+        description = LLL:EXT:slub_web_profile/Resources/Private/Language/locallang_backend.xlf:contentElement.reservehistory.description
+        tt_content_defValues.CType = slubwebprofile_reservehistory
+      }
+
+      slubwebprofile_loancurrent {
+        iconIdentifier = slubwebprofile-wizard-loancurrent
+        title = LLL:EXT:slub_web_profile/Resources/Private/Language/locallang_backend.xlf:contentElement.loancurrent.title
+        description = LLL:EXT:slub_web_profile/Resources/Private/Language/locallang_backend.xlf:contentElement.loancurrent.description
+        tt_content_defValues.CType = slubwebprofile_loancurrent
+      }
+
+      slubwebprofile_loanhistory {
+        iconIdentifier = slubwebprofile-wizard-loanhistory
+        title = LLL:EXT:slub_web_profile/Resources/Private/Language/locallang_backend.xlf:contentElement.loanhistory.title
+        description = LLL:EXT:slub_web_profile/Resources/Private/Language/locallang_backend.xlf:contentElement.loanhistory.description
+        tt_content_defValues.CType = slubwebprofile_loanhistory
       }
 
       slubwebprofile_bookedlist {
@@ -95,6 +109,6 @@ mod {
       }
     }
 
-    show := addToList(slubwebprofile_dashboard, slubwebprofile_eventfilter, slubwebprofile_eventlist, slubwebprofile_borrowinglist, slubwebprofile_reservelist, slubwebprofile_loanlist, slubwebprofile_bookedlist, slubwebprofile_bookmarklist, slubwebprofile_searchquerylist, slubwebprofile_userdetail, slubwebprofile_messagelist, slubwebprofile_sidebarmenu, slubwebprofile_accountform)
+    show := addToList(slubwebprofile_dashboard, slubwebprofile_eventfilter, slubwebprofile_eventlist, slubwebprofile_borrowinglist, slubwebprofile_reservecurrent, slubwebprofile_reservehistory, slubwebprofile_loancurrent, slubwebprofile_loanhistory, slubwebprofile_bookedlist, slubwebprofile_bookmarklist, slubwebprofile_searchquerylist, slubwebprofile_userdetail, slubwebprofile_messagelist, slubwebprofile_sidebarmenu, slubwebprofile_accountform)
   }
 }

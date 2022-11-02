@@ -59,28 +59,54 @@ defined('TYPO3_MODE') || die();
     \TYPO3\CMS\Extbase\Utility\ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
 );
 
-// Configure plugin - reserve list
+// Configure plugin - reserve current
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
     'Slub.SlubWebProfile',
-    'ReserveList',
+    'ReserveCurrent',
     [
-        'Reserve' => 'list'
+        'Reserve' => 'current'
     ],
     [
-        'Reserve' => 'list'
+        'Reserve' => 'current'
     ],
     \TYPO3\CMS\Extbase\Utility\ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
 );
 
-// Configure plugin - loan list
+// Configure plugin - reserve history
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
     'Slub.SlubWebProfile',
-    'LoanList',
+    'ReserveHistory',
     [
-        'Loan' => 'list'
+        'Reserve' => 'history'
     ],
     [
-        'Loan' => 'list'
+        'Reserve' => 'history'
+    ],
+    \TYPO3\CMS\Extbase\Utility\ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
+);
+
+// Configure plugin - loan current
+\TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
+    'Slub.SlubWebProfile',
+    'LoanCurrent',
+    [
+        'Loan' => 'current'
+    ],
+    [
+        'Loan' => 'current'
+    ],
+    \TYPO3\CMS\Extbase\Utility\ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
+);
+
+// Configure plugin - loan history
+\TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
+    'Slub.SlubWebProfile',
+    'LoanHistory',
+    [
+        'Loan' => 'history'
+    ],
+    [
+        'Loan' => 'history'
     ],
     \TYPO3\CMS\Extbase\Utility\ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
 );
@@ -172,8 +198,10 @@ $iconRegistry = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(
 foreach ([
     'wizard-bookedlist' => 'Wizard/booked-list',
     'wizard-borrowinglist' => 'Wizard/borrowing-list',
-    'wizard-reservelist' => 'Wizard/reserve-list',
-    'wizard-loanlist' => 'Wizard/loan-list',
+    'wizard-reservecurrent' => 'Wizard/reserve-current',
+    'wizard-reservehistory' => 'Wizard/reserve-history',
+    'wizard-loancurrent' => 'Wizard/loan-current',
+    'wizard-loanhistory' => 'Wizard/loan-history',
     'wizard-bookmarklist' => 'Wizard/bookmark-list',
     'wizard-dashboard' => 'Wizard/dashboard',
     'wizard-eventfilter' => 'Wizard/event-filter',

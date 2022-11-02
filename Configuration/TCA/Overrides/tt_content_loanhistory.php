@@ -47,18 +47,7 @@ defined('TYPO3_MODE') || die();
                     ]
                 ]
             ]
-        ],
-        'columns' => [
-            'pi_flexform' => [
-                'label' => $ll['tca'] . ':pi_flexform',
-                'config' => [
-                    'ds' => [
-                        '*,' . $extensionName . '_' . $contentElementName => '
-                            FILE:EXT:' . $extensionKey . '/Configuration/FlexForms/' . $contentElementName . '.xml',
-                    ],
-                ],
-            ],
-        ],
+        ]
     ]);
 
     // Add item to select field list (ctype)
@@ -73,5 +62,5 @@ defined('TYPO3_MODE') || die();
     );
 })(
     'slub_web_profile',
-    'reservelist'
+    'loanhistory'
 );

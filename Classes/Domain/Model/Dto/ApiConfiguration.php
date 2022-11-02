@@ -27,7 +27,8 @@ class ApiConfiguration
 {
     public const PLACEHOLDER = [
         'userId' => '###USER_ID###',
-        'userCategory' => '###USER_CATEGORY###'
+        'userCategory' => '###USER_CATEGORY###',
+        'pageCurrent' => '###PAGE_CURRENT###'
     ];
 
     /**
@@ -118,10 +119,10 @@ class ApiConfiguration
 
         $this->setBookedListUri($domain . $paths['bookedList']);
         $this->setBookmarkListUri($domain . $paths['bookmarkList']);
-        $this->setReserveCurrentUri($domain . $paths['reserveCurrent'][$languageUid]);
-        $this->setReserveHistoryUri($domain . $paths['reserveHistory'][$languageUid]);
-        $this->setLoanCurrentUri($domain . $paths['loanCurrent'][$languageUid]);
-        $this->setLoanHistoryUri($domain . $paths['loanHistory'][$languageUid]);
+        $this->setReserveCurrentUri($domain . $paths['reserveCurrent']);
+        $this->setReserveHistoryUri($domain . $paths['reserveHistory']);
+        $this->setLoanCurrentUri($domain . $paths['loanCurrent']);
+        $this->setLoanHistoryUri($domain . $paths['loanHistory']);
         $this->setEventListUri($domain . $paths['eventList'][$languageUid]);
         $this->setMessageListUri($domain . $paths['messageList'][$languageUid]);
         $this->setUserAccountDetailUri($domain . $paths['userAccountDetail'][$languageUid]);
@@ -370,6 +371,36 @@ class ApiConfiguration
                 self::PLACEHOLDER['userCategory'],
                 $user['account']['X_category'],
                 $this->getMessageListUri()
+            )
+        );
+    }
+
+    /**
+     * Loan Pagination
+     * @param int $page
+     */
+    public function updateLoanPaginatedPaths(int $page = 1): void
+    {
+        $this->setLoanHistoryUri(
+            str_replace(
+                self::PLACEHOLDER['pageCurrent'],
+                (string)$page,
+                $this->getLoanHistoryUri()
+            )
+        );
+    }
+
+    /**
+     * Reserve Pagination
+     * @param int $page
+     */
+    public function updateReservePaginatedPaths(int $page = 1): void
+    {
+        $this->setReserveHistoryUri(
+            str_replace(
+                self::PLACEHOLDER['pageCurrent'],
+                (string)$page,
+                $this->getReserveHistoryUri()
             )
         );
     }
