@@ -18,7 +18,7 @@
 				<source>End personalisation</source>
 			</trans-unit>
 			<trans-unit id="general.personalise.helptext" resname="general.personalise.helptext">
-				<source><![CDATA[Simply move the desired field to the preferred location. More <a href="" title="tips and info on the dashboard">tips and info</a> on the dashboard.]]></source>
+				<source><![CDATA[More <a href="" title="tips and info on the dashboard">tips and info</a> on the dashboard.]]></source>
 			</trans-unit>
 			<trans-unit id="general.widget.closed" resname="general.widget.closed">
 				<source>Remove this field</source>
@@ -121,8 +121,23 @@
 				Reserve
 			-->
 
+			<trans-unit id="reserveCurrent.table.summary" resname="reserveCurrent.table.summary">
+				<source>Reserved media</source>
+			</trans-unit>
+			<trans-unit id="reserveCurrent.table.caption" resname="reserveCurrent.table.caption">
+				<source>Reserved media</source>
+			</trans-unit>
+			<trans-unit id="reserveCurrent.table.totalReserveItems" resname="reserveCurrent.table.totalReserveItems">
+				<source>reserved media</source>
+			</trans-unit>
 			<trans-unit id="reserveCurrent.default.empty" resname="reserveCurrent.default.empty">
 				<source>No loaned media.</source>
+			</trans-unit>
+			<trans-unit id="reserveHistory.table.summary" resname="reserveHistory.table.summary">
+				<source>Hold requests history</source>
+			</trans-unit>
+			<trans-unit id="reserveHistory.table.caption" resname="reserveHistory.table.caption">
+				<source>Hold requests history</source>
 			</trans-unit>
 			<trans-unit id="reserveHistory.default.empty" resname="reserveHistory.default.empty">
 				<source>No history of reserved media available.</source>
@@ -157,6 +172,9 @@
 			<trans-unit id="reserve.label.remove-reservation" resname="reserve.label.remove-reservation">
 				<source>Remove reservation</source>
 			</trans-unit>
+			<trans-unit id="reserve.table.reserveProgress" resname="reserve.table.reserveProgress">
+				<source>in progress…</source>
+			</trans-unit>
 			<trans-unit id="reserve.btnsubmit.reset" resname="reserve.btnsubmit.reset">
 				<source>Reset</source>
 			</trans-unit>
@@ -173,6 +191,21 @@
 
 			<trans-unit id="loanCurrent.default.empty" resname="loanCurrent.default.empty">
 				<source>No loaned media.</source>
+			</trans-unit>
+			<trans-unit id="loanCurrent.table.summary" resname="loanCurrent.table.summary">
+				<source>Loaned media</source>
+			</trans-unit>
+			<trans-unit id="loanCurrent.table.caption" resname="loanCurrent.table.caption">
+				<source>Loaned media</source>
+			</trans-unit>
+			<trans-unit id="loanCurrent.table.totalLoanItems" resname="loanCurrent.table.totalLoanItems">
+				<source>Media loaned</source>
+			</trans-unit>
+			<trans-unit id="loanHistory.table.summary" resname="loanHistory.table.summary">
+				<source>Loaned history</source>
+			</trans-unit>
+			<trans-unit id="loanHistory.table.caption" resname="loanHistory.table.caption">
+				<source>Loaned history</source>
 			</trans-unit>
 			<trans-unit id="loanHistory.default.empty" resname="loanHistory.default.empty">
 				<source>No history of loaned media available.</source>
@@ -218,6 +251,60 @@
 			</trans-unit>
 			<trans-unit id="loan.btnsubmit.renew" resname="loan.btnsubmit.renew">
 				<source>Renew</source>
+			</trans-unit>
+			<trans-unit id="loan.carrel.link" resname="loan.carrel.link">
+				<source>https://www.slub-dresden.de/en/visit/workplaces-and-workspaces/carrels/terms-of-use-for-slub-carrels</source>
+			</trans-unit>
+			<trans-unit id="loan.carrel.description" resname="loan.carrel.description">
+				<source>More information about carrels</source>
+			</trans-unit>
+			<trans-unit id="loan.table.FL" resname="loan.table.FL">
+				<source>Interlibrary loan</source>
+			</trans-unit>	
+			<trans-unit id="loan.table.FLid" resname="loan.table.FLid">
+				<source>Interlibrary loan ID/ Order number</source>
+			</trans-unit>
+			<trans-unit id="loan.table.shelfLocation" resname="loan.table.shelfLocation">
+				<source>Provided in</source>
+			</trans-unit>
+			<trans-unit id="loan.interlibrary.exstatus_FP" resname="loan.interlibrary.exstatus_FP">
+				<source>(Use only in the house)</source>
+			</trans-unit>
+			<trans-unit id="loan.interlibrary.shelfLocation.SoSa" resname="loan.interlibrary.shelfLocation.SoSa">
+				<source>Special collections reading room</source>
+			</trans-unit>
+			<trans-unit id="loan.interlibrary.shelfLocation.fied1" resname="loan.interlibrary.shelfLocation.fied1">
+				<source>Medicine Branch Library</source>
+			</trans-unit>
+			<trans-unit id="loan.interlibrary.shelfLocation.tha1" resname="loan.interlibrary.shelfLocation.tha1">
+				<source>Branch Library Forestry</source>
+			</trans-unit>
+			<trans-unit id="loan.interlibrary.shelfLocation.service" resname="loan.interlibrary.shelfLocation.service">
+				<source>Central Library, service desk</source>
+			</trans-unit>
+			<trans-unit id="loan.renew-function.laterRenewable" resname="loan.renew-function.laterRenewable">
+				<source>Not yet renewable</source>
+			</trans-unit>
+			<trans-unit id="loan.renew-function.askRenewable" resname="loan.renew-function.askRenewable">
+				<source>Request for an extension of the loan period by e-mail</source>
+			</trans-unit>
+			<trans-unit id="loan.renew-function.notRenewableAnymore" resname="loan.renew-function.notRenewableAnymore">
+				<source>No longer renewable</source>
+			</trans-unit>
+			<trans-unit id="loan.renew-function.chooseRenew" resname="loan.renew-function.chooseRenew">
+				<source>Select for renewal</source>
+			</trans-unit>
+			<trans-unit id="loan.renew-function.isReserved" resname="loan.renew-function.isReserved">
+				<source>Item is reserved</source>
+			</trans-unit>
+			<trans-unit id="loan.renew-function.notRenewable" resname="loan.renew-function.notRenewable">
+				<source>Not renewable</source>
+			</trans-unit>
+			<trans-unit id="loan.renew-function.renewableAfterSubmission" resname="loan.renew-function.renewableAfterSubmission">
+				<source>Renewable after submission</source>
+			</trans-unit>
+			<trans-unit id="loan.renew-function.maxRenew" resname="loan.renew-function.maxRenew">
+				<source>Maximum number of renewals reached.</source>
 			</trans-unit>
 
 			<!--

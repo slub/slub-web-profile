@@ -1,28 +1,241 @@
+{namespace slub=Slub\SlubWebProfile\ViewHelpers}
+
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
 	  xmlns:n="http://typo3.org/ns/GeorgRinger/News/ViewHelpers"
 	  data-namespace-typo3-fluid="true">
 <f:comment>Partials/Loan/Current.html</f:comment>
 
 <tr class="loantable__item tableview-item">
-	<th scope="row">{iterator.cycle}</th>
+	<th scope="row">
+		<span class="tableview-item--mobileheader tableview-item--counting__mobile"><f:translate key="loanCurrent.table.caption" />&nbsp;#{iterator.cycle}</span>
+		<span class="tableview-item--counting">{iterator.cycle}</span>
+	</th>
 	<td>
-		<f:link.typolink parameter="/bc/{loanItem.X_barcode}" title="{loanItem.about}">
-			{loanItem.X_barcode}
-		</f:link.typolink>
+		<span class="tableview-item--mobileheader"><f:translate key="loan.label.barcode" /></span>
+		<f:switch expression="{loanItem.X_medientyp}">
+			<f:case value="FL">
+				<f:comment>//TODO X_ill_id check for actuality</f:comment>
+				<f:if condition='{loanItem.X_ill_id}'>
+					<f:translate key="loan.table.FLid" />: {loanItem.X_ill_id}
+				</f:if>
+			</f:case>
+			<f:case value="C">
+				{loanItem.X_barcode}
+			</f:case>
+			<f:defaultCase>
+				<f:link.typolink parameter="/bc/{loanItem.X_barcode}" title="{loanItem.about}">
+					{loanItem.X_barcode}
+				</f:link.typolink>
+			</f:defaultCase>
+		</f:switch>
 	</td>
-	<td>{loanItem.about}</td>
 	<td>
-		<f:for each="{loanItem.X_author}" as="author" iteration="authorIteration">
-			<f:if condition="{authorIteration.index} > 0}">,<br /></f:if>{author}
-		</f:for>
+		<span class="tableview-item--mobileheader"><f:translate key="loan.label.title-volume" /></span>
+		<f:render section="About" arguments="{_all}" />
 	</td>
 	<td>
+		<span class="tableview-item--mobileheader"><f:translate key="loan.label.author" /></span>
+		<f:if condition="{loanItem.X_author}">
+			<f:then>
+				<f:for each="{loanItem.X_author}" as="author" iteration="authorIteration"><f:if condition="{authorIteration.index} > 0}">,<br /></f:if><slub:format.charRemove chars="¬">{author}</slub:format.charRemove></f:for>
+			</f:then>
+			<f:else>—</f:else>
+		</f:if>
+	</td>
+	<td class="{slub:format.dueDateClass(days:'{loanItem.X_days_to_due}')}">
+		<span class="tableview-item--mobileheader"><f:translate key="loan.label.date-due" /></span>
 		<time datetime="{f:format.date(date:loanItem.date-due, format:'Y-m-d')}">
 			<f:format.date format="d F Y">{loanItem.X_date_due}</f:format.date>
 		</time>
 	</td>
-	<td>{loanItem.renewals}</td>
-	<td><input class="js-loan-current-item tableview-item__marker" type="checkbox" name="loanItem[renewLoan][{loanItem.barcode}]" value="{iterator.cycle}"></td>
+	<td class="tableview-item__textcenter">
+		<span class="tableview-item--mobileheader"><f:translate key="loan.label.renewal" /></span>
+		{loanItem.renewals}
+	</td>
+	<td>
+		<span class="tableview-item--mobileheader"><f:translate key="loan.label.renew" /></span>
+		<f:render section="Renew" arguments="{_all}" />
+	</td>
 </tr>
 
+
+
+<f:section name="About">
+	<f:switch expression="{loanItem.X_medientyp}">
+		<f:case value="C">
+			<f:comment>Carrel + Link to more information</f:comment>
+			<f:link.external uri="{f:translate(key : 'loan.carrel.link')}"
+				title="{f:translate(key: 'loan.carrel.link.description')}">
+				{loanItem.about}
+			</f:link.external>
+		</f:case>
+		<f:case value="W">
+			<f:if condition="{loanItem.X_reference}">{loanItem.X_reference}</f:if>
+		</f:case>
+		<f:case value="M">
+			<f:if condition="{loanItem.X_reference}">{loanItem.X_reference}</f:if>
+		</f:case>
+		<f:case value="FL">
+			{loanItem.about}
+			<f:comment>Additional information for Interlibrary Loans</f:comment>
+			<f:if condition="{loanItem.X_exstatus} == 'FP'">
+				<strong><f:translate key="loan.interlibrary.exstatus_FP" /></strong>
+				<f:switch expression="{loanItem.X_shelfLocation}">
+					<f:case value="FL-Sosa">
+						<br>
+						<f:translate key="loan.table.shelfLocation" />: 
+						<a href="https://3d.slub-dresden.de/s/6r9fv"><f:translate key="loan.interlibrary.shelfLocation.SoSa" /></a>
+					</f:case>
+					<f:case value="FL-SoSa">
+						<br>
+						<f:translate key="loan.table.shelfLocation" />: 
+						<a href="https://3d.slub-dresden.de/s/6r9fv"><f:translate key="loan.interlibrary.shelfLocation.SoSa" /></a>
+					</f:case>
+					<f:case value="FL-Präsenz">
+						<f:switch expression="{loanItem.X_fl_branch}">
+							<f:case value="fied1">
+								<br>
+								<f:translate key="loan.table.shelfLocation" />: 
+								<a href="https://www.slub-dresden.de/besuchen/oeffnungszeiten-und-standorte/bibliothek-fiedlerstrasse-medizin">
+									<f:translate key="loan.interlibrary.shelfLocation.fied1" />
+								</a>
+							</f:case>
+							<f:case value="tha1">
+								<br>
+								<f:translate key="loan.table.shelfLocation" />: 
+								<a href="https://www.slub-dresden.de/besuchen/oeffnungszeiten-und-standorte/bibliothek-tharandt-forstwesen">
+									<f:translate key="loan.interlibrary.shelfLocation.tha1" />
+								</a>
+							</f:case>
+							<f:defaultCase>
+								<br>
+								<f:translate key="loan.table.shelfLocation" />: 
+								<a href="https://3d.slub-dresden.de/s/qtszs">
+									<f:translate key="loan.interlibrary.shelfLocation.service" />
+								</a>
+							</f:defaultCase>
+						</f:switch>
+					</f:case>
+					<f:case value="fied1">
+						<br>
+						<f:translate key="loan.table.shelfLocation" />:
+						<a href="https://www.slub-dresden.de/besuchen/oeffnungszeiten-und-standorte/bibliothek-fiedlerstrasse-medizin">
+							<f:translate key="loan.interlibrary.shelfLocation.fied1" />
+						</a>
+					</f:case>
+					<f:case value="tha1">
+						<br>
+						<f:translate key="loan.table.shelfLocation" />:
+						<a href="https://www.slub-dresden.de/besuchen/oeffnungszeiten-und-standorte/bibliothek-tharandt-forstwesen">
+							<f:translate key="loan.interlibrary.shelfLocation.tha1" />
+						</a>
+					</f:case>
+				</f:switch>
+			</f:if>
+		</f:case>
+		<f:defaultCase>
+			{loanItem.about}
+		</f:defaultCase>
+	</f:switch>
+</f:section>
+
+
+<f:section name="Renew">
+	<f:comment>Interlibrary loan</f:comment>
+	<f:if condition="{loanItem.X_medientyp} == 'FL'">
+		<f:then>
+			<f:if condition="{loanItem.X_is_flrenewable} == '0'">
+				<f:then>
+					<f:translate key="loan.renew-function.notRenewable" />
+				</f:then>
+			</f:if>
+			<f:if condition="{loanItem.X_is_flrenewable} == '1'">
+				<f:then>
+					<f:translate key="loan.renew-function.laterRenewable" />
+				</f:then>
+			</f:if>
+			<f:if condition="{loanItem.X_is_flrenewable} == '2'">
+				<f:then>
+					<f:comment>Interlibrary loan renewal only possible on request</f:comment>
+					<a href='https://primoproxybeta.slub-dresden.de/cgi-bin/renewWish.pl?bc={loanItem.X_barcode}&uid={userID}&clang=DE'
+						target=_blank>
+						<f:translate key="loan.renew-function.askRenewable" />
+					</a>
+				</f:then>
+			</f:if>
+			<f:if condition="{loanItem.X_is_flrenewable} == '3'">
+				<f:then>
+					<f:translate key="loan.renew-function.notRenewableAnymore" />
+				</f:then>
+			</f:if>
+		</f:then>
+		<f:else>
+			<f:comment>No interlibrary loan</f:comment>
+			<f:if condition="{loanItem.X_is_renewable} == 1">
+				<f:then>
+					<label for="renewals[{loanItem.X_barcode}]" class="hidden">
+						<f:translate key="loan.renew-function.chooseRenew" />
+					</label>
+					<div class="tableview-item__textcenter">
+						<f:form.checkbox class="js-loan-current-item tableview-item__marker" 
+						                 additionalAttributes="{data-days-to-due:'{loanItem.X_days_to_due}'}"
+										 name="renewals[{loanItem.X_barcode}]" value="1" />
+					</div>
+				</f:then>
+				<f:else>
+					<f:if condition="{loanItem.X_is_reserved} != '0'">
+						<f:then>
+							<strong>
+								<f:translate key="loan.renew-function.isReserved" />
+							</strong>
+						</f:then>
+						<f:else>
+							<f:switch expression="{loanItem.X_exstatus}">
+								<f:case value="P1">
+									<strong>
+										<f:translate key="loan.renew-function.notRenewable" />
+									</strong>
+								</f:case>
+								<f:case value="P2">
+									<strong>
+										<f:translate key="loan.renew-function.notRenewable" />
+									</strong>
+								</f:case>
+								<f:case value="PM1">
+									<strong>
+										<f:translate key="loan.renew-function.notRenewable" />
+									</strong>
+								</f:case>
+								<f:case value="PM2">
+									<strong>
+										<f:translate key="loan.renew-function.notRenewable" />
+									</strong>
+								</f:case>
+								<f:case value="P4">
+									<strong>
+										<f:translate key="loan.renew-function.renewableAfterSubmission" />
+									</strong>
+								</f:case>
+								<f:defaultCase>
+									<f:if condition="{loanItem.X_RenewalCount} == '0'">
+										<f:then>
+											<strong>
+												<f:translate key="loan.renew-function.notRenewable" />
+											</strong>
+										</f:then>
+										<f:else>
+											<strong>
+												<f:translate key="loan.renew-function.maxRenew" />
+											</strong>
+										</f:else>
+									</f:if>
+								</f:defaultCase>
+							</f:switch>
+						</f:else>
+					</f:if>
+				</f:else>
+			</f:if>
+		</f:else>
+	</f:if>
+</f:section>
 </html>

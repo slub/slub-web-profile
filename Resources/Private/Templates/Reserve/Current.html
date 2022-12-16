@@ -22,7 +22,11 @@
                     <script
                         type="module"
                         src="/typo3conf/ext/slub_web_profile/Resources/Public/JavaScript/reserve-current.js"></script>
-                    <table id="js-reserve-current-action" class="reservecurrent table tableview">
+                    <table id="js-reserve-current-action" class="reservecurrent table tableview" summary="{f:translate(key: 'reserveCurrent.table.summary')}">
+                        <caption class="js-reserve-dropdown-table dropdown__toggle-table table-reserve--is-open" type="button" aria-controls="dropdownTable" data-bs-toggle="dropdown"
+                            aria-expanded="true">
+                            <strong>{countReserveCurrent} {f:translate(key: 'reserveCurrent.table.totalReserveItems')}</strong>
+                        </caption>
                         <thead>
                             <tr>
                                 <th scope="col"></th>
@@ -30,17 +34,17 @@
                                 <th scope="col"><f:translate key="reserve.label.title-volume" /></th>
                                 <th scope="col"><f:translate key="reserve.label.author" /></th>
                                 <th scope="col"><f:translate key="reserve.label.hold-position" /></th>
-                                <th scope="col"><f:translate key="reserve.label.remove-reservation" /></th>
+                                <th scope="col" style="width: 17%"><f:translate key="reserve.label.remove-reservation" /></th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody class="js-reserve-dropdown__table" aria-labelledby="dropdownTable" role="listbox" aria-hidden="false">
                             <f:for as="reserveItem" each="{reserveCurrent}" iteration="iterator">
                                 <f:render partial="Reserve/Current" arguments="{reserveItem: reserveItem, settings: settings, iterator: iterator}" />
                             </f:for>
                         </tbody>
                     </table>
                     <f:comment>// TODO tableview action</f:comment>
-                    <ul class="tableview-action">
+                    <ul class="js-reserve-dropdown__table tableview-action" aria-labelledby="dropdownTable" role="listbox" aria-hidden="false">
                         <li>
                             <button id="js-reserve-current-select-all" class="btn btn-action" type="button"
                             data-select="{f:translate(id: 'reserve.btnsubmit.mark')}"

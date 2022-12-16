@@ -1,22 +1,36 @@
+{namespace slub=Slub\SlubWebProfile\ViewHelpers}
+
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
 	  xmlns:n="http://typo3.org/ns/GeorgRinger/News/ViewHelpers"
 	  data-namespace-typo3-fluid="true">
 <f:comment>Partials/Reserve/History.html</f:comment>
 
 <tr class="reservetable__item tableview-item">
-	<th scope="row">{iterator.cycle}</th>
+	<th scope="row">
+		<span class="tableview-item--mobileheader tableview-item--counting__mobile"><f:translate key="reserveHistory.table.caption" />&nbsp;#{iterator.cycle}</span>
+		<span class="tableview-item--counting">{iterator.cycle}</span>
+	</th>
 	<td>
+		<span class="tableview-item--mobileheader"><f:translate key="reserve.label.barcode" /></span>
 		<f:link.typolink parameter="/bc/{reserveItem.barcode}" title="{reserveItem.title}">
 			{reserveItem.barcode}
 		</f:link.typolink>
 	</td>
-	<td>{reserveItem.title}</td>
 	<td>
-		<f:for each="{reserveItem.author}" as="author" iteration="authorIteration">
-			<f:if condition="{authorIteration.index} > 0}">,<br /></f:if>{author}
-		</f:for>
+		<span class="tableview-item--mobileheader"><f:translate key="reserve.label.title" /></span>
+		{reserveItem.title}
 	</td>
 	<td>
+		<span class="tableview-item--mobileheader"><f:translate key="reserve.label.author" /></span>
+		<f:if condition="{reserveItem.author}">
+			<f:then>
+				<f:for each="{reserveItem.author}" as="author" iteration="authorIteration"><f:if condition="{authorIteration.index} > 0}">,<br /></f:if><slub:format.charRemove chars="¬">{author}</slub:format.charRemove></f:for>
+			</f:then>
+			<f:else>—</f:else>
+		</f:if>
+	</td>
+	<td>
+		<span class="tableview-item--mobileheader"><f:translate key="reserve.label.reservation-date" /></span>
 		<time datetime="{f:format.date(date:reserveItem.issue_date, format:'Y-m-d')}">
 			<f:format.date format="d F Y">{reserveItem.issue_date}</f:format.date>
 		</time>

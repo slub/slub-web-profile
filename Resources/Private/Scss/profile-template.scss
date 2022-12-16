@@ -5,6 +5,11 @@
   &__dashboard {
     overflow: hidden;
   }
+
+  strong {
+    font-weight: normal;
+    font-family: $VistaSansBold;
+  }
   
   @media screen and (min-width: $desktopViewportWidth) {
     &__col {

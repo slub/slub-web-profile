@@ -1,22 +1,41 @@
+{namespace slub=Slub\SlubWebProfile\ViewHelpers}
+
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
 	  xmlns:n="http://typo3.org/ns/GeorgRinger/News/ViewHelpers"
 	  data-namespace-typo3-fluid="true">
 <f:comment>Partials/Loan/History.html</f:comment>
 
 <tr class="loantable__item tableview-item">
-	<th scope="row">{iterator.cycle}</th>
+	<th scope="row">
+		<span class="tableview-item--mobileheader tableview-item--counting__mobile"><f:translate key="loanHistory.table.caption" />&nbsp;#{iterator.cycle}</span>
+		<span class="tableview-item--counting">{iterator.cycle}</span>
+	</th>
 	<td>
+		<span class="tableview-item--mobileheader"><f:translate key="loan.label.barcode" /></span>
 		<f:link.typolink parameter="/bc/{loanItem.barcode}" title="{loanItem.title}">
 			{loanItem.barcode}
 		</f:link.typolink>
 	</td>
-	<td>{loanItem.title}</td>
 	<td>
-		<f:for each="{loanItem.author}" as="author" iteration="authorIteration">
-			<f:if condition="{authorIteration.index} > 0}">,<br /></f:if>{author}
-		</f:for>
+		<span class="tableview-item--mobileheader"><f:translate key="loan.label.title" /></span>
+		{loanItem.title}
+		<f:if condition="{loanItem.medientyp} == 'FL'">
+			<p>
+				<strong><f:translate key="loan.table.FL" /></strong>
+			</p>
+		</f:if>
 	</td>
 	<td>
+		<span class="tableview-item--mobileheader"><f:translate key="loan.label.author" /></span>
+		<f:if condition="{loanItem.author}">
+			<f:then>
+				<f:for each="{loanItem.author}" as="author" iteration="authorIteration"><f:if condition="{authorIteration.index} > 0}">,<br /></f:if><slub:format.charRemove chars="¬">{author}</slub:format.charRemove></f:for>
+			</f:then>
+			<f:else>—</f:else>
+		</f:if>
+	</td>
+	<td>
+		<span class="tableview-item--mobileheader"><f:translate key="loan.label.date-loan" /></span>
 		<f:if condition="{loanItem.issue_date}">
 			<time datetime="{f:format.date(date:loanItem.date-loan, format:'Y-m-d')}">
 				<f:format.date format="d F Y">{loanItem.issue_date}</f:format.date><br />
@@ -25,11 +44,15 @@
 		</f:if>
 	</td>
 	<td>
+		<span class="tableview-item--mobileheader"><f:translate key="loan.label.date-return" /></span>
 		<f:if condition="{loanItem.return_date}">
-			<time datetime="{f:format.date(date:loanItem.date-return, format:'Y-m-d')}">
-				<f:format.date format="d F Y">{loanItem.return_date}</f:format.date><br />
-				<f:format.date format="H:i">{loanItem.return_date}</f:format.date> <f:translate key="general.oClock"/>
-			</time>
+			<f:then>
+				<time datetime="{f:format.date(date:loanItem.date-return, format:'Y-m-d')}">
+					<f:format.date format="d F Y">{loanItem.return_date}</f:format.date><br />
+					<f:format.date format="H:i">{loanItem.return_date}</f:format.date> <f:translate key="general.oClock"/>
+				</time>
+			</f:then>
+			<f:else><div class="tableview-item__textcenter">—</div></f:else>
 		</f:if>
 	</td>
 </tr>

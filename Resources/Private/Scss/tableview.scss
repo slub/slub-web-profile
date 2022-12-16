@@ -1,8 +1,17 @@
 @import 'variables';
 
 // table styling
-.tableview {
+table.tableview {
   border-bottom: 1px solid $lightbrightgrey;
+  caption-side: initial;
+
+  caption {
+    padding-bottom: 8px;
+  }
+
+  thead {
+    display: none;
+  }
 
   thead th {
     color: $lightgrey;
@@ -13,23 +22,14 @@
     border: 0 none;
   }
 
-  &-action {
-    list-style-type: none;
-    display: flex;
-    justify-content: flex-end;
-    flex-wrap: wrap;
-  
-    li {
-      margin: .625rem 0 0 1.25rem;
-      padding: 0;
-      line-height: 100%;
-      display: flex;
-      justify-content: center;
+  tbody {
+    th {
+      background-color: $secondary-petrol-light;
     }
-  }
 
-  tbody tr:nth-child(2n+1) {
-    background-color: $secondary-petrol-soft;
+    tr:nth-child(2n+1) {
+      background-color: $secondary-petrol-soft;
+    }
   }
 
   tr {
@@ -37,13 +37,44 @@
     flex-direction: column;
   }
 
+
   .tableview-item {
     font-family: $VistaSans;
     border-top: 1px solid $lightbrightgrey;
+    padding-bottom: 1.5rem;
 
     td, th {
       color: $darkgrey;
       border: 0 none;
+    }
+
+    &--mobileheader {
+      text-transform: uppercase;
+      display: block;
+      font-family: $VistaSansBold;
+    }
+
+    &--counting {
+      display: none;
+
+      &__mobile {
+        font-weight: normal;
+        font-size: medium;
+      }
+    }
+
+    &__inprogress {
+      color: $slub-yellow;
+    }
+
+    .item-overdue {
+      font-family: $VistaSansBold;
+      color: $slub-red;
+    }
+
+    .item-soon-to-be-due {
+      font-family: $VistaSansBold;
+      color: $slub-yellow;
     }
 
     &__marker {
@@ -73,8 +104,96 @@
   }
 }
 
-@media screen and (min-width: $tabletViewportWidth) {
-  .tableview tr {
-    display: table-row;
+.tableview-action {
+  list-style-type: none;
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+
+  li {
+    margin: .625rem 0 0 1.25rem;
+    padding: 0;
+    line-height: 100%;
+    display: flex;
+    justify-content: center;
+  }
+}
+
+
+@media screen and (min-width: $tabletLandscapeViewportWidth) {
+  table.tableview {
+    thead {
+      display: table-header-group;
+    }
+
+    tr {
+      display: table-row;
+    }
+
+    tbody {
+      th {
+        background-color: initial;
+      }
+    }
+
+    .tableview-item {
+      &--mobileheader {
+        display: none;
+      }
+
+      &--counting {
+        display: block;
+      }
+
+      &__textcenter {
+        text-align: center;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: $tabletLandscapeViewportWidth) {
+  .tableview {
+    .dropdown__toggle-table {
+      background-color: $secondary-petrol-midsoft;
+      display: block;
+      width: 100%;
+      color: $white;
+      border-bottom: 4px solid $secondary-petrol-dark;
+      text-transform: uppercase;
+      transition: all 0.5s;
+      padding: .375rem .75rem;
+      cursor: pointer;
+
+      &:after {
+        content: '';
+        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36"><g transform="matrix(2.5,0,0,2.5,0,0)"><g><circle cx="7" cy="7" r="6.5" style="fill:none;stroke:%23fff;stroke-linecap: round;stroke-linejoin:round"></circle><g><line x1="7" y1="4" x2="7" y2="10" style="fill:none;stroke: %23fff;stroke-linecap:round;stroke-linejoin:round"></line><line x1="4" y1="7" x2="10" y2="7" style="fill:none;stroke:%23fff;stroke-linecap:round;stroke-linejoin:round"></line></g></g></g></svg>');
+        display: inline-block;
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        margin-left: 10px;
+        margin-top: 3px;
+        right: 8px;
+      }
+
+      &.table-loan--is-open:after,
+      &.table-reserve--is-open:after {
+        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36"><g transform="matrix(2.5,0,0,2.5,0,0)"><g><circle cx="7" cy="7" r="6.5" style="fill:none;stroke:%23fff;stroke-linecap: round;stroke-linejoin:round"></circle><line x1="4" y1="7" x2="10" y2="7" style="fill:none;stroke:%23fff;stroke-linecap:round;stroke-linejoin:round"></line></g></g></svg>');
+      }
+    }
+  }
+
+  .js-loan-dropdown__table,
+  .js-reserve-dropdown__table {
+    &[aria-hidden='false'] {
+      max-height: initial;
+      transition: max-height 0.35s ease-in-out;
+    }
+
+    &[aria-hidden='true'] {
+      transition: max-height 0.25s linear 0s;
+      display: none;
+    }
   }
 }

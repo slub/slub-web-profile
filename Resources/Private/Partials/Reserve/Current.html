@@ -1,23 +1,78 @@
+{namespace slub=Slub\SlubWebProfile\ViewHelpers}
+
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
 	  xmlns:n="http://typo3.org/ns/GeorgRinger/News/ViewHelpers"
 	  data-namespace-typo3-fluid="true">
 <f:comment>Partials/Reserve/Current.html</f:comment>
 
 <tr class="reservetable__item tableview-item">
-	<th scope="row">{iterator.cycle}</th>
+	<th scope="row">
+		<span class="tableview-item--mobileheader tableview-item--counting__mobile"><f:translate key="reserveCurrent.table.caption" />&nbsp;#{iterator.cycle}</span>
+		<span class="tableview-item--counting">{iterator.cycle}</span>
+	</th>
 	<td>
-		<f:link.typolink parameter="/bc/{reserveItem.label}" title="{reserveItem.about}">
-			{reserveItem.label}
-		</f:link.typolink>
+		<span class="tableview-item--mobileheader"><f:translate key="reserve.label.barcode" /></span>
+		<f:if condition="{reserveItem.X_medientyp} == 'FL'">
+			<f:then>
+				{reserveItem.label}
+			</f:then>
+			<f:else>
+				<f:link.typolink parameter="/bc/{reserveItem.label}" title="{reserveItem.about}">
+					{reserveItem.label}
+				</f:link.typolink>
+			</f:else>
+		</f:if>
 	</td>
-	<td>{reserveItem.about}</td>
 	<td>
-		<f:for each="{reserveItem.X_author}" as="author" iteration="authorIteration">
-			<f:if condition="{authorIteration.index} > 0}">,<br /></f:if>{author}
-		</f:for>
+		<span class="tableview-item--mobileheader"><f:translate key="reserve.label.title-volume" /></span>
+		<slub:format.charRemove chars="¬">
+			<f:switch expression="{reserveItem.X_medientyp}">
+				<f:comment>This value might me overreach. See https://jira.slub-dresden.de/browse/KAT-2899</f:comment>
+				<f:case value="O">
+					<f:if condition="{reserveItem.X_reference}">{reserveItem.X_reference}</f:if>
+				</f:case>
+				<f:case value="W">
+					<f:if condition="{reserveItem.X_reference}">{reserveItem.X_reference}</f:if>
+				</f:case>
+				<f:case value="M">
+					<f:if condition="{reserveItem.X_reference}">{reserveItem.X_reference}</f:if>
+				</f:case>
+				<f:defaultCase>
+					{reserveItem.about}
+				</f:defaultCase>
+			</f:switch>
+		</slub:format.charRemove>
 	</td>
-	<td>{reserveItem.X_queue_number}</td>
-	<td><input class="js-reserve-current-item tableview-item__marker" type="checkbox" name="reserveItem[deleteReservation][{reserveItem.label}]" value="{iterator.cycle}"></td>
+	<td>
+		<span class="tableview-item--mobileheader"><f:translate key="reserve.label.author" /></span>
+		<f:if condition="{reserveItem.X_author}">
+			<f:then>
+				<f:for each="{reserveItem.X_author}" as="author" iteration="authorIteration"><f:if condition="{authorIteration.index} > 0}">,<br /></f:if><slub:format.charRemove chars="¬">{author}</slub:format.charRemove></f:for>
+			</f:then>
+			<f:else>—</f:else>
+		</f:if>
+	</td>
+	<td class="tableview-item__textcenter">
+		<span class="tableview-item--mobileheader"><f:translate key="reserve.label.hold-position" /></span>
+		<f:if condition="{reserveItem.X_queue_number} == 0">
+			<f:then>
+				<span class="tableview-item__inprogress">
+					<f:translate key="reserve.table.reserveProgress" />
+				</span>
+			</f:then>
+			<f:else>
+				{reserveItem.X_queue_number}
+			</f:else>
+		</f:if>
+	</td>
+	<td class="tableview-item__textcenter">
+		<span class="tableview-item--mobileheader"><f:translate key="reserve.label.remove-reservation" /></span>
+		<div class="tableview-item__textcenter">
+			<f:form.checkbox class="js-reserve-current-item tableview-item__marker"
+				name="deleteReservation[{reserveItem.label}]"
+				value="{reserveItem.X_delete_number}" />
+		</div>
+	</td>
 </tr>
 
 </html>
