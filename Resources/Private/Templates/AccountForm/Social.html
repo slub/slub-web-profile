@@ -17,7 +17,7 @@
             <input type="hidden" name="account[action]" value="{action}">
             <div class="form-row">
                 <label for="{formIdentifier}-phone" class="form-label">{f:translate(key: 'accountform.social.phonenumber')}</label>
-                <input class="form-control" type="text" id="{formIdentifier}-phone" name="account[Phone]" value="{user.account.phonenumber}">
+                <input class="form-control" type="text" id="{formIdentifier}-phone" name="account[Phone]" value="{f:if(condition: '{userPost}', then: '{userPost.Phone}', else: '{user.account.phonenumber}')}">
             </div>
             <button type="submit" class="btn btn-action btn-action-lg">{f:translate(key: 'accountform.social.actionBtn')}</button>
         </f:form>

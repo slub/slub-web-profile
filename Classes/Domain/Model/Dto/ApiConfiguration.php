@@ -84,6 +84,16 @@ class ApiConfiguration
     /**
      * @var string
      */
+    protected $userPinUpdateUri;
+
+    /**
+     * @var string
+     */
+    protected $userPasswordUpdateUri;
+
+    /**
+     * @var string
+     */
     protected $userDashboardDetailUri;
 
     /**
@@ -127,6 +137,8 @@ class ApiConfiguration
         $this->setMessageListUri($domain . $paths['messageList'][$languageUid]);
         $this->setUserAccountDetailUri($domain . $paths['userAccountDetail'][$languageUid]);
         $this->setUserAccountUpdateUri($domain . $paths['userAccountUpdate']);
+        $this->setUserPinUpdateUri($domain . $paths['userPinUpdate']);
+        $this->setUserPasswordUpdateUri($domain . $paths['userPasswordUpdate']);
         $this->setUserDashboardDetailUri($domain . $paths['userDashboardDetail']);
         $this->setUserDashboardUpdateUri($domain . $paths['userDashboardUpdate']);
         $this->setUserSearchQueryDetailUri($domain . $paths['userSearchQueryDetail']);
@@ -291,6 +303,38 @@ class ApiConfiguration
     public function setUserAccountUpdateUri(string $userAccountUpdateUri = ''): void
     {
         $this->userAccountUpdateUri = $userAccountUpdateUri;
+    }
+
+    /**
+     * @return string
+     */
+    public function getUserPinUpdateUri(): string
+    {
+        return $this->userPinUpdateUri;
+    }
+
+    /**
+     * @param string $userPinUpdateUri
+     */
+    public function setUserPinUpdateUri(string $userPinUpdateUri = ''): void
+    {
+        $this->userPinUpdateUri = $userPinUpdateUri;
+    }
+
+    /**
+     * @return string
+     */
+    public function getUserPasswordUpdateUri(): string
+    {
+        return $this->userPasswordUpdateUri;
+    }
+
+    /**
+     * @param string $userPasswordUpdateUri
+     */
+    public function setUserPasswordUpdateUri(string $userPasswordUpdateUri = ''): void
+    {
+        $this->userPasswordUpdateUri = $userPasswordUpdateUri;
     }
 
     /**

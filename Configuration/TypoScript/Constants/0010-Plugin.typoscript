@@ -47,13 +47,17 @@ plugin.tx_slubwebprofile {
 
         # cat=SLUB Profile Service/76573002_Api/120; type=string; label=Path for user account update (contains user account)
         userAccountUpdate = /benutzer/aktualisieren/###USER_ID###
-        # cat=SLUB Profile Service/76573002_Api/121; type=string; label=Path for user dashboard detail (contains user dashboard)
+        # cat=SLUB Profile Service/76573002_Api/121; type=string; label=Path for user pin update (contains user pin)
+        userPinUpdate = /benutzer/pin/aktualisieren/###USER_ID###
+        # cat=SLUB Profile Service/76573002_Api/122; type=string; label=Path for user password update (contains user password)
+        userPasswordUpdate = /benutzer/passwort/aktualisieren/###USER_ID###
+        # cat=SLUB Profile Service/76573002_Api/123; type=string; label=Path for user dashboard detail (contains user dashboard)
         userDashboardDetail = /benutzer/dashboard/###USER_ID###
-        # cat=SLUB Profile Service/76573002_Api/122; type=string; label=Path for user dashboard update (contains user dashboard)
+        # cat=SLUB Profile Service/76573002_Api/124; type=string; label=Path for user dashboard update (contains user dashboard)
         userDashboardUpdate = /benutzer/dashboard/aktualisieren/###USER_ID###
-        # cat=SLUB Profile Service/76573002_Api/123; type=string; label=Path for user search query detail (contains user search query)
+        # cat=SLUB Profile Service/76573002_Api/125; type=string; label=Path for user search query detail (contains user search query)
         userSearchQueryDetail = /benutzer/suchanfrage/###USER_ID###
-        # cat=SLUB Profile Service/76573002_Api/124; type=string; label=Path for user search query update (contains user search query)
+        # cat=SLUB Profile Service/76573002_Api/126; type=string; label=Path for user search query update (contains user search query)
         userSearchQueryUpdate = /benutzer/suchanfrage/aktualisieren/###USER_ID###
       }
     }

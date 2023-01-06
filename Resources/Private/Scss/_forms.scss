@@ -89,3 +89,16 @@ h4.form-headline {
   line-height: 1.25rem;
   color: $darkgrey;
 }
+
+// Error handling
+form .has-error {
+  .help-block {
+    color: $primary-red-darker;
+    font-family: $VistaSans;
+    font-size: .8rem;
+  }
+  input,
+  select {
+    border-color: $primary-red-darker;
+  }
+}

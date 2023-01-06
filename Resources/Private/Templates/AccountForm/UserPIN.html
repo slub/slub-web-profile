@@ -8,13 +8,15 @@
           type="text/css" 
           media="all"
           href="/typo3conf/ext/slub_web_profile/Resources/Public/Css/accountform.css" />
+    <script type="module"
+            src="/typo3conf/ext/slub_web_profile/Resources/Public/JavaScript/Account/account-userpin.js"></script>
     <f:variable name="formIdentifier">form-{action}</f:variable>
-    
+
     <div id="account{formIdentifier}" class="accountform">
         <f:render partial="AccountForm/Status" arguments="{status: status, currentAction: currentAction, action: action}" />
 
         <f:form enctype="multipart/form-data" class="form-mb" section="account{formIdentifier}">
-            <input type="hidden" name="account[action]" value="{action}">
+            <input type="hidden" name="pinForm[action]" value="{action}">
             <div class="form-row form-text">
                 <f:format.raw>{f:translate(key: 'accountform.userPIN.additionalNote')}</f:format.raw>
             </div>
@@ -24,20 +26,19 @@
             </div>
             <div class="form-row">
                 <label for="{formIdentifier}-password" class="form-label">{f:translate(key: 'accountform.userPIN.password')}<span class="label-required">*</span></label>
-                <input class="form-control" type="password" id="{formIdentifier}-password" required="required">
+                <input class="form-control" type="password" id="{formIdentifier}-password" name="pin[password]" required="required">
             </div>
             <div class="form-row">
-                <label for="{formIdentifier}-new-pin" class="form-label">{f:translate(key: 'accountform.userPIN.new-pin')}<span class="label-required">*</span></label>
-                <input class="form-control" type="password" id="{formIdentifier}-new-pin" onkeyup="confirmPinMatch();" required="required" minlength="4" maxlength="4" aria-describedby="{formIdentifier}-passwordHelp">
+                <label for="{formIdentifier}-pin" class="form-label">{f:translate(key: 'accountform.userPIN.pin')}<span class="label-required">*</span></label>
+                <input class="form-control" type="password" id="{formIdentifier}-pin" name="pin[pin]" required="required" minlength="4" maxlength="4" aria-describedby="{formIdentifier}-passwordHelp">
                 <div class="form-text" id="{formIdentifier}-pinHelp">
                     {f:translate(key: 'accountform.userPIN.pinHelp')}
                 </div>
             </div>
             <div class="form-row">
-                <label for="{formIdentifier}-confirm-new-pin" class="form-label">{f:translate(key: 'accountform.userPIN.confirm-new-pin')}<span class="label-required">*</span></label>
-                <input class="form-control" type="password" id="{formIdentifier}-confirm-new-pin" onkeyup="confirmPinMatch();" minlength="4" maxlength="4" required="required">
+                <label for="{formIdentifier}-pinRepeat" class="form-label">{f:translate(key: 'accountform.userPIN.pinRepeat')}<span class="label-required">*</span></label>
+                <input class="form-control" type="password" id="{formIdentifier}-pinRepeat" name="pin[pinRepeat]" minlength="4" maxlength="4" required="required">
             </div>
-            <script type="text/javascript" src="/typo3conf/ext/slub_web_profile/Resources/Public/JavaScript/Account/account-userpin.js"></script>
             <div class="form-cols">
                 <button type="submit" class="btn btn-action btn-action-lg">{f:translate(key: 'accountform.userPIN.actionBtn')}</button>
                 <div class="form-text">

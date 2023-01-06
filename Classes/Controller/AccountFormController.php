@@ -119,6 +119,16 @@ class AccountFormController extends ActionController
             $userIdentifier = FrontendUserUtility::getIdentifier();
             return $this->userService->updateUserAccount($userIdentifier, $_POST['account']);
         }
+
+        if (is_array($_POST['pin'])) {
+            $userIdentifier = FrontendUserUtility::getIdentifier();
+            return $this->userService->updateUserPin($userIdentifier, $_POST['pin']);
+        }
+
+        if (is_array($_POST['password'])) {
+            $userIdentifier = FrontendUserUtility::getIdentifier();
+            return $this->userService->updateUserPassword($userIdentifier, $_POST['password']);
+        }
         return [];
     }
 
@@ -134,7 +144,10 @@ class AccountFormController extends ActionController
             'user' => $user,
             'status' => $status,
             'action' => $action,
-            'currentAction' => $_POST['account']['action']
+            'currentAction' => $_POST['account']['action'],
+            'userPost' => $_POST['account'],
+            'pinPost' => $_POST['pin'],
+            'passwordPost' => $_POST['password']
         ]);
     }
 }

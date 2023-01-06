@@ -73,4 +73,46 @@ class UserAccountService
             ], JSON_THROW_ON_ERROR)
         ]);
     }
+
+    /**
+     * @param int $user
+     * @param array $data
+     * @return array|null
+     * @throws \JsonException
+     */
+    public function updateUserPin(int $user, array $data): ?array
+    {
+        if ($user === 0) {
+            return null;
+        }
+
+        $uri = $this->apiConfiguration->getUserPinUpdateUri();
+
+        return $this->request->process($uri, 'POST', [
+            'body' => json_encode([
+                'pin' => $data
+            ], JSON_THROW_ON_ERROR)
+        ]);
+    }
+
+    /**
+     * @param int $user
+     * @param array $data
+     * @return array|null
+     * @throws \JsonException
+     */
+    public function updateUserPassword(int $user, array $data): ?array
+    {
+        if ($user === 0) {
+            return null;
+        }
+
+        $uri = $this->apiConfiguration->getUserPasswordUpdateUri();
+
+        return $this->request->process($uri, 'POST', [
+            'body' => json_encode([
+                'pin' => $data
+            ], JSON_THROW_ON_ERROR)
+        ]);
+    }
 }

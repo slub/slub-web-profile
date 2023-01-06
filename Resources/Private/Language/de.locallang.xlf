@@ -449,6 +449,14 @@
 				<source>The e-mail address is invalid.</source>
 				<target>Die E-Mailadresse ist ungültig.</target>
 			</trans-unit>
+			<trans-unit id="accountform.address.status.error.requiredField" resname="accountform.address.status.error.requiredField">
+				<source>This is a mandatory field</source>
+				<target>Das ist ein Pflichtfeld</target>
+			</trans-unit>
+			<trans-unit id="accountform.address.status.error.requiredFields" resname="accountform.address.status.error.requiredFields">
+				<source>Please fill in all mandatory fields!</source>
+				<target>Bitte füllen Sie alle Pflichtfelder aus!</target>
+			</trans-unit>
 
 			<trans-unit id="accountform.profile.givenNames" resname="accountform.profile.givenNames">
 				<source>First name/s</source>
@@ -561,7 +569,7 @@
 				<source>Password</source>
 				<target>Kennwort</target>
 			</trans-unit>
-			<trans-unit id="accountform.password.new-password" resname="accountform.password.new-password">
+			<trans-unit id="accountform.password.newPassword" resname="accountform.password.newPassword">
 				<source>New password</source>
 				<target>Neues Kennwort</target>
 			</trans-unit>
@@ -569,7 +577,7 @@
 				<source>Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.</source>
 				<target>Ihr Passwort muss 8-20 Zeichen lang sein, Buchstaben und Zahlen enthalten und darf keine Leerzeichen, Sonderzeichen oder Emoji enthalten.</target>
 			</trans-unit>
-			<trans-unit id="accountform.password.confirm-new-password" resname="accountform.password.confirm-new-password">
+			<trans-unit id="accountform.password.passwordRepeat" resname="accountform.password.passwordRepeat">
 				<source>Confirm new password</source>
 				<target>Neues Kennwort bestätigen</target>
 			</trans-unit>
@@ -590,7 +598,7 @@
 				<source>Password</source>
 				<target>Kennwort</target>
 			</trans-unit>
-			<trans-unit id="accountform.userPIN.new-pin" resname="accountform.userPIN.new-pin">
+			<trans-unit id="accountform.userPIN.pin" resname="accountform.userPIN.pin">
 				<source>New PIN</source>
 				<target>Neue PIN</target>
 			</trans-unit>
@@ -598,7 +606,7 @@
 				<source>Your PIN must consist of exactly 4 digits!</source>
 				<target>Ihre PIN muss aus genau 4 Ziffern bestehen!</target>
 			</trans-unit>
-			<trans-unit id="accountform.userPIN.confirm-new-pin" resname="accountform.userPIN.confirm-new-pin">
+			<trans-unit id="accountform.userPIN.pinRepeat" resname="accountform.userPIN.pinRepeat">
 				<source>Enter new PIN again</source>
 				<target>Neue PIN erneut eingeben</target>
 			</trans-unit>

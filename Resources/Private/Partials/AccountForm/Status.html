@@ -10,7 +10,18 @@
         </f:case>
         <f:case value="400">
             <div class="form-message-status api-message-status--error">
-                {f:translate(key: 'accountform.address.status.error.invalidMail')}
+                <f:variable name="requiredField" value="0" />
+                <f:for each="{status.error}" as="errorField">
+                    <f:if condition="{errorField} == 'EmailAddress'">
+                        <f:then>
+                            {f:translate(key: 'accountform.address.status.error.invalidMail')}
+                        </f:then>
+                        <f:else if="{requiredField} == 0">
+                            {f:translate(key: 'accountform.address.status.error.requiredFields')}
+                            <f:variable name="requiredField" value="1" />
+                        </f:else>
+                    </f:if>
+                </f:for>
             </div>
         </f:case>
     </f:switch>
