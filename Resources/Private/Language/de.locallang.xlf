@@ -236,7 +236,7 @@
 				<source>Mark all</source>
 				<target>Alle markieren</target>
 			</trans-unit>
-			<trans-unit id="reserve.btnsubmit.remove" resname="reserve.btnsubmit.remove">
+			<trans-unit id="reserve.btnsubmit.delete" resname="reserve.btnsubmit.delete">
 				<source>Remove</source>
 				<target>Entfernen</target>
 			</trans-unit>

@@ -10,8 +10,8 @@ const listElement = document.querySelector(listSelector);
 
 if (listElement) {
   let listSelectAll = await import('./Service/LoanCurrent/select-all.js');
-  listSelectAll.listenButton();
-
   let listToggleTable = await import('./Service/LoanCurrent/toggle-table.js');
+
+  listSelectAll.listenButton();
   listToggleTable.listenDropdown();
 }
