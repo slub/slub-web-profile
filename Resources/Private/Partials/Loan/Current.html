@@ -42,7 +42,7 @@
 			<f:else>—</f:else>
 		</f:if>
 	</td>
-	<td class="{slub:format.dueDateClass(days:'{loanItem.X_days_to_due}')}">
+	<td>
 		<span class="tableview-item--mobileheader"><f:translate key="loan.label.date-due" /></span>
 		<time datetime="{f:format.date(date:loanItem.date-due, format:'Y-m-d')}">
 			<f:format.date format="d F Y">{loanItem.X_date_due}</f:format.date>
@@ -173,13 +173,14 @@
 			<f:comment>No interlibrary loan</f:comment>
 			<f:if condition="{loanItem.X_is_renewable} == 1">
 				<f:then>
-					<label for="renewals[{loanItem.X_barcode}]" class="hidden">
+					<label for="renew[{loanItem.X_barcode}]" class="hidden">
 						<f:translate key="loan.renew-function.chooseRenew" />
 					</label>
 					<div class="tableview-item__textcenter">
 						<f:form.checkbox class="js-loan-current-item tableview-item__marker" 
 						                 additionalAttributes="{data-days-to-due:'{loanItem.X_days_to_due}'}"
-										 name="renewals[{loanItem.X_barcode}]" value="1" />
+										 name="renew[]" value="{loanItem.X_barcode}" />
+						<f:variable name="dueDays">{loanItem.X_days_to_due}</f:variable>
 					</div>
 				</f:then>
 				<f:else>

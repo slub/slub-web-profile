@@ -49,12 +49,22 @@ class ApiConfiguration
     /**
      * @var string
      */
+    protected $reserveCurrentDeleteUri;
+
+    /**
+     * @var string
+     */
     protected $reserveHistoryUri;
 
     /**
      * @var string
      */
     protected $loanCurrentUri;
+
+    /**
+     * @var string
+     */
+    protected $loanCurrentRenewUri;
 
     /**
      * @var string
@@ -130,8 +140,10 @@ class ApiConfiguration
         $this->setBookedListUri($domain . $paths['bookedList']);
         $this->setBookmarkListUri($domain . $paths['bookmarkList']);
         $this->setReserveCurrentUri($domain . $paths['reserveCurrent']);
+        $this->setReserveCurrentDeleteUri($domain . $paths['reserveCurrentDelete']);
         $this->setReserveHistoryUri($domain . $paths['reserveHistory']);
         $this->setLoanCurrentUri($domain . $paths['loanCurrent']);
+        $this->setLoanCurrentRenewUri($domain . $paths['loanCurrentRenew']);
         $this->setLoanHistoryUri($domain . $paths['loanHistory']);
         $this->setEventListUri($domain . $paths['eventList'][$languageUid]);
         $this->setMessageListUri($domain . $paths['messageList'][$languageUid]);
@@ -196,6 +208,22 @@ class ApiConfiguration
     /**
      * @return string
      */
+    public function getReserveCurrentDeleteUri(): string
+    {
+        return $this->reserveCurrentDeleteUri;
+    }
+
+    /**
+     * @param string $reserveCurrentDeleteUri
+     */
+    public function setReserveCurrentDeleteUri(string $reserveCurrentDeleteUri = ''): void
+    {
+        $this->reserveCurrentDeleteUri = $reserveCurrentDeleteUri;
+    }
+
+    /**
+     * @return string
+     */
     public function getReserveHistoryUri(): string
     {
         return $this->reserveHistoryUri;
@@ -223,6 +251,22 @@ class ApiConfiguration
     public function setLoanCurrentUri(string $loanCurrentUri = ''): void
     {
         $this->loanCurrentUri = $loanCurrentUri;
+    }
+
+    /**
+     * @return string
+     */
+    public function getLoanCurrentRenewUri(): string
+    {
+        return $this->loanCurrentRenewUri;
+    }
+
+    /**
+     * @param string $loanCurrentRenewUri
+     */
+    public function setLoanCurrentRenewUri(string $loanCurrentRenewUri = ''): void
+    {
+        $this->loanCurrentRenewUri = $loanCurrentRenewUri;
     }
 
     /**

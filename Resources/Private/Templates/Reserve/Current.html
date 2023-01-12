@@ -1,6 +1,5 @@
-<html
-    xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
-    data-namespace-typo3-fluid="true">
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+
 <f:layout name="Default"/>
 <!-- Templates/Reserve/List.html -->
 
@@ -22,42 +21,52 @@
                     <script
                         type="module"
                         src="/typo3conf/ext/slub_web_profile/Resources/Public/JavaScript/reserve-current.js"></script>
-                    <table id="js-reserve-current-action" class="reservecurrent table tableview" summary="{f:translate(key: 'reserveCurrent.table.summary')}">
-                        <caption class="js-reserve-dropdown-table dropdown__toggle-table table-reserve--is-open" type="button" aria-controls="dropdownTable" data-bs-toggle="dropdown"
-                            aria-expanded="true">
-                            <strong>{countReserveCurrent} {f:translate(key: 'reserveCurrent.table.totalReserveItems')}</strong>
-                        </caption>
-                        <thead>
-                            <tr>
-                                <th scope="col"></th>
-                                <th scope="col"><f:translate key="reserve.label.barcode" /></th>
-                                <th scope="col"><f:translate key="reserve.label.title-volume" /></th>
-                                <th scope="col"><f:translate key="reserve.label.author" /></th>
-                                <th scope="col"><f:translate key="reserve.label.hold-position" /></th>
-                                <th scope="col" style="width: 17%"><f:translate key="reserve.label.remove-reservation" /></th>
-                            </tr>
-                        </thead>
-                        <tbody class="js-reserve-dropdown__table" aria-labelledby="dropdownTable" role="listbox" aria-hidden="false">
-                            <f:for as="reserveItem" each="{reserveCurrent}" iteration="iterator">
-                                <f:render partial="Reserve/Current" arguments="{reserveItem: reserveItem, settings: settings, iterator: iterator}" />
-                            </f:for>
-                        </tbody>
-                    </table>
-                    <f:comment>// TODO tableview action</f:comment>
-                    <ul class="js-reserve-dropdown__table tableview-action" aria-labelledby="dropdownTable" role="listbox" aria-hidden="false">
-                        <li>
-                            <button id="js-reserve-current-select-all" class="btn btn-action" type="button"
-                            data-select="{f:translate(id: 'reserve.btnsubmit.mark')}"
-                            data-deselect="{f:translate(id: 'reserve.btnsubmit.reset')}">
-                                <f:translate key="reserve.btnsubmit.mark" />
-                            </button>
-                        </li>
-                        <li>
-                            <button id="js-reserve-current-delete" class="btn btn-disabled" type="button" disabled>
-                                <f:translate key="reserve.btnsubmit.delete" />
-                            </button>
-                        </li>
-                    </ul>
+
+                    //TODO reserveCurrentDelete status
+                    <f:render partial="Reserve/Status" arguments="{status: status, deletePost: deletePost}" />
+
+                    <f:form enctype="multipart/form-data" action="current">
+                        <table id="js-reserve-current-action" class="reservecurrent table tableview" summary="{f:translate(key: 'reserveCurrent.table.summary')}">
+                            <caption class="js-reserve-dropdown-table dropdown__toggle-table table-reserve--is-open" type="button" aria-controls="dropdownTable" data-bs-toggle="dropdown"
+                                aria-expanded="true">
+                                <strong>{countReserveCurrent} 
+                                    <f:if condition="{countReserveCurrent} == 1">
+                                        <f:then>{f:translate(key: 'reserveCurrent.table.totalReserveItem')}</f:then>
+                                        <f:else>{f:translate(key: 'reserveCurrent.table.totalReserveItems')}</f:else>
+                                    </f:if>
+                                </strong>
+                            </caption>
+                            <thead>
+                                <tr>
+                                    <th scope="col"></th>
+                                    <th scope="col"><f:translate key="reserve.label.barcode" /></th>
+                                    <th scope="col"><f:translate key="reserve.label.title-volume" /></th>
+                                    <th scope="col"><f:translate key="reserve.label.author" /></th>
+                                    <th scope="col"><f:translate key="reserve.label.hold-position" /></th>
+                                    <th scope="col" style="width: 17%"><f:translate key="reserve.label.remove-reservation" /></th>
+                                </tr>
+                            </thead>
+                            <tbody class="js-reserve-dropdown__table" aria-labelledby="dropdownTable" role="listbox" aria-hidden="false">
+                                <f:for as="reserveItem" each="{reserveCurrent}" iteration="iterator">
+                                    <f:render partial="Reserve/Current" arguments="{reserveItem: reserveItem, settings: settings, iterator: iterator}" />
+                                </f:for>
+                            </tbody>
+                        </table>
+                        <ul class="js-reserve-dropdown__table tableview-action" aria-labelledby="dropdownTable" role="listbox" aria-hidden="false">
+                            <li>
+                                <button id="js-reserve-current-select-all" class="btn btn-action" type="button"
+                                data-select="{f:translate(id: 'reserve.btnsubmit.mark')}"
+                                data-deselect="{f:translate(id: 'reserve.btnsubmit.reset')}">
+                                    <f:translate key="reserve.btnsubmit.mark" />
+                                </button>
+                            </li>
+                            <li>
+                                <button id="js-reserve-current-delete" class="btn btn-action" type="submit" disabled>
+                                    <f:translate key="reserve.btnsubmit.delete" />
+                                </button>
+                            </li>
+                        </ul>
+                    </f:form>
                 </f:then>
                 <f:else>
                     <div class="list__no-found">

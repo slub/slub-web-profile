@@ -53,6 +53,27 @@ class LoanService
     }
 
     /**
+     * @param int $user
+     * @param array $data
+     * @return array|null
+     * @throws \JsonException
+     */
+    public function renewLoanCurrent(int $user, array $data): ?array
+    {
+        if ($user === 0) {
+            return null;
+        }
+
+        $uri = $this->apiConfiguration->getLoanCurrentRenewUri();
+
+        return $this->request->process($uri, 'POST', [
+            'body' => json_encode([
+                'renew' => $data
+            ], JSON_THROW_ON_ERROR)
+        ]);
+    }
+
+    /**
      * @param int $page
      * @return array|null
      * @throws \JsonException

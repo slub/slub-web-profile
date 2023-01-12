@@ -1,0 +1,19 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:comment>Partials/Reserve/Status.html</f:comment>
+
+<f:for each="{status}" as="barcodeStatus">
+    <f:switch expression="{barcodeStatus.code}">
+        <f:case value="200">
+            <div class="reserve-message-status api-message-status--successful">
+                ok
+            </div>
+        </f:case>
+        <f:case value="400">
+            <div class="reserve-message-status api-message-status--error">
+                error
+            </div>
+        </f:case>
+    </f:switch>
+</f:for>
+
+</html>

@@ -1,0 +1,52 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:comment>Partials/Loan/Modal.html</f:comment>
+<f:comment>Divs that are used for jQuery Dialog modals.</f:comment>
+
+<f:comment>modal depending on the number of selected media</f:comment>
+<div id="renewLoanConfirm" class="modal fade" tabindex="-1" aria-labelledby="renewLoanConfirmLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title"><f:translate key="loan.renew-modal.renewConfirm" /></h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <f:format.html><f:translate key="loan.renew-modal.text1" /></f:format.html>
+                <div class="do-not-show-renewal-info-wrapper">
+                    // TODO do-not-show-renewal-info: Local Storage
+                    <input id="modal-donotshow" type="checkbox" class="form-control" value="0">
+                    <label for="modal-donotshow" class="form-label"><em><f:translate key="loan.renew-modal.noInfo" /></em></label>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-light" data-bs-dismiss="modal"><f:translate key="loan.renew-modal.cancel" /></button>
+                <button type="button" class="btn btn-action"><f:translate key="loan.renew-modal.select" /></button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div id="renewLoanConfirmAll" class="modal fade" tabindex="-1" aria-labelledby="renewLoanConfirmAllLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title"><f:translate key="loan.renew-modal.renewConfirm" /></h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <f:format.html><f:translate key="loan.renew-modal.text2" /></f:format.html>
+                <div class="do-not-show-renewal-info-wrapper">
+                    <input id="modal-donotshow" type="checkbox" class="form-control" value="0">
+                    <label for="modal-donotshow" class="form-label"><em><f:translate key="loan.renew-modal.noInfo" /></em></label>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-light" data-bs-dismiss="modal"><f:translate key="loan.renew-modal.cancel" /></button>
+                <button type="button" class="btn btn-action"><f:translate key="loan.renew-modal.select" /></button>
+            </div>
+        </div>
+    </div>
+</div>
+
+</html>

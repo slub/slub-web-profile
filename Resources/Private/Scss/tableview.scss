@@ -109,6 +109,7 @@ table.tableview {
   display: flex;
   justify-content: flex-end;
   flex-wrap: wrap;
+  align-items: start;
 
   li {
     margin: .625rem 0 0 1.25rem;

@@ -1,6 +1,5 @@
-<html
-    xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
-    data-namespace-typo3-fluid="true">
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+
 <f:layout name="Default"/>
 <!-- Templates/Loan/List.html -->
 
@@ -13,6 +12,12 @@
             <!--Default-View-->
             <f:if condition="{countLoanCurrent} > 0">
                 <f:then>
+                    <link 
+                        rel="stylesheet" type="text/css" media="all"
+                        href="/typo3conf/ext/slub_web_profile/Resources/Public/Css/modal.css" />
+                    <script 
+                        type="module"
+                        src="/typo3conf/ext/slub_web_profile/Resources/Public/JavaScript/Vendors/bootstrap/modal.js"></script>
                     <link
                         rel="stylesheet"
                         type="text/css"
@@ -21,43 +26,51 @@
                     <script
                         type="module"
                         src="/typo3conf/ext/slub_web_profile/Resources/Public/JavaScript/loan-current.js"></script>
-                    <table id="js-loan-current-action" class="loancurrent table tableview" summary="{f:translate(key: 'loanCurrent.table.summary')}">
-                        <caption class="js-loan-dropdown-table dropdown__toggle-table table-loan--is-open" type="button" aria-controls="dropdownTable" data-bs-toggle="dropdown"
-                            aria-expanded="true">
-                            <strong>{countLoanCurrent} {f:translate(key: 'loanCurrent.table.totalLoanItems')}</strong>
-                        </caption>
-                        <thead>
-                            <tr>
-                                <th scope="col"></th>
-                                <th scope="col"><f:translate key="loan.label.barcode" /></th>
-                                <th scope="col"><f:translate key="loan.label.title-volume" /></th>
-                                <th scope="col"><f:translate key="loan.label.author" /></th>
-                                <th scope="col"><f:translate key="loan.label.date-due" /></th>
-                                <th scope="col"><f:translate key="loan.label.renewal" /></th>
-                                <th scope="col" style="width: 17%"><f:translate key="loan.label.renew" /></th>
-                            </tr>
-                        </thead>
-                        <tbody class="js-loan-dropdown__table" aria-labelledby="dropdownTable" role="listbox" aria-hidden="false">
-                            <f:for as="loanItem" each="{loanCurrent}" iteration="iterator">
-                                <f:render partial="Loan/Current" arguments="{loanItem: loanItem, settings: settings, iterator: iterator}" />
-                            </f:for>
-                        </tbody>
-                    </table>
-                    <f:comment>// TODO tableview action</f:comment>
-                    <ul class="js-loan-dropdown__table tableview-action" aria-labelledby="dropdownTable" role="listbox" aria-hidden="false">
-                        <li>
-                            <button id="js-loan-current-select-all" class="btn btn-action" type="button"
-                            data-select="{f:translate(id: 'loan.btnsubmit.mark')}"
-                            data-deselect="{f:translate(id: 'loan.btnsubmit.reset')}">
-                                <f:translate key="loan.btnsubmit.mark" />
-                            </button>
-                        </li>
-                        <li>
-                            <button id="js-loan-current-renew" class="btn btn-disabled" type="button" disabled>
-                                <f:translate key="loan.btnsubmit.renew" />
-                            </button>
-                        </li>
-                    </ul>
+                    
+                    <f:form enctype="multipart/form-data" action="current">
+                        <table id="js-loan-current-action" class="loancurrent table tableview" summary="{f:translate(key: 'loanCurrent.table.summary')}">
+                            <caption class="js-loan-dropdown-table dropdown__toggle-table table-loan--is-open" type="button" aria-controls="dropdownTable" data-bs-toggle="dropdown"
+                                aria-expanded="true">
+                                <strong>{countLoanCurrent} 
+                                    <f:if condition="{countLoanCurrent} == 1">
+                                        <f:then>{f:translate(key: 'loanCurrent.table.totalLoanItem')}</f:then>
+                                        <f:else>{f:translate(key: 'loanCurrent.table.totalLoanItems')}</f:else>
+                                    </f:if>
+                                </strong>
+                            </caption>
+                            <thead>
+                                <tr>
+                                    <th scope="col"></th>
+                                    <th scope="col"><f:translate key="loan.label.barcode" /></th>
+                                    <th scope="col"><f:translate key="loan.label.title-volume" /></th>
+                                    <th scope="col"><f:translate key="loan.label.author" /></th>
+                                    <th scope="col"><f:translate key="loan.label.date-due" /></th>
+                                    <th scope="col"><f:translate key="loan.label.renewal" /></th>
+                                    <th scope="col" style="width: 17%"><f:translate key="loan.label.renew" /></th>
+                                </tr>
+                            </thead>
+                            <tbody class="js-loan-dropdown__table" aria-labelledby="dropdownTable" role="listbox" aria-hidden="false">
+                                <f:for as="loanItem" each="{loanCurrent}" iteration="iterator">
+                                    <f:render partial="Loan/Current" arguments="{loanItem: loanItem, settings: settings, iterator: iterator}" />
+                                </f:for>
+                            </tbody>
+                        </table>
+                        <ul class="js-loan-dropdown__table tableview-action" aria-labelledby="dropdownTable" role="listbox" aria-hidden="false">
+                            <li>
+                                <button id="js-loan-current-select-all" class="btn btn-action" type="button"
+                                        data-select="{f:translate(id: 'loan.btnsubmit.mark')}"
+                                        data-deselect="{f:translate(id: 'loan.btnsubmit.reset')}">
+                                    <f:translate key="loan.btnsubmit.mark" />
+                                </button>
+                            </li>
+                            <li>
+                                <button id="js-loan-current-renew" class="btn btn-action" type="submit" disabled data-bs-toggle="modal" data-bs-target="#renewLoanConfirm">
+                                    <f:translate key="loan.btnsubmit.renew" />
+                                </button>
+                            </li>
+                        </ul>
+                    </f:form>
+                    <f:render partial="Loan/Modal" />
                 </f:then>
                 <f:else>
                     <div class="list__no-found">

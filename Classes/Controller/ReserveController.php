@@ -13,6 +13,7 @@ namespace Slub\SlubWebProfile\Controller;
 
 use Slub\SlubWebProfile\Service\PaginatorService;
 use Slub\SlubWebProfile\Service\ReserveService;
+use Slub\SlubWebProfile\Utility\FrontendUserUtility;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
 class ReserveController extends ActionController
@@ -46,7 +47,18 @@ class ReserveController extends ActionController
     public function currentAction(): void
     {
         $reserveCurrent = $this->reserveService->getReserveCurrent();
-        $this->view->assign('reserveCurrent', $reserveCurrent);
+
+        // Deleted reserved media
+        if (is_array($_POST['tx_slubwebprofile_reservecurrent']['delete'])) {
+            $userIdentifier = FrontendUserUtility::getIdentifier();
+            $status = $this->reserveService->deleteReserveCurrent($userIdentifier, $_POST['tx_slubwebprofile_reservecurrent']['delete']);
+        }
+
+        $this->view->assignMultiple([
+            'reserveCurrent' => $reserveCurrent,
+            'status' => $status,
+            'deletePost' => $_POST['tx_slubwebprofile_reservecurrent']['delete']
+        ]);
     }
 
     public function historyAction(): void

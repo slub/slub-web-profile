@@ -74,13 +74,28 @@
   }
 }
 
+.btn-light {
+  color: $darkmidgrey;
+  background-color: transparent;
+  border: 1px solid $input-disabled-border-color;
+  border-bottom-width: 2px;
+  text-transform: uppercase;
+
+  &:hover {
+    color: $white;
+    background: $secondary-petrol-green;
+    border-color: $secondary-petrol-green;
+    border-bottom-color: $secondary-petrol-dark;
+  }
+}
+
 .btn:disabled {
-  padding-top: .413rem;
   color: $darkmidgrey;
   pointer-events: none;
   background-color: transparent;
-  border: 1px solid $darkmidgrey;
-  border-bottom-width: 2px;
+  border-color: $input-disabled-border-color;
+  outline: 1px solid $input-disabled-border-color;
+  border-bottom-width: 1px;
   opacity: 0.5;
 }
 

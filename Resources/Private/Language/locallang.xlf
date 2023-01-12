@@ -127,6 +127,9 @@
 			<trans-unit id="reserveCurrent.table.caption" resname="reserveCurrent.table.caption">
 				<source>Reserved media</source>
 			</trans-unit>
+			<trans-unit id="reserveCurrent.table.totalReserveItem" resname="reserveCurrent.table.totalReserveItem">
+				<source>reserved medium</source>
+			</trans-unit>
 			<trans-unit id="reserveCurrent.table.totalReserveItems" resname="reserveCurrent.table.totalReserveItems">
 				<source>reserved media</source>
 			</trans-unit>
@@ -197,6 +200,9 @@
 			</trans-unit>
 			<trans-unit id="loanCurrent.table.caption" resname="loanCurrent.table.caption">
 				<source>Loaned media</source>
+			</trans-unit>
+			<trans-unit id="loanCurrent.table.totalLoanItem" resname="loanCurrent.table.totalLoanItem">
+				<source>Medium loaned</source>
 			</trans-unit>
 			<trans-unit id="loanCurrent.table.totalLoanItems" resname="loanCurrent.table.totalLoanItems">
 				<source>Media loaned</source>
@@ -305,6 +311,26 @@
 			</trans-unit>
 			<trans-unit id="loan.renew-function.maxRenew" resname="loan.renew-function.maxRenew">
 				<source>Maximum number of renewals reached.</source>
+			</trans-unit>
+			<trans-unit id="loan.renew-modal.renewConfirm" resname="loan.renew-modal.renewConfirm">
+				<source>Do you really already want to renew your items?</source>
+			</trans-unit>
+			<trans-unit id="loan.renew-modal.text1" resname="loan.renew-modal.text1">
+				<source><![CDATA[This item is <strong>not due back for another <span class="days-to-due"></span> days</strong>.<br><br>The new return date will be calculated from <strong>today</strong>.]]></source>
+			</trans-unit>
+			<trans-unit id="loan.renew-modal.text2" resname="loan.renew-modal.text2">
+				<source><![CDATA[Some of the items marked for renewal are not due back <strong>right away</strong>.<br><br>Please note: the new return date for all renewed items will be calculated <strong>from today</strong>.]]></source>
+			</trans-unit>
+			<trans-unit id="loan.renew-modal.noInfo" resname="loan.renew-modal.noInfo">
+				<source>Do not show this message any more</source>
+			</trans-unit>
+			<trans-unit id="loan.renew-modal.cancel" resname="loan.renew-modal.cancel">
+				<source>Cancel</source>
+				<target>Abbrechen</target>
+			</trans-unit>
+			<trans-unit id="loan.renew-modal.select" resname="loan.renew-modal.select">
+				<source>Select</source>
+				<target>Auswählen</target>
 			</trans-unit>
 
 			<!--

@@ -15,9 +15,11 @@ plugin.tx_slubwebprofile {
         bookmarkList = {$plugin.tx_slubwebprofile.settings.api.path.bookmarkList}
 
         reserveCurrent = {$plugin.tx_slubwebprofile.settings.api.path.reserveCurrent}
+        reserveCurrentDelete = {$plugin.tx_slubwebprofile.settings.api.path.reserveCurrentDelete}
         reserveHistory = {$plugin.tx_slubwebprofile.settings.api.path.reserveHistory}
 
         loanCurrent = {$plugin.tx_slubwebprofile.settings.api.path.loanCurrent}
+        loanCurrentRenew = {$plugin.tx_slubwebprofile.settings.api.path.loanCurrentRenew}
         loanHistory = {$plugin.tx_slubwebprofile.settings.api.path.loanHistory}
 
         eventList {

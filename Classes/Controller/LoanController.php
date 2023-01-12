@@ -13,6 +13,7 @@ namespace Slub\SlubWebProfile\Controller;
 
 use Slub\SlubWebProfile\Service\LoanService;
 use Slub\SlubWebProfile\Service\PaginatorService;
+use Slub\SlubWebProfile\Utility\FrontendUserUtility;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
 class LoanController extends ActionController
@@ -46,7 +47,18 @@ class LoanController extends ActionController
     public function currentAction(): void
     {
         $loanCurrent = $this->loanService->getLoanCurrent();
-        $this->view->assign('loanCurrent', $loanCurrent);
+
+        // Renewing media on loan
+        if (is_array($_POST['tx_slubwebprofile_loancurrent']['renew'])) {
+            $userIdentifier = FrontendUserUtility::getIdentifier();
+            $status = $this->loanService->renewLoanCurrent($userIdentifier, $_POST['tx_slubwebprofile_loancurrent']['renew']);
+        }
+
+        $this->view->assignMultiple([
+            'loanCurrent' => $loanCurrent,
+            'status' => $status,
+            'renewPost' => $_POST['tx_slubwebprofile_loancurrent']['renew']
+        ]);
     }
 
     public function historyAction(): void
