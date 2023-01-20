@@ -4,8 +4,8 @@
 
 <f:section name="Default">
     <!--TYPO3SEARCH_end-->
-    <link rel="stylesheet" 
-          type="text/css" 
+    <link rel="stylesheet"
+          type="text/css"
           media="all"
           href="/typo3conf/ext/slub_web_profile/Resources/Public/Css/accountform.css" />
     <f:variable name="formIdentifier">form-{action}</f:variable>
@@ -18,55 +18,55 @@
             <h4 class="form-headline">{f:translate(key: 'accountform.address.headline.postal-address')}</h4>
             <div class="form-row {f:if(condition: '{status.error.PostalAddress1}', then: 'has-error')}">
                 <label for="{formIdentifier}-street" class="form-label">{f:translate(key: 'accountform.address.address')}<span class="label-required">*</span></label>
-                <input class="form-control" type="text" id="{formIdentifier}-street" required="required" name="account[PostalAddress1]" value="{f:if(condition: '{userPost}', then: '{userPost.PostalAddress1}', else: '{user.account.X_post_address.street_1}')}">
+                <input class="form-control" type="text" id="{formIdentifier}-street" required="required" name="address[PostalAddress1]" value="{f:if(condition: '{addressPost}', then: '{addressPost.PostalAddress1}', else: '{user.account.X_post_address.street_1}')}">
                 <f:if condition="{status.error.PostalAddress1}"><span class="error help-block" role="alert">{f:translate(key: 'accountform.address.status.error.requiredField')}</span></f:if>
             </div>
             <div class="form-row">
                 <label for="{formIdentifier}-addition" class="form-label">{f:translate(key: 'accountform.address.addition')}</label>
-                <input class="form-control" type="text" id="{formIdentifier}-addition" name="account[PostalAddress2]" value="{f:if(condition: '{userPost}', then: '{userPost.PostalAddress2}', else: '{user.account.X_post_address.street_2}')}">
+                <input class="form-control" type="text" id="{formIdentifier}-addition" name="address[PostalAddress2]" value="{f:if(condition: '{addressPost}', then: '{addressPost.PostalAddress2}', else: '{user.account.X_post_address.street_2}')}">
             </div>
             <div class="form-row {f:if(condition: '{status.error.PostalPostCode}', then: 'has-error')}">
                 <label for="{formIdentifier}-postcode" class="form-label">{f:translate(key: 'accountform.address.postcode')}<span class="label-required">*</span></label>
-                <input class="form-control" type="text" id="{formIdentifier}-postcode" required="required" name="account[PostalPostCode]" value="{f:if(condition: '{userPost}', then: '{userPost.PostalPostCode}', else: '{user.account.X_post_address.plz}')}">
+                <input class="form-control" type="text" id="{formIdentifier}-postcode" required="required" name="address[PostalPostCode]" value="{f:if(condition: '{addressPost}', then: '{addressPost.PostalPostCode}', else: '{user.account.X_post_address.plz}')}">
                 <f:if condition="{status.error.PostalPostCode}"><span class="error help-block" role="alert">{f:translate(key: 'accountform.address.status.error.requiredField')}</span></f:if>
             </div>
             <div class="form-row {f:if(condition: '{status.error.PostalCity}', then: 'has-error')}">
                 <label for="{formIdentifier}-city" class="form-label">{f:translate(key: 'accountform.address.city')}<span class="label-required">*</span></label>
-                <input class="form-control" type="text" id="{formIdentifier}-city" required="required" name="account[PostalCity]" value="{f:if(condition: '{userPost}', then: '{userPost.PostalCity}', else: '{user.account.X_post_address.ort}')}">
+                <input class="form-control" type="text" id="{formIdentifier}-city" required="required" name="address[PostalCity]" value="{f:if(condition: '{addressPost}', then: '{addressPost.PostalCity}', else: '{user.account.X_post_address.ort}')}">
                 <f:if condition="{status.error.PostalCity}"><span class="error help-block" role="alert">{f:translate(key: 'accountform.address.status.error.requiredField')}</span></f:if>
             </div>
             <div class="form-row {f:if(condition: '{status.error.PostalCountry}', then: 'has-error')}">
                 <label for="{formIdentifier}-country" class="form-label">{f:translate(key: 'accountform.address.country')}<span class="label-required">*</span></label>
-                <select class="form-select" id="{formIdentifier}-country" required="required" name="account[PostalCountry]">
-                    <option selected value="{f:if(condition: '{userPost}', then: '{userPost.PostalCountry}', else: '{user.account.X_post_address.country}')}">{f:if(condition: '{userPost}', then: '{userPost.PostalCountry}', else: '{user.account.X_post_address.country}')}</option>
+                <select class="form-select" id="{formIdentifier}-country" required="required" name="address[PostalCountry]">
+                    <option selected value="{f:if(condition: '{addressPost}', then: '{addressPost.PostalCountry}', else: '{user.account.X_post_address.country}')}">{f:if(condition: '{addressPost}', then: '{addressPost.PostalCountry}', else: '{user.account.X_post_address.country}')}</option>
                     <option value="{f:translate(key: 'accountform.address.country.germany')}">{f:translate(key: 'accountform.address.country.germany')}</option>
                     <option value="{f:translate(key: 'accountform.address.country.switzerland')}">{f:translate(key: 'accountform.address.country.switzerland')}</option>
                     <option value="{f:translate(key: 'accountform.address.country.austria')}">{f:translate(key: 'accountform.address.country.austria')}</option>
                     <option value="{f:translate(key: 'accountform.address.country.other')}">{f:translate(key: 'accountform.address.country.other')}</option>
                 </select>
-                <f:if condition="{status.error.PostalCountry}"><span class="error help-block" role="alert">{f:translate(key: 'accountform.address.status.error.requiredField')}</span></f:if>            
+                <f:if condition="{status.error.PostalCountry}"><span class="error help-block" role="alert">{f:translate(key: 'accountform.address.status.error.requiredField')}</span></f:if>
             </div>
             <h4 class="form-headline">{f:translate(key: 'accountform.address.headline.secondary-flat')}</h4>
             <div class="form-row">
                 <label for="{formIdentifier}-secondaryflat-street" class="form-label">{f:translate(key: 'accountform.address.address')}</label>
-                <input class="form-control" type="text" id="{formIdentifier}-secondaryflat-street" name="account[ResAddress1]" value="{f:if(condition: '{userPost}', then: '{userPost.ResAddress1}', else: '{user.account.X_residental_address.street_1}')}">
+                <input class="form-control" type="text" id="{formIdentifier}-secondaryflat-street" name="address[ResAddress1]" value="{f:if(condition: '{addressPost}', then: '{addressPost.ResAddress1}', else: '{user.account.X_residental_address.street_1}')}">
             </div>
             <div class="form-row">
                 <label for="{formIdentifier}-secondaryflat-addition" class="form-label">{f:translate(key: 'accountform.address.addition')}</label>
-                <input class="form-control" type="text" id="{formIdentifier}-secondaryflat-addition" name="account[ResAddress2]" value="{f:if(condition: '{userPost}', then: '{userPost.ResAddress2}', else: '{user.account.X_residental_address.street_2}')}">
+                <input class="form-control" type="text" id="{formIdentifier}-secondaryflat-addition" name="address[ResAddress2]" value="{f:if(condition: '{addressPost}', then: '{addressPost.ResAddress2}', else: '{user.account.X_residental_address.street_2}')}">
             </div>
             <div class="form-row">
                 <label for="{formIdentifier}-secondaryflat-postcode" class="form-label">{f:translate(key: 'accountform.address.postcode')}</label>
-                <input class="form-control" type="text" id="{formIdentifier}-secondaryflat-postcode" name="account[ResAddressPostCode]" value="{f:if(condition: '{userPost}', then: '{userPost.ResAddressPostCode}', else: '{user.account.X_residental_address.plz}')}">
+                <input class="form-control" type="text" id="{formIdentifier}-secondaryflat-postcode" name="address[ResAddressPostCode]" value="{f:if(condition: '{addressPost}', then: '{addressPost.ResAddressPostCode}', else: '{user.account.X_residental_address.plz}')}">
             </div>
             <div class="form-row">
                 <label for="{formIdentifier}-secondaryflat-city" class="form-label">{f:translate(key: 'accountform.address.city')}</label>
-                <input class="form-control" type="text" id="{formIdentifier}-secondaryflat-city" name="account[ResAddressCity]" value="{f:if(condition: '{userPost}', then: '{userPost.ResAddressCity}', else: '{user.account.X_residental_address.ort}')}">
+                <input class="form-control" type="text" id="{formIdentifier}-secondaryflat-city" name="address[ResAddressCity]" value="{f:if(condition: '{addressPost}', then: '{addressPost.ResAddressCity}', else: '{user.account.X_residental_address.ort}')}">
             </div>
             <div class="form-row">
                 <label for="{formIdentifier}-secondaryflat-country" class="form-label">{f:translate(key: 'accountform.address.country')}</label>
-                <select class="form-select" id="{formIdentifier}-secondaryflat-country" name="account[ResAddressCountry]">
-                    <option selected value="{f:if(condition: '{userPost}', then: '{userPost.ResAddressCountry}', else: '{user.account.X_residental_address.country}')}">{f:if(condition: '{userPost}', then: '{userPost.ResAddressCountry}', else: '{user.account.X_residental_address.country}')}</option>
+                <select class="form-select" id="{formIdentifier}-secondaryflat-country" name="address[ResAddressCountry]">
+                    <option selected value="{f:if(condition: '{addressPost}', then: '{addressPost.ResAddressCountry}', else: '{user.account.X_residental_address.country}')}">{f:if(condition: '{addressPost}', then: '{addressPost.ResAddressCountry}', else: '{user.account.X_residental_address.country}')}</option>
                     <option value="{f:translate(key: 'accountform.address.country.germany')}">{f:translate(key: 'accountform.address.country.germany')}</option>
                     <option value="{f:translate(key: 'accountform.address.country.switzerland')}">{f:translate(key: 'accountform.address.country.switzerland')}</option>
                     <option value="{f:translate(key: 'accountform.address.country.austria')}">{f:translate(key: 'accountform.address.country.austria')}</option>
@@ -77,7 +77,7 @@
                 <h4 class="form-headline">{f:translate(key: 'accountform.address.headline.guarantor')}</h4>
                 <div class="form-row">
                     <label for="{formIdentifier}-guarantor" class="form-label">{f:translate(key: 'accountform.address.guarantor-name')}</label>
-                    <input class="form-control" type="text" id="{formIdentifier}-guarantor" name="account[Guarantor]" value="{f:if(condition: '{userPost}', then: '{userPost.Guarantor}', else: '{user.account.X_alternative_address.name}')}" disabled readonly>
+                    <input class="form-control" type="text" id="{formIdentifier}-guarantor" name="address[Guarantor]" value="{f:if(condition: '{addressPost}', then: '{addressPost.Guarantor}', else: '{user.account.X_alternative_address.name}')}" disabled readonly>
                 </div>
             -->
             <button type="submit" class="btn btn-action btn-action-lg">{f:translate(key: 'accountform.address.actionBtn')}</button>

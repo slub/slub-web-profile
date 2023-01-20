@@ -11,13 +11,16 @@ declare(strict_types=1);
 
 namespace Slub\SlubWebProfile\Controller;
 
+use JsonException;
 use Slub\SlubWebProfile\Service\UserAccountService as UserService;
 use Slub\SlubWebProfile\Utility\FrontendUserUtility;
+use TYPO3\CMS\Core\Context\Exception\AspectNotFoundException;
+use TYPO3\CMS\Core\Exception;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
+use TYPO3\CMS\Extbase\Mvc\Exception\StopActionException;
 
 class AccountFormController extends ActionController
 {
-
     /**
      * @var UserService
      */
@@ -43,6 +46,9 @@ class AccountFormController extends ActionController
         $this->userService = $userService;
     }
 
+    /**
+     * @throws StopActionException
+     */
     public function indexAction(): void
     {
         // flexform formType - call to action controller
@@ -51,7 +57,10 @@ class AccountFormController extends ActionController
     }
 
     /**
-     * @throws \JsonException
+     * @return void
+     * @throws AspectNotFoundException
+     * @throws Exception
+     * @throws JsonException
      */
     public function profileAction(): void
     {
@@ -61,7 +70,10 @@ class AccountFormController extends ActionController
     }
 
     /**
-     * @throws \JsonException
+     * @return void
+     * @throws AspectNotFoundException
+     * @throws Exception
+     * @throws JsonException
      */
     public function addressAction(): void
     {
@@ -71,7 +83,10 @@ class AccountFormController extends ActionController
     }
 
     /**
-     * @throws \JsonException
+     * @return void
+     * @throws AspectNotFoundException
+     * @throws Exception
+     * @throws JsonException
      */
     public function socialAction(): void
     {
@@ -81,7 +96,10 @@ class AccountFormController extends ActionController
     }
 
     /**
-     * @throws \JsonException
+     * @return void
+     * @throws AspectNotFoundException
+     * @throws Exception
+     * @throws JsonException
      */
     public function passwordAction(): void
     {
@@ -91,7 +109,10 @@ class AccountFormController extends ActionController
     }
 
     /**
-     * @throws \JsonException
+     * @return void
+     * @throws AspectNotFoundException
+     * @throws Exception
+     * @throws JsonException
      */
     public function userPINAction(): void
     {
@@ -101,7 +122,10 @@ class AccountFormController extends ActionController
     }
 
     /**
-     * @throws \JsonException
+     * @return void
+     * @throws AspectNotFoundException
+     * @throws Exception
+     * @throws JsonException
      */
     public function lockAction(): void
     {
@@ -112,12 +136,20 @@ class AccountFormController extends ActionController
 
     /**
      * @return array
+     * @throws JsonException
+     * @throws AspectNotFoundException
+     * @throws Exception
      */
     protected function updateUser(): array
     {
-        if (is_array($_POST['account'])) {
+        if (is_array($_POST['address'])) {
             $userIdentifier = FrontendUserUtility::getIdentifier();
-            return $this->userService->updateUserAccount($userIdentifier, $_POST['account']);
+            return $this->userService->updateUserAccount($userIdentifier, $_POST['address']);
+        }
+
+        if (is_array($_POST['profile'])) {
+            $userIdentifier = FrontendUserUtility::getIdentifier();
+            return $this->userService->updateUserAccount($userIdentifier, $_POST['profile']);
         }
 
         if (is_array($_POST['pin'])) {
@@ -129,12 +161,15 @@ class AccountFormController extends ActionController
             $userIdentifier = FrontendUserUtility::getIdentifier();
             return $this->userService->updateUserPassword($userIdentifier, $_POST['password']);
         }
+
         return [];
     }
 
     /**
      * @param array $status
      * @param string $action
+     * @return void
+     * @throws JsonException
      */
     protected function assignUserData(array $status, string $action): void
     {
@@ -146,6 +181,8 @@ class AccountFormController extends ActionController
             'action' => $action,
             'currentAction' => $_POST['account']['action'],
             'userPost' => $_POST['account'],
+            'addressPost' => $_POST['address'],
+            'profilePost' => $_POST['profile'],
             'pinPost' => $_POST['pin'],
             'passwordPost' => $_POST['password']
         ]);

@@ -30,7 +30,7 @@
             </div>
             <div class="form-row {f:if(condition: '{status.error.EmailAddress}', then: 'has-error')}">
                 <label for="{formIdentifier}-email" class="form-label">{f:translate(key: 'accountform.profile.emailAddress')}<span class="label-required">*</span></label>
-                <input type="email" class="form-control" id="{formIdentifier}-email" name="account[EmailAddress]" value="{f:if(condition: '{userPost}', then: '{userPost.EmailAddress}', else: '{user.account.email}')}" required="required">
+                <input type="email" class="form-control" id="{formIdentifier}-email" name="profile[EmailAddress]" value="{f:if(condition: '{profilePost}', then: '{profilePost.EmailAddress}', else: '{user.account.email}')}" required="required">
                 <f:if condition="{status.error.EmailAddress}"><span class="error help-block" role="alert">{f:translate(key: 'accountform.address.status.error.requiredField')}</span></f:if>
             </div>
             <div id="{formIdentifier}-changeEmail" class="form-row hidden">
