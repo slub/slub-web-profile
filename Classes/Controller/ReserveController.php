@@ -46,13 +46,13 @@ class ReserveController extends ActionController
 
     public function currentAction(): void
     {
-        $reserveCurrent = $this->reserveService->getReserveCurrent();
-
         // Deleted reserved media
         if (is_array($_POST['tx_slubwebprofile_reservecurrent']['delete'])) {
             $userIdentifier = FrontendUserUtility::getIdentifier();
             $status = $this->reserveService->deleteReserveCurrent($userIdentifier, $_POST['tx_slubwebprofile_reservecurrent']['delete']);
         }
+
+        $reserveCurrent = $this->reserveService->getReserveCurrent();
 
         $this->view->assignMultiple([
             'reserveCurrent' => $reserveCurrent,

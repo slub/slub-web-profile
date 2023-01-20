@@ -46,13 +46,13 @@ class LoanController extends ActionController
 
     public function currentAction(): void
     {
-        $loanCurrent = $this->loanService->getLoanCurrent();
-
         // Renewing media on loan
         if (is_array($_POST['tx_slubwebprofile_loancurrent']['renew'])) {
             $userIdentifier = FrontendUserUtility::getIdentifier();
             $status = $this->loanService->renewLoanCurrent($userIdentifier, $_POST['tx_slubwebprofile_loancurrent']['renew']);
         }
+
+        $loanCurrent = $this->loanService->getLoanCurrent();
 
         $this->view->assignMultiple([
             'loanCurrent' => $loanCurrent,
