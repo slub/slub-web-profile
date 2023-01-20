@@ -4,8 +4,8 @@
 
 <f:section name="Default">
     <!--TYPO3SEARCH_end-->
-    <link rel="stylesheet" 
-          type="text/css" 
+    <link rel="stylesheet"
+          type="text/css"
           media="all"
           href="/typo3conf/ext/slub_web_profile/Resources/Public/Css/accountform.css" />
     <script type="module"
@@ -16,7 +16,7 @@
         <f:render partial="AccountForm/Status" arguments="{status: status, currentAction: currentAction, action: action}" />
 
         <f:form enctype="multipart/form-data" class="form-mb" section="account{formIdentifier}">
-            <input type="hidden" name="pinForm[action]" value="{action}">
+            <input type="hidden" name="account[action]" value="{action}">
             <div class="form-row form-text">
                 <f:format.raw>{f:translate(key: 'accountform.userPIN.additionalNote')}</f:format.raw>
             </div>
