@@ -1,15 +1,18 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
 <f:comment>Partials/AccountForm/Status.html</f:comment>
 
+<link rel="stylesheet" type="text/css" media="all"
+      href="/typo3conf/ext/slub_web_profile/Resources/Public/Css/api-message.css" />
+    
 <f:if condition="{currentAction} == {action}">
     <f:switch expression="{status.code}">
         <f:case value="200">
-            <div class="form-message-status api-message-status--successful">
+            <div class="api-message-status--successful">
                 {f:translate(key: 'accountform.address.status.success')}
             </div>
         </f:case>
         <f:case value="400">
-            <div class="form-message-status api-message-status--error">
+            <div class="api-message-status--error">
                 <f:variable name="requiredField" value="0" />
                 <f:for each="{status.error}" as="errorField">
                     <f:if condition="{errorField} == 'EmailAddress'">
@@ -22,6 +25,14 @@
                         </f:else>
                     </f:if>
                 </f:for>
+                <f:if condition="{status.message} == 'Bad Request'">
+                    {f:translate(key: 'accountform.address.status.error.badRequest')}
+                </f:if>
+            </div>
+        </f:case>
+        <f:case value="500">
+            <div class="api-message-status--error">
+                {f:translate(key: 'accountform.address.status.error.serverError')}
             </div>
         </f:case>
     </f:switch>

@@ -19,11 +19,6 @@ const selectAllSelector = '#js-loan-current-select-all';
 const modalCheckboxSelector = '#renewLoanConfirm';
 
 /**
- * @type {string}
- */
-const modalAllSelector = '#renewLoanConfirmAll';
-
-/**
  * @type {NodeListOf<Element>}
  */
 const itemElements = document.querySelectorAll(itemSelector);
@@ -68,8 +63,7 @@ const toggleSubmitBtn = (itemElement) => {
     submitElement.removeAttribute('disabled');
     submitElement.textContent = count + submitText;
     
-    console.log(itemElement);
-    dataSubmitBtn(count, itemElement);
+    dataSubmitBtn(itemElement);
 
   } else {
     submitElement.setAttribute('disabled', '');
@@ -77,14 +71,7 @@ const toggleSubmitBtn = (itemElement) => {
   }
 }
 
-const dataSubmitBtn = (count, itemElement) => {
-  if (count > 1) {
-    submitElement.setAttribute('data-bs-target', modalAllSelector);
-  } else {
-    submitElement.setAttribute('data-bs-target', modalCheckboxSelector);
-
-    let dueDays = itemElement.getAttribute('data-days-to-due');
-    console.log(dueDays);
-    modalCheckboxElement.getElementsByClassName('days-to-due')[0].innerHTML = dueDays;
-  }
+const dataSubmitBtn = (itemElement) => {
+  let dueDays = itemElement.getAttribute('data-days-to-due');
+  modalCheckboxElement.getElementsByClassName('days-to-due')[0].innerHTML = dueDays;
 }

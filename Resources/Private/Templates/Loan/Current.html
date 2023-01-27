@@ -27,6 +27,8 @@
                         type="module"
                         src="/typo3conf/ext/slub_web_profile/Resources/Public/JavaScript/loan-current.js"></script>
                     
+                    <f:render partial="Loan/Status" arguments="{status: status, renewPost: renewPost}" />
+
                     <f:form enctype="multipart/form-data" action="current">
                         <table id="js-loan-current-action" class="loancurrent table tableview" summary="{f:translate(key: 'loanCurrent.table.summary')}">
                             <caption class="js-loan-dropdown-table dropdown__toggle-table table-loan--is-open" type="button" aria-controls="dropdownTable" data-bs-toggle="dropdown"
@@ -59,12 +61,13 @@
                             <li>
                                 <button id="js-loan-current-select-all" class="btn btn-action" type="button"
                                         data-select="{f:translate(id: 'loan.btnsubmit.mark')}"
-                                        data-deselect="{f:translate(id: 'loan.btnsubmit.reset')}">
+                                        data-deselect="{f:translate(id: 'loan.btnsubmit.reset')}"
+                                        data-bs-toggle="modal" data-bs-target="#renewLoanConfirmAll">
                                     <f:translate key="loan.btnsubmit.mark" />
                                 </button>
                             </li>
                             <li>
-                                <button id="js-loan-current-renew" class="btn btn-action" type="submit" disabled data-bs-toggle="modal" data-bs-target="#renewLoanConfirm">
+                                <button id="js-loan-current-renew" class="btn btn-action" type="submit" disabled>
                                     <f:translate key="loan.btnsubmit.renew" />
                                 </button>
                             </li>

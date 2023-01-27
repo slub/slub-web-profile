@@ -178,7 +178,7 @@
 					</label>
 					<div class="tableview-item__textcenter">
 						<f:form.checkbox class="js-loan-current-item tableview-item__marker" 
-						                 additionalAttributes="{data-days-to-due:'{loanItem.X_days_to_due}'}"
+						                 additionalAttributes="{data-days-to-due:'{loanItem.X_days_to_due}', data-bs-toggle:'modal', data-bs-target:'#renewLoanConfirm'}"
 										 name="renew[]" value="{loanItem.X_barcode}" />
 						<f:variable name="dueDays">{loanItem.X_days_to_due}</f:variable>
 					</div>

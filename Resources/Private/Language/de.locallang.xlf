@@ -176,6 +176,18 @@
 				<source>There are currently no reserved media ready for collection.</source>
 				<target>Aktuell sind keine vorgemerkte Medien abholbereit.</target>
 			</trans-unit>
+			<trans-unit id="reserveCurrent.status.success" resname="reserveCurrent.status.success">
+				<source>The change were successfully adopted.</source>
+				<target>Die Änderung wurden erfolgreich übernommen.</target>
+			</trans-unit>
+			<trans-unit id="reserveCurrent.status.successAll" resname="reserveCurrent.status.successAll">
+				<source>The changes were successfully adopted.</source>
+				<target>Die Änderungen wurden erfolgreich übernommen.</target>
+			</trans-unit>
+			<trans-unit id="reserveCurrent.status.error.badRequest" resname="reserveCurrent.status.error.badRequest">
+				<source>No connection could be established to the server.</source>
+				<target>Es konnte keine Verbindung zum Server aufgebaut werden.</target>
+			</trans-unit>
 			<trans-unit id="reserveHistory.table.summary" resname="reserveHistory.table.summary">
 				<source>Hold requests history</source>
 				<target>Vormerkhistorie</target>
@@ -268,6 +280,18 @@
 			<trans-unit id="loanCurrent.table.totalLoanItems" resname="loanCurrent.table.totalLoanItems">
 				<source>Media loaned</source>
 				<target>Medien ausgeliehen</target>
+			</trans-unit>
+			<trans-unit id="loanCurrent.status.success" resname="loanCurrent.status.success">
+				<source>The change were successfully adopted.</source>
+				<target>Die Änderung wurden erfolgreich übernommen.</target>
+			</trans-unit>
+			<trans-unit id="loanCurrent.status.successAll" resname="loanCurrent.status.successAll">
+				<source>The changes were successfully adopted.</source>
+				<target>Die Änderungen wurden erfolgreich übernommen.</target>
+			</trans-unit>
+			<trans-unit id="loanCurrent.status.error.badRequest" resname="loanCurrent.status.error.badRequest">
+				<source>No connection could be established to the server.</source>
+				<target>Es konnte keine Verbindung zum Server aufgebaut werden.</target>
 			</trans-unit>
 			<trans-unit id="loanHistory.table.summary" resname="loanHistory.table.summary">
 				<source>Loaned history</source>
@@ -480,6 +504,14 @@
 			<trans-unit id="accountform.address.status.error.invalidMail" resname="accountform.address.status.error.invalidMail">
 				<source>The e-mail address is invalid.</source>
 				<target>Die E-Mailadresse ist ungültig.</target>
+			</trans-unit>
+			<trans-unit id="accountform.address.status.error.badRequest" resname="accountform.address.status.error.badRequest">
+				<source>No connection could be established to the server.</source>
+				<target>Es konnte keine Verbindung zum Server aufgebaut werden.</target>
+			</trans-unit>
+			<trans-unit id="accountform.address.status.error.serverError" resname="accountform.address.status.error.serverError">
+				<source>Internal Server Error</source>
+				<target>Interner Serverfehler</target>
 			</trans-unit>
 			<trans-unit id="accountform.address.status.error.requiredField" resname="accountform.address.status.error.requiredField">
 				<source>This is a mandatory field</source>

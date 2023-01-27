@@ -136,6 +136,15 @@
 			<trans-unit id="reserveCurrent.default.empty" resname="reserveCurrent.default.empty">
 				<source>No loaned media.</source>
 			</trans-unit>
+			<trans-unit id="reserveCurrent.status.success" resname="reserveCurrent.status.success">
+				<source>The change were successfully adopted.</source>
+			</trans-unit>
+			<trans-unit id="reserveCurrent.status.successAll" resname="reserveCurrent.status.successAll">
+				<source>The changes were successfully adopted.</source>
+			</trans-unit>
+			<trans-unit id="reserveCurrent.status.error.badRequest" resname="reserveCurrent.status.error.badRequest">
+				<source>No connection could be established to the server.</source>
+			</trans-unit>
 			<trans-unit id="reserveHistory.table.summary" resname="reserveHistory.table.summary">
 				<source>Hold requests history</source>
 			</trans-unit>
@@ -206,6 +215,15 @@
 			</trans-unit>
 			<trans-unit id="loanCurrent.table.totalLoanItems" resname="loanCurrent.table.totalLoanItems">
 				<source>Media loaned</source>
+			</trans-unit>
+			<trans-unit id="loanCurrent.status.success" resname="loanCurrent.status.success">
+				<source>The change were successfully adopted.</source>
+			</trans-unit>
+			<trans-unit id="loanCurrent.status.successAll" resname="loanCurrent.status.successAll">
+				<source>The changes were successfully adopted.</source>
+			</trans-unit>
+			<trans-unit id="loanCurrent.status.error.badRequest" resname="loanCurrent.status.error.badRequest">
+				<source>No connection could be established to the server.</source>
 			</trans-unit>
 			<trans-unit id="loanHistory.table.summary" resname="loanHistory.table.summary">
 				<source>Loaned history</source>
@@ -372,6 +390,12 @@
 			</trans-unit>
 			<trans-unit id="accountform.address.status.error.invalidMail" resname="accountform.address.status.error.invalidMail">
 				<source>The e-mail address is invalid.</source>
+			</trans-unit>
+			<trans-unit id="accountform.address.status.error.badRequest" resname="accountform.address.status.error.badRequest">
+				<source>No connection could be established to the server.</source>
+			</trans-unit>
+			<trans-unit id="accountform.address.status.error.serverError" resname="accountform.address.status.error.serverError">
+				<source>Internal Server Error</source>
 			</trans-unit>
 			<trans-unit id="accountform.address.status.error.requiredField" resname="accountform.address.status.error.requiredField">
 				<source>This is a mandatory field</source>
